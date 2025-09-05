@@ -14,6 +14,188 @@ export type Database = {
   }
   public: {
     Tables: {
+      brands: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean | null
+          logo_url: string | null
+          name: string
+          sort_order: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          logo_url?: string | null
+          name: string
+          sort_order?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          logo_url?: string | null
+          name?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          created_at: string
+          customer_address: string
+          customer_city: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          customer_pincode: string
+          customer_state: string | null
+          delivery_date: string | null
+          id: string
+          notes: string | null
+          order_date: string
+          product_id: string
+          quantity: number | null
+          status: string | null
+          total_amount: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          customer_address: string
+          customer_city: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          customer_pincode: string
+          customer_state?: string | null
+          delivery_date?: string | null
+          id?: string
+          notes?: string | null
+          order_date?: string
+          product_id: string
+          quantity?: number | null
+          status?: string | null
+          total_amount: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          customer_address?: string
+          customer_city?: string
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string
+          customer_pincode?: string
+          customer_state?: string | null
+          delivery_date?: string | null
+          id?: string
+          notes?: string | null
+          order_date?: string
+          product_id?: string
+          quantity?: number | null
+          status?: string | null
+          total_amount?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          brand: string
+          created_at: string
+          description: string | null
+          discount_percent: number | null
+          energy_rating: string | null
+          features: string[] | null
+          id: string
+          image_urls: string[] | null
+          is_available: boolean | null
+          is_featured: boolean | null
+          model: string
+          name: string
+          original_price: number | null
+          price: number
+          review_count: number | null
+          seo_description: string | null
+          seo_title: string | null
+          series: string | null
+          slug: string
+          specifications: Json | null
+          star_rating: number | null
+          tonnage: number
+          updated_at: string
+          warranty_years: number | null
+        }
+        Insert: {
+          brand: string
+          created_at?: string
+          description?: string | null
+          discount_percent?: number | null
+          energy_rating?: string | null
+          features?: string[] | null
+          id?: string
+          image_urls?: string[] | null
+          is_available?: boolean | null
+          is_featured?: boolean | null
+          model: string
+          name: string
+          original_price?: number | null
+          price: number
+          review_count?: number | null
+          seo_description?: string | null
+          seo_title?: string | null
+          series?: string | null
+          slug: string
+          specifications?: Json | null
+          star_rating?: number | null
+          tonnage: number
+          updated_at?: string
+          warranty_years?: number | null
+        }
+        Update: {
+          brand?: string
+          created_at?: string
+          description?: string | null
+          discount_percent?: number | null
+          energy_rating?: string | null
+          features?: string[] | null
+          id?: string
+          image_urls?: string[] | null
+          is_available?: boolean | null
+          is_featured?: boolean | null
+          model?: string
+          name?: string
+          original_price?: number | null
+          price?: number
+          review_count?: number | null
+          seo_description?: string | null
+          seo_title?: string | null
+          series?: string | null
+          slug?: string
+          specifications?: Json | null
+          star_rating?: number | null
+          tonnage?: number
+          updated_at?: string
+          warranty_years?: number | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

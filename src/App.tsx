@@ -38,6 +38,10 @@ import DuctableAC from "./pages/products/DuctableAC";
 import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
 import Auth from "./pages/Auth";
+import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +73,10 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:slug" element={<ProductDetail />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/products" element={<Products />} />
               <Route path="/brands/daikin" element={<Daikin />} />
               <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
