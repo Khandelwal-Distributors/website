@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, MessageCircle, User, LogOut } from "lucide-react";
+import { Phone, Menu, MessageCircle, User, LogOut, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -44,7 +44,10 @@ const Header = () => {
               asChild
               className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90"
             >
-              <Link to="/shop">Shop Online</Link>
+              <Link to="/shop">
+                <ShoppingCart className="h-4 w-4" />
+                Shop Online
+              </Link>
             </Button>
             
             <Button

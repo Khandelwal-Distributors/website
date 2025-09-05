@@ -59,12 +59,12 @@ const ProductCategories = () => {
                   <span>Air & Water Purifiers</span>
                 </li>
               </ul>
-              <div className="flex flex-col gap-2">
-                <Button variant="cta" className="w-full">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button variant="cta" className="flex-1">
                   <Phone className="h-4 w-4" />
                   Get Home Quote
                 </Button>
-                <Button variant="outline" className="w-full bg-transparent border-muted-foreground text-foreground hover:bg-muted">
+                <Button variant="outline" className="flex-1 bg-transparent border-border text-foreground hover:bg-muted">
                   View Products
                 </Button>
               </div>
@@ -111,12 +111,12 @@ const ProductCategories = () => {
                   <span>Ventilation Systems</span>
                 </li>
               </ul>
-              <div className="flex flex-col gap-2">
-                <Button variant="cta" className="w-full">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button variant="cta" className="flex-1">
                   <Phone className="h-4 w-4" />
                   Commercial Consultation
                 </Button>
-                <Button variant="outline" className="w-full bg-transparent border-muted-foreground text-foreground hover:bg-muted">
+                <Button variant="outline" className="flex-1 bg-transparent border-border text-foreground hover:bg-muted">
                   View Products
                 </Button>
               </div>

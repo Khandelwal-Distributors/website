@@ -145,7 +145,7 @@ const RentAnAC = () => {
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="w-full bg-[hsl(var(--shop-online))] text-white border-[hsl(var(--shop-online))] hover:bg-[hsl(var(--shop-online))]/90"
+                    className="w-full bg-green-600 text-white border-green-600 hover:bg-green-700"
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
@@ -171,7 +171,7 @@ const RentAnAC = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="bg-[hsl(var(--shop-online))] text-white border-[hsl(var(--shop-online))] hover:bg-[hsl(var(--shop-online))]/90"
+              className="bg-green-600 text-white border-green-600 hover:bg-green-700"
             >
               <MessageCircle className="h-5 w-5" />
               WhatsApp Us

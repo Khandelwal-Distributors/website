@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, MapPin } from "lucide-react";
+import { Phone, CheckCircle, MapPin, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hvac-hero.jpg";
 import NumberCounter from "@/components/NumberCounter";
@@ -41,7 +41,10 @@ const Hero = () => {
               <Link to="/products">View Products</Link>
             </Button>
             <Button asChild variant="secondary" size="lg" className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90 hover:scale-105 transition-all duration-300">
-              <Link to="/shop">Shop Online</Link>
+              <Link to="/shop">
+                <ShoppingCart className="h-5 w-5" />
+                Shop Online
+              </Link>
             </Button>
           </div>
           
