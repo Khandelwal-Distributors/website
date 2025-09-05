@@ -11,6 +11,8 @@ import YouTubeVideos from "@/components/YouTubeVideos";
 import StoreProfiles from "@/components/StoreProfiles";
 import BrochureDownload from "@/components/BrochureDownload";
 import OurClients from "@/components/OurClients";
+import ProjectsShowcase from "@/components/ProjectsShowcase";
+import RentAnAC from "@/components/RentAnAC";
 
 const Index = () => {
   return (
@@ -22,8 +24,10 @@ const Index = () => {
         <DaikinSolutionPlaza />
         <ProductCategories />
         <Services />
+        <ProjectsShowcase />
         <OurClients />
         <EndOfSeasonSale />
+        <RentAnAC />
         <YouTubeVideos />
         <StoreProfiles />
         <BrochureDownload />

@@ -24,6 +24,10 @@
     --accent-warm: 25 95% 55%;
     --accent-warm-foreground: 0 0% 100%;
 
+    /* Shop Online CTA Color */
+    --shop-online: 193 100% 50%;
+    --shop-online-foreground: 0 0% 100%;
+
     --secondary: 210 25% 90%;
     --secondary-foreground: 210 15% 25%;
 

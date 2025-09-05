@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Home, Building, Droplets, Wind, Hotel, Cross, GraduationCap, Dumbbell, Scissors, BriefcaseBusiness, ShoppingBag, Factory } from "lucide-react";
+import { Link } from "react-router-dom";
 import acCollection from "@/assets/ac-collection.jpg";
 import commercialHvac from "@/assets/commercial-hvac.jpg";
 
@@ -58,10 +59,15 @@ const ProductCategories = () => {
                   <span>Air & Water Purifiers</span>
                 </li>
               </ul>
-              <Button variant="cta" className="w-full">
-                <Phone className="h-4 w-4" />
-                Get Home Quote
-              </Button>
+              <div className="flex flex-col gap-2">
+                <Button variant="cta" className="w-full">
+                  <Phone className="h-4 w-4" />
+                  Get Home Quote
+                </Button>
+                <Button variant="outline" className="w-full bg-transparent border-muted-foreground text-foreground hover:bg-muted">
+                  View Products
+                </Button>
+              </div>
             </CardContent>
           </Card>
           
@@ -105,10 +111,15 @@ const ProductCategories = () => {
                   <span>Ventilation Systems</span>
                 </li>
               </ul>
-              <Button variant="cta" className="w-full">
-                <Phone className="h-4 w-4" />
-                Commercial Consultation
-              </Button>
+              <div className="flex flex-col gap-2">
+                <Button variant="cta" className="w-full">
+                  <Phone className="h-4 w-4" />
+                  Commercial Consultation
+                </Button>
+                <Button variant="outline" className="w-full bg-transparent border-muted-foreground text-foreground hover:bg-muted">
+                  View Products
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -137,8 +148,8 @@ const ProductCategories = () => {
           </div>
           
           <div className="text-center mt-8 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-            <Button variant="cta" size="lg" className="hover:scale-105 transition-transform duration-300">
-              View All Products
+            <Button asChild variant="cta" size="lg" className="hover:scale-105 transition-transform duration-300">
+              <Link to="/products">View All Products</Link>
             </Button>
           </div>
         </div>

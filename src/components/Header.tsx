@@ -38,7 +38,12 @@ const Header = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <Button variant="cta" size="sm" asChild>
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              asChild
+              className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90"
+            >
               <Link to="/shop">Shop Online</Link>
             </Button>
             
