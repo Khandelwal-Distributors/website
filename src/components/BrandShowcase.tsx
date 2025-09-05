@@ -71,8 +71,8 @@ const BrandShowcase = () => {
             <Phone className="h-4 w-4" />
             Get Brand-Specific Quote
           </Button>
-          <Button variant="outline" size="lg" className="hover:scale-105 transition-transform duration-300">
-            View All Products
+          <Button variant="outline" size="lg" className="hover:scale-105 transition-transform duration-300" asChild>
+            <Link to="/products">View All Products</Link>
           </Button>
         </div>
       </div>

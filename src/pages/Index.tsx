@@ -10,6 +10,7 @@ import EndOfSeasonSale from "@/components/EndOfSeasonSale";
 import YouTubeVideos from "@/components/YouTubeVideos";
 import StoreProfiles from "@/components/StoreProfiles";
 import BrochureDownload from "@/components/BrochureDownload";
+import OurClients from "@/components/OurClients";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
         <DaikinSolutionPlaza />
         <ProductCategories />
         <Services />
+        <OurClients />
         <EndOfSeasonSale />
         <YouTubeVideos />
         <StoreProfiles />

@@ -40,6 +40,9 @@ const Hero = () => {
             <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300">
               <Link to="/products">View Products</Link>
             </Button>
+            <Button asChild variant="secondary" size="lg" className="bg-accent-warm text-white hover:bg-accent-warm/90 hover:scale-105 transition-all duration-300">
+              <Link to="/shop">Shop Online</Link>
+            </Button>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-6 text-sm">

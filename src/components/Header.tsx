@@ -38,6 +38,29 @@ const Header = () => {
           </div>
           
           <div className="flex items-center space-x-4">
+            <Button variant="cta" size="sm" asChild>
+              <Link to="/shop">Shop Online</Link>
+            </Button>
+            
+            <Button
+              variant="cta" 
+              size="sm"
+              onClick={() => window.open('tel:+919876543210')}
+            >
+              <Phone className="h-4 w-4" />
+              Call +91 98765 43210
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+              className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </Button>
+
             {user ? (
               <>
                 <span className="text-sm text-muted-foreground">Welcome, {user.email}</span>
@@ -62,25 +85,6 @@ const Header = () => {
                 </Link>
               </Button>
             )}
-            
-            <Button
-              variant="cta" 
-              size="sm"
-              onClick={() => window.open('tel:+919876543210')}
-            >
-              <Phone className="h-4 w-4" />
-              Call +91 98765 43210
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
-              className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </Button>
           </div>
         </div>
       </div>
