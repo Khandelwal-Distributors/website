@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, MessageCircle } from "lucide-react";
+import { Phone, Menu, MessageCircle, User, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
   return (
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
@@ -31,6 +38,31 @@ const Header = () => {
           </div>
           
           <div className="flex items-center space-x-4">
+            {user ? (
+              <>
+                <span className="text-sm text-muted-foreground">Welcome, {user.email}</span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSignOut}
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+              >
+                <Link to="/auth">
+                  <User className="h-4 w-4" />
+                  Sign In
+                </Link>
+              </Button>
+            )}
+            
             <Button
               variant="cta" 
               size="sm"

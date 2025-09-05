@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { AuthProvider } from "@/hooks/useAuth";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollToTop from "@/components/ScrollToTop";
 import ImagePreloader from "@/components/ImagePreloader";
@@ -36,6 +37,7 @@ import VentilationHRV from "./pages/products/VentilationHRV";
 import DuctableAC from "./pages/products/DuctableAC";
 import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
+import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
 
@@ -60,11 +62,13 @@ const App = () => {
         <Toaster />
         <Sonner />
         <HelmetProvider>
-          <BrowserRouter>
+          <AuthProvider>
+            <BrowserRouter>
             <ScrollToTop />
             <ImagePreloader />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/auth" element={<Auth />} />
               <Route path="/products" element={<Products />} />
               <Route path="/brands/daikin" element={<Daikin />} />
               <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
@@ -94,7 +98,8 @@ const App = () => {
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </BrowserRouter>
+            </BrowserRouter>
+          </AuthProvider>
         </HelmetProvider>
       </TooltipProvider>
     </QueryClientProvider>
