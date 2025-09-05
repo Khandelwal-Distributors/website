@@ -24,7 +24,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-primary via-primary-light to-primary z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 z-50 flex items-center justify-center">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -35,14 +35,14 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       <div className="relative text-center text-white">
         {/* Logo Animation */}
         <div className="relative mb-8">
-          <div className="absolute inset-0 animate-pulse-subtle">
+          <div className="absolute inset-0 animate-pulse">
             <Snowflake className="h-20 w-20 mx-auto text-white/30" />
           </div>
-          <Snowflake className="h-20 w-20 mx-auto animate-spin-slow text-white" />
+          <Snowflake className="h-20 w-20 mx-auto animate-spin text-white" />
         </div>
 
         {/* Company Name */}
-        <div className="mb-8 animate-fade-in-up">
+        <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 tracking-wide">
             Khandelwal Distributors
           </h1>
@@ -52,10 +52,10 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-80 max-w-sm mx-auto mb-6 animate-scale-in">
+        <div className="w-80 max-w-sm mx-auto mb-6">
           <div className="bg-white/20 rounded-full h-2 overflow-hidden backdrop-blur-sm">
             <div 
-              className="h-full bg-gradient-to-r from-accent-warm to-white rounded-full transition-all duration-300 ease-out"
+              className="h-full bg-gradient-to-r from-yellow-400 to-white rounded-full transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -65,9 +65,9 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute -top-10 -left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce-gentle" style={{ animationDelay: '0s' }} />
-        <div className="absolute -bottom-10 -right-10 w-16 h-16 bg-white/10 rounded-full animate-bounce-gentle" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 -right-20 w-12 h-12 bg-white/10 rounded-full animate-bounce-gentle" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute -top-10 -left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce" />
+        <div className="absolute -bottom-10 -right-10 w-16 h-16 bg-white/10 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 -right-20 w-12 h-12 bg-white/10 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
       </div>
     </div>
   );
