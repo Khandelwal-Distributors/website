@@ -127,15 +127,15 @@ export default function Shop() {
               <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
                 <Shield className="h-8 w-8 text-purple-600" />
                 <div className="text-center">
-                  <p className="font-semibold">Free Installation</p>
-                  <p className="text-sm text-muted-foreground">& Warranty</p>
+                  <p className="font-semibold">5 Years Warranty</p>
+                  <p className="text-sm text-muted-foreground">On All Products</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
-                <Clock className="h-8 w-8 text-orange-600" />
+                <Award className="h-8 w-8 text-orange-600" />
                 <div className="text-center">
-                  <p className="font-semibold">Same Day</p>
-                  <p className="text-sm text-muted-foreground">Delivery*</p>
+                  <p className="font-semibold">Authorized Dealer</p>
+                  <p className="text-sm text-muted-foreground">Daikin, Amstrad and Carrier</p>
                 </div>
               </div>
             </div>
