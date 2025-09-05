@@ -175,12 +175,12 @@ export default function Shop() {
                   </Button>
 
                   {/* Brand Filter */}
-                  <Select value={filters.brand || ''} onValueChange={(value) => handleFilterChange('brand', value || undefined)}>
+                  <Select value={filters.brand || 'all'} onValueChange={(value) => handleFilterChange('brand', value === 'all' ? undefined : value)}>
                     <SelectTrigger className="w-40">
                       <SelectValue placeholder="All Brands" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Brands</SelectItem>
+                      <SelectItem value="all">All Brands</SelectItem>
                       {brands.map((brand) => (
                         <SelectItem key={brand.id} value={brand.name}>
                           {brand.name}
