@@ -24,8 +24,8 @@ const Index = () => {
         <DaikinSolutionPlaza />
         <ProductCategories />
         <Services />
-        <ProjectsShowcase />
         <OurClients />
+        <ProjectsShowcase />
         <EndOfSeasonSale />
         <RentAnAC />
         <YouTubeVideos />

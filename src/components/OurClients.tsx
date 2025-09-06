@@ -1,5 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Factory, Home, ShoppingBag, Hotel, Hospital } from "lucide-react";
+import { Building2, Factory, Home, ShoppingBag, Hotel, Hospital, MessageCircle, Calendar } from "lucide-react";
 
 const clientTypes = [
   {
@@ -80,7 +81,7 @@ const OurClients = () => {
               Experience the same quality service and professional installation that has made 
               us the preferred choice for HVAC solutions in the region.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <div className="text-center sm:text-left">
                 <div className="text-3xl font-bold text-primary">25+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
@@ -93,6 +94,24 @@ const OurClients = () => {
                 <div className="text-3xl font-bold text-primary">24/7</div>
                 <div className="text-sm text-muted-foreground">Support Available</div>
               </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                variant="cta" 
+                size="lg"
+                className="flex items-center gap-2"
+              >
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp Us
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="flex items-center gap-2"
+              >
+                <Calendar className="h-5 w-5" />
+                Request Site Visit
+              </Button>
             </div>
           </div>
         </div>

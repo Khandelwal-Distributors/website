@@ -9,6 +9,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
+import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import Shop from "./pages/Shop";
@@ -57,6 +58,7 @@ const App = () => {
                 <Route path="/order-success" element={<OrderSuccess />} />
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/projects" element={<Projects />} />
                 
                 {/* Individual product category routes */}
                 <Route path="/products/inverter-split-ac" element={<InverterSplitAC />} />

@@ -1,6 +1,8 @@
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Building, Users, Wrench, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
@@ -51,6 +53,54 @@ const projects = [
 ];
 
 const ProjectsShowcase = () => {
+  const navigate = useNavigate();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scrollWidth = scrollContainer.scrollWidth;
+    const clientWidth = scrollContainer.clientWidth;
+    
+    if (scrollWidth <= clientWidth) return;
+
+    let scrollPosition = 0;
+    const scrollStep = 1;
+    const scrollDelay = 60;
+
+    const autoScroll = () => {
+      if (!scrollContainer) return;
+      
+      scrollPosition += scrollStep;
+      
+      if (scrollPosition >= scrollWidth - clientWidth) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+    };
+
+    const interval = setInterval(autoScroll, scrollDelay);
+
+    const handleMouseEnter = () => clearInterval(interval);
+    const handleMouseLeave = () => {
+      clearInterval(interval);
+      setTimeout(() => {
+        const newInterval = setInterval(autoScroll, scrollDelay);
+        scrollContainer?.addEventListener('mouseenter', () => clearInterval(newInterval), { once: true });
+      }, 100);
+    };
+
+    scrollContainer.addEventListener('mouseenter', handleMouseEnter);
+    scrollContainer.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      clearInterval(interval);
+      scrollContainer?.removeEventListener('mouseenter', handleMouseEnter);
+      scrollContainer?.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
   return (
     <section className="py-16 bg-gradient-to-br from-primary/5 to-background">
       <div className="container mx-auto px-4">
@@ -64,11 +114,15 @@ const ProjectsShowcase = () => {
           </p>
         </div>
 
-        <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="min-w-[320px] max-w-[320px] group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 snap-start"
+              className="min-w-[320px] max-w-[320px] group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 snap-start flex-shrink-0"
             >
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
@@ -124,7 +178,11 @@ const ProjectsShowcase = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Button variant="cta" size="lg">
+          <Button 
+            variant="cta" 
+            size="lg"
+            onClick={() => navigate('/projects')}
+          >
             <MapPin className="h-4 w-4" />
             View All Projects
           </Button>
