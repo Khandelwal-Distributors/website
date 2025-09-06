@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Phone, ArrowLeft, Star, Droplets, Thermometer, Filter, Shield, Building, Hotel, School, Hospital, Factory, Home } from "lucide-react";
+import { Phone, ArrowLeft, Star, Droplets, Thermometer, Filter, Shield, Building, Hotel, School, Hospital, Factory, Home, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import waterCooler from "@/assets/water-cooler.jpg";
@@ -94,6 +94,10 @@ const WaterCooler = () => {
               <Button variant="cta" size="lg">
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
+              </Button>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Water Coolers in Bareilly', '_blank')}>
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp
               </Button>
             </div>
           </div>
