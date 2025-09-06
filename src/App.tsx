@@ -36,6 +36,7 @@ import HeatPump from "./pages/products/HeatPump";
 import DuctableAC from "./pages/products/DuctableAC";
 import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
+import DeepFreezers from "./pages/products/DeepFreezers";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => {
                 <Route path="/products/ductable-ac" element={<DuctableAC />} />
                 <Route path="/products/cold-room" element={<ColdRoom />} />
                 <Route path="/products/ahu-system" element={<AHUSystem />} />
+                <Route path="/products/deep-freezers" element={<DeepFreezers />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>

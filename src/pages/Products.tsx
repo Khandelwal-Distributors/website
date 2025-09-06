@@ -25,6 +25,7 @@ import vrvSystem from "@/assets/vrv-system.jpg";
 import chillerSystem from "@/assets/chiller-system.jpg";
 import heatPump from "@/assets/heat-pump.jpg";
 import ductableAc from "@/assets/ductable-ac.jpg";
+import deepFreezer from "@/assets/deep-freezer.jpg";
 import EndOfSeasonSale from "@/components/EndOfSeasonSale";
 import productsHeroBg from "@/assets/products-hero-bg.jpg";
 
@@ -171,6 +172,19 @@ const Products = () => {
         { name: "Daikin Air Purifier", capacity: "HEPA Filter", rating: "5 Star", price: "₹18,000" },
         { name: "Carrier AquaEdge", capacity: "RO+UV", rating: "4 Star", price: "₹15,000" },
         { name: "Blue Star Air Cleaner", capacity: "UV-C Tech", rating: "4 Star", price: "₹12,000" }
+      ]
+    },
+    {
+      id: "deep-freezers",
+      title: "Deep Freezers & Commercial Refrigeration",
+      description: "Commercial deep freezers and refrigeration solutions by Elanpro",
+      image: deepFreezer,
+      icon: <Thermometer className="h-6 w-6" />,
+      brands: ["Elanpro"],
+      products: [
+        { name: "Elanpro Glass Door Freezer", capacity: "400L", rating: "Commercial", price: "₹45,000" },
+        { name: "Elanpro Chest Freezer", capacity: "300L", rating: "Heavy Duty", price: "₹38,000" },
+        { name: "Elanpro Display Freezer", capacity: "500L", rating: "Display", price: "₹55,000" }
       ]
     }
   ];
