@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, ArrowLeft, Star, Thermometer, Wind, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "@/components/OptimizedImage";
 
 // Import product images
 import splitAc from "@/assets/split-ac.jpg";
@@ -230,10 +231,10 @@ const Products = () => {
                 <Link key={category.id} to={`/products/${category.id === 'water-solutions' ? 'water-cooler' : category.id === 'air-purifiers' ? 'air-purifier' : category.id}`}>
                   <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                     <div className="relative overflow-hidden">
-                      <img 
+                      <OptimizedImage 
                         src={category.image} 
                         alt={category.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4 bg-primary text-primary-foreground p-2 rounded-lg">
                         {category.icon}
@@ -365,10 +366,10 @@ const Products = () => {
                 <Link key={index} to={item.link}>
                   <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                     <div className="relative overflow-hidden">
-                      <img 
+                      <OptimizedImage 
                         src={item.image} 
                         alt={item.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4 bg-primary text-primary-foreground p-2 rounded-lg">
                         <Wind className="h-5 w-5" />

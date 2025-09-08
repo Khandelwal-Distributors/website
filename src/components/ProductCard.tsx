@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, Phone, ShoppingCart, Zap, Shield, Wind } from 'lucide-react';
 import type { Product } from '@/hooks/useProducts';
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface ProductCardProps {
   product: Product;
@@ -48,11 +49,10 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
         {/* Product Image */}
         <Link to={`/product/${product.slug}`}>
           <div className="aspect-[4/3] overflow-hidden bg-muted">
-            <img
+            <OptimizedImage
               src={product.image_urls[0] || '/api/placeholder/400/300'}
               alt={product.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
+              className="w-full h-full group-hover:scale-105 transition-transform duration-300"
             />
           </div>
         </Link>

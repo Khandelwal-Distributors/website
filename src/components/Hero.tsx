@@ -8,7 +8,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] flex items-center">
-      <div className="absolute inset-0 animate-slide-in-right">
+      <div className="absolute inset-0">
         <OptimizedImage 
           src={heroImage} 
           alt="Professional HVAC Installation" 
