@@ -26,12 +26,18 @@ const Index = () => {
         <Services />
         <OurClients />
         <ProjectsShowcase />
-        <EndOfSeasonSale />
-        <RentAnAC />
+        <div data-section="sale">
+          <EndOfSeasonSale />
+        </div>
+        <div data-section="rent">
+          <RentAnAC />
+        </div>
         <YouTubeVideos />
         <StoreProfiles />
         <BrochureDownload />
-        <Contact />
+        <div data-section="contact">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>

@@ -3,18 +3,18 @@ import { Phone, CheckCircle, MapPin, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hvac-hero.jpg";
 import NumberCounter from "@/components/NumberCounter";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] flex items-center">
-      <div className="absolute inset-0">
-        <img 
+      <div className="absolute inset-0 animate-slide-in-right">
+        <OptimizedImage 
           src={heroImage} 
           alt="Professional HVAC Installation" 
-          className="w-full h-full object-cover img-fade-in"
+          className="w-full h-full"
           loading="eager"
-          decoding="async"
-          fetchPriority="high"
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
       </div>

@@ -49,10 +49,8 @@ const OptimizedImage = ({
     <div className={`relative overflow-hidden ${className}`}>
       {/* Shimmer loading skeleton */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-muted">
-          <div className="relative h-full w-full overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent animate-shimmer" />
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-muted via-background to-muted animate-shimmer">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer-overlay" />
         </div>
       )}
       
@@ -61,8 +59,8 @@ const OptimizedImage = ({
         ref={imgRef}
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
+        className={`w-full h-full object-cover transition-all duration-500 ease-out ${
+          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
         }`}
         loading={priority ? 'eager' : loading}
         decoding="async"
