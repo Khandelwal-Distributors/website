@@ -57,7 +57,7 @@ const Header = () => {
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         {/* Single Responsive Layout */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center">
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
@@ -139,8 +139,8 @@ const Header = () => {
             </SheetContent>
           </Sheet>
 
-          {/* Logo - Fixed size that doesn't shrink */}
-          <Link to="/" className="flex items-center flex-shrink-0">
+          {/* Logo - Right after hamburger menu */}
+          <Link to="/" className="flex items-center flex-shrink-0 ml-3">
             <img 
               src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
               alt="Khandelwal Distributors Logo" 
@@ -152,7 +152,7 @@ const Header = () => {
           </Link>
           
           {/* CTAs and User Profile */}
-          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0 ml-auto">
             {/* Hide CTAs on smaller screens to preserve logo size */}
             <div className="hidden md:flex items-center space-x-4">
               <Button 
