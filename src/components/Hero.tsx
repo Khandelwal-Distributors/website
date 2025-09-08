@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, MapPin, ShoppingCart } from "lucide-react";
+import { Phone, CheckCircle, MapPin, ShoppingCart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hvac-hero.jpg";
 import NumberCounter from "@/components/NumberCounter";
@@ -45,6 +45,16 @@ const Hero = () => {
                 <ShoppingCart className="h-5 w-5" />
                 Shop Online
               </Link>
+            </Button>
+            {/* WhatsApp button for mobile */}
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+              className="sm:hidden bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700 hover:scale-105 transition-all duration-300"
+            >
+              <MessageCircle className="h-5 w-5" />
+              WhatsApp
             </Button>
           </div>
           

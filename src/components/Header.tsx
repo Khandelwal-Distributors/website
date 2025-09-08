@@ -66,7 +66,7 @@ const Header = () => {
                 size="sm" 
                 className="hover:bg-transparent text-foreground p-2"
               >
-                <Menu className="h-5 w-5 text-black" />
+                <Menu className="h-6 w-6 text-black" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
@@ -139,12 +139,12 @@ const Header = () => {
             </SheetContent>
           </Sheet>
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+          {/* Logo - Fixed size that doesn't shrink */}
+          <Link to="/" className="flex items-center flex-shrink-0">
             <img 
               src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
               alt="Khandelwal Distributors Logo" 
-              className="h-16 sm:h-20"
+              className="h-14 sm:h-16 md:h-20"
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -152,9 +152,9 @@ const Header = () => {
           </Link>
           
           {/* CTAs and User Profile */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Hide CTAs on mobile, show on desktop */}
-            <div className="hidden sm:flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+            {/* Hide CTAs on smaller screens to preserve logo size */}
+            <div className="hidden md:flex items-center space-x-4">
               <Button 
                 variant="secondary" 
                 size="sm" 
@@ -191,9 +191,9 @@ const Header = () => {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                    <User className="h-4 w-4" />
-                    <ChevronDown className="h-3 w-3 hidden sm:block" />
+                  <Button variant="ghost" size="sm" className="flex items-center gap-1 p-2">
+                    <User className="h-6 w-6" />
+                    <ChevronDown className="h-4 w-4 hidden sm:block" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border">
@@ -210,9 +210,9 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button variant="ghost" size="sm" asChild>
+              <Button variant="ghost" size="sm" asChild className="p-2">
                 <Link to="/auth">
-                  <User className="h-5 w-5" />
+                  <User className="h-6 w-6" />
                   <span className="hidden sm:inline ml-1">Sign In</span>
                 </Link>
               </Button>
