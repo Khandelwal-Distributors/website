@@ -56,16 +56,17 @@ const Header = () => {
   return (
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
-        {/* Mobile Layout */}
+        {/* Single Responsive Layout */}
         <div className="flex items-center justify-between">
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
               <Button 
+                variant="ghost" 
                 size="sm" 
-                className="bg-primary text-white hover:bg-primary/90 shadow-sm"
+                className="hover:bg-transparent text-foreground p-2"
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5 text-black" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
@@ -139,98 +140,60 @@ const Header = () => {
           </Sheet>
 
           {/* Logo */}
-          <Link to="/">
-            <img 
-              src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
-              alt="Khandelwal Distributors Logo" 
-              className="h-16"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </Link>
-
-          {/* User Profile */}
-          {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <User className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-background border">
-                <DropdownMenuItem asChild>
-                  <Link to="/orders" className="flex items-center gap-2 cursor-pointer">
-                    <ShoppingCart className="h-4 w-4" />
-                    View Orders
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleSignOut} className="flex items-center gap-2 cursor-pointer">
-                  <LogOut className="h-4 w-4" />
-                  Sign Out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/auth">
-                <User className="h-5 w-5" />
-              </Link>
-            </Button>
-          )}
-        </div>
-        
-        {/* Desktop Layout */}
-        <div className="hidden sm:flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
               alt="Khandelwal Distributors Logo" 
-              className="h-20"
+              className="h-16 sm:h-20"
               loading="eager"
               decoding="async"
               fetchPriority="high"
             />
           </Link>
           
-          <div className="flex items-center space-x-4">
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              asChild
-              className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90"
-            >
-              <Link to="/shop">
-                <ShoppingCart className="h-4 w-4" />
-                Shop Online
-              </Link>
-            </Button>
-            
-            <Button
-              variant="cta" 
-              size="sm"
-              onClick={() => window.open('tel:+919876543210')}
-            >
-              <Phone className="h-4 w-4" />
-              Call +91 98765 43210
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
-              className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </Button>
+          {/* CTAs and User Profile */}
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Hide CTAs on mobile, show on desktop */}
+            <div className="hidden sm:flex items-center space-x-4">
+              <Button 
+                variant="secondary" 
+                size="sm" 
+                asChild
+                className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90"
+              >
+                <Link to="/shop">
+                  <ShoppingCart className="h-4 w-4" />
+                  Shop Online
+                </Link>
+              </Button>
+              
+              <Button
+                variant="cta" 
+                size="sm"
+                onClick={() => window.open('tel:+919876543210')}
+              >
+                <Phone className="h-4 w-4" />
+                Call +91 98765 43210
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </Button>
+            </div>
 
+            {/* User Profile */}
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="flex items-center gap-1">
                     <User className="h-4 w-4" />
-                    <ChevronDown className="h-3 w-3" />
+                    <ChevronDown className="h-3 w-3 hidden sm:block" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border">
@@ -247,14 +210,10 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-              >
+              <Button variant="ghost" size="sm" asChild>
                 <Link to="/auth">
-                  <User className="h-4 w-4" />
-                  Sign In
+                  <User className="h-5 w-5" />
+                  <span className="hidden sm:inline ml-1">Sign In</span>
                 </Link>
               </Button>
             )}
