@@ -103,8 +103,10 @@ const BrandShowcase = () => {
           {brands.map((brand, index) => (
             <Link key={index} to={brand.link || "#"} className="flex-shrink-0">
               <Card 
-                className={`group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer animate-scale-in w-48 ${
-                  brand.featured ? 'ring-2 ring-primary/50 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/30' : 'border-border'
+                className={`group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer animate-scale-in w-48 border ${
+                  brand.featured 
+                    ? 'border-primary border-2 bg-gradient-to-br from-primary/5 to-primary/10 shadow-lg shadow-primary/20' 
+                    : 'border-border hover:border-primary/30'
                 }`}
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
