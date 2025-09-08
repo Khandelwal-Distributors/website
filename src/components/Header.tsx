@@ -61,8 +61,12 @@ const Header = () => {
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="sm" className="bg-primary text-white hover:bg-primary/90 border-0">
-                <Menu className="h-5 w-5" />
+              <Button 
+                size="sm" 
+                className="bg-red-500 text-white hover:bg-red-600 border-2 border-yellow-400 min-w-[50px] min-h-[50px] shadow-lg"
+                style={{ backgroundColor: '#ef4444', color: 'white', border: '2px solid #facc15' }}
+              >
+                <Menu className="h-6 w-6 text-white" style={{ color: 'white' }} />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
