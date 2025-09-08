@@ -97,7 +97,7 @@ const BrandShowcase = () => {
         
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide"
+          className="flex gap-6 overflow-x-auto pb-4 pt-3 px-2 scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {brands.map((brand, index) => (
