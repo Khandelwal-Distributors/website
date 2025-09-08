@@ -144,7 +144,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
               alt="Khandelwal Distributors Logo" 
-              className="h-14 sm:h-16 md:h-20"
+              className="h-16 sm:h-18 md:h-20"
               loading="eager"
               decoding="async"
               fetchPriority="high"
