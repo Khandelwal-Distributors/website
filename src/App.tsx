@@ -38,6 +38,16 @@ import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
 import DeepFreezers from "./pages/products/DeepFreezers";
 
+// Import brand pages
+import Voltas from "./pages/brands/Voltas";
+import Carrier from "./pages/brands/Carrier";
+import Daikin from "./pages/brands/Daikin";
+import Midea from "./pages/brands/Midea";
+import Amstrad from "./pages/brands/Amstrad";
+import Godrej from "./pages/brands/Godrej";
+import Cruise from "./pages/brands/Cruise";
+import MitsubishiHeavy from "./pages/brands/MitsubishiHeavy";
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -80,6 +90,16 @@ const App = () => {
                 <Route path="/products/cold-room" element={<ColdRoom />} />
                 <Route path="/products/ahu-system" element={<AHUSystem />} />
                 <Route path="/products/deep-freezers" element={<DeepFreezers />} />
+                
+                {/* Brand pages routes */}
+                <Route path="/brands/voltas" element={<Voltas />} />
+                <Route path="/brands/carrier" element={<Carrier />} />
+                <Route path="/brands/daikin" element={<Daikin />} />
+                <Route path="/brands/midea" element={<Midea />} />
+                <Route path="/brands/amstrad" element={<Amstrad />} />
+                <Route path="/brands/godrej" element={<Godrej />} />
+                <Route path="/brands/cruise" element={<Cruise />} />
+                <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>
