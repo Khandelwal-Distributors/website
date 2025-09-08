@@ -89,11 +89,12 @@ const ProjectsShowcase = () => {
     if (scrollWidth <= clientWidth) return;
 
     let scrollPosition = 0;
-    const scrollStep = 1;
-    const scrollDelay = 60;
+    let isAutoScrolling = true;
+    const scrollStep = 2;
+    const scrollDelay = 30;
 
     const autoScroll = () => {
-      if (!scrollContainer) return;
+      if (!scrollContainer || !isAutoScrolling) return;
       
       scrollPosition += scrollStep;
       
@@ -106,8 +107,14 @@ const ProjectsShowcase = () => {
 
     const interval = setInterval(autoScroll, scrollDelay);
 
+    const handleManualScroll = () => {
+      isAutoScrolling = false;
+      clearInterval(interval);
+    };
+
     const handleMouseEnter = () => clearInterval(interval);
     const handleMouseLeave = () => {
+      if (!isAutoScrolling) return;
       clearInterval(interval);
       setTimeout(() => {
         const newInterval = setInterval(autoScroll, scrollDelay);
@@ -115,11 +122,13 @@ const ProjectsShowcase = () => {
       }, 100);
     };
 
+    scrollContainer.addEventListener('scroll', handleManualScroll);
     scrollContainer.addEventListener('mouseenter', handleMouseEnter);
     scrollContainer.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       clearInterval(interval);
+      scrollContainer?.removeEventListener('scroll', handleManualScroll);
       scrollContainer?.removeEventListener('mouseenter', handleMouseEnter);
       scrollContainer?.removeEventListener('mouseleave', handleMouseLeave);
     };
