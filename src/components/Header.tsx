@@ -61,7 +61,7 @@ const Header = () => {
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="sm" className="border-border hover:bg-accent">
+              <Button size="sm" className="bg-primary text-white hover:bg-primary/90 border-0">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
