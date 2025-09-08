@@ -7,7 +7,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[600px] flex items-center">
+    <section className="relative min-h-[700px] sm:min-h-[600px] flex items-center py-12 sm:py-0">
       <div className="absolute inset-0">
         <OptimizedImage 
           src={heroImage} 
@@ -66,9 +66,13 @@ const Hero = () => {
           <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-accent-warm mb-2">
-                <NumberCounter end={50000} suffix="+" />
+                <span className="sm:hidden">50K+</span>
+                <span className="hidden sm:inline"><NumberCounter end={50000} suffix="+" /></span>
               </div>
-              <p className="text-sm text-white/80 font-medium">AC Installations</p>
+              <p className="text-sm text-white/80 font-medium">
+                <span className="sm:hidden">Installations</span>
+                <span className="hidden sm:inline">AC Installations</span>
+              </p>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-accent-warm mb-2">
