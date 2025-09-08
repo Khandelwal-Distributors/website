@@ -57,16 +57,15 @@ const Header = () => {
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         {/* Mobile Layout */}
-        <div className="flex items-center justify-between sm:hidden">
+        <div className="flex items-center justify-between">
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
               <Button 
                 size="sm" 
-                className="bg-red-500 text-white hover:bg-red-600 border-2 border-yellow-400 min-w-[50px] min-h-[50px] shadow-lg"
-                style={{ backgroundColor: '#ef4444', color: 'white', border: '2px solid #facc15' }}
+                className="bg-primary text-white hover:bg-primary/90 shadow-sm"
               >
-                <Menu className="h-6 w-6 text-white" style={{ color: 'white' }} />
+                <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
