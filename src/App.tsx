@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageTransition from "@/components/PageTransition";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import Projects from "./pages/Projects";
@@ -60,49 +61,51 @@ const App = () => {
           <HelmetProvider>
             <BrowserRouter>
               <ScrollToTop />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/product/:slug" element={<ProductDetail />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/order-success" element={<OrderSuccess />} />
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/projects" element={<Projects />} />
-                
-                {/* Individual product category routes */}
-                <Route path="/products/inverter-split-ac" element={<InverterSplitAC />} />
-                <Route path="/products/non-inverter-split-ac" element={<NonInverterSplitAC />} />
-                <Route path="/products/cassette-ac" element={<CassetteAC />} />
-                <Route path="/products/floor-standing-ac" element={<FloorStandingAC />} />
-                <Route path="/products/window-ac" element={<WindowAC />} />
-                <Route path="/products/portable-ac" element={<PortableAC />} />
-                <Route path="/products/water-cooler" element={<WaterCooler />} />
-                <Route path="/products/alkaline-ro" element={<AlkalineRO />} />
-                <Route path="/products/solar-water-heater" element={<SolarWaterHeater />} />
-                <Route path="/products/ventilation-hrv" element={<VentilationHRV />} />
-                <Route path="/products/air-purifier" element={<AirPurifier />} />
-                <Route path="/products/vrv-system" element={<VRVSystem />} />
-                <Route path="/products/chiller-system" element={<ChillerSystem />} />
-                <Route path="/products/heat-pump" element={<HeatPump />} />
-                <Route path="/products/ductable-ac" element={<DuctableAC />} />
-                <Route path="/products/cold-room" element={<ColdRoom />} />
-                <Route path="/products/ahu-system" element={<AHUSystem />} />
-                <Route path="/products/deep-freezers" element={<DeepFreezers />} />
-                
-                {/* Brand pages routes */}
-                <Route path="/brands/voltas" element={<Voltas />} />
-                <Route path="/brands/carrier" element={<Carrier />} />
-                <Route path="/brands/daikin" element={<Daikin />} />
-                <Route path="/brands/midea" element={<Midea />} />
-                <Route path="/brands/amstrad" element={<Amstrad />} />
-                <Route path="/brands/godrej" element={<Godrej />} />
-                <Route path="/brands/cruise" element={<Cruise />} />
-                <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
-                
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <PageTransition>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/auth" element={<Auth />} />
+                  <Route path="/shop" element={<Shop />} />
+                  <Route path="/product/:slug" element={<ProductDetail />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/order-success" element={<OrderSuccess />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/projects" element={<Projects />} />
+                  
+                  {/* Individual product category routes */}
+                  <Route path="/products/inverter-split-ac" element={<InverterSplitAC />} />
+                  <Route path="/products/non-inverter-split-ac" element={<NonInverterSplitAC />} />
+                  <Route path="/products/cassette-ac" element={<CassetteAC />} />
+                  <Route path="/products/floor-standing-ac" element={<FloorStandingAC />} />
+                  <Route path="/products/window-ac" element={<WindowAC />} />
+                  <Route path="/products/portable-ac" element={<PortableAC />} />
+                  <Route path="/products/water-cooler" element={<WaterCooler />} />
+                  <Route path="/products/alkaline-ro" element={<AlkalineRO />} />
+                  <Route path="/products/solar-water-heater" element={<SolarWaterHeater />} />
+                  <Route path="/products/ventilation-hrv" element={<VentilationHRV />} />
+                  <Route path="/products/air-purifier" element={<AirPurifier />} />
+                  <Route path="/products/vrv-system" element={<VRVSystem />} />
+                  <Route path="/products/chiller-system" element={<ChillerSystem />} />
+                  <Route path="/products/heat-pump" element={<HeatPump />} />
+                  <Route path="/products/ductable-ac" element={<DuctableAC />} />
+                  <Route path="/products/cold-room" element={<ColdRoom />} />
+                  <Route path="/products/ahu-system" element={<AHUSystem />} />
+                  <Route path="/products/deep-freezers" element={<DeepFreezers />} />
+                  
+                  {/* Brand pages routes */}
+                  <Route path="/brands/voltas" element={<Voltas />} />
+                  <Route path="/brands/carrier" element={<Carrier />} />
+                  <Route path="/brands/daikin" element={<Daikin />} />
+                  <Route path="/brands/midea" element={<Midea />} />
+                  <Route path="/brands/amstrad" element={<Amstrad />} />
+                  <Route path="/brands/godrej" element={<Godrej />} />
+                  <Route path="/brands/cruise" element={<Cruise />} />
+                  <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
+                  
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </PageTransition>
             </BrowserRouter>
           </HelmetProvider>
         </TooltipProvider>

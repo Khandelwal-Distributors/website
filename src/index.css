@@ -119,36 +119,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  
-  /* CSS Page transitions */
-  .page-enter {
-    @apply opacity-0 translate-y-1;
-  }
-  
-  .page-enter-active {
-    @apply opacity-100 translate-y-0 transition-all duration-200 ease-out;
-  }
-  
-  .page-exit {
-    @apply opacity-100 translate-y-0;
-  }
-  
-  .page-exit-active {
-    @apply opacity-0 -translate-y-1 transition-all duration-150 ease-in;
-  }
-  
-  /* Optimized image loading without global animation */
-  img {
-    @apply transition-opacity duration-300;
-  }
-  
-  /* Images load with opacity for smooth transition */
-  img:not([src]) {
-    @apply opacity-0;
-  }
-  
-  /* Only animate specific images */
-  .img-fade-in {
-    @apply animate-fade-in;
-  }
 }

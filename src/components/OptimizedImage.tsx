@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface OptimizedImageProps {
   src: string;
@@ -40,23 +41,36 @@ const OptimizedImage = ({
     setHasError(true);
   };
 
+  if (hasError) {
+    return null;
+  }
+
   return (
-    <img
-      ref={imgRef}
-      src={src}
-      alt={alt}
-      className={`${className} ${isLoaded ? 'img-fade-in' : 'opacity-0'} ${hasError ? 'hidden' : ''}`}
-      loading={priority ? 'eager' : loading}
-      decoding="async"
-      fetchPriority={priority ? 'high' : 'auto'}
-      onLoad={handleLoad}
-      onError={handleError}
-      style={{
-        willChange: 'opacity',
-        backfaceVisibility: 'hidden',
-        transform: 'translateZ(0)'
-      }}
-    />
+    <div className={`relative overflow-hidden ${className}`}>
+      {/* Shimmer loading skeleton */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-muted">
+          <div className="relative h-full w-full overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent animate-shimmer" />
+          </div>
+        </div>
+      )}
+      
+      {/* Actual image */}
+      <img
+        ref={imgRef}
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading={priority ? 'eager' : loading}
+        decoding="async"
+        fetchPriority={priority ? 'high' : 'auto'}
+        onLoad={handleLoad}
+        onError={handleError}
+      />
+    </div>
   );
 };
 
