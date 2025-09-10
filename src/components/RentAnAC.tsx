@@ -139,6 +139,7 @@ const RentAnAC = () => {
                   <Button 
                     variant="cta" 
                     className="w-full"
+                    onClick={() => window.open('tel:+919429693410', '_self')}
                   >
                     <Phone className="h-4 w-4" />
                     Call Now
@@ -146,6 +147,7 @@ const RentAnAC = () => {
                   <Button 
                     variant="outline" 
                     className="w-full bg-green-600 text-white border-green-600 hover:bg-green-700"
+                    onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in renting an AC. Please share more details about the rental plans.', '_blank')}
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
@@ -164,7 +166,11 @@ const RentAnAC = () => {
             Contact our experts for personalized pricing and solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="cta" size="lg">
+            <Button 
+              variant="cta" 
+              size="lg"
+              onClick={() => window.open('tel:+919429693410', '_self')}
+            >
               <Phone className="h-5 w-5" />
               Call for Custom Quote
             </Button>
@@ -172,6 +178,7 @@ const RentAnAC = () => {
               variant="outline" 
               size="lg"
               className="bg-green-600 text-white border-green-600 hover:bg-green-700"
+              onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need a custom rental solution for my requirements. Please share details.', '_blank')}
             >
               <MessageCircle className="h-5 w-5" />
               WhatsApp Us

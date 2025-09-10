@@ -506,7 +506,12 @@ export default function Checkout() {
                 <CardContent className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
-                    <span>Call: +91 9429693410</span>
+                    <button 
+                      onClick={() => window.open('tel:+919429693410', '_self')}
+                      className="text-primary hover:underline"
+                    >
+                      Call: +91 9429693410
+                    </button>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4" />

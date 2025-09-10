@@ -23,7 +23,12 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm mb-3">Immediate Response</p>
-                <Button variant="cta" size="sm" className="w-full">
+                <Button 
+                  variant="cta" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => window.open('tel:+919429693410', '_self')}
+                >
                   <Phone className="h-4 w-4" />
                   +91 9429693410
                 </Button>
@@ -37,7 +42,12 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm mb-3">Quick Quotes</p>
-              <Button variant="outline" size="sm" className="w-full bg-white/10 border-white/30 hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full bg-white/10 border-white/30 hover:bg-white/20"
+                onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need a quick quote for HVAC services', '_blank')}
+              >
                 <MessageCircle className="h-4 w-4" />
                 Chat Now
               </Button>
@@ -51,7 +61,12 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm mb-3">Detailed Queries</p>
-              <Button variant="outline" size="sm" className="w-full bg-white/10 border-white/30 hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full bg-white/10 border-white/30 hover:bg-white/20"
+                onClick={() => window.open('mailto:info@yourcompany.com?subject=HVAC Services Inquiry', '_blank')}
+              >
                 <Mail className="h-4 w-4" />
                 Send Email
               </Button>
@@ -65,7 +80,12 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm mb-3">Free Site Visit</p>
-              <Button variant="outline" size="sm" className="w-full bg-white/10 border-white/30 hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full bg-white/10 border-white/30 hover:bg-white/20"
+                onClick={() => window.open('tel:+919429693410', '_self')}
+              >
                 <MapPin className="h-4 w-4" />
                 Schedule Visit
               </Button>
@@ -102,7 +122,11 @@ const Contact = () => {
               We provide HVAC services across the city and surrounding areas. 
               Free site visits within 25km radius.
             </p>
-            <Button variant="cta" size="lg">
+            <Button 
+              variant="cta" 
+              size="lg"
+              onClick={() => window.open('tel:+919429693410', '_self')}
+            >
               <Phone className="h-4 w-4" />
               Call for Free Site Visit
             </Button>

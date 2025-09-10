@@ -56,14 +56,23 @@ const WindowAC = () => {
               Compact design, easy installation, and reliable cooling at budget-friendly prices.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button 
+                variant="cta" 
+                size="lg"
+                onClick={() => window.open('tel:+919429693410', '_self')}
+              >
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Window ACs in Bareilly', '_blank')}>
-                <MessageCircle className="h-5 w-5" />
-                WhatsApp
-              </Button>
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="bg-green-600 text-white border-green-600 hover:bg-green-700" 
+                      onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in this product. Please share more details.', '_blank')}
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      WhatsApp
+                    </Button>
             </div>
           </div>
         </section>
@@ -135,10 +144,13 @@ const WindowAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
-                      <Phone className="h-4 w-4" />
-                      Get Quote
-                    </Button>
+                <Button 
+                  className="w-full"
+                  onClick={() => window.open('tel:+919429693410', '_self')}
+                >
+                  <Phone className="h-4 w-4" />
+                  Get Quote
+                </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -158,7 +170,11 @@ const WindowAC = () => {
                 Professional mounting, electrical connections, and post-installation support.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  onClick={() => window.open('tel:+919429693410', '_self')}
+                >
                   <Phone className="h-5 w-5" />
                   Call: +91 9429693410
                 </Button>

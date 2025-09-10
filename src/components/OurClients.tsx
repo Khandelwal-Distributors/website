@@ -97,9 +97,10 @@ const OurClients = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                variant="cta" 
+                variant="outline" 
                 size="lg"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
+                onClick={() => window.open('https://wa.me/919084417884?text=Hello, I would like to know more about your HVAC services', '_blank')}
               >
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp Us
@@ -108,6 +109,7 @@ const OurClients = () => {
                 variant="outline" 
                 size="lg"
                 className="flex items-center gap-2"
+                onClick={() => window.open('tel:+919429693410', '_self')}
               >
                 <Calendar className="h-5 w-5" />
                 Request Site Visit

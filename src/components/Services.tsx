@@ -98,7 +98,12 @@ const Services = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button variant="cta" size="lg" className="text-lg px-8">
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="text-lg px-8"
+            onClick={() => window.open('tel:+919429693410', '_self')}
+          >
             <Phone className="h-5 w-5" />
             Schedule Free Consultation
           </Button>

@@ -33,7 +33,12 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button variant="cta" size="lg" className="text-lg px-8 hover:scale-105 transition-transform duration-300">
+            <Button 
+              variant="cta" 
+              size="lg" 
+              className="text-lg px-8 hover:scale-105 transition-transform duration-300"
+              onClick={() => window.open('tel:+919429693410', '_self')}
+            >
               <Phone className="h-5 w-5" />
               Call Now - Free Consultation
             </Button>
@@ -50,7 +55,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => window.open('https://wa.me/919084417884', '_blank')}
+              onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about HVAC services', '_blank')}
               className="sm:hidden bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700 hover:scale-105 transition-all duration-300"
             >
               <MessageCircle className="h-5 w-5" />

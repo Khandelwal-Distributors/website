@@ -106,11 +106,11 @@ export default function OrderSuccess() {
               </div>
               
               <div className="flex justify-center gap-4 pt-4">
-                <Button variant="outline" onClick={() => window.open('tel:+919429693410')}>
+                <Button variant="outline" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us
                 </Button>
-                <Button variant="outline" onClick={() => window.open('https://wa.me/919084417884')}>
+                <Button variant="outline" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I have a query regarding my recent order.', '_blank')} className="bg-green-600 text-white border-green-600 hover:bg-green-700">
                   <MessageCircle className="mr-2 h-4 w-4" />
                   WhatsApp
                 </Button>

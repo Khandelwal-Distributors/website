@@ -56,7 +56,11 @@ const InverterSplitAC = () => {
               Save up to 60% on electricity bills with advanced inverter technology and smart features.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button 
+                variant="cta" 
+                size="lg"
+                onClick={() => window.open('tel:+919429693410', '_self')}
+              >
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
