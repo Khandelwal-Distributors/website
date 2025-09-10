@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Star, Zap, Shield, CreditCard, Home, Gift, Clock, Tag, CheckCircle } from "lucide-react";
+import { Phone, Star, Zap, Shield, CreditCard, Home, Gift, Clock, Tag, CheckCircle, DollarSign } from "lucide-react";
 import cleanSaleBanner from "@/assets/clean-sale-banner.jpg";
 import auxLogo from "@/assets/brands/aux-logo.jpg";
 import sharpLogo from "@/assets/brands/sharp-logo.jpg";
@@ -183,7 +183,9 @@ const EndOfSeasonSale = () => {
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center gap-3 bg-gradient-to-r from-primary/5 to-accent-warm/5 rounded-xl p-4 border border-primary/10">
-                <div className="bg-gradient-to-r from-primary to-accent-warm text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm shadow-lg">30%</div>
+                <div className="bg-gradient-to-r from-primary to-accent-warm text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+                  <DollarSign className="h-5 w-5" />
+                </div>
                 <span className="font-semibold text-primary">Up to 30% Off MRP</span>
               </div>
               
