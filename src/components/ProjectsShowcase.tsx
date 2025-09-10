@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // Project statistics
 const projectStats = [
   { number: "200+", label: "Projects Completed" },
-  { number: "15+", label: "Years Experience" },
+  { number: "25+", label: "Years Experience" },
   { number: "50+", label: "Happy Clients" },
   { number: "24/7", label: "Support Available" }
 ];

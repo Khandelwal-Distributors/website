@@ -13,7 +13,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-1 text-sm">
               <Star className="h-4 w-4 text-accent-warm fill-current" />
-              <span>10+ Years of Excellence</span>
+              <span>25+ Years of Excellence</span>
             </div>
           </div>
           
@@ -47,8 +47,8 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+919876543210" className="text-muted-foreground hover:text-primary">
-                  +91 98765 43210
+                <a href="tel:+919429693410" className="text-muted-foreground hover:text-primary">
+                  +91 9429693410
                 </a>
               </div>
               <div className="flex items-center gap-2">

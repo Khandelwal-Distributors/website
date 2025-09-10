@@ -23,10 +23,10 @@ const Contact = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm mb-3">Immediate Response</p>
-              <Button variant="cta" size="sm" className="w-full">
-                <Phone className="h-4 w-4" />
-                +91 98765 43210
-              </Button>
+                <Button variant="cta" size="sm" className="w-full">
+                  <Phone className="h-4 w-4" />
+                  +91 9429693410
+                </Button>
             </CardContent>
           </Card>
           

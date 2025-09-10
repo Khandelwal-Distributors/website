@@ -82,7 +82,7 @@ const Services = () => {
             </div>
             <div className="text-center">
               <Star className="h-12 w-12 text-accent-warm mx-auto mb-4 fill-current" />
-              <h4 className="font-semibold mb-2">10+ Years Experience</h4>
+              <h4 className="font-semibold mb-2">25+ Years Experience</h4>
               <p className="text-sm text-muted-foreground">
                 Extensive experience in residential and commercial HVAC installations.
               </p>

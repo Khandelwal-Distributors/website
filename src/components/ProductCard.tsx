@@ -13,7 +13,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
   const handleCallNow = () => {
-    window.open('tel:+919876543210', '_self');
+    window.open('tel:+919429693410', '_self');
   };
 
   const handleBuyNow = () => {

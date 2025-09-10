@@ -143,7 +143,7 @@ const Projects = () => {
                     <div className="text-sm md:text-base text-white/80">Projects Completed</div>
                   </div>
                   <div className="text-center animate-fade-in" style={{ animationDelay: "0.7s" }}>
-                    <div className="text-3xl md:text-4xl font-bold text-accent-warm mb-2">15+</div>
+                    <div className="text-3xl md:text-4xl font-bold text-accent-warm mb-2">25+</div>
                     <div className="text-sm md:text-base text-white/80">Years Experience</div>
                   </div>
                   <div className="text-center animate-fade-in" style={{ animationDelay: "0.8s" }}>

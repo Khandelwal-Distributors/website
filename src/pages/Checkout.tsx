@@ -506,7 +506,7 @@ export default function Checkout() {
                 <CardContent className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
-                    <span>Call: +91 98765 43210</span>
+                    <span>Call: +91 9429693410</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4" />

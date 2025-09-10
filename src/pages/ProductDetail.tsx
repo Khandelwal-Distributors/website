@@ -86,13 +86,13 @@ export default function ProductDetail() {
   };
 
   const handleCallNow = () => {
-    window.open('tel:+919876543210', '_self');
+    window.open('tel:+919429693410', '_self');
   };
 
   const handleWhatsApp = () => {
     const message = `Hi! I'm interested in ${product.name} (${product.model}). Could you please provide more details?`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919876543210?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919084417884?text=${encodedMessage}`, '_blank');
   };
 
   const handleBuyNow = () => {

@@ -50,7 +50,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+              onClick={() => window.open('https://wa.me/919084417884', '_blank')}
               className="sm:hidden bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700 hover:scale-105 transition-all duration-300"
             >
               <MessageCircle className="h-5 w-5" />
