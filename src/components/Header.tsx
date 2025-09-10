@@ -61,9 +61,9 @@ const Header = () => {
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="hover:bg-transparent text-foreground p-2"
               >
                 <Menu className="h-6 w-6 text-black" />
@@ -71,25 +71,25 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
               <div className="flex flex-col space-y-4 mt-8">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
                   Home
                 </Link>
-                <Link 
-                  to="/shop" 
+                <Link
+                  to="/shop"
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
                   Shop
                 </Link>
-                <Link 
-                  to="/products" 
+                <Link
+                  to="/products"
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
                   Product Categories
                 </Link>
-                
+
                 {/* Brands Dropdown */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -108,28 +108,28 @@ const Header = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
 
-                <Link 
-                  to="/projects" 
+                <Link
+                  to="/projects"
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
                   Projects
                 </Link>
-                
-                <button 
+
+                <button
                   onClick={() => scrollToSection('sale')}
                   className="text-lg font-medium hover:text-primary transition-colors text-left text-accent-warm"
                 >
                   🔥 Sale
                 </button>
-                
-                <button 
+
+                <button
                   onClick={() => scrollToSection('rent')}
                   className="text-lg font-medium hover:text-primary transition-colors text-left"
                 >
                   Rent an AC
                 </button>
-                
-                <button 
+
+                <button
                   onClick={() => scrollToSection('contact')}
                   className="text-lg font-medium hover:text-primary transition-colors text-left"
                 >
@@ -141,23 +141,23 @@ const Header = () => {
 
           {/* Logo - Right after hamburger menu */}
           <Link to="/" className="flex items-center flex-shrink-0 ml-3">
-            <img 
-              src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png" 
-              alt="Khandelwal Distributors Logo" 
+            <img
+              src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png"
+              alt="Khandelwal Distributors Logo"
               className="h-16 sm:h-18 md:h-20"
               loading="eager"
               decoding="async"
               fetchPriority="high"
             />
           </Link>
-          
+
           {/* CTAs and User Profile */}
           <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0 ml-auto">
             {/* Hide CTAs on smaller screens to preserve logo size */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button 
-                variant="secondary" 
-                size="sm" 
+              <Button
+                variant="secondary"
+                size="sm"
                 asChild
                 className="bg-[hsl(var(--shop-online))] text-white hover:bg-[hsl(var(--shop-online))]/90"
               >
@@ -166,20 +166,20 @@ const Header = () => {
                   Shop Online
                 </Link>
               </Button>
-              
+
               <Button
-                variant="cta" 
+                variant="cta"
                 size="sm"
-                onClick={() => window.open('tel:+919876543210')}
+                onClick={() => window.open('tel:+919429693410')}
               >
                 <Phone className="h-4 w-4" />
-                Call +91 98765 43210
+                Call +91 94296 93410
               </Button>
-              
-              <Button 
-                variant="outline" 
+
+              <Button
+                variant="outline"
                 size="sm"
-                onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                onClick={() => window.open('https://wa.me/919084417884', '_blank')}
                 className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
               >
                 <MessageCircle className="h-4 w-4" />
