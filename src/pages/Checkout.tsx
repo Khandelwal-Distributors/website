@@ -137,6 +137,8 @@ export default function Checkout() {
 
     setIsSubmitting(true);
 
+    let dbOrderId: string | null = null;
+
     try {
       console.log('Starting payment process...');
 
@@ -175,6 +177,7 @@ export default function Checkout() {
       }
 
       console.log('Payment order created:', paymentData);
+      dbOrderId = paymentData?.db_order_id || null;
 
       if (!window.Cashfree) {
         throw new Error('Cashfree SDK not loaded');
@@ -190,16 +193,65 @@ export default function Checkout() {
       // Initialize Cashfree checkout
       const checkoutOptions = {
         paymentSessionId: paymentData.payment_session_id,
-        redirectTarget: "_self"
+        redirectTarget: "_modal"
       };
 
       console.log('Initializing Cashfree checkout:', checkoutOptions);
 
-      // Open Cashfree checkout
+      // Open Cashfree checkout and wait for completion/cancel/close
       await cashfree.checkout(checkoutOptions);
+
+      // After modal closes, verify payment status
+      const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-payment', {
+        body: { dbOrderId: paymentData.db_order_id }
+      });
+
+      if (verifyError) {
+        console.error('Payment verification error:', verifyError);
+        throw new Error(verifyError.message || 'Failed to verify payment');
+      }
+
+      console.log('Payment verification result:', verifyData);
+
+      if (verifyData && verifyData.order_status === 'PAID') {
+        navigate(`/payment-success?order_id=${paymentData.db_order_id}`);
+        return;
+      }
+
+      // Consider any non-PAID outcome as cancelled by user
+      toast({
+        title: 'Payment Cancelled',
+        description: 'You cancelled the transaction. You can try again anytime.',
+      });
+      navigate(`/product/${product.slug}`);
+
 
     } catch (error) {
       console.error('Payment initialization error:', error);
+
+      // Try to verify payment if we have an order id
+      if (dbOrderId) {
+        try {
+          const { data: verifyData } = await supabase.functions.invoke('verify-payment', {
+            body: { dbOrderId }
+          });
+
+          if (verifyData && verifyData.order_status === 'PAID') {
+            navigate(`/payment-success?order_id=${dbOrderId}`);
+            return;
+          }
+
+          toast({
+            title: 'Payment Cancelled',
+            description: 'You cancelled the transaction. You can try again anytime.',
+          });
+          navigate(`/product/${product.slug}`);
+          return;
+        } catch (e) {
+          // fall through to generic error toast
+        }
+      }
+
       toast({
         title: 'Payment Failed',
         description: error instanceof Error ? error.message : 'There was an error processing your payment. Please try again.',
