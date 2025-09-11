@@ -26,8 +26,8 @@ import type { Product } from '@/hooks/useProducts';
 // Declare Cashfree SDK
 declare global {
   interface Window {
-    Cashfree: {
-      checkout: (options: any) => void;
+    Cashfree: (config: { mode: string }) => {
+      checkout: (options: any) => Promise<any>;
     };
   }
 }
@@ -158,16 +158,23 @@ export default function Checkout() {
         throw new Error('Cashfree SDK not loaded');
       }
 
+      // Initialize Cashfree SDK
+      const cashfree = window.Cashfree({
+        mode: "sandbox" // Change to "production" for live environment
+      });
+
+      console.log('Cashfree SDK initialized');
+
       // Initialize Cashfree checkout
       const checkoutOptions = {
         paymentSessionId: paymentData.payment_session_id,
-        returnUrl: `${window.location.origin}/payment-success?order_id=${paymentData.db_order_id}`,
         redirectTarget: "_self"
       };
 
       console.log('Initializing Cashfree checkout:', checkoutOptions);
 
-      window.Cashfree.checkout(checkoutOptions);
+      // Open Cashfree checkout
+      await cashfree.checkout(checkoutOptions);
 
     } catch (error) {
       console.error('Payment initialization error:', error);
