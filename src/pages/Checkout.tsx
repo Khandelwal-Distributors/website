@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
@@ -16,7 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { 
   ShoppingCart, User, MapPin, Phone, Mail, 
-  CreditCard, Truck, Shield, Clock, CheckCircle 
+  CreditCard, Truck, Shield, Clock, CheckCircle, ArrowLeft 
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -77,6 +77,28 @@ export default function Checkout() {
       terms_accepted: false,
     },
   });
+
+  // Handle navigation warning when form has unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      const formValues = form.getValues();
+      const hasUnsavedChanges = formValues.customer_name || 
+                               formValues.customer_phone || 
+                               formValues.customer_address;
+      
+      if (hasUnsavedChanges && !isSubmitting) {
+        e.preventDefault();
+        e.returnValue = '';
+        return '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [form, isSubmitting]);
 
   if (!product) {
     return (
@@ -200,6 +222,18 @@ export default function Checkout() {
         <Header />
 
         <main className="container mx-auto px-4 py-8">
+          {/* Back Button */}
+          <div className="mb-4">
+            <Button 
+              variant="ghost" 
+              onClick={() => window.history.back()}
+              className="flex items-center gap-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </Button>
+          </div>
+
           {/* Page Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Checkout</h1>
