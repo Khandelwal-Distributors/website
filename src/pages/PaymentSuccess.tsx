@@ -8,12 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Clock, Phone, MessageCircle, Home, ShoppingBag } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function PaymentSuccess() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
+  const { signIn } = useAuth();
   
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -63,6 +65,12 @@ export default function PaymentSuccess() {
           .update({ user_id: authData.user.id })
           .eq('id', orderId);
 
+        // Automatically sign in the newly created user
+        const signInResult = await signIn(orderData.customer_email, tempPassword);
+        if (signInResult.error) {
+          console.error('Error signing in new user:', signInResult.error);
+        }
+
         // Send welcome email with login details
         try {
           await supabase.functions.invoke('send-welcome-email', {
@@ -79,8 +87,8 @@ export default function PaymentSuccess() {
         }
 
         toast({
-          title: 'Account Created!',
-          description: `We've created an account for you with email ${orderData.customer_email}. Check your email for login details.`,
+          title: 'Account Created & Signed In!',
+          description: `We've created an account for you and signed you in. Check your email for login details.`,
         });
 
         return authData.user.id;
