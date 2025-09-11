@@ -18,6 +18,7 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
 
 // Import individual product category pages
@@ -85,6 +86,7 @@ const App = () => {
                   <Route path="/product/:slug" element={<ProductDetail />} />
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/order-success" element={<OrderSuccess />} />
+                  <Route path="/payment-success" element={<PaymentSuccess />} />
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/projects" element={<Projects />} />

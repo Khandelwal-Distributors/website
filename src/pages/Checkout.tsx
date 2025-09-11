@@ -23,6 +23,15 @@ import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
 import type { Product } from '@/hooks/useProducts';
 
+// Declare Cashfree SDK
+declare global {
+  interface Window {
+    Cashfree: {
+      checkout: (options: any) => void;
+    };
+  }
+}
+
 interface CheckoutForm {
   customer_name: string;
   customer_email: string;
@@ -107,40 +116,64 @@ export default function Checkout() {
     setIsSubmitting(true);
 
     try {
+      console.log('Starting payment process...');
+
+      // Prepare order data
       const orderData = {
         user_id: user?.id || null,
         product_id: product.id,
-        ...data,
+        customer_name: data.customer_name,
+        customer_email: data.customer_email,
+        customer_phone: data.customer_phone,
+        customer_address: data.customer_address,
+        customer_city: data.customer_city,
+        customer_state: data.customer_state,
+        customer_pincode: data.customer_pincode,
+        quantity: data.quantity,
+        notes: data.notes,
         total_amount: totalAmount,
-        status: 'pending',
       };
 
-      const { data: order, error } = await supabase
-        .from('orders')
-        .insert(orderData)
-        .select()
-        .single();
+      const customerData = {
+        customer_name: data.customer_name,
+        customer_email: data.customer_email,
+        customer_phone: data.customer_phone,
+      };
 
-      if (error) throw error;
+      console.log('Creating payment order...');
 
-      toast({
-        title: 'Order Placed Successfully!',
-        description: 'Our team will contact you shortly to confirm your order.',
+      // Create payment order via edge function
+      const { data: paymentData, error: paymentError } = await supabase.functions.invoke('create-payment', {
+        body: { orderData, customerData }
       });
 
-      navigate('/order-success', { 
-        state: { 
-          order, 
-          product,
-          message: 'Thank you for your order! Our team will contact you within 24 hours to confirm the details and schedule installation.'
-        } 
-      });
+      if (paymentError) {
+        console.error('Payment creation error:', paymentError);
+        throw new Error(paymentError.message || 'Failed to create payment order');
+      }
+
+      console.log('Payment order created:', paymentData);
+
+      if (!window.Cashfree) {
+        throw new Error('Cashfree SDK not loaded');
+      }
+
+      // Initialize Cashfree checkout
+      const checkoutOptions = {
+        paymentSessionId: paymentData.payment_session_id,
+        returnUrl: `${window.location.origin}/payment-success?order_id=${paymentData.db_order_id}`,
+        redirectTarget: "_self"
+      };
+
+      console.log('Initializing Cashfree checkout:', checkoutOptions);
+
+      window.Cashfree.checkout(checkoutOptions);
 
     } catch (error) {
-      console.error('Order submission error:', error);
+      console.error('Payment initialization error:', error);
       toast({
-        title: 'Order Failed',
-        description: 'There was an error placing your order. Please try again.',
+        title: 'Payment Failed',
+        description: error instanceof Error ? error.message : 'There was an error processing your payment. Please try again.',
         variant: 'destructive',
       });
     } finally {
@@ -391,7 +424,7 @@ export default function Checkout() {
                           size="lg"
                           disabled={isSubmitting}
                         >
-                          {isSubmitting ? 'Placing Order...' : 'Place Order'}
+                          {isSubmitting ? 'Processing Payment...' : 'Pay Now with Cashfree'}
                         </Button>
                       </div>
                     </CardContent>

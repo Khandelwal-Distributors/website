@@ -46,6 +46,7 @@ export type Database = {
       }
       orders: {
         Row: {
+          cashfree_order_id: string | null
           created_at: string
           customer_address: string
           customer_city: string
@@ -58,6 +59,9 @@ export type Database = {
           id: string
           notes: string | null
           order_date: string
+          payment_id: string | null
+          payment_method: string | null
+          payment_status: string | null
           product_id: string
           quantity: number | null
           status: string | null
@@ -66,6 +70,7 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
+          cashfree_order_id?: string | null
           created_at?: string
           customer_address: string
           customer_city: string
@@ -78,6 +83,9 @@ export type Database = {
           id?: string
           notes?: string | null
           order_date?: string
+          payment_id?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
           product_id: string
           quantity?: number | null
           status?: string | null
@@ -86,6 +94,7 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
+          cashfree_order_id?: string | null
           created_at?: string
           customer_address?: string
           customer_city?: string
@@ -98,6 +107,9 @@ export type Database = {
           id?: string
           notes?: string | null
           order_date?: string
+          payment_id?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
           product_id?: string
           quantity?: number | null
           status?: string | null
