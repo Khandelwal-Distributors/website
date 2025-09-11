@@ -119,38 +119,31 @@ export default function PaymentSuccess() {
       }
 
       try {
-        // Fetch order details from database
-        const { data: orderData, error } = await supabase
-          .from('orders')
-          .select(`
-            *,
-            products:product_id (
-              name,
-              model,
-              brand,
-              image_urls
-            )
-          `)
-          .eq('id', orderId)
-          .single();
+        // Verify payment and securely fetch order via Edge Function (bypasses RLS safely)
+        const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-payment', {
+          body: { dbOrderId: orderId }
+        });
 
-        if (error) {
-          console.error('Error fetching order:', error);
-          throw error;
+        if (verifyError) {
+          console.error('verify-payment error:', verifyError);
+          throw verifyError;
         }
+
+        const orderCore = verifyData?.order;
+        if (!orderCore) {
+          throw new Error('Order not found after verification');
+        }
+
+        // Fetch public product details
+        const { data: product } = await supabase
+          .from('products')
+          .select('name, model, brand, image_urls')
+          .eq('id', orderCore.product_id)
+          .maybeSingle();
+
+        const orderData = { ...orderCore, products: product || null } as any;
 
         setOrder(orderData);
-        
-        // Update order status to completed if payment was successful
-        if (orderData.payment_status === 'pending') {
-          await supabase
-            .from('orders')
-            .update({ 
-              payment_status: 'completed',
-              status: 'confirmed'
-            })
-            .eq('id', orderId);
-        }
 
         // Auto-create user account if this was an anonymous order
         await autoCreateUser(orderData);

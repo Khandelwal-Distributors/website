@@ -83,7 +83,14 @@ serve(async (req) => {
       .update({ payment_status, status: app_status })
       .eq('id', dbOrderId);
 
-    return new Response(JSON.stringify({ order_status, payment_status, app_status }), {
+    // Fetch sanitized order details to return to client
+    const { data: orderDetails } = await supabase
+      .from('orders')
+      .select('id, product_id, quantity, total_amount, payment_status, status, customer_name, customer_email, customer_phone, customer_address, customer_city, customer_state, customer_pincode')
+      .eq('id', dbOrderId)
+      .maybeSingle();
+
+    return new Response(JSON.stringify({ order_status, payment_status, app_status, order: orderDetails }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
