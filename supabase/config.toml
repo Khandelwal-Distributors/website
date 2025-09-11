@@ -53,3 +53,6 @@ verify_jwt = false
 
 [functions.verify-payment]
 verify_jwt = false
+
+[functions.send-welcome-email]
+verify_jwt = false

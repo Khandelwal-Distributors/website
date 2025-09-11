@@ -20,6 +20,84 @@ export default function PaymentSuccess() {
   
   const orderId = searchParams.get('order_id');
 
+  const autoCreateUser = async (orderData: any) => {
+    // Only create user if order was anonymous (user_id is null)
+    if (orderData.user_id) {
+      return orderData.user_id; // User already exists
+    }
+
+    try {
+      // Generate a temporary password
+      const tempPassword = `AC${Math.random().toString(36).substring(2, 10)}@${new Date().getFullYear()}`;
+      
+      // Create user account with customer email
+      const { data: authData, error: signUpError } = await supabase.auth.signUp({
+        email: orderData.customer_email,
+        password: tempPassword,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+          data: {
+            full_name: orderData.customer_name,
+            phone: orderData.customer_phone,
+          }
+        }
+      });
+
+      if (signUpError) {
+        console.error('Error creating user:', signUpError);
+        // If user already exists with this email, try to find them
+        if (signUpError.message.includes('already registered')) {
+          toast({
+            title: 'Account Created',
+            description: `An account with email ${orderData.customer_email} already exists. Your order has been linked to that account.`,
+          });
+          return null; // Don't update order, user might exist
+        }
+        throw signUpError;
+      }
+
+      if (authData.user) {
+        // Update the order to link it to the new user
+        await supabase
+          .from('orders')
+          .update({ user_id: authData.user.id })
+          .eq('id', orderId);
+
+        // Send welcome email with login details
+        try {
+          await supabase.functions.invoke('send-welcome-email', {
+            body: {
+              email: orderData.customer_email,
+              name: orderData.customer_name,
+              tempPassword: tempPassword,
+              orderId: orderData.id
+            }
+          });
+        } catch (emailError) {
+          console.error('Error sending welcome email:', emailError);
+          // Don't fail user creation if email fails
+        }
+
+        toast({
+          title: 'Account Created!',
+          description: `We've created an account for you with email ${orderData.customer_email}. Check your email for login details.`,
+        });
+
+        return authData.user.id;
+      }
+    } catch (error) {
+      console.error('Error in auto user creation:', error);
+      // Don't fail the order process if user creation fails
+      toast({
+        title: 'Order Confirmed',
+        description: 'Your order was successful! We had trouble creating your account, but you can create one later.',
+        variant: 'default',
+      });
+    }
+    
+    return null;
+  };
+
   useEffect(() => {
     const fetchOrderDetails = async () => {
       if (!orderId) {
@@ -65,6 +143,9 @@ export default function PaymentSuccess() {
             })
             .eq('id', orderId);
         }
+
+        // Auto-create user account if this was an anonymous order
+        await autoCreateUser(orderData);
 
       } catch (error) {
         console.error('Error:', error);
