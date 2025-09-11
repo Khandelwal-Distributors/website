@@ -65,10 +65,22 @@ export default function PaymentSuccess() {
           .update({ user_id: authData.user.id })
           .eq('id', orderId);
 
-        // Automatically sign in the newly created user
+        // Wait a moment for user creation to complete, then sign in
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
         const signInResult = await signIn(orderData.customer_email, tempPassword);
         if (signInResult.error) {
           console.error('Error signing in new user:', signInResult.error);
+          // If sign in fails, still show success but inform user to check email
+          toast({
+            title: 'Account Created',
+            description: `We've created an account for you. Please check your email to verify and sign in.`,
+          });
+        } else {
+          toast({
+            title: 'Account Created & Signed In!',
+            description: `We've created an account for you and signed you in. Check your email for login details.`,
+          });
         }
 
         // Send welcome email with login details
