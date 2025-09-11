@@ -47,13 +47,21 @@ export default function PaymentSuccess() {
 
       if (signUpError) {
         console.error('Error creating user:', signUpError);
-        // If user already exists with this email, try to find them
         if (signUpError.message.includes('already registered')) {
+          // Send a magic link for quick sign-in
+          try {
+            await supabase.auth.signInWithOtp({
+              email: orderData.customer_email,
+              options: { emailRedirectTo: `${window.location.origin}/` }
+            });
+          } catch (otpErr) {
+            console.error('Error sending magic link:', otpErr);
+          }
           toast({
-            title: 'Account Created',
-            description: `An account with email ${orderData.customer_email} already exists. Your order has been linked to that account.`,
+            title: 'Sign-in Link Sent',
+            description: `An account with ${orderData.customer_email} already exists. We sent you a login link to access it.`,
           });
-          return null; // Don't update order, user might exist
+          return null;
         }
         throw signUpError;
       }
@@ -71,10 +79,18 @@ export default function PaymentSuccess() {
         const signInResult = await signIn(orderData.customer_email, tempPassword);
         if (signInResult.error) {
           console.error('Error signing in new user:', signInResult.error);
-          // If sign in fails, still show success but inform user to check email
+          // Fallback to magic link if password sign-in fails (e.g., email confirmation required)
+          try {
+            await supabase.auth.signInWithOtp({
+              email: orderData.customer_email,
+              options: { emailRedirectTo: `${window.location.origin}/` }
+            });
+          } catch (otpErr) {
+            console.error('Error sending magic link:', otpErr);
+          }
           toast({
-            title: 'Account Created',
-            description: `We've created an account for you. Please check your email to verify and sign in.`,
+            title: 'Verify your email',
+            description: `We've created your account. Check your email to quickly sign in.`,
           });
         } else {
           toast({

@@ -83,12 +83,24 @@ serve(async (req) => {
       .update({ payment_status, status: app_status })
       .eq('id', dbOrderId);
 
-    // Fetch sanitized order details to return to client
-    const { data: orderDetails } = await supabase
+    // Fetch sanitized order details, and link to existing user if email matches
+    let { data: orderDetails } = await supabase
       .from('orders')
-      .select('id, product_id, quantity, total_amount, payment_status, status, customer_name, customer_email, customer_phone, customer_address, customer_city, customer_state, customer_pincode')
+      .select('id, product_id, quantity, total_amount, payment_status, status, customer_name, customer_email, customer_phone, customer_address, customer_city, customer_state, customer_pincode, user_id')
       .eq('id', dbOrderId)
       .maybeSingle();
+
+    try {
+      if (orderDetails && !orderDetails.user_id && orderDetails.customer_email) {
+        const { data: userByEmail } = await supabase.auth.admin.getUserByEmail(orderDetails.customer_email);
+        if (userByEmail?.user?.id) {
+          await supabase.from('orders').update({ user_id: userByEmail.user.id }).eq('id', dbOrderId);
+          orderDetails = { ...orderDetails, user_id: userByEmail.user.id } as any;
+        }
+      }
+    } catch (linkErr) {
+      console.error('Link user to order failed:', linkErr);
+    }
 
     return new Response(JSON.stringify({ order_status, payment_status, app_status, order: orderDetails }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
