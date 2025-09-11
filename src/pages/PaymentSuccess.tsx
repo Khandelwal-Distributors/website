@@ -8,131 +8,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Clock, Phone, MessageCircle, Home, ShoppingBag } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { useAuth } from '@/hooks/useAuth';
 
 export default function PaymentSuccess() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
-  const { signIn } = useAuth();
   
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   
   const orderId = searchParams.get('order_id');
 
-  const autoCreateUser = async (orderData: any) => {
-    // Only create user if order was anonymous (user_id is null)
-    if (orderData.user_id) {
-      return orderData.user_id; // User already exists
-    }
-
-    try {
-      // Generate a temporary password
-      const tempPassword = `AC${Math.random().toString(36).substring(2, 10)}@${new Date().getFullYear()}`;
-      
-      // Create user account with customer email
-      const { data: authData, error: signUpError } = await supabase.auth.signUp({
-        email: orderData.customer_email,
-        password: tempPassword,
-        options: {
-          emailRedirectTo: `${window.location.origin}/`,
-          data: {
-            full_name: orderData.customer_name,
-            phone: orderData.customer_phone,
-          }
-        }
-      });
-
-      if (signUpError) {
-        console.error('Error creating user:', signUpError);
-        if (signUpError.message.includes('already registered')) {
-          // Send a magic link for quick sign-in
-          try {
-            await supabase.auth.signInWithOtp({
-              email: orderData.customer_email,
-              options: { emailRedirectTo: `${window.location.origin}/` }
-            });
-          } catch (otpErr) {
-            console.error('Error sending magic link:', otpErr);
-          }
-          toast({
-            title: 'Sign-in Link Sent',
-            description: `An account with ${orderData.customer_email} already exists. We sent you a login link to access it.`,
-          });
-          return null;
-        }
-        throw signUpError;
-      }
-
-      if (authData.user) {
-        // Update the order to link it to the new user
-        await supabase
-          .from('orders')
-          .update({ user_id: authData.user.id })
-          .eq('id', orderId);
-
-        // Wait a moment for user creation to complete, then sign in
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        const signInResult = await signIn(orderData.customer_email, tempPassword);
-        if (signInResult.error) {
-          console.error('Error signing in new user:', signInResult.error);
-          // Fallback to magic link if password sign-in fails (e.g., email confirmation required)
-          try {
-            await supabase.auth.signInWithOtp({
-              email: orderData.customer_email,
-              options: { emailRedirectTo: `${window.location.origin}/` }
-            });
-          } catch (otpErr) {
-            console.error('Error sending magic link:', otpErr);
-          }
-          toast({
-            title: 'Verify your email',
-            description: `We've created your account. Check your email to quickly sign in.`,
-          });
-        } else {
-          toast({
-            title: 'Account Created & Signed In!',
-            description: `We've created an account for you and signed you in. Check your email for login details.`,
-          });
-        }
-
-        // Send welcome email with login details
-        try {
-          await supabase.functions.invoke('send-welcome-email', {
-            body: {
-              email: orderData.customer_email,
-              name: orderData.customer_name,
-              tempPassword: tempPassword,
-              orderId: orderData.id
-            }
-          });
-        } catch (emailError) {
-          console.error('Error sending welcome email:', emailError);
-          // Don't fail user creation if email fails
-        }
-
-        toast({
-          title: 'Account Created & Signed In!',
-          description: `We've created an account for you and signed you in. Check your email for login details.`,
-        });
-
-        return authData.user.id;
-      }
-    } catch (error) {
-      console.error('Error in auto user creation:', error);
-      // Don't fail the order process if user creation fails
-      toast({
-        title: 'Order Confirmed',
-        description: 'Your order was successful! We had trouble creating your account, but you can create one later.',
-        variant: 'default',
-      });
-    }
-    
-    return null;
-  };
 
   useEffect(() => {
     const fetchOrderDetails = async () => {
@@ -172,9 +59,6 @@ export default function PaymentSuccess() {
         const orderData = { ...orderCore, products: product || null } as any;
 
         setOrder(orderData);
-
-        // Auto-create user account if this was an anonymous order
-        await autoCreateUser(orderData);
 
       } catch (error) {
         console.error('Error:', error);

@@ -10,13 +10,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-  Search, Filter, Truck, Shield, Award, Clock,
+import { Search, Filter, Truck, Shield, Award, Clock,
   SlidersHorizontal, Grid3X3, List, ChevronDown,
   PlaneTakeoff
 } from 'lucide-react';
 import { useProducts, useBrands, type ProductFilters, type Product } from '@/hooks/useProducts';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const TONNAGE_OPTIONS = [1.0, 1.5, 2.0, 2.5, 3.0];
 const ENERGY_RATINGS = ['3 Star', '4 Star', '5 Star'];
@@ -63,7 +63,19 @@ export default function Shop() {
   };
 
   const handleBuyNow = (product: Product) => {
-    navigate('/checkout', { state: { product } });
+    // Check if user is authenticated
+    const authState = supabase.auth.getSession();
+    authState.then(({ data: { session } }) => {
+      if (!session) {
+        toast({
+          title: 'Sign In Required',
+          description: 'Please sign in to purchase products.',
+        });
+        navigate('/auth');
+        return;
+      }
+      navigate('/checkout', { state: { product } });
+    });
   };
 
   const clearFilters = () => {

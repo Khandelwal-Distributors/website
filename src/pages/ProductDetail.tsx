@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useProduct, useRecommendedProducts } from '@/hooks/useProducts';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -96,7 +97,19 @@ export default function ProductDetail() {
   };
 
   const handleBuyNow = () => {
-    navigate('/checkout', { state: { product } });
+    // Check if user is authenticated
+    const authState = supabase.auth.getSession();
+    authState.then(({ data: { session } }) => {
+      if (!session) {
+        toast({
+          title: 'Sign In Required',
+          description: 'Please sign in to purchase products.',
+        });
+        navigate('/auth');
+        return;
+      }
+      navigate('/checkout', { state: { product } });
+    });
   };
 
   const specifications = product.specifications as Record<string, string>;
