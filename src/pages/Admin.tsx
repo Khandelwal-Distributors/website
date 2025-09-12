@@ -12,6 +12,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Trash2, Edit, Plus, Video, Package, FolderOpen, Save } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { Product, useBrands } from '@/hooks/useProducts';
+import { Switch } from '@/components/ui/switch';
 
 const ADMIN_CODE = 'HVAC2024';
 
@@ -46,12 +48,16 @@ export default function Admin() {
   const [accessCode, setAccessCode] = useState('');
   const [videos, setVideos] = useState<VideoContent[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [productSearch, setProductSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [editingVideo, setEditingVideo] = useState<VideoContent | null>(null);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   
   const { toast } = useToast();
+  const { data: brands } = useBrands();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,6 +110,28 @@ export default function Admin() {
       toast({
         title: 'Error',
         description: 'Failed to load projects.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const loadProducts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (error) throw error;
+      setProducts((data || []).map(product => ({
+        ...product,
+        specifications: product.specifications as Record<string, any>
+      })));
+    } catch (error) {
+      console.error('Error loading products:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to load products.',
         variant: 'destructive',
       });
     }
@@ -220,6 +248,74 @@ export default function Admin() {
     }
   };
 
+  const saveProduct = async (productData: Partial<Product>) => {
+    setLoading(true);
+    try {
+      if (!productData.name || !productData.brand || !productData.model || !productData.price || !productData.tonnage) {
+        throw new Error('Name, Brand, Model, Price, and Tonnage are required');
+      }
+
+      // Generate slug from name if not provided
+      const slug = productData.slug || 
+        productData.name.toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+
+      const data = {
+        name: productData.name,
+        model: productData.model,
+        series: productData.series || null,
+        brand: productData.brand,
+        tonnage: Number(productData.tonnage),
+        price: Number(productData.price),
+        original_price: productData.original_price ? Number(productData.original_price) : null,
+        discount_percent: productData.discount_percent ? Number(productData.discount_percent) : 0,
+        star_rating: productData.star_rating ? Number(productData.star_rating) : 0,
+        review_count: productData.review_count ? Number(productData.review_count) : 0,
+        features: productData.features || [],
+        description: productData.description || null,
+        specifications: productData.specifications || {},
+        image_urls: productData.image_urls || [],
+        is_available: productData.is_available ?? true,
+        is_featured: productData.is_featured ?? false,
+        energy_rating: productData.energy_rating || null,
+        warranty_years: productData.warranty_years ? Number(productData.warranty_years) : 1,
+        slug: slug,
+        seo_title: productData.seo_title || null,
+        seo_description: productData.seo_description || null,
+      };
+
+      if (editingProduct) {
+        const { error } = await supabase
+          .from('products')
+          .update(data)
+          .eq('id', editingProduct.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from('products')
+          .insert(data);
+        if (error) throw error;
+      }
+
+      await loadProducts();
+      setEditingProduct(null);
+      toast({
+        title: 'Success',
+        description: `Product ${editingProduct ? 'updated' : 'created'} successfully.`,
+      });
+    } catch (error) {
+      console.error('Error saving product:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to save product.',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const deleteVideo = async (id: string) => {
     try {
       const { error } = await supabase
@@ -266,6 +362,29 @@ export default function Admin() {
     }
   };
 
+  const deleteProduct = async (id: string) => {
+    try {
+      const { error } = await supabase
+        .from('products')
+        .delete()
+        .eq('id', id);
+      
+      if (error) throw error;
+      await loadProducts();
+      toast({
+        title: 'Success',
+        description: 'Product deleted successfully.',
+      });
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to delete product.',
+        variant: 'destructive',
+      });
+    }
+  };
+
   useEffect(() => {
     const savedAuth = localStorage.getItem('admin_authenticated');
     if (savedAuth) {
@@ -277,6 +396,7 @@ export default function Admin() {
     if (isAuthenticated) {
       loadVideos();
       loadProjects();
+      loadProducts();
     }
   }, [isAuthenticated]);
 
@@ -284,6 +404,13 @@ export default function Admin() {
   const filteredVideos = categoryFilter === 'all' 
     ? videos 
     : videos.filter(video => video.category === categoryFilter);
+
+  // Filter products based on search
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
+    product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
+    product.model.toLowerCase().includes(productSearch.toLowerCase())
+  );
 
   if (!isAuthenticated) {
     return (
@@ -574,12 +701,112 @@ export default function Admin() {
             </TabsContent>
 
             <TabsContent value="products" className="space-y-6">
-              <div className="text-center py-12">
-                <Package className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Product Management</h3>
-                <p className="text-muted-foreground">
-                  Product management interface coming soon. Use the database directly for now.
-                </p>
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-semibold">Product Management</h2>
+                <div className="flex items-center gap-4">
+                  <Input
+                    placeholder="Search products..."
+                    value={productSearch}
+                    onChange={(e) => setProductSearch(e.target.value)}
+                    className="w-64"
+                  />
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button onClick={() => setEditingProduct(null)}>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add Product
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle>
+                          {editingProduct ? 'Edit Product' : 'Add New Product'}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <ProductForm
+                        product={editingProduct}
+                        onSave={saveProduct}
+                        loading={loading}
+                        brands={brands || []}
+                      />
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {filteredProducts.map((product) => (
+                  <Card key={product.id}>
+                    <CardContent className="flex items-center justify-between p-4">
+                      <div className="flex items-center gap-4">
+                        {product.image_urls.length > 0 && (
+                          <img
+                            src={product.image_urls[0]}
+                            alt={product.name}
+                            className="w-20 h-14 object-cover rounded"
+                          />
+                        )}
+                        <div>
+                          <h3 className="font-medium">{product.name}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {product.brand} {product.model} | {product.tonnage} Ton
+                          </p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Badge variant={product.is_available ? 'default' : 'secondary'}>
+                              {product.is_available ? 'Available' : 'Out of Stock'}
+                            </Badge>
+                            {product.is_featured && (
+                              <Badge variant="outline">Featured</Badge>
+                            )}
+                            <span className="text-xs text-muted-foreground">
+                              ₹{product.price.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => setEditingProduct(product)}
+                            >
+                              <Edit className="h-4 w-4" />
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                            <DialogHeader>
+                              <DialogTitle>Edit Product</DialogTitle>
+                            </DialogHeader>
+                            <ProductForm
+                              product={product}
+                              onSave={saveProduct}
+                              loading={loading}
+                              brands={brands || []}
+                            />
+                          </DialogContent>
+                        </Dialog>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => deleteProduct(product.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+                {filteredProducts.length === 0 && (
+                  <div className="text-center py-12">
+                    <Package className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2">No Products Found</h3>
+                    <p className="text-muted-foreground">
+                      {productSearch ? 'Try adjusting your search terms' : 'Start by adding your first product'}
+                    </p>
+                  </div>
+                )}
               </div>
             </TabsContent>
           </Tabs>
@@ -869,6 +1096,331 @@ function ProjectForm({
       <Button type="submit" disabled={loading}>
         <Save className="h-4 w-4 mr-2" />
         {loading ? 'Saving...' : 'Save Project'}
+      </Button>
+    </form>
+  );
+}
+
+// Product Form Component
+function ProductForm({ 
+  product, 
+  onSave, 
+  loading,
+  brands 
+}: { 
+  product: Product | null; 
+  onSave: (data: Partial<Product>) => void; 
+  loading: boolean;
+  brands: any[];
+}) {
+  const [formData, setFormData] = useState({
+    name: product?.name || '',
+    model: product?.model || '',
+    series: product?.series || '',
+    brand: product?.brand || '',
+    tonnage: product?.tonnage || 1,
+    price: product?.price || 0,
+    original_price: product?.original_price || 0,
+    discount_percent: product?.discount_percent || 0,
+    star_rating: product?.star_rating || 0,
+    review_count: product?.review_count || 0,
+    features: product?.features?.join(', ') || '',
+    description: product?.description || '',
+    specifications: product?.specifications ? JSON.stringify(product.specifications, null, 2) : '{}',
+    image_urls: product?.image_urls?.join(', ') || '',
+    is_available: product?.is_available ?? true,
+    is_featured: product?.is_featured ?? false,
+    energy_rating: product?.energy_rating || '',
+    warranty_years: product?.warranty_years || 1,
+    slug: product?.slug || '',
+    seo_title: product?.seo_title || '',
+    seo_description: product?.seo_description || '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const data = {
+        ...formData,
+        features: formData.features.split(',').map(f => f.trim()).filter(f => f),
+        image_urls: formData.image_urls.split(',').map(url => url.trim()).filter(url => url),
+        specifications: formData.specifications ? JSON.parse(formData.specifications) : {},
+      };
+      onSave(data);
+    } catch (error) {
+      console.error('Error parsing form data:', error);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6 max-h-[70vh] overflow-y-auto">
+      {/* Basic Information */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">Basic Information</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="name">Product Name</Label>
+            <Input
+              id="name"
+              value={formData.name}
+              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="model">Model</Label>
+            <Input
+              id="model"
+              value={formData.model}
+              onChange={(e) => setFormData(prev => ({ ...prev, model: e.target.value }))}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="brand">Brand</Label>
+            <Select
+              value={formData.brand}
+              onValueChange={(value) => setFormData(prev => ({ ...prev, brand: value }))}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select brand" />
+              </SelectTrigger>
+              <SelectContent>
+                {brands.map((brand) => (
+                  <SelectItem key={brand.id} value={brand.name}>
+                    {brand.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label htmlFor="series">Series</Label>
+            <Input
+              id="series"
+              value={formData.series}
+              onChange={(e) => setFormData(prev => ({ ...prev, series: e.target.value }))}
+            />
+          </div>
+        </div>
+
+        <div>
+          <Label htmlFor="description">Description</Label>
+          <Textarea
+            id="description"
+            value={formData.description}
+            onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+            rows={3}
+          />
+        </div>
+      </div>
+
+      {/* Technical Specifications */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">Technical Specifications</h3>
+        <div className="grid grid-cols-3 gap-4">
+          <div>
+            <Label htmlFor="tonnage">Tonnage</Label>
+            <Input
+              id="tonnage"
+              type="number"
+              step="0.1"
+              value={formData.tonnage}
+              onChange={(e) => setFormData(prev => ({ ...prev, tonnage: Number(e.target.value) }))}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="energy_rating">Energy Rating</Label>
+            <Select
+              value={formData.energy_rating}
+              onValueChange={(value) => setFormData(prev => ({ ...prev, energy_rating: value }))}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select rating" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">1 Star</SelectItem>
+                <SelectItem value="2">2 Star</SelectItem>
+                <SelectItem value="3">3 Star</SelectItem>
+                <SelectItem value="4">4 Star</SelectItem>
+                <SelectItem value="5">5 Star</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label htmlFor="warranty_years">Warranty (Years)</Label>
+            <Input
+              id="warranty_years"
+              type="number"
+              value={formData.warranty_years}
+              onChange={(e) => setFormData(prev => ({ ...prev, warranty_years: Number(e.target.value) }))}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">Pricing</h3>
+        <div className="grid grid-cols-3 gap-4">
+          <div>
+            <Label htmlFor="price">Current Price (₹)</Label>
+            <Input
+              id="price"
+              type="number"
+              value={formData.price}
+              onChange={(e) => setFormData(prev => ({ ...prev, price: Number(e.target.value) }))}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="original_price">Original Price (₹)</Label>
+            <Input
+              id="original_price"
+              type="number"
+              value={formData.original_price}
+              onChange={(e) => setFormData(prev => ({ ...prev, original_price: Number(e.target.value) }))}
+            />
+          </div>
+          <div>
+            <Label htmlFor="discount_percent">Discount (%)</Label>
+            <Input
+              id="discount_percent"
+              type="number"
+              value={formData.discount_percent}
+              onChange={(e) => setFormData(prev => ({ ...prev, discount_percent: Number(e.target.value) }))}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Features and Media */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">Features & Media</h3>
+        <div>
+          <Label htmlFor="features">Features (comma-separated)</Label>
+          <Textarea
+            id="features"
+            value={formData.features}
+            onChange={(e) => setFormData(prev => ({ ...prev, features: e.target.value }))}
+            placeholder="Energy efficient, Silent operation, Remote control..."
+            rows={3}
+          />
+        </div>
+        <div>
+          <Label htmlFor="image_urls">Image URLs (comma-separated)</Label>
+          <Textarea
+            id="image_urls"
+            value={formData.image_urls}
+            onChange={(e) => setFormData(prev => ({ ...prev, image_urls: e.target.value }))}
+            placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg..."
+            rows={2}
+          />
+        </div>
+      </div>
+
+      {/* SEO & Status */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">SEO & Status</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="slug">URL Slug</Label>
+            <Input
+              id="slug"
+              value={formData.slug}
+              onChange={(e) => setFormData(prev => ({ ...prev, slug: e.target.value }))}
+              placeholder="Auto-generated from name if empty"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <Label htmlFor="star_rating">Rating (1-5)</Label>
+              <Input
+                id="star_rating"
+                type="number"
+                min="0"
+                max="5"
+                step="0.1"
+                value={formData.star_rating}
+                onChange={(e) => setFormData(prev => ({ ...prev, star_rating: Number(e.target.value) }))}
+              />
+            </div>
+            <div>
+              <Label htmlFor="review_count">Reviews Count</Label>
+              <Input
+                id="review_count"
+                type="number"
+                value={formData.review_count}
+                onChange={(e) => setFormData(prev => ({ ...prev, review_count: Number(e.target.value) }))}
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <Label htmlFor="seo_title">SEO Title</Label>
+          <Input
+            id="seo_title"
+            value={formData.seo_title}
+            onChange={(e) => setFormData(prev => ({ ...prev, seo_title: e.target.value }))}
+            placeholder="Custom title for search engines"
+          />
+        </div>
+        
+        <div>
+          <Label htmlFor="seo_description">SEO Description</Label>
+          <Textarea
+            id="seo_description"
+            value={formData.seo_description}
+            onChange={(e) => setFormData(prev => ({ ...prev, seo_description: e.target.value }))}
+            placeholder="Description for search engines (max 160 chars)"
+            rows={2}
+          />
+        </div>
+
+        <div className="flex items-center gap-6">
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="is_available"
+              checked={formData.is_available}
+              onCheckedChange={(checked) => setFormData(prev => ({ ...prev, is_available: checked }))}
+            />
+            <Label htmlFor="is_available">Available for Purchase</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="is_featured"
+              checked={formData.is_featured}
+              onCheckedChange={(checked) => setFormData(prev => ({ ...prev, is_featured: checked }))}
+            />
+            <Label htmlFor="is_featured">Featured Product</Label>
+          </div>
+        </div>
+      </div>
+
+      {/* Advanced Specifications */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-lg">Advanced Specifications (JSON)</h3>
+        <div>
+          <Label htmlFor="specifications">Technical Specifications</Label>
+          <Textarea
+            id="specifications"
+            value={formData.specifications}
+            onChange={(e) => setFormData(prev => ({ ...prev, specifications: e.target.value }))}
+            placeholder='{"cooling_capacity": "1.5 TR", "power_consumption": "1200W", "refrigerant": "R32"}'
+            rows={4}
+            className="font-mono text-sm"
+          />
+        </div>
+      </div>
+
+      <Button type="submit" disabled={loading} className="w-full">
+        <Save className="h-4 w-4 mr-2" />
+        {loading ? 'Saving...' : 'Save Product'}
       </Button>
     </form>
   );
