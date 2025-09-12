@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Snowflake, Thermometer, Shield, Factory, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -300,6 +301,13 @@ const ColdRoom = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="cold-room" 
+          title="Cold Room Videos"
+          description="Watch cold room construction and refrigeration system installations."
+        />
       </main>
       
       <Footer />

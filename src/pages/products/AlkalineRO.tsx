@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Droplets, Shield, Heart, Zap, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -285,6 +286,13 @@ const AlkalineRO = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="alkaline-ro" 
+          title="Alkaline RO Videos"
+          description="Watch installation guides and health benefits of alkaline water systems."
+        />
       </main>
       
       <Footer />

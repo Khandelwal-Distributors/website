@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Building2, Cpu, Zap, Settings, Building, Hotel, Hospital, ShoppingBag, School, Factory, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -242,6 +243,13 @@ const VRVSystem = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="vrv-system" 
+          title="VRV System Videos"
+          description="Explore variable refrigerant volume systems for large commercial spaces."
+        />
       </main>
       
       <Footer />

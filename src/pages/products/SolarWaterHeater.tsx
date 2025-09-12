@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Sun, Leaf, TrendingDown, Shield, Home, Building, Hotel, School, Hospital, Factory, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -273,6 +274,13 @@ const SolarWaterHeater = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="solar-water-heater" 
+          title="Solar Water Heater Videos"
+          description="Watch installation guides and benefits of solar water heating systems."
+        />
       </main>
       
       <Footer />

@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Thermometer, Snowflake, Shield, Zap, Building, Hotel, School, Hospital, Factory, Home, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -260,6 +261,13 @@ const DeepFreezers = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="deep-freezers" 
+          title="Deep Freezer Videos"
+          description="Watch detailed reviews and installation guides for commercial deep freezers."
+        />
       </main>
       
       <Footer />
