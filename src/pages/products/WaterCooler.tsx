@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Droplets, Thermometer, Filter, Shield, Building, Hotel, School, Hospital, Factory, Home, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -260,6 +261,13 @@ const WaterCooler = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="water-cooler" 
+          title="Water Cooler Videos"
+          description="Watch installation and maintenance guides for water coolers and dispensers."
+        />
       </main>
       
       <Footer />

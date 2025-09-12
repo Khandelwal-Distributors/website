@@ -4,7 +4,7 @@ import { Phone, Home, Building, Droplets, Wind, Hotel, Cross, GraduationCap, Dum
 import { Link } from "react-router-dom";
 import acCollection from "@/assets/ac-collection.jpg";
 import commercialHvac from "@/assets/commercial-hvac.jpg";
-import YouTubeVideos from "@/components/YouTubeVideos";
+
 
 const ProductCategories = () => {
   return (
@@ -154,13 +154,6 @@ const ProductCategories = () => {
             </Button>
           </div>
         </div>
-
-        {/* Video Section */}
-        <YouTubeVideos 
-          category="products" 
-          title="Product Category Videos"
-          description="Explore our HVAC product categories and find the perfect solution for your needs."
-        />
       </div>
     </section>
   );

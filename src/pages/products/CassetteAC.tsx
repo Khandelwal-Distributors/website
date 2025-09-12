@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Wind, Building, Eye, Thermometer, Hotel, ShoppingBag, Hospital, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -202,6 +203,13 @@ const CassetteAC = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="cassette-ac" 
+          title="Cassette AC Videos"
+          description="Watch detailed installation guides and reviews for ceiling cassette air conditioners."
+        />
       </main>
       
       <Footer />

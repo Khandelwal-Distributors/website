@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import YouTubeVideos from "@/components/YouTubeVideos";
 import { Phone, ArrowLeft, Star, Thermometer, Zap, Shield, Award, TrendingUp, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -170,6 +171,13 @@ const InverterSplitAC = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="inverter-split-ac" 
+          title="Inverter Split AC Videos"
+          description="Watch detailed reviews and installation guides for inverter split air conditioners."
+        />
       </main>
       
       <Footer />

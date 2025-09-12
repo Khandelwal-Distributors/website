@@ -15,6 +15,7 @@ import {
 import { useProduct, useRecommendedProducts } from '@/hooks/useProducts';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import YouTubeVideos from '@/components/YouTubeVideos';
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -389,8 +390,15 @@ export default function ProductDetail() {
                   </div>
                 </CardContent>
               </Card>
-            )}
+          )}
           </div>
+
+          {/* Video Section */}
+          <YouTubeVideos 
+            category="products"
+            title="Product Videos"
+            description="Watch detailed product reviews and installation guides."
+          />
 
           {/* Recommended Products */}
           {recommendedProducts.length > 0 && (
