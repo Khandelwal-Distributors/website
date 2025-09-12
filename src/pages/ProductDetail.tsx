@@ -305,7 +305,7 @@ export default function ProductDetail() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <Button size="lg" variant="secondary" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in this product. Please share the best price and details.', '_blank')} className="text-lg py-6 bg-green-600 hover:bg-green-700 text-white">
                     <MessageCircle className="mr-2 h-5 w-5" />
-                    WhatsApp for Best Price
+                    WhatsApp
                   </Button>
                   <Button size="lg" variant="outline" onClick={() => window.open('tel:+919429693410', '_self')} className="text-lg py-6">
                     <Phone className="mr-2 h-5 w-5" />
