@@ -18,6 +18,11 @@ const YouTubeVideos = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const { data: videos = [], isLoading } = useVideos(category);
 
+  // Don't render anything if no videos and not loading
+  if (!isLoading && videos.length === 0) {
+    return null;
+  }
+
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = 320;
@@ -72,7 +77,7 @@ const YouTubeVideos = ({
                   </div>
                 </div>
               ))
-            ) : videos.length > 0 ? (
+            ) : videos.length > 0 && (
               videos.map((video) => (
                 <Card key={video.id} className="flex-shrink-0 w-80 group hover:shadow-[var(--shadow-card)] transition-all duration-300">
                   <CardContent className="p-0">
@@ -102,10 +107,6 @@ const YouTubeVideos = ({
                   </CardContent>
                 </Card>
               ))
-            ) : (
-              <div className="flex-shrink-0 w-full text-center py-12">
-                <p className="text-muted-foreground">No videos available for this category yet.</p>
-              </div>
             )}
           </div>
 

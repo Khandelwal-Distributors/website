@@ -46,6 +46,7 @@ export default function Admin() {
   const [accessCode, setAccessCode] = useState('');
   const [videos, setVideos] = useState<VideoContent[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [loading, setLoading] = useState(false);
   const [editingVideo, setEditingVideo] = useState<VideoContent | null>(null);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
@@ -279,6 +280,11 @@ export default function Admin() {
     }
   }, [isAuthenticated]);
 
+  // Filter videos based on selected category
+  const filteredVideos = categoryFilter === 'all' 
+    ? videos 
+    : videos.filter(video => video.category === categoryFilter);
+
   if (!isAuthenticated) {
     return (
       <>
@@ -361,30 +367,65 @@ export default function Admin() {
             <TabsContent value="videos" className="space-y-6">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-semibold">Video Management</h2>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button onClick={() => setEditingVideo(null)}>
-                      <Plus className="h-4 w-4 mr-2" />
-                      Add Video
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-2xl">
-                    <DialogHeader>
-                      <DialogTitle>
-                        {editingVideo ? 'Edit Video' : 'Add New Video'}
-                      </DialogTitle>
-                    </DialogHeader>
-                    <VideoForm
-                      video={editingVideo}
-                      onSave={saveVideo}
-                      loading={loading}
-                    />
-                  </DialogContent>
-                </Dialog>
+                <div className="flex items-center gap-4">
+                  <Select
+                    value={categoryFilter}
+                    onValueChange={setCategoryFilter}
+                  >
+                    <SelectTrigger className="w-48">
+                      <SelectValue placeholder="Filter by category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Categories</SelectItem>
+                      <SelectItem value="homepage">Homepage</SelectItem>
+                      <SelectItem value="products">Products (General)</SelectItem>
+                      <SelectItem value="shop">Shop</SelectItem>
+                      <SelectItem value="product-categories">Product Categories</SelectItem>
+                      <SelectItem value="inverter-split-ac">Inverter Split AC</SelectItem>
+                      <SelectItem value="non-inverter-split-ac">Non-Inverter Split AC</SelectItem>
+                      <SelectItem value="window-ac">Window AC</SelectItem>
+                      <SelectItem value="cassette-ac">Cassette AC</SelectItem>
+                      <SelectItem value="ductable-ac">Ductable AC</SelectItem>
+                      <SelectItem value="floor-standing-ac">Floor Standing AC</SelectItem>
+                      <SelectItem value="portable-ac">Portable AC</SelectItem>
+                      <SelectItem value="vrv-system">VRV System</SelectItem>
+                      <SelectItem value="chiller-system">Chiller System</SelectItem>
+                      <SelectItem value="ahu-system">AHU System</SelectItem>
+                      <SelectItem value="heat-pump">Heat Pump</SelectItem>
+                      <SelectItem value="ventilation-hrv">Ventilation HRV</SelectItem>
+                      <SelectItem value="cold-room">Cold Room</SelectItem>
+                      <SelectItem value="deep-freezers">Deep Freezers</SelectItem>
+                      <SelectItem value="water-cooler">Water Cooler</SelectItem>
+                      <SelectItem value="air-purifier">Air Purifier</SelectItem>
+                      <SelectItem value="alkaline-ro">Alkaline RO</SelectItem>
+                      <SelectItem value="solar-water-heater">Solar Water Heater</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button onClick={() => setEditingVideo(null)}>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add Video
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle>
+                          {editingVideo ? 'Edit Video' : 'Add New Video'}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <VideoForm
+                        video={editingVideo}
+                        onSave={saveVideo}
+                        loading={loading}
+                      />
+                    </DialogContent>
+                  </Dialog>
+                </div>
               </div>
 
               <div className="grid gap-4">
-                {videos.map((video) => (
+                {filteredVideos.map((video) => (
                   <Card key={video.id}>
                     <CardContent className="flex items-center justify-between p-4">
                       <div className="flex items-center gap-4">
@@ -562,7 +603,7 @@ function VideoForm({
     title: video?.title || '',
     youtube_url: video?.youtube_url || '',
     description: video?.description || '',
-    category: video?.category || 'general',
+    category: video?.category || 'homepage',
     is_active: video?.is_active ?? true,
     sort_order: video?.sort_order || 0,
   });
@@ -606,23 +647,40 @@ function VideoForm({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <Label htmlFor="category">Category</Label>
-          <Select
-            value={formData.category}
-            onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="general">General</SelectItem>
-              <SelectItem value="homepage">Homepage</SelectItem>
-              <SelectItem value="products">Products</SelectItem>
-              <SelectItem value="shop">Shop</SelectItem>
-              <SelectItem value="installation">Installation</SelectItem>
-              <SelectItem value="maintenance">Maintenance</SelectItem>
-            </SelectContent>
-          </Select>
+        <Label htmlFor="category">Category</Label>
+        <Select
+          value={formData.category}
+          onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
+        >
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="homepage">Homepage</SelectItem>
+            <SelectItem value="products">Products (General)</SelectItem>
+            <SelectItem value="shop">Shop</SelectItem>
+            <SelectItem value="product-categories">Product Categories</SelectItem>
+            {/* Product Specific Categories */}
+            <SelectItem value="inverter-split-ac">Inverter Split AC</SelectItem>
+            <SelectItem value="non-inverter-split-ac">Non-Inverter Split AC</SelectItem>
+            <SelectItem value="window-ac">Window AC</SelectItem>
+            <SelectItem value="cassette-ac">Cassette AC</SelectItem>
+            <SelectItem value="ductable-ac">Ductable AC</SelectItem>
+            <SelectItem value="floor-standing-ac">Floor Standing AC</SelectItem>
+            <SelectItem value="portable-ac">Portable AC</SelectItem>
+            <SelectItem value="vrv-system">VRV System</SelectItem>
+            <SelectItem value="chiller-system">Chiller System</SelectItem>
+            <SelectItem value="ahu-system">AHU System</SelectItem>
+            <SelectItem value="heat-pump">Heat Pump</SelectItem>
+            <SelectItem value="ventilation-hrv">Ventilation HRV</SelectItem>
+            <SelectItem value="cold-room">Cold Room</SelectItem>
+            <SelectItem value="deep-freezers">Deep Freezers</SelectItem>
+            <SelectItem value="water-cooler">Water Cooler</SelectItem>
+            <SelectItem value="air-purifier">Air Purifier</SelectItem>
+            <SelectItem value="alkaline-ro">Alkaline RO</SelectItem>
+            <SelectItem value="solar-water-heater">Solar Water Heater</SelectItem>
+          </SelectContent>
+        </Select>
         </div>
 
         <div>
