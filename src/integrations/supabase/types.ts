@@ -232,6 +232,96 @@ export type Database = {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          capacity: string | null
+          client: string | null
+          completion_year: number | null
+          created_at: string
+          description: string | null
+          features: string[] | null
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          location: string | null
+          project_type: string
+          rating: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          capacity?: string | null
+          client?: string | null
+          completion_year?: number | null
+          created_at?: string
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          location?: string | null
+          project_type: string
+          rating?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          capacity?: string | null
+          client?: string | null
+          completion_year?: number | null
+          created_at?: string
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          location?: string | null
+          project_type?: string
+          rating?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      video_content: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          sort_order: number | null
+          title: string
+          updated_at: string
+          youtube_id: string
+          youtube_url: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          sort_order?: number | null
+          title: string
+          updated_at?: string
+          youtube_id: string
+          youtube_url: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          sort_order?: number | null
+          title?: string
+          updated_at?: string
+          youtube_id?: string
+          youtube_url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

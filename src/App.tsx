@@ -20,6 +20,7 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
+import Admin from "./pages/Admin";
 
 // Import individual product category pages
 import InverterSplitAC from "./pages/products/InverterSplitAC";
@@ -90,6 +91,7 @@ const App = () => {
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/projects" element={<Projects />} />
+                  <Route path="/admin" element={<Admin />} />
                   
                   {/* Individual product category routes */}
                   <Route path="/products/inverter-split-ac" element={<InverterSplitAC />} />

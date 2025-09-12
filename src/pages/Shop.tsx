@@ -17,6 +17,7 @@ import { Search, Filter, Truck, Shield, Award, Clock,
 import { useProducts, useBrands, type ProductFilters, type Product } from '@/hooks/useProducts';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import YouTubeVideos from '@/components/YouTubeVideos';
 
 const TONNAGE_OPTIONS = [1.0, 1.5, 2.0, 2.5, 3.0];
 const ENERGY_RATINGS = ['3 Star', '4 Star', '5 Star'];
@@ -353,6 +354,13 @@ export default function Shop() {
             </div>
           )}
         </main>
+
+        {/* Video Section */}
+        <YouTubeVideos 
+          category="shop" 
+          title="Product Showcase Videos"
+          description="Watch detailed reviews and demonstrations of our HVAC products."
+        />
 
         <Footer />
       </div>
