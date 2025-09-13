@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, ArrowLeft, Star, Thermometer, Wind, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import OptimizedImage from "@/components/OptimizedImage";
 
 // Import product images
@@ -192,6 +193,47 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Air Conditioner & HVAC Products in Bareilly | Split AC, VRV, AHU Systems | Best Prices</title>
+        <meta name="description" content="Browse all HVAC products in Bareilly, UP. Split ACs, VRV systems, chillers, AHU, water coolers, air purifiers. Best prices on Daikin, Carrier, Mitsubishi brands. Expert installation & service." />
+        <meta name="keywords" content="AC products Bareilly, HVAC systems UP, air conditioner catalog Bareilly, split AC, VRV system, chiller, AHU, commercial HVAC, residential cooling solutions" />
+        <meta property="og:title" content="Complete HVAC Product Catalog | Air Conditioners & Systems in Bareilly" />
+        <meta property="og:description" content="Explore our complete range of HVAC products in Bareilly. From residential split ACs to commercial VRV systems, find the perfect cooling solution." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/src/assets/products-hero-bg.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Complete HVAC Product Catalog | Air Conditioners & Systems in Bareilly" />
+        <meta name="twitter:description" content="Explore our complete range of HVAC products in Bareilly. From residential split ACs to commercial VRV systems, find the perfect cooling solution." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "HVAC Products & Air Conditioning Systems",
+            "description": "Complete catalog of air conditioning and HVAC products available in Bareilly, Uttar Pradesh",
+            "url": "https://kdenterprisesbareilly.com/products",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410",
+              "priceRange": "$$"
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "numberOfItems": productCategories.length,
+              "itemListElement": productCategories.map((category, index) => ({
+                "@type": "Product",
+                "position": index + 1,
+                "name": category.title,
+                "description": category.description,
+                "category": "HVAC Equipment"
+              }))
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <Header />
       
       <main>

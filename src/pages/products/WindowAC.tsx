@@ -34,7 +34,35 @@ const WindowAC = () => {
         <meta name="keywords" content="window AC price Bareilly, window air conditioner Bareilly, cheap AC Bareilly, Carrier window AC, Godrej window AC, AC dealers Bareilly UP" />
         <meta property="og:title" content="Best Window AC Dealers in Bareilly | Affordable Air Conditioners" />
         <meta property="og:description" content="Shop quality window ACs in Bareilly. Best prices, expert installation, reliable service. Perfect for small rooms and budget-conscious buyers." />
-        <link rel="canonical" href="https://yoursite.com/products/window-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/window-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Window AC Dealers in Bareilly | Affordable Air Conditioners" />
+        <meta name="twitter:description" content="Shop quality window ACs in Bareilly. Best prices, expert installation, reliable service. Perfect for small rooms and budget-conscious buyers." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/window-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Window Air Conditioners",
+            "category": "Air Conditioning",
+            "description": "Affordable window ACs for homes and offices in Bareilly, UP",
+            "brand": ["Carrier", "Godrej", "Amstrad", "Cruise", "Voltas", "Blue Star"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "18000",
+              "highPrice": "28000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

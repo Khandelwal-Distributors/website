@@ -42,7 +42,35 @@ const NonInverterSplitAC = () => {
         <meta name="keywords" content="non-inverter AC price Bareilly, fixed speed AC Bareilly, budget AC Bareilly, cheap split AC, Carrier fixed speed, affordable cooling solution UP" />
         <meta property="og:title" content="Best Non-Inverter AC Dealers in Bareilly | Budget Air Conditioners" />
         <meta property="og:description" content="Affordable non-inverter split ACs in Bareilly. Lower upfront cost, reliable cooling, perfect for budget-conscious buyers. Professional installation and service." />
-        <link rel="canonical" href="https://yoursite.com/products/non-inverter-split-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/split-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Non-Inverter AC Dealers in Bareilly | Budget Air Conditioners" />
+        <meta name="twitter:description" content="Affordable non-inverter split ACs in Bareilly. Lower upfront cost, reliable cooling, perfect for budget-conscious buyers. Professional installation and service." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/non-inverter-split-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Non-Inverter Split Air Conditioners",
+            "category": "Air Conditioning",
+            "description": "Affordable fixed-speed split air conditioners for homes and offices in Bareilly, UP",
+            "brand": ["Carrier", "Godrej", "Amstrad", "Voltas", "Blue Star", "Cruise"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "20000",
+              "highPrice": "25000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

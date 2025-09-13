@@ -54,7 +54,35 @@ const FloorStandingAC = () => {
         <meta name="keywords" content="floor standing AC price Bareilly, large capacity AC, floor mounted AC Bareilly, commercial AC UP, hall cooling solution, high airflow AC" />
         <meta property="og:title" content="Best Floor Standing AC Dealers in Bareilly | Large Space Cooling" />
         <meta property="og:description" content="Premium floor standing ACs for large spaces in Bareilly. High capacity, powerful airflow, perfect for halls and commercial applications." />
-        <link rel="canonical" href="https://yoursite.com/products/floor-standing-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/floor-standing-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Floor Standing AC Dealers in Bareilly | Large Space Cooling" />
+        <meta name="twitter:description" content="Premium floor standing ACs for large spaces in Bareilly. High capacity, powerful airflow, perfect for halls and commercial applications." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/floor-standing-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Floor Standing Air Conditioners",
+            "category": "Commercial Air Conditioning",
+            "description": "High-capacity floor standing air conditioners for large spaces in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Cruise", "Blue Star", "Voltas"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "110000",
+              "highPrice": "160000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

@@ -48,7 +48,35 @@ const DuctableAC = () => {
         <meta name="keywords" content="ductable AC price Bareilly, central AC system UP, concealed AC installation, ducted air conditioning, large space cooling, office AC system Bareilly" />
         <meta property="og:title" content="Best Ductable AC Dealers in Bareilly | Central Air Conditioning Systems" />
         <meta property="og:description" content="Premium ductable ACs for large spaces in Bareilly. Concealed installation, uniform cooling, centralized control for offices and homes." />
-        <link rel="canonical" href="https://yoursite.com/products/ductable-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/ductable-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Ductable AC Dealers in Bareilly | Central Air Conditioning Systems" />
+        <meta name="twitter:description" content="Premium ductable ACs for large spaces in Bareilly. Concealed installation, uniform cooling, centralized control for offices and homes." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ductable-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Ductable Air Conditioners",
+            "category": "Central Air Conditioning",
+            "description": "Concealed ductable AC systems for large spaces in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Blue Star", "Voltas", "Cruise"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "145000",
+              "highPrice": "185000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

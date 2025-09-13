@@ -60,7 +60,35 @@ const HeatPump = () => {
         <meta name="keywords" content="heat pump price Bareilly, energy efficient heating UP, ground source heat pump, air source heat pump, eco-friendly HVAC Bareilly, renewable energy cooling" />
         <meta property="og:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
         <meta property="og:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
-        <link rel="canonical" href="https://yoursite.com/products/heat-pump" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/heat-pump.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
+        <meta name="twitter:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/heat-pump" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Heat Pump Systems",
+            "category": "Eco-Friendly HVAC",
+            "description": "Energy-efficient heat pump systems for all-season comfort in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Mitsubishi"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "150000",
+              "highPrice": "500000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

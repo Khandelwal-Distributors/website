@@ -50,7 +50,35 @@ const AlkalineRO = () => {
         <meta name="keywords" content="alkaline RO price Bareilly, Zero B RO Bareilly, alkaline water purifier UP, health water system, RO UV alkaline, mineral water purifier Bareilly" />
         <meta property="og:title" content="Best Alkaline RO Dealers in Bareilly | Healthy Water Solutions" />
         <meta property="og:description" content="Premium alkaline RO water purifiers in Bareilly. 8-stage purification, health benefits, mineral rich water with professional installation." />
-        <link rel="canonical" href="https://yoursite.com/products/alkaline-ro" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/alkaline-ro.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Alkaline RO Dealers in Bareilly | Healthy Water Solutions" />
+        <meta name="twitter:description" content="Premium alkaline RO water purifiers in Bareilly. 8-stage purification, health benefits, mineral rich water with professional installation." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/alkaline-ro" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Alkaline RO Water Purifiers",
+            "category": "Water Purification",
+            "description": "Advanced alkaline water purification systems for homes and offices in Bareilly, UP",
+            "brand": ["Zero B", "Kent", "Aquaguard", "Blue Star"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "15000",
+              "highPrice": "45000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

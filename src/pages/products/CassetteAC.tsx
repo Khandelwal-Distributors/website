@@ -45,7 +45,35 @@ const CassetteAC = () => {
         <meta name="keywords" content="cassette AC price Bareilly, ceiling AC Bareilly, commercial AC Bareilly, office AC installation, Daikin cassette AC, restaurant AC Bareilly UP" />
         <meta property="og:title" content="Best Cassette AC Dealers in Bareilly | Commercial Air Conditioning" />
         <meta property="og:description" content="Premium cassette ACs for commercial spaces in Bareilly. 360° airflow, invisible design, expert installation for offices and restaurants." />
-        <link rel="canonical" href="https://yoursite.com/products/cassette-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/cassette-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Cassette AC Dealers in Bareilly | Commercial Air Conditioning" />
+        <meta name="twitter:description" content="Premium cassette ACs for commercial spaces in Bareilly. 360° airflow, invisible design, expert installation for offices and restaurants." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/cassette-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Cassette Air Conditioners",
+            "category": "Commercial Air Conditioning",
+            "description": "Premium ceiling-mounted cassette ACs for commercial spaces in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Cruise", "Blue Star", "Voltas"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "75000",
+              "highPrice": "95000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

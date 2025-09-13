@@ -34,7 +34,35 @@ const InverterSplitAC = () => {
         <meta name="keywords" content="inverter split AC price Bareilly, energy efficient AC Bareilly, split AC dealers Bareilly, Daikin inverter AC, Carrier inverter AC, HVAC Bareilly UP" />
         <meta property="og:title" content="Best Inverter Split AC Dealers in Bareilly | Energy Efficient Air Conditioners" />
         <meta property="og:description" content="Shop premium inverter split ACs in Bareilly. Top brands, expert installation, best prices. Save up to 60% on electricity bills." />
-        <link rel="canonical" href="https://yoursite.com/products/inverter-split-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/inverter-split-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Inverter Split AC Dealers in Bareilly | Energy Efficient Air Conditioners" />
+        <meta name="twitter:description" content="Shop premium inverter split ACs in Bareilly. Top brands, expert installation, best prices. Save up to 60% on electricity bills." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/inverter-split-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Inverter Split Air Conditioners",
+            "category": "Air Conditioning",
+            "description": "Energy-efficient inverter split ACs for homes and offices in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Amstrad", "Midea", "Godrej"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25000",
+              "highPrice": "38000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

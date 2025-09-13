@@ -69,7 +69,35 @@ const WaterCooler = () => {
         <meta name="keywords" content="water cooler price Bareilly, water dispenser UP, RO water cooler Bareilly, Blue Star cooler, office water cooler, school water cooler Bareilly" />
         <meta property="og:title" content="Best Water Cooler Dealers in Bareilly | Premium Cooling Solutions" />
         <meta property="og:description" content="Premium water cooling and dispensing solutions for offices, schools, and commercial spaces in Bareilly. Pure, cool water 24/7." />
-        <link rel="canonical" href="https://yoursite.com/products/water-cooler" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/water-cooler.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Water Cooler Dealers in Bareilly | Premium Cooling Solutions" />
+        <meta name="twitter:description" content="Premium water cooling and dispensing solutions for offices, schools, and commercial spaces in Bareilly. Pure, cool water 24/7." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/water-cooler" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Water Coolers & Dispensers",
+            "category": "Water Cooling Solutions",
+            "description": "Water cooling and dispensing solutions for commercial and residential use in Bareilly, UP",
+            "brand": ["Blue Star", "Voltas", "Usha", "Kent"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "12000",
+              "highPrice": "50000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

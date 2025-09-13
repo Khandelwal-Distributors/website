@@ -60,7 +60,35 @@ const ChillerSystem = () => {
         <meta name="keywords" content="chiller system price Bareilly, industrial chiller UP, air cooled chiller, water cooled chiller, Daikin chiller Bareilly, manufacturing cooling system" />
         <meta property="og:title" content="Best Industrial Chiller Dealers in Bareilly | Commercial Cooling Solutions" />
         <meta property="og:description" content="Premium industrial chiller systems in Bareilly. Air-cooled, water-cooled, and absorption chillers for manufacturing and commercial applications." />
-        <link rel="canonical" href="https://yoursite.com/products/chiller-system" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/chiller-system.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Industrial Chiller Dealers in Bareilly | Commercial Cooling Solutions" />
+        <meta name="twitter:description" content="Premium industrial chiller systems in Bareilly. Air-cooled, water-cooled, and absorption chillers for manufacturing and commercial applications." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/chiller-system" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Industrial Chiller Systems",
+            "category": "Industrial HVAC",
+            "description": "High-capacity industrial chiller systems for manufacturing and commercial applications in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Blue Star", "Voltas"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "1200000",
+              "highPrice": "3500000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

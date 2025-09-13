@@ -39,7 +39,35 @@ const PortableAC = () => {
         <meta name="keywords" content="portable AC price Bareilly, mobile AC Bareilly, rental home AC, temporary cooling solution, Cruise portable AC, no installation AC Bareilly UP" />
         <meta property="og:title" content="Best Portable AC Dealers in Bareilly | Mobile Air Conditioning Solutions" />
         <meta property="og:description" content="Premium portable ACs for rent homes and temporary spaces in Bareilly. Easy setup, no installation, move anywhere cooling solutions." />
-        <link rel="canonical" href="https://yoursite.com/products/portable-ac" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/portable-ac.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Portable AC Dealers in Bareilly | Mobile Air Conditioning Solutions" />
+        <meta name="twitter:description" content="Premium portable ACs for rent homes and temporary spaces in Bareilly. Easy setup, no installation, move anywhere cooling solutions." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/portable-ac" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Portable Air Conditioners",
+            "category": "Mobile Air Conditioning",
+            "description": "Mobile AC solutions for rented homes and temporary spaces in Bareilly, UP",
+            "brand": ["Cruise", "Lloyd", "Godrej", "Blue Star"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25000",
+              "highPrice": "45000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

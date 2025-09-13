@@ -58,7 +58,35 @@ const SolarWaterHeater = () => {
         <meta name="keywords" content="solar water heater price Bareilly, solar geyser Bareilly, eco-friendly water heater UP, Inter Solar Bareilly, zero electricity bill, green energy solution" />
         <meta property="og:title" content="Best Solar Water Heater Dealers in Bareilly | Eco-Friendly Solutions" />
         <meta property="og:description" content="Premium solar water heating systems in Bareilly. Save 80% on electricity bills with eco-friendly solar geysers. Professional installation and service." />
-        <link rel="canonical" href="https://yoursite.com/products/solar-water-heater" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/solar-water-heater.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Solar Water Heater Dealers in Bareilly | Eco-Friendly Geyser Systems" />
+        <meta name="twitter:description" content="Premium solar water heating systems in Bareilly. Save 80% on electricity bills with eco-friendly solar geysers. Professional installation and service." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/solar-water-heater" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Solar Water Heaters",
+            "category": "Renewable Energy",
+            "description": "Eco-friendly solar water heating systems for homes and businesses in Bareilly, UP",
+            "brand": ["Tata Power Solar", "Racold", "V-Guard", "Havells"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25000",
+              "highPrice": "85000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

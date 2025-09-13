@@ -60,7 +60,35 @@ const ColdRoom = () => {
         <meta name="keywords" content="cold room price Bareilly, walk-in freezer UP, commercial refrigeration, cold storage system, blast chiller, pharmaceutical cold room, food storage Bareilly" />
         <meta property="og:title" content="Best Cold Room Dealers in Bareilly | Commercial Refrigeration Systems" />
         <meta property="og:description" content="Premium cold rooms and walk-in freezers in Bareilly. Temperature-controlled storage for food, pharma, and commercial applications." />
-        <link rel="canonical" href="https://yoursite.com/products/cold-room" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/cold-room.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Cold Room Dealers in Bareilly | Commercial Refrigeration Systems" />
+        <meta name="twitter:description" content="Premium cold rooms and walk-in freezers in Bareilly. Temperature-controlled storage for food, pharma, and commercial applications." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/cold-room" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Cold Rooms & Storage Systems",
+            "category": "Commercial Refrigeration",
+            "description": "Temperature-controlled cold storage systems for commercial applications in Bareilly, UP",
+            "brand": ["Blue Star", "Carrier", "Voltas", "Elanpro"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "150000",
+              "highPrice": "1500000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

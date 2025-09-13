@@ -76,7 +76,35 @@ const AirPurifier = () => {
         <meta name="keywords" content="air purifier price Bareilly, water purifier Bareilly, HEPA air cleaner UP, RO system Bareilly, PM 2.5 removal, healthy air water solutions" />
         <meta property="og:title" content="Best Air & Water Purifier Dealers in Bareilly | Health Solutions" />
         <meta property="og:description" content="Premium air and water purification systems in Bareilly. HEPA air purifiers, RO water systems for complete health protection and wellness." />
-        <link rel="canonical" href="https://yoursite.com/products/air-purifier" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/air-purifier.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Air & Water Purifier Dealers in Bareilly | Health Solutions" />
+        <meta name="twitter:description" content="Premium air and water purification systems in Bareilly. HEPA air purifiers, RO water systems for complete health protection and wellness." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/air-purifier" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Air & Water Purifiers",
+            "category": "Health & Wellness",
+            "description": "Air and water purification systems for health protection in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Blue Star", "Kent", "Aquaguard"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "15000",
+              "highPrice": "50000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

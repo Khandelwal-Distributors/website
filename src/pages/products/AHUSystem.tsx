@@ -70,7 +70,35 @@ const AHUSystem = () => {
         <meta name="keywords" content="AHU system price Bareilly, air handling unit UP, commercial HVAC, cleanroom AHU, pharmaceutical AHU, industrial air handling, Daikin AHU Bareilly" />
         <meta property="og:title" content="Best AHU System Dealers in Bareilly | Air Handling Unit Solutions" />
         <meta property="og:description" content="Premium air handling units for commercial and industrial applications in Bareilly. Custom AHU systems with advanced filtration and energy recovery." />
-        <link rel="canonical" href="https://yoursite.com/products/ahu-system" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/ahu-system.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best AHU System Dealers in Bareilly | Air Handling Unit Solutions" />
+        <meta name="twitter:description" content="Premium air handling units for commercial and industrial applications in Bareilly. Custom AHU systems with advanced filtration and energy recovery." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ahu-system" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Air Handling Units (AHU)",
+            "category": "Commercial HVAC",
+            "description": "Professional air handling systems for commercial and industrial applications in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Blue Star", "Voltas"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "650000",
+              "highPrice": "2200000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

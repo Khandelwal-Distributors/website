@@ -45,7 +45,35 @@ const VRVSystem = () => {
         <meta name="keywords" content="VRV system price Bareilly, Daikin VRV Bareilly, VRF system UP, commercial HVAC Bareilly, office AC system, hotel HVAC installation, energy efficient AC system" />
         <meta property="og:title" content="Best VRV System Dealers in Bareilly | Commercial HVAC Solutions" />
         <meta property="og:description" content="Premium VRV/VRF systems for commercial buildings in Bareilly. Energy efficient, individual zone control, expert installation and service." />
-        <link rel="canonical" href="https://yoursite.com/products/vrv-system" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/vrv-system.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best VRV System Dealers in Bareilly | Commercial HVAC Solutions" />
+        <meta name="twitter:description" content="Premium VRV/VRF systems for commercial buildings in Bareilly. Energy efficient, individual zone control, expert installation and service." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/vrv-system" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "VRV Systems",
+            "category": "Commercial HVAC",
+            "description": "Advanced Variable Refrigerant Volume systems for commercial buildings in Bareilly, UP",
+            "brand": ["Daikin", "Mitsubishi", "Carrier"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "420000",
+              "highPrice": "850000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

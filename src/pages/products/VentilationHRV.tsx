@@ -70,7 +70,35 @@ const VentilationHRV = () => {
         <meta name="keywords" content="ventilation fan price Bareilly, HRV system UP, heat recovery ventilator, exhaust fan Bareilly, fresh air system, energy recovery ventilator Daikin" />
         <meta property="og:title" content="Best Ventilation & HRV System Dealers in Bareilly | Fresh Air Solutions" />
         <meta property="og:description" content="Premium ventilation and heat recovery systems in Bareilly. Fresh air solutions with energy recovery for homes and commercial buildings." />
-        <link rel="canonical" href="https://yoursite.com/products/ventilation-hrv" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/ventilation-hrv.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Ventilation & HRV System Dealers in Bareilly | Fresh Air Solutions" />
+        <meta name="twitter:description" content="Premium ventilation and heat recovery systems in Bareilly. Fresh air solutions with energy recovery for homes and commercial buildings." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ventilation-hrv" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Ventilation & HRV Systems",
+            "category": "Ventilation Solutions",
+            "description": "Fresh air ventilation and heat recovery systems for buildings in Bareilly, UP",
+            "brand": ["Daikin", "Astberg", "Panasonic", "Systemair"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "15000",
+              "highPrice": "150000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />

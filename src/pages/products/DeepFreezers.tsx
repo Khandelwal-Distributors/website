@@ -69,7 +69,35 @@ const DeepFreezers = () => {
         <meta name="keywords" content="Elanpro freezer price Bareilly, deep freezer UP, commercial freezer Bareilly, glass door freezer, chest freezer Bareilly, restaurant freezer" />
         <meta property="og:title" content="Best Elanpro Deep Freezer Dealers in Bareilly | Commercial Refrigeration Solutions" />
         <meta property="og:description" content="Premium Elanpro deep freezers and commercial refrigeration solutions for restaurants, hotels, and commercial establishments in Bareilly." />
-        <link rel="canonical" href="https://yoursite.com/products/deep-freezers" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="/src/assets/deep-freezer.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Elanpro Deep Freezer Dealers in Bareilly | Commercial Refrigeration Solutions" />
+        <meta name="twitter:description" content="Premium Elanpro deep freezers and commercial refrigeration solutions for restaurants, hotels, and commercial establishments in Bareilly." />
+        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/deep-freezers" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Elanpro Deep Freezers",
+            "category": "Commercial Refrigeration",
+            "description": "Commercial deep freezers and refrigeration solutions for restaurants and retail in Bareilly, UP",
+            "brand": ["Elanpro", "Blue Star", "Voltas", "Carrier"],
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25000",
+              "highPrice": "250000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "KD Enterprises",
+              "address": "Bareilly, Uttar Pradesh, India",
+              "telephone": "+919429693410"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Header />
