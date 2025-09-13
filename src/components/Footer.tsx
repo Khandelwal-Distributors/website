@@ -36,7 +36,7 @@ const Footer = () => {
               <li>AC Installation</li>
               <li>HVAC Maintenance</li>
               <li>Commercial Projects</li>
-              <li>Emergency Repairs</li>
+              <li>Centralised AC</li>
               <li>Free Consultation</li>
               <li>AMC Contracts</li>
             </ul>
@@ -54,14 +54,14 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
                 <a href="mailto:info@khandelwaldistributors.com" className="text-muted-foreground hover:text-primary">
-                  info@khandelwaldistributors.com
+                  admin@khandelwaldistributors.com
                 </a>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-primary mt-1" />
                 <span className="text-muted-foreground">
-                  Commercial Complex,<br />
-                  Business District, City
+                  G-35, MCI Plaza, Mission Market, Civil Lines, Bareilly<br />
+                  Bahadurganj Road, Sadar Bazar, Shahjahanpur
                 </span>
               </div>
             </div>
