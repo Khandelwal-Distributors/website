@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Phone, Menu, MessageCircle, User, LogOut, ShoppingCart, ChevronDown } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import banner from "@/assets/kd_banner.png";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -57,7 +59,7 @@ const Header = () => {
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         {/* Single Responsive Layout */}
-        <div className="flex items-center">
+        <div className=" flex items-center">
           {/* Burger Menu */}
           <Sheet>
             <SheetTrigger asChild>
@@ -142,7 +144,7 @@ const Header = () => {
           {/* Logo - Right after hamburger menu */}
           <Link to="/" className="flex items-center flex-shrink-0 ml-3">
             <img
-              src="@/assets/kd_banner.jpg"
+              src={banner}
               alt="Khandelwal Distributors Logo"
               className="h-16 sm:h-18 md:h-20"
               loading="eager"
