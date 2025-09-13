@@ -46,11 +46,13 @@ export type Database = {
       }
       orders: {
         Row: {
+          access_token: string | null
           cashfree_order_id: string | null
           created_at: string
           customer_address: string
           customer_city: string
           customer_email: string
+          customer_email_verified: boolean | null
           customer_name: string
           customer_phone: string
           customer_pincode: string
@@ -70,11 +72,13 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
+          access_token?: string | null
           cashfree_order_id?: string | null
           created_at?: string
           customer_address: string
           customer_city: string
           customer_email: string
+          customer_email_verified?: boolean | null
           customer_name: string
           customer_phone: string
           customer_pincode: string
@@ -94,11 +98,13 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
+          access_token?: string | null
           cashfree_order_id?: string | null
           created_at?: string
           customer_address?: string
           customer_city?: string
           customer_email?: string
+          customer_email_verified?: boolean | null
           customer_name?: string
           customer_phone?: string
           customer_pincode?: string
@@ -327,7 +333,39 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_order_access_url: {
+        Args: { order_id: string }
+        Returns: string
+      }
+      get_guest_order: {
+        Args: { p_access_token: string; p_customer_email: string }
+        Returns: {
+          access_token: string | null
+          cashfree_order_id: string | null
+          created_at: string
+          customer_address: string
+          customer_city: string
+          customer_email: string
+          customer_email_verified: boolean | null
+          customer_name: string
+          customer_phone: string
+          customer_pincode: string
+          customer_state: string | null
+          delivery_date: string | null
+          id: string
+          notes: string | null
+          order_date: string
+          payment_id: string | null
+          payment_method: string | null
+          payment_status: string | null
+          product_id: string
+          quantity: number | null
+          status: string | null
+          total_amount: number
+          updated_at: string
+          user_id: string | null
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

@@ -40,7 +40,8 @@ serve(async (req) => {
       .insert({
         ...orderData,
         status: 'pending',
-        payment_status: 'pending'
+        payment_status: 'pending',
+        access_token: crypto.randomUUID() // Generate secure access token for all orders
       })
       .select()
       .single();
