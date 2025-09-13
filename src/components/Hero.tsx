@@ -74,7 +74,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2 hover:text-accent-warm transition-colors duration-300">
               <MapPin className="h-5 w-5 text-accent-warm" />
-              <span>Local Service Area</span>
+              <span>Uttar Pradesh</span>
             </div>
           </div>
 
