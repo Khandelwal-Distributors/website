@@ -35,6 +35,10 @@ export default function Shop() {
 
   const { data: products = [], isLoading: productsLoading } = useProducts(filters);
   const { data: brands = [] } = useBrands();
+  
+  // Filter brands to match home page showcase
+  const featuredBrandNames = ["Daikin", "Mitsubishi Heavy", "Carrier", "Voltas", "Amstrad", "Midea", "Godrej", "Cruise"];
+  const filteredBrands = brands.filter(brand => featuredBrandNames.includes(brand.name));
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -195,7 +199,7 @@ export default function Shop() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">All Brands</SelectItem>
-                      {brands.map((brand) => (
+                      {filteredBrands.map((brand) => (
                         <SelectItem key={brand.id} value={brand.name}>
                           {brand.name}
                         </SelectItem>
