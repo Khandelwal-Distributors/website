@@ -181,7 +181,7 @@ const Header = () => {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => window.open('https://wa.me/919084417884', '_blank')}
+                onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about HVAC services', '_blank')}
                 className="bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700"
               >
                 <MessageCircle className="h-4 w-4" />
