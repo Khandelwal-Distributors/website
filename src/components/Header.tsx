@@ -142,7 +142,7 @@ const Header = () => {
           {/* Logo - Right after hamburger menu */}
           <Link to="/" className="flex items-center flex-shrink-0 ml-3">
             <img
-              src="/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png"
+              src="@/assets/kd_banner.jpg"
               alt="Khandelwal Distributors Logo"
               className="h-16 sm:h-18 md:h-20"
               loading="eager"
