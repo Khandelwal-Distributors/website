@@ -35,8 +35,16 @@ export default function Auth() {
   // Redirect if user is already authenticated (unless doing password reset)
   useEffect(() => {
     if (user && !isPasswordReset) {
-      const from = (location.state as any)?.from?.pathname || "/";
-      navigate(from, { replace: true });
+      const redirectTo = (location.state as any)?.redirectTo;
+      const product = (location.state as any)?.product;
+      
+      if (redirectTo && product) {
+        // Redirect back to checkout with product data
+        navigate(redirectTo, { state: { product } });
+      } else {
+        const from = (location.state as any)?.from?.pathname || "/";
+        navigate(from, { replace: true });
+      }
     }
   }, [user, navigate, location, isPasswordReset]);
 

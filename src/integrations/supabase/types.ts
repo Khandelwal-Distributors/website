@@ -69,7 +69,7 @@ export type Database = {
           status: string | null
           total_amount: number
           updated_at: string
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           access_token?: string | null
@@ -95,7 +95,7 @@ export type Database = {
           status?: string | null
           total_amount: number
           updated_at?: string
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           access_token?: string | null
@@ -121,7 +121,7 @@ export type Database = {
           status?: string | null
           total_amount?: number
           updated_at?: string
-          user_id?: string | null
+          user_id?: string
         }
         Relationships: [
           {
@@ -363,7 +363,7 @@ export type Database = {
           status: string | null
           total_amount: number
           updated_at: string
-          user_id: string | null
+          user_id: string
         }[]
       }
     }

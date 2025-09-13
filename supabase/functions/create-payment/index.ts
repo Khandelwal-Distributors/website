@@ -34,6 +34,11 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    // Validate that user_id is provided (authentication required)
+    if (!orderData.user_id) {
+      throw new Error('Authentication required to create an order');
+    }
+
     // Create order in database first
     const { data: order, error: orderError } = await supabase
       .from('orders')
@@ -41,7 +46,7 @@ serve(async (req) => {
         ...orderData,
         status: 'pending',
         payment_status: 'pending',
-        access_token: crypto.randomUUID() // Generate secure access token for all orders
+        access_token: crypto.randomUUID() // Generate secure access token for authenticated orders
       })
       .select()
       .single();

@@ -20,7 +20,7 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
-import GuestOrder from "./pages/GuestOrder";
+// GuestOrder removed - guest orders are no longer supported
 import Admin from "./pages/Admin";
 
 // Import individual product category pages
@@ -90,7 +90,7 @@ const App = () => {
                   <Route path="/order-success" element={<OrderSuccess />} />
                   <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/orders/guest" element={<GuestOrder />} />
+        {/* Guest orders route removed - authentication now required */}
                   <Route path="/products" element={<Products />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/admin" element={<Admin />} />
