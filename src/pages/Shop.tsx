@@ -36,7 +36,7 @@ export default function Shop() {
   const { data: products = [], isLoading: productsLoading } = useProducts(filters);
   const { data: brands = [] } = useBrands();
   
-  // Filter brands to match home page showcase
+  // Filter brands to match home page showcase - all 8 brands
   const featuredBrandNames = ["Daikin", "Mitsubishi Heavy", "Carrier", "Voltas", "Amstrad", "Midea", "Godrej", "Cruise"];
   const filteredBrands = brands.filter(brand => featuredBrandNames.includes(brand.name));
 
