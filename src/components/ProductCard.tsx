@@ -44,144 +44,173 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
   };
 
   return (
-    <Card className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-      <div className="relative">
-        {/* Product Image */}
-        <Link to={`/product/${product.slug}`}>
-          <div className="aspect-[4/3] overflow-hidden bg-muted">
-            <OptimizedImage
-              src={product.image_urls[0] || '/api/placeholder/400/300'}
-              alt={product.name}
-              className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </Link>
-        
-        {/* Discount Badge */}
-        {product.discount_percent > 0 && (
-          <Badge className="absolute top-3 left-3 bg-red-500 text-white font-semibold">
-            -{product.discount_percent}% OFF
-          </Badge>
-        )}
-        
-        {/* Featured Badge */}
-        {product.is_featured && (
-          <Badge className="absolute top-3 right-3 bg-accent-warm text-accent-warm-foreground">
-            Featured
-          </Badge>
-        )}
+    <article 
+      itemScope 
+      itemType="https://schema.org/Product"
+      className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+    >
+      {/* Hidden structured data */}
+      <meta itemProp="name" content={product.name} />
+      <meta itemProp="description" content={product.description || `${product.name} ${product.model} - ${product.tonnage} ton AC with ${product.energy_rating} energy rating`} />
+      <meta itemProp="image" content={product.image_urls[0]} />
+      <meta itemProp="brand" content={product.brand} />
+      <meta itemProp="model" content={product.model} />
+      <meta itemProp="sku" content={product.id} />
+      
+      {/* Price data */}
+      <div itemProp="offers" itemScope itemType="https://schema.org/Offer" style={{ display: 'none' }}>
+        <meta itemProp="priceCurrency" content="INR" />
+        <meta itemProp="price" content={product.price.toString()} />
+        <meta itemProp="availability" content={product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"} />
+        <meta itemProp="itemCondition" content="https://schema.org/NewCondition" />
+        <meta itemProp="url" content={`${window.location.origin}/product/${product.slug}`} />
       </div>
 
-      <CardContent className="p-4 space-y-4">
-        {/* Brand & Rating */}
-        <div className="flex items-center justify-between">
-          <Badge variant="outline" className="font-medium">
-            {product.brand}
-          </Badge>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center">
-              {renderStars(product.star_rating)}
+      {/* Rating data */}
+      <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" style={{ display: 'none' }}>
+        <meta itemProp="ratingValue" content={product.star_rating.toString()} />
+        <meta itemProp="reviewCount" content={product.review_count.toString()} />
+      </div>
+
+      <Card>
+        <div className="relative">
+          {/* Product Image */}
+          <Link to={`/product/${product.slug}`}>
+            <div className="aspect-[4/3] overflow-hidden bg-muted">
+              <OptimizedImage
+                src={product.image_urls[0] || '/api/placeholder/400/300'}
+                alt={`${product.name} ${product.model} - ${product.tonnage} ton ${product.brand} air conditioner`}
+                className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
-            <span className="text-sm text-muted-foreground">
-              ({product.review_count})
-            </span>
-          </div>
-        </div>
-
-        {/* Product Name */}
-        <Link 
-          to={`/product/${product.slug}`}
-          className="block hover:text-primary transition-colors"
-        >
-          <h3 className="font-semibold text-lg leading-tight line-clamp-2">
-            {product.name}
-          </h3>
-        </Link>
-
-        {/* Model & Series */}
-        <div className="space-y-1">
-          <p className="text-sm text-muted-foreground">
-            Model: <span className="font-medium text-foreground">{product.model}</span>
-          </p>
-          {product.series && (
-            <p className="text-sm text-muted-foreground">
-              Series: <span className="font-medium text-foreground">{product.series}</span>
-            </p>
+          </Link>
+          
+          {/* Discount Badge */}
+          {product.discount_percent > 0 && (
+            <Badge className="absolute top-3 left-3 bg-red-500 text-white font-semibold">
+              -{product.discount_percent}% OFF
+            </Badge>
+          )}
+          
+          {/* Featured Badge */}
+          {product.is_featured && (
+            <Badge className="absolute top-3 right-3 bg-accent-warm text-accent-warm-foreground">
+              Featured
+            </Badge>
           )}
         </div>
 
-        {/* Key Specifications */}
-        <div className="grid grid-cols-3 gap-2 py-2">
-          <div className="text-center">
-            <Wind className="h-5 w-5 mx-auto mb-1 text-primary" />
-            <p className="text-xs font-semibold">{product.tonnage} Ton</p>
-          </div>
-          <div className="text-center">
-            <Zap className="h-5 w-5 mx-auto mb-1 text-green-600" />
-            <p className="text-xs font-semibold">{product.energy_rating}</p>
-          </div>
-          <div className="text-center">
-            <Shield className="h-5 w-5 mx-auto mb-1 text-blue-600" />
-            <p className="text-xs font-semibold">{product.warranty_years}Y Warranty</p>
-          </div>
-        </div>
-
-        {/* Features */}
-        <div className="space-y-2">
-          <p className="text-sm font-medium">Key Features:</p>
-          <div className="flex flex-wrap gap-1">
-            {product.features.slice(0, 3).map((feature, index) => (
-              <Badge key={index} variant="secondary" className="text-xs">
-                {feature}
-              </Badge>
-            ))}
-            {product.features.length > 3 && (
-              <Badge variant="secondary" className="text-xs">
-                +{product.features.length - 3} more
-              </Badge>
-            )}
-          </div>
-        </div>
-
-        {/* Price */}
-        <div className="space-y-2">
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-primary">
-              {formatPrice(product.price)}
-            </span>
-            {product.original_price && product.original_price > product.price && (
-              <span className="text-lg line-through text-muted-foreground">
-                {formatPrice(product.original_price)}
+        <CardContent className="p-4 space-y-4">
+          {/* Brand & Rating */}
+          <div className="flex items-center justify-between">
+            <Badge variant="outline" className="font-medium" itemProp="brand">
+              {product.brand}
+            </Badge>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center">
+                {renderStars(product.star_rating)}
+              </div>
+              <span className="text-sm text-muted-foreground">
+                ({product.review_count})
               </span>
+            </div>
+          </div>
+
+          {/* Product Name */}
+          <Link 
+            to={`/product/${product.slug}`}
+            className="block hover:text-primary transition-colors"
+          >
+            <h3 className="font-semibold text-lg leading-tight line-clamp-2" itemProp="name">
+              {product.name}
+            </h3>
+          </Link>
+
+          {/* Model & Series */}
+          <div className="space-y-1">
+            <p className="text-sm text-muted-foreground">
+              Model: <span className="font-medium text-foreground" itemProp="model">{product.model}</span>
+            </p>
+            {product.series && (
+              <p className="text-sm text-muted-foreground">
+                Series: <span className="font-medium text-foreground">{product.series}</span>
+              </p>
             )}
           </div>
-          <p className="text-sm text-green-600 font-medium">
-            Save {formatPrice((product.original_price || product.price) - product.price)}
-          </p>
-        </div>
 
-        {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-2 pt-2">
-          <Button 
-            variant="outline" 
-            size="sm"
-            onClick={handleCallNow}
-            className="flex items-center gap-2"
-          >
-            <Phone className="h-4 w-4" />
-            Call Now
-          </Button>
-          <Button 
-            variant="cta"
-            size="sm"
-            onClick={handleBuyNow}
-            className="flex items-center gap-2"
-          >
-            <ShoppingCart className="h-4 w-4" />
-            Buy Now
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+          {/* Key Specifications */}
+          <div className="grid grid-cols-3 gap-2 py-2">
+            <div className="text-center">
+              <Wind className="h-5 w-5 mx-auto mb-1 text-primary" />
+              <p className="text-xs font-semibold">{product.tonnage} Ton</p>
+            </div>
+            <div className="text-center">
+              <Zap className="h-5 w-5 mx-auto mb-1 text-green-600" />
+              <p className="text-xs font-semibold" itemProp="award">{product.energy_rating}</p>
+            </div>
+            <div className="text-center">
+              <Shield className="h-5 w-5 mx-auto mb-1 text-blue-600" />
+              <p className="text-xs font-semibold">{product.warranty_years}Y Warranty</p>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="space-y-2">
+            <p className="text-sm font-medium">Key Features:</p>
+            <div className="flex flex-wrap gap-1">
+              {product.features.slice(0, 3).map((feature, index) => (
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {feature}
+                </Badge>
+              ))}
+              {product.features.length > 3 && (
+                <Badge variant="secondary" className="text-xs">
+                  +{product.features.length - 3} more
+                </Badge>
+              )}
+            </div>
+          </div>
+
+          {/* Price */}
+          <div className="space-y-2">
+            <div className="flex items-baseline gap-2">
+              <span className="text-2xl font-bold text-primary" itemProp="price">
+                {formatPrice(product.price)}
+              </span>
+              {product.original_price && product.original_price > product.price && (
+                <span className="text-lg line-through text-muted-foreground">
+                  {formatPrice(product.original_price)}
+                </span>
+              )}
+            </div>
+            <p className="text-sm text-green-600 font-medium">
+              Save {formatPrice((product.original_price || product.price) - product.price)}
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="grid grid-cols-2 gap-2 pt-2">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={handleCallNow}
+              className="flex items-center gap-2"
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </Button>
+            <Button 
+              variant="cta"
+              size="sm"
+              onClick={handleBuyNow}
+              className="flex items-center gap-2"
+            >
+              <ShoppingCart className="h-4 w-4" />
+              Buy Now
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </article>
   );
 }

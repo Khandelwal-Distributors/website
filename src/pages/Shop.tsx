@@ -94,8 +94,8 @@ export default function Shop() {
     <>
       <Helmet>
         <title>AC Shopping - Best Air Conditioners Online | Khandelwal Distributors</title>
-        <meta name="description" content="Shop for the best air conditioners and HVAC products online. Wide range of 1 ton, 1.5 ton, 2 ton ACs from top brands like Daikin, Carrier, LG. Free installation & warranty. Browse through products like water coolers, dispensers, chest freezers, Alakline RO, etc. from premium brands like ElanPro, Usha and ZeroB" />
-        <meta name="keywords" content="air conditioner, AC, split AC, inverter AC, 1 ton AC, 1.5 ton AC, 2 ton AC, Daikin, Carrier, LG, Samsung" />
+        <meta name="description" content="Shop for the best air conditioners and HVAC products online. Wide range of 1 ton, 1.5 ton, 2 ton ACs from top brands like Daikin, Carrier, Mitsubishi Heavy. Free installation & warranty. Browse through products like water coolers, dispensers, chest freezers, Alkaline RO, etc. from premium brands like ElanPro, Usha and ZeroB" />
+        <meta name="keywords" content="air conditioner, AC, split AC, inverter AC, 1 ton AC, 1.5 ton AC, 2 ton AC, Daikin, Carrier, Mitsubishi Heavy, Voltas, Godrej, buy AC online, HVAC products, water cooler, deep freezer, alkaline RO" />
         <link rel="canonical" href={`${window.location.origin}/shop`} />
 
         {/* Open Graph */}
@@ -103,11 +103,92 @@ export default function Shop() {
         <meta property="og:description" content="Shop for the best air conditioners online. Wide range of ACs from top brands with free installation & warranty." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${window.location.origin}/shop`} />
+        <meta property="og:image" content={`${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`} />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AC Shopping - Best Air Conditioners Online" />
         <meta name="twitter:description" content="Shop for the best air conditioners online with free installation & warranty." />
+        <meta name="twitter:image" content={`${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`} />
+
+        {/* Structured Data for Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Khandelwal Distributors",
+            "url": window.location.origin,
+            "logo": `${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`,
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9429693410",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": "Hindi"
+            },
+            "sameAs": [
+              "https://wa.me/919084417884"
+            ]
+          })}
+        </script>
+
+        {/* Structured Data for Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": window.location.origin
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Shop",
+                "item": `${window.location.origin}/shop`
+              }
+            ]
+          })}
+        </script>
+
+        {/* Structured Data for Product Listing */}
+        {products.length > 0 && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "Air Conditioners and HVAC Products",
+              "numberOfItems": products.length,
+              "itemListElement": products.slice(0, 20).map((product, index) => ({
+                "@type": "Product",
+                "position": index + 1,
+                "name": product.name,
+                "description": product.description || `${product.name} ${product.model} - ${product.tonnage} ton AC with ${product.energy_rating} energy rating`,
+                "image": product.image_urls[0],
+                "brand": {
+                  "@type": "Brand",
+                  "name": product.brand
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": `${window.location.origin}/product/${product.slug}`,
+                  "priceCurrency": "INR",
+                  "price": product.price,
+                  "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+                  "itemCondition": "https://schema.org/NewCondition"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": product.star_rating,
+                  "reviewCount": product.review_count
+                }
+              }))
+            })}
+          </script>
+        )}
       </Helmet>
 
       <div className="min-h-screen bg-background">
