@@ -61,7 +61,10 @@ const DaikinSolutionPlaza = () => {
           </div>
           
           <div className="text-center">
-            <Button variant="cta" size="lg">
+            <Button 
+              variant="cta" size="lg"
+              onClick={() => window.open('tel:+919761659238', '_self')}
+            >
               <Phone className="h-4 w-4" />
               Contact Daikin Expert
             </Button>
