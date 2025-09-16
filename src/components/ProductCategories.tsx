@@ -1,12 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Home, Building, Droplets, Wind, Hotel, Cross, GraduationCap, Dumbbell, Scissors, BriefcaseBusiness, ShoppingBag, Factory } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import acCollection from "@/assets/ac-collection.jpg";
 import commercialHvac from "@/assets/commercial-hvac.jpg";
 
 
 const ProductCategories = () => {
+  const navigate = useNavigate();
+
+  const handleCall = () => {
+    window.open('tel:+919429693410', '_self');
+  };
+
+  const handleResidentialNavigation = () => {
+    navigate('/products');
+  };
+
+  const handleCommercialNavigation = () => {
+    navigate('/products');
+    // Scroll to commercial section after navigation
+    setTimeout(() => {
+      const commercialSection = document.querySelector('[data-section="commercial"]');
+      if (commercialSection) {
+        commercialSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -21,7 +42,10 @@ const ProductCategories = () => {
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Residential Products */}
-          <Card className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 animate-scale-in">
+          <Card 
+            className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 animate-scale-in cursor-pointer"
+            onClick={handleResidentialNavigation}
+          >
             <div className="relative overflow-hidden rounded-t-lg">
               <img 
                 src={acCollection} 
@@ -61,11 +85,25 @@ const ProductCategories = () => {
                 </li>
               </ul>
               <div className="flex flex-col sm:flex-row gap-2">
-                <Button variant="cta" className="flex-1">
+                <Button 
+                  variant="cta" 
+                  className="flex-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCall();
+                  }}
+                >
                   <Phone className="h-4 w-4" />
                   Get Home Quote
                 </Button>
-                <Button variant="outline" className="flex-1 bg-transparent border-border text-foreground hover:bg-muted">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 bg-transparent border-border text-foreground hover:bg-muted"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleResidentialNavigation();
+                  }}
+                >
                   View Products
                 </Button>
               </div>
@@ -73,7 +111,11 @@ const ProductCategories = () => {
           </Card>
           
           {/* Commercial Products */}
-          <Card className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+          <Card 
+            className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 animate-scale-in cursor-pointer" 
+            style={{ animationDelay: '0.2s' }}
+            onClick={handleCommercialNavigation}
+          >
             <div className="relative overflow-hidden rounded-t-lg">
               <img 
                 src={commercialHvac} 
@@ -113,11 +155,25 @@ const ProductCategories = () => {
                 </li>
               </ul>
               <div className="flex flex-col sm:flex-row gap-2">
-                <Button variant="cta" className="flex-1">
+                <Button 
+                  variant="cta" 
+                  className="flex-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCall();
+                  }}
+                >
                   <Phone className="h-4 w-4" />
                   Commercial Consultation
                 </Button>
-                <Button variant="outline" className="flex-1 bg-transparent border-border text-foreground hover:bg-muted">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 bg-transparent border-border text-foreground hover:bg-muted"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCommercialNavigation();
+                  }}
+                >
                   View Products
                 </Button>
               </div>
