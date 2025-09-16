@@ -132,9 +132,14 @@ const BrandShowcase = () => {
             </Link>
           ))}
         </div>
-        
+              
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-          <Button variant="cta" size="lg" className="hover:scale-105 transition-transform duration-300">
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="hover:scale-105 transition-transform duration-300"
+            onClick={() => window.open('tel:+919429693410', '_self')}
+          >
             <Phone className="h-4 w-4" />
             Get Brand-Specific Quote
           </Button>
