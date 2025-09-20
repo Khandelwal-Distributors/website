@@ -4,100 +4,34 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Building2, Users, CheckCircle, Phone, MessageCircle, Star } from "lucide-react";
-
-const allProjects = [
-  {
-    title: "Corporate Tower HVAC System",
-    type: "Commercial Office",
-    capacity: "500 TR Central AC",
-    completion: "2024",
-    image: "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png",
-    client: "Tech Corp India",
-    features: ["Energy Efficient VRF System", "Smart Controls", "24/7 Monitoring"],
-    rating: 5,
-    location: "Mumbai, Maharashtra"
-  },
-  {
-    title: "Luxury Mall Climate Control",
-    type: "Retail Complex",
-    capacity: "750 TR Chiller Plant",
-    completion: "2023",
-    image: "/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png",
-    client: "Premium Malls Ltd",
-    features: ["Zone-wise Control", "Energy Recovery", "Air Quality Management"],
-    rating: 5,
-    location: "Delhi NCR"
-  },
-  {
-    title: "Hospital HVAC Installation",
-    type: "Healthcare",
-    capacity: "300 TR Medical Grade",
-    completion: "2023",
-    image: "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png",
-    client: "City General Hospital",
-    features: ["HEPA Filtration", "Positive Pressure", "Emergency Backup"],
-    rating: 5,
-    location: "Bangalore, Karnataka"
-  },
-  {
-    title: "Industrial Plant Cooling",
-    type: "Manufacturing",
-    capacity: "1000 TR Process Cooling",
-    completion: "2022",
-    image: "/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png",
-    client: "Industrial Solutions Inc",
-    features: ["Process Temperature Control", "Heat Recovery", "Energy Optimization"],
-    rating: 4,
-    location: "Chennai, Tamil Nadu"
-  },
-  {
-    title: "Hotel Chain HVAC",
-    type: "Hospitality",
-    capacity: "200 TR Guest Comfort",
-    completion: "2024",
-    image: "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png",
-    client: "Grand Hotels Group",
-    features: ["Individual Room Control", "Quiet Operation", "Energy Management"],
-    rating: 5,
-    location: "Goa"
-  },
-  {
-    title: "Data Center Cooling",
-    type: "IT Infrastructure",
-    capacity: "400 TR Precision AC",
-    completion: "2023",
-    image: "/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png",
-    client: "Cloud Services Ltd",
-    features: ["Precision Temperature Control", "Redundant Systems", "IoT Monitoring"],
-    rating: 5,
-    location: "Pune, Maharashtra"
-  },
-  {
-    title: "Educational Campus HVAC",
-    type: "Education",
-    capacity: "350 TR Multi-Zone",
-    completion: "2022",
-    image: "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png",
-    client: "State University",
-    features: ["Classroom Climate Control", "Energy Efficient", "Low Maintenance"],
-    rating: 4,
-    location: "Hyderabad, Telangana"
-  },
-  {
-    title: "Residential Complex AC",
-    type: "Residential",
-    capacity: "150 TR VRF System",
-    completion: "2024",
-    image: "/lovable-uploads/1dac8f77-f78d-438f-9443-81448ee971c1.png",
-    client: "Premium Residences",
-    features: ["Individual Metering", "Quiet Operation", "Smart Controls"],
-    rating: 5,
-    location: "Noida, UP"
-  }
-];
+import { Calendar, Building2, Users, CheckCircle, Phone, MessageCircle, Star, Loader2 } from "lucide-react";
+import { useProjects } from "@/hooks/useVideos";
 
 const Projects = () => {
+  const { data: projects, isLoading, error } = useProjects();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading projects...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Error Loading Projects</h2>
+          <p className="text-muted-foreground">{error.message}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <Helmet>
@@ -173,7 +107,12 @@ const Projects = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {allProjects.map((project, index) => (
+                {(!projects || projects.length === 0) ? (
+                  <div className="col-span-full text-center py-12">
+                    <p className="text-lg text-muted-foreground">No projects available at the moment.</p>
+                  </div>
+                ) : (
+                  projects.map((project, index) => (
                   <Card 
                     key={index} 
                     className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in"
@@ -181,15 +120,15 @@ const Projects = () => {
                   >
                     <div className="aspect-video overflow-hidden relative">
                       <img 
-                        src={project.image} 
+                        src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"} 
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                        {project.completion}
+                        {project.completion_year}
                       </div>
                       <div className="absolute bottom-4 left-4 flex items-center gap-1">
-                        {[...Array(project.rating)].map((_, idx) => (
+                        {[...Array(Math.floor(project.rating || 5))].map((_, idx) => (
                           <Star key={idx} className="h-3 w-3 fill-accent-warm text-accent-warm" />
                         ))}
                       </div>
@@ -202,7 +141,7 @@ const Projects = () => {
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Building2 className="h-4 w-4" />
-                          {project.type}
+                          {project.project_type}
                         </div>
                         <div className="flex items-center gap-1">
                           <Users className="h-4 w-4" />
@@ -224,22 +163,25 @@ const Projects = () => {
                         </p>
                       </div>
                       
-                      <div className="space-y-2 mb-6">
-                        <h4 className="font-semibold text-sm">Key Features:</h4>
-                        {project.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="h-3 w-3 text-primary flex-shrink-0" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
+                      {project.features && project.features.length > 0 && (
+                        <div className="space-y-2 mb-6">
+                          <h4 className="font-semibold text-sm">Key Features:</h4>
+                          {project.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-sm">
+                              <CheckCircle className="h-3 w-3 text-primary flex-shrink-0" />
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                       
                       <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         View Project Details
                       </Button>
                     </CardContent>
                   </Card>
-                ))}
+                  ))
+                )}
               </div>
             </div>
           </section>
