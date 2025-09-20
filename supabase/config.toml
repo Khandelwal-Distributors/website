@@ -45,7 +45,7 @@ enable_confirmations = false
 enabled = true
 inspector_port = 8083
 
-[functions]
+[functions.admin-projects]
 verify_jwt = false
 
 [functions.create-payment]
