@@ -1,10 +1,11 @@
 import { Phone, Mail, MapPin, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           <div>
             <h3 className="font-bold text-lg text-primary mb-4">Khandelwal Distributors</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -19,26 +20,149 @@ const Footer = () => {
           
           <div>
             <h4 className="font-semibold mb-4">Our Brands</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Daikin (VRV Systems)</li>
-              <li>Mitsubishi Heavy</li>
-              <li>Carrier</li>
-              <li>Amstrad</li>
-              <li>Midea</li>
-              <li>Godrej</li>
-              <li>Cruise</li>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/brands/daikin" className="text-muted-foreground hover:text-primary transition-colors">
+                  Daikin (VRV Systems)
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/mitsubishi-heavy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Mitsubishi Heavy
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/carrier" className="text-muted-foreground hover:text-primary transition-colors">
+                  Carrier
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/amstrad" className="text-muted-foreground hover:text-primary transition-colors">
+                  Amstrad
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/midea" className="text-muted-foreground hover:text-primary transition-colors">
+                  Midea
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/godrej" className="text-muted-foreground hover:text-primary transition-colors">
+                  Godrej
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/cruise" className="text-muted-foreground hover:text-primary transition-colors">
+                  Cruise
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands/voltas" className="text-muted-foreground hover:text-primary transition-colors">
+                  Voltas
+                </Link>
+              </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>AC Installation</li>
-              <li>HVAC Maintenance</li>
-              <li>Commercial Projects</li>
-              <li>Centralised AC</li>
-              <li>Free Consultation</li>
-              <li>AMC Contracts</li>
+            <h4 className="font-semibold mb-4">Residential Products</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/products/inverter-split-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Inverter Split AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/non-inverter-split-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Non-Inverter Split AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/window-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Window AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/portable-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Portable AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/water-cooler" className="text-muted-foreground hover:text-primary transition-colors">
+                  Water Coolers
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/air-purifier" className="text-muted-foreground hover:text-primary transition-colors">
+                  Air Purifiers
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/alkaline-ro" className="text-muted-foreground hover:text-primary transition-colors">
+                  Alkaline RO Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/solar-water-heater" className="text-muted-foreground hover:text-primary transition-colors">
+                  Solar Water Heaters
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-semibold mb-4">Commercial Products</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/products/vrv-system" className="text-muted-foreground hover:text-primary transition-colors">
+                  VRV Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/cassette-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Cassette AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/ductable-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Ductable AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/floor-standing-ac" className="text-muted-foreground hover:text-primary transition-colors">
+                  Floor Standing AC
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/chiller-system" className="text-muted-foreground hover:text-primary transition-colors">
+                  Chiller Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/ahu-system" className="text-muted-foreground hover:text-primary transition-colors">
+                  AHU Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/heat-pump" className="text-muted-foreground hover:text-primary transition-colors">
+                  Heat Pumps
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/ventilation-hrv" className="text-muted-foreground hover:text-primary transition-colors">
+                  Ventilation & HRV
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/cold-room" className="text-muted-foreground hover:text-primary transition-colors">
+                  Cold Rooms
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/deep-freezers" className="text-muted-foreground hover:text-primary transition-colors">
+                  Deep Freezers
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -64,6 +188,27 @@ const Footer = () => {
                   Bahadurganj Road, Sadar Bazar, Shahjahanpur
                 </span>
               </div>
+            </div>
+            
+            <div className="mt-6">
+              <h5 className="font-semibold mb-2 text-sm">Quick Links</h5>
+              <ul className="space-y-1 text-sm">
+                <li>
+                  <Link to="/products" className="text-muted-foreground hover:text-primary transition-colors">
+                    All Products
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/projects" className="text-muted-foreground hover:text-primary transition-colors">
+                    Our Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/admin" className="text-muted-foreground hover:text-primary transition-colors">
+                    Admin Login
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
