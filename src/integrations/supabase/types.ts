@@ -251,6 +251,7 @@ export type Database = {
           is_featured: boolean | null
           location: string | null
           project_type: string
+          project_url: string | null
           rating: number | null
           title: string
           updated_at: string
@@ -267,6 +268,7 @@ export type Database = {
           is_featured?: boolean | null
           location?: string | null
           project_type: string
+          project_url?: string | null
           rating?: number | null
           title: string
           updated_at?: string
@@ -283,6 +285,7 @@ export type Database = {
           is_featured?: boolean | null
           location?: string | null
           project_type?: string
+          project_url?: string | null
           rating?: number | null
           title?: string
           updated_at?: string

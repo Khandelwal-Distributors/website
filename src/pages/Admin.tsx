@@ -39,6 +39,7 @@ interface Project {
   location?: string;
   features?: string[];
   image_url?: string;
+  project_url?: string;
   rating: number;
   is_featured: boolean;
 }
@@ -959,6 +960,7 @@ function ProjectForm({
     location: project?.location || '',
     features: project?.features?.join(', ') || '',
     image_url: project?.image_url || '',
+    project_url: project?.project_url || '',
     rating: project?.rating || 5,
     is_featured: project?.is_featured || false,
   });
@@ -1053,6 +1055,16 @@ function ProjectForm({
           value={formData.image_url}
           onChange={(e) => setFormData(prev => ({ ...prev, image_url: e.target.value }))}
           placeholder="https://example.com/image.jpg"
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="project_url">Project Details URL (Optional)</Label>
+        <Input
+          id="project_url"
+          value={formData.project_url}
+          onChange={(e) => setFormData(prev => ({ ...prev, project_url: e.target.value }))}
+          placeholder="https://example.com/project-details or external link"
         />
       </div>
 

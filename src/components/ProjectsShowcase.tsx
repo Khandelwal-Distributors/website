@@ -156,6 +156,10 @@ const ProjectsShowcase = () => {
                   src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"} 
                   alt={project.title}
                   className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png";
+                  }}
                 />
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-semibold text-primary">
@@ -209,8 +213,18 @@ const ProjectsShowcase = () => {
                   </div>
                 )}
 
-                <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  View Project Details
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                  onClick={() => {
+                    if (project.project_url) {
+                      window.open(project.project_url, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
+                  disabled={!project.project_url}
+                >
+                  {project.project_url ? 'View Details' : 'Coming Soon'}
                 </Button>
               </CardContent>
             </Card>
