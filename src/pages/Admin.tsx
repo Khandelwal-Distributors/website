@@ -221,6 +221,9 @@ export default function Admin() {
       };
 
       const admin_code = localStorage.getItem('admin_code') || accessCode;
+      if (!admin_code) {
+        throw new Error('Admin access required. Please log in to the admin panel again.');
+      }
       const action = editingProject ? 'update' : 'insert';
       const payload: any = { action, data, admin_code };
       if (editingProject) payload.id = editingProject.id;
@@ -391,6 +394,10 @@ export default function Admin() {
     const savedAuth = localStorage.getItem('admin_authenticated');
     if (savedAuth) {
       setIsAuthenticated(true);
+      const savedCode = localStorage.getItem('admin_code');
+      if (savedCode) {
+        setAccessCode(savedCode);
+      }
     }
   }, []);
 
@@ -467,7 +474,9 @@ export default function Admin() {
                 variant="outline" 
                 onClick={() => {
                   setIsAuthenticated(false);
+                  setAccessCode('');
                   localStorage.removeItem('admin_authenticated');
+                  localStorage.removeItem('admin_code');
                 }}
               >
                 Logout
