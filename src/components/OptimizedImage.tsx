@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
 interface OptimizedImageProps {
@@ -21,16 +21,21 @@ const OptimizedImage = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  
+  const resolvedSrc = useMemo(() => {
+    if (src?.startsWith('http://')) return src.replace('http://', 'https://');
+    return src;
+  }, [src]);
 
   useEffect(() => {
     if (priority && imgRef.current) {
       // Preload high priority images
       const img = new Image();
-      img.src = src;
+      img.src = resolvedSrc;
       img.onload = () => setIsLoaded(true);
       img.onerror = () => setHasError(true);
     }
-  }, [src, priority]);
+  }, [resolvedSrc, priority]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -42,7 +47,17 @@ const OptimizedImage = ({
   };
 
   if (hasError) {
-    return null;
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        <img
+          src={"/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"}
+          alt={alt}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    );
   }
 
   return (
@@ -57,7 +72,7 @@ const OptimizedImage = ({
       {/* Actual image */}
       <img
         ref={imgRef}
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         className={`w-full h-full object-cover transition-all duration-500 ease-out ${
           isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'

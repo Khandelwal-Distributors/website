@@ -194,6 +194,11 @@ const ProjectsShowcase = () => {
                       <span>{project.client}</span>
                     </div>
                   )}
+                  {project.description && (
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {project.description.length > 110 ? project.description.slice(0, 110) + '…' : project.description}
+                    </p>
+                  )}
                 </div>
 
                 {project.features && project.features.length > 0 && (

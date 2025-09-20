@@ -159,6 +159,11 @@ const Projects = () => {
                     </CardHeader>
                     
                     <CardContent>
+                      {project.description && (
+                        <p className="text-sm text-muted-foreground mb-4">
+                          {project.description.length > 140 ? project.description.slice(0, 140) + '…' : project.description}
+                        </p>
+                      )}
                       <div className="mb-4">
                         <p className="text-sm text-muted-foreground">
                           <strong>Client:</strong> {project.client}
