@@ -214,6 +214,7 @@ export default function Admin() {
         location: projectData.location || null,
         features: projectData.features || [],
         image_url: projectData.image_url || null,
+        project_url: projectData.project_url || null,
         rating: projectData.rating || 0,
         is_featured: projectData.is_featured || false,
       };
