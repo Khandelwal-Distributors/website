@@ -65,6 +65,7 @@ export default function Admin() {
     if (accessCode === ADMIN_CODE) {
       setIsAuthenticated(true);
       localStorage.setItem('admin_authenticated', 'true');
+      localStorage.setItem('admin_code', accessCode);
       toast({
         title: 'Access granted',
         description: 'Welcome to the admin panel!',
@@ -219,18 +220,17 @@ export default function Admin() {
         is_featured: projectData.is_featured || false,
       };
 
-      if (editingProject) {
-        const { error } = await supabase
-          .from('projects')
-          .update(data)
-          .eq('id', editingProject.id);
-        if (error) throw error;
-      } else {
-        const { error } = await supabase
-          .from('projects')
-          .insert(data);
-        if (error) throw error;
-      }
+      const admin_code = localStorage.getItem('admin_code') || accessCode;
+      const action = editingProject ? 'update' : 'insert';
+      const payload: any = { action, data, admin_code };
+      if (editingProject) payload.id = editingProject.id;
+
+      const { data: fnData, error: fnError } = await supabase.functions.invoke('admin-projects', {
+        body: payload,
+      });
+
+      if (fnError) throw fnError;
+      if (fnData?.error) throw new Error(fnData.error);
 
       await loadProjects();
       setEditingProject(null);
@@ -238,11 +238,11 @@ export default function Admin() {
         title: 'Success',
         description: `Project ${editingProject ? 'updated' : 'created'} successfully.`,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving project:', error);
       toast({
         title: 'Error',
-        description: 'Failed to save project.',
+        description: error?.message || 'Failed to save project.',
         variant: 'destructive',
       });
     } finally {
