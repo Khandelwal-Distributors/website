@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Building, Users, Wrench, Star, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useProjects } from "@/hooks/useVideos";
+import OptimizedImage from './OptimizedImage';
 
 // Project statistics
 const projectStats = [
@@ -152,14 +153,11 @@ const ProjectsShowcase = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden rounded-t-lg">
-                <img 
+                <OptimizedImage 
                   src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"} 
                   alt={project.title}
                   className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png";
-                  }}
+                  loading="lazy"
                 />
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-semibold text-primary">

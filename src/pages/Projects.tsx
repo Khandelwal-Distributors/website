@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Building2, Users, CheckCircle, Phone, MessageCircle, Star, Loader2 } from "lucide-react";
 import { useProjects } from "@/hooks/useVideos";
+import OptimizedImage from '@/components/OptimizedImage';
 
 const Projects = () => {
   const { data: projects, isLoading, error } = useProjects();
@@ -119,14 +120,11 @@ const Projects = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="aspect-video overflow-hidden relative">
-                      <img 
+                      <OptimizedImage 
                         src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"} 
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png";
-                        }}
+                        loading="lazy"
                       />
                       <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
                         {project.completion_year}
