@@ -88,7 +88,7 @@ const EndOfSeasonSale = () => {
                 </div>
               </div>
               
-              <Button variant="cta" size="lg" className="w-full">
+              <Button variant="cta" size="lg" className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Instant Quote
               </Button>
@@ -166,7 +166,7 @@ const EndOfSeasonSale = () => {
                 </div>
               </div>
               
-              <Button variant="cta" size="lg" className="w-full">
+              <Button variant="cta" size="lg" className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Instant Quote
               </Button>
@@ -222,7 +222,7 @@ const EndOfSeasonSale = () => {
                 <span className="font-semibold text-primary">ACs on Rent</span>
               </div>
               
-              <Button variant="cta" size="lg" className="w-full mt-6">
+              <Button variant="cta" size="lg" className="w-full mt-6" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Instant Quote
               </Button>
