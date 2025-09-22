@@ -290,18 +290,21 @@ export default function Admin() {
         seo_description: productData.seo_description || null,
       };
 
-      if (editingProduct) {
-        const { error } = await supabase
-          .from('products')
-          .update(data)
-          .eq('id', editingProduct.id);
-        if (error) throw error;
-      } else {
-        const { error } = await supabase
-          .from('products')
-          .insert(data);
-        if (error) throw error;
+      const admin_code = localStorage.getItem('admin_code') || accessCode;
+      if (!admin_code) {
+        throw new Error('Admin access required. Please log in to the admin panel again.');
       }
+
+      const action = editingProduct ? 'update' : 'insert';
+      const payload: any = { action, data, admin_code };
+      if (editingProduct) payload.id = editingProduct.id;
+
+      const { data: fnData, error: fnError } = await supabase.functions.invoke('admin-products', {
+        body: payload,
+      });
+
+      if (fnError) throw fnError;
+      if (fnData?.error) throw new Error(fnData.error);
 
       await loadProducts();
       setEditingProduct(null);
@@ -309,11 +312,11 @@ export default function Admin() {
         title: 'Success',
         description: `Product ${editingProduct ? 'updated' : 'created'} successfully.`,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving product:', error);
       toast({
         title: 'Error',
-        description: 'Failed to save product.',
+        description: error?.message || 'Failed to save product.',
         variant: 'destructive',
       });
     } finally {
@@ -369,22 +372,28 @@ export default function Admin() {
 
   const deleteProduct = async (id: string) => {
     try {
-      const { error } = await supabase
-        .from('products')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
+      const admin_code = localStorage.getItem('admin_code') || accessCode;
+      if (!admin_code) {
+        throw new Error('Admin access required. Please log in to the admin panel again.');
+      }
+
+      const { data: fnData, error: fnError } = await supabase.functions.invoke('admin-products', {
+        body: { action: 'delete', id, admin_code },
+      });
+
+      if (fnError) throw fnError;
+      if (fnData?.error) throw new Error(fnData.error);
+
       await loadProducts();
       toast({
         title: 'Success',
         description: 'Product deleted successfully.',
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting product:', error);
       toast({
         title: 'Error',
-        description: 'Failed to delete product.',
+        description: error?.message || 'Failed to delete product.',
         variant: 'destructive',
       });
     }
