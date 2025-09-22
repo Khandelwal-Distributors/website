@@ -146,7 +146,7 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
             </div>
             <div className="text-center">
               <Zap className="h-5 w-5 mx-auto mb-1 text-green-600" />
-              <p className="text-xs font-semibold" itemProp="award">{product.energy_rating}</p>
+              <p className="text-xs font-semibold" itemProp="award">{product.energy_rating} Star</p>
             </div>
             <div className="text-center">
               <Shield className="h-5 w-5 mx-auto mb-1 text-blue-600" />
