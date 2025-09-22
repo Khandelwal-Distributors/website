@@ -27,13 +27,13 @@ const FloorStandingAC = () => {
   ];
 
   const applications = [
-    { name: "Large Living Rooms", icon: <Home className="h-6 w-6" /> }, 
-    { name: "Conference Halls", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Banquet Halls", icon: <Hotel className="h-6 w-6" /> }, 
+    { name: "Large Living Rooms", icon: <Home className="h-6 w-6" /> },
+    { name: "Conference Halls", icon: <Building className="h-6 w-6" /> },
+    { name: "Banquet Halls", icon: <Hotel className="h-6 w-6" /> },
     { name: "Showrooms", icon: <ShoppingBag className="h-6 w-6" /> },
-    { name: "Restaurants", icon: <Hotel className="h-6 w-6" /> }, 
-    { name: "Gyms & Fitness Centers", icon: <Factory className="h-6 w-6" /> }, 
-    { name: "Retail Stores", icon: <ShoppingBag className="h-6 w-6" /> }, 
+    { name: "Restaurants", icon: <Hotel className="h-6 w-6" /> },
+    { name: "Gyms & Fitness Centers", icon: <Factory className="h-6 w-6" /> },
+    { name: "Retail Stores", icon: <ShoppingBag className="h-6 w-6" /> },
     { name: "Reception Areas", icon: <Building className="h-6 w-6" /> }
   ];
 
@@ -86,10 +86,10 @@ const FloorStandingAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/floor-standing-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/floor-standing-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -101,15 +101,15 @@ const FloorStandingAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              High-capacity floor standing air conditioners for large spaces in Bareilly, Uttar Pradesh. 
+              High-capacity floor standing air conditioners for large spaces in Bareilly, Uttar Pradesh.
               Powerful cooling with high airflow, perfect for halls, showrooms, and commercial applications.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Floor Standing ACs in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Floor Standing ACs in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -152,7 +152,7 @@ const FloorStandingAC = () => {
                 Understanding floor standing AC specifications for proper selection
               </p>
             </div>
-            
+
             <div className="max-w-3xl mx-auto">
               <Card>
                 <CardHeader>
@@ -184,7 +184,7 @@ const FloorStandingAC = () => {
                 Ideal cooling solutions for various large space requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
               {applications.map((app, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -214,8 +214,8 @@ const FloorStandingAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={floorStandingAc} 
+                    <img
+                      src={floorStandingAc}
                       alt={`${product.name} - Floor Standing AC`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -226,7 +226,7 @@ const FloorStandingAC = () => {
                       High Capacity
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -244,7 +244,7 @@ const FloorStandingAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -263,7 +263,7 @@ const FloorStandingAC = () => {
                 Installation Advantages
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -274,7 +274,7 @@ const FloorStandingAC = () => {
                   <p className="text-muted-foreground">No wall mounting brackets needed, simply place on floor with proper spacing</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Wind className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -284,7 +284,7 @@ const FloorStandingAC = () => {
                   <p className="text-muted-foreground">Can be positioned anywhere in the room for optimal air distribution</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Users className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -306,13 +306,13 @@ const FloorStandingAC = () => {
                 Floor Standing AC Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Professional floor standing AC installation across Bareilly district. No wall mounting required, 
+                Professional floor standing AC installation across Bareilly district. No wall mounting required,
                 quick setup for homes, offices, and commercial spaces.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-94296-93410
                 </Button>
               </div>
             </div>
@@ -320,13 +320,13 @@ const FloorStandingAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="floor-standing-ac" 
+        <YouTubeVideos
+          category="floor-standing-ac"
           title="Floor Standing AC Videos"
           description="Watch reviews and installation guides for tower air conditioners."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

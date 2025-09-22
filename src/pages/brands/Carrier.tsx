@@ -66,7 +66,7 @@ const Carrier = () => {
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main>
           {/* Hero Section */}
           <section className="relative py-20 bg-gradient-to-br from-primary/10 to-primary-light/5">
@@ -82,15 +82,15 @@ const Carrier = () => {
                       <p className="text-primary font-semibold">The Inventors of Modern AC</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-muted-foreground mb-8">
-                    Experience reliable comfort with Carrier's trusted cooling solutions. 
-                    From residential split ACs to commercial systems, we deliver 120+ years 
+                    Experience reliable comfort with Carrier's trusted cooling solutions.
+                    From residential split ACs to commercial systems, we deliver 120+ years
                     of innovation to homes and businesses in Bareilly.
                   </p>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg">
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Carrier Quote
                     </Button>
@@ -99,11 +99,11 @@ const Carrier = () => {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-1/2">
-                  <img 
-                    src={splitAC} 
-                    alt="Carrier Split Air Conditioner" 
+                  <img
+                    src={splitAC}
+                    alt="Carrier Split Air Conditioner"
                     className="w-full rounded-lg shadow-lg"
                   />
                 </div>
@@ -117,7 +117,7 @@ const Carrier = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Why Choose Carrier in Bareilly?
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {whyChooseCarrier.map((item, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300">
@@ -144,14 +144,14 @@ const Carrier = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Carrier Product Range
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {products.map((product, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-0">
                       <div className="h-48 overflow-hidden">
-                        <img 
-                          src={product.image} 
+                        <img
+                          src={product.image}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -184,10 +184,10 @@ const Carrier = () => {
               <p className="text-xl mb-8 opacity-90">
                 Trusted cooling solutions for your home and business in Bareilly
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
                   Schedule Installation
                 </Button>
                 <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
@@ -197,7 +197,7 @@ const Carrier = () => {
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>

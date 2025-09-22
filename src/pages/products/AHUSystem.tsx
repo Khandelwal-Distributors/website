@@ -27,29 +27,29 @@ const AHUSystem = () => {
   ];
 
   const ahuTypes = [
-    { 
-      title: "Modular AHUs", 
+    {
+      title: "Modular AHUs",
       description: "Flexible modular construction for custom requirements",
       features: ["Modular Sections", "Easy Expansion", "Custom Configuration"],
       applications: ["Offices", "Hotels", "Hospitals"],
       capacity: "1000-50000 CFM"
     },
-    { 
-      title: "Packaged AHUs", 
+    {
+      title: "Packaged AHUs",
       description: "Complete factory-assembled units for quick installation",
       features: ["Factory Assembled", "Plug & Play", "Compact Design"],
       applications: ["Retail", "Small Offices", "Restaurants"],
       capacity: "500-10000 CFM"
     },
-    { 
-      title: "Cleanroom AHUs", 
+    {
+      title: "Cleanroom AHUs",
       description: "Specialized units for controlled environments",
       features: ["Pharmaceutical Grade", "HEPA/ULPA Filters", "Validation Support"],
       applications: ["Pharma", "Electronics", "Food Processing"],
       capacity: "2000-20000 CFM"
     },
-    { 
-      title: "Industrial AHUs", 
+    {
+      title: "Industrial AHUs",
       description: "Heavy-duty units for harsh industrial environments",
       features: ["Corrosion Resistant", "High Temperature", "Robust Construction"],
       applications: ["Manufacturing", "Chemical Plants", "Power Plants"],
@@ -102,10 +102,10 @@ const AHUSystem = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${ahuSystem})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${ahuSystem})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -117,15 +117,15 @@ const AHUSystem = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Professional air handling systems for commercial and industrial applications in Bareilly, Uttar Pradesh. 
+              Professional air handling systems for commercial and industrial applications in Bareilly, Uttar Pradesh.
               Custom AHU solutions with advanced filtration, energy recovery, and precise air conditioning.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about AHU Systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about AHU Systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -168,7 +168,7 @@ const AHUSystem = () => {
                 Choose the right AHU technology based on your application requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {ahuTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -221,7 +221,7 @@ const AHUSystem = () => {
                 Advanced AHU Technology
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Our AHU systems feature state-of-the-art components including variable frequency drives, 
+                Our AHU systems feature state-of-the-art components including variable frequency drives,
                 energy recovery wheels, and multi-stage filtration for optimal performance and efficiency.
               </p>
               <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -262,8 +262,8 @@ const AHUSystem = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={ahuSystem} 
+                    <img
+                      src={ahuSystem}
                       alt={`${product.name} - Air Handling Unit`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -274,7 +274,7 @@ const AHUSystem = () => {
                       {product.type}
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -292,7 +292,7 @@ const AHUSystem = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919897595000', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -311,7 +311,7 @@ const AHUSystem = () => {
                 Complete AHU Engineering Solutions
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -321,7 +321,7 @@ const AHUSystem = () => {
                   <p className="text-muted-foreground">Custom AHU design based on load calculations and application requirements</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">CFD Analysis</CardTitle>
@@ -330,7 +330,7 @@ const AHUSystem = () => {
                   <p className="text-muted-foreground">Computational fluid dynamics analysis for optimal air distribution</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Installation</CardTitle>
@@ -339,7 +339,7 @@ const AHUSystem = () => {
                   <p className="text-muted-foreground">Professional installation with commissioning and performance testing</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Validation</CardTitle>
@@ -360,13 +360,13 @@ const AHUSystem = () => {
                 AHU System Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete air handling unit solutions across Bareilly district. From engineering design 
+                Complete air handling unit solutions across Bareilly district. From engineering design
                 to installation and validation - your partner for professional AHU systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Get Best Price Quote
+                  Get Quote
                 </Button>
               </div>
             </div>
@@ -374,13 +374,13 @@ const AHUSystem = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="ahu-system" 
+        <YouTubeVideos
+          category="ahu-system"
           title="AHU System Videos"
           description="Watch air handling unit installations and maintenance procedures."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

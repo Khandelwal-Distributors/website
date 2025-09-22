@@ -27,22 +27,22 @@ const WaterCooler = () => {
   ];
 
   const coolerTypes = [
-    { 
-      title: "Storage Water Coolers", 
+    {
+      title: "Storage Water Coolers",
       description: "High-capacity cooling with large storage tanks",
       features: ["20L to 100L capacity", "Stainless steel body", "Energy efficient compressor"],
       applications: ["Offices", "Schools", "Factories"],
       priceRange: "₹15,000 - ₹35,000"
     },
-    { 
-      title: "Water Dispensers", 
+    {
+      title: "Water Dispensers",
       description: "Compact units for instant hot and cold water",
       features: ["Hot/Cold/Normal water", "Bottle loading", "Child safety features"],
       applications: ["Homes", "Small Offices", "Clinics"],
       priceRange: "₹12,000 - ₹25,000"
     },
-    { 
-      title: "RO Water Coolers", 
+    {
+      title: "RO Water Coolers",
       description: "Integrated purification with cooling technology",
       features: ["Built-in RO+UV", "TDS control", "Multi-stage purification"],
       applications: ["Premium Offices", "Hospitals", "Hotels"],
@@ -51,13 +51,13 @@ const WaterCooler = () => {
   ];
 
   const applications = [
-    { name: "Corporate Offices", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Schools & Colleges", icon: <School className="h-6 w-6" /> }, 
-    { name: "Hospitals & Clinics", icon: <Hospital className="h-6 w-6" /> }, 
+    { name: "Corporate Offices", icon: <Building className="h-6 w-6" /> },
+    { name: "Schools & Colleges", icon: <School className="h-6 w-6" /> },
+    { name: "Hospitals & Clinics", icon: <Hospital className="h-6 w-6" /> },
     { name: "Hotels & Restaurants", icon: <Hotel className="h-6 w-6" /> },
-    { name: "Manufacturing Units", icon: <Factory className="h-6 w-6" /> }, 
-    { name: "Residential Societies", icon: <Home className="h-6 w-6" /> }, 
-    { name: "Gym & Fitness Centers", icon: <Building className="h-6 w-6" /> }, 
+    { name: "Manufacturing Units", icon: <Factory className="h-6 w-6" /> },
+    { name: "Residential Societies", icon: <Home className="h-6 w-6" /> },
+    { name: "Gym & Fitness Centers", icon: <Building className="h-6 w-6" /> },
     { name: "Shopping Complexes", icon: <Building className="h-6 w-6" /> }
   ];
 
@@ -101,10 +101,10 @@ const WaterCooler = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: `url(${waterCooler})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: `url(${waterCooler})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -116,15 +116,15 @@ const WaterCooler = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Premium water cooling solutions for homes and offices in Bareilly, Uttar Pradesh. 
+              Premium water cooling solutions for homes and offices in Bareilly, Uttar Pradesh.
               Storage coolers, dispensers, and RO systems with hot, cold, and normal water options.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Water Coolers in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Water Coolers in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -167,7 +167,7 @@ const WaterCooler = () => {
                 Choose the right water cooling technology for your needs
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {coolerTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -228,8 +228,8 @@ const WaterCooler = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={waterCooler} 
+                    <img
+                      src={waterCooler}
                       alt={`${product.name} - Water Cooler`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -240,7 +240,7 @@ const WaterCooler = () => {
                       {product.type}
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -258,7 +258,7 @@ const WaterCooler = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919335888888', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -277,13 +277,13 @@ const WaterCooler = () => {
                 Water Cooler Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete water cooling solutions across Bareilly district. Professional installation, 
+                Complete water cooling solutions across Bareilly district. Professional installation,
                 maintenance, and repair services for all types of water coolers and dispensers.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-9335-888888
                 </Button>
               </div>
             </div>
@@ -291,13 +291,13 @@ const WaterCooler = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="water-cooler" 
+        <YouTubeVideos
+          category="water-cooler"
           title="Water Cooler Videos"
           description="Watch installation and maintenance guides for water coolers and dispensers."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

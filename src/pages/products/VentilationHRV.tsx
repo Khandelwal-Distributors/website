@@ -27,29 +27,29 @@ const VentilationHRV = () => {
   ];
 
   const ventilationTypes = [
-    { 
-      title: "Heat Recovery Ventilators (HRV)", 
+    {
+      title: "Heat Recovery Ventilators (HRV)",
       description: "Recover heat from exhaust air while bringing fresh air",
       features: ["Heat Recovery", "Energy Efficient", "Filtered Air"],
       applications: ["Homes", "Offices", "Schools"],
       efficiency: "Up to 85% heat recovery"
     },
-    { 
-      title: "Energy Recovery Ventilators (ERV)", 
+    {
+      title: "Energy Recovery Ventilators (ERV)",
       description: "Recover both heat and moisture for optimal comfort",
       features: ["Heat + Moisture Recovery", "Humidity Control", "Year-round Comfort"],
       applications: ["Commercial Buildings", "Humid Climates", "Large Homes"],
       efficiency: "Up to 80% total energy recovery"
     },
-    { 
-      title: "Exhaust Fans", 
+    {
+      title: "Exhaust Fans",
       description: "Remove stale air, odors, and moisture from spaces",
       features: ["Simple Installation", "Cost Effective", "Various Sizes"],
       applications: ["Bathrooms", "Kitchens", "Warehouses"],
       efficiency: "Direct air removal"
     },
-    { 
-      title: "Fresh Air Systems", 
+    {
+      title: "Fresh Air Systems",
       description: "Dedicated outdoor air systems with filtration",
       features: ["HEPA Filtration", "Variable Speed", "Smart Controls"],
       applications: ["Clean Rooms", "Hospitals", "Premium Offices"],
@@ -102,10 +102,10 @@ const VentilationHRV = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${ventilationHrv})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${ventilationHrv})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -117,15 +117,15 @@ const VentilationHRV = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Advanced ventilation and heat recovery systems for homes and buildings in Bareilly, Uttar Pradesh. 
+              Advanced ventilation and heat recovery systems for homes and buildings in Bareilly, Uttar Pradesh.
               Fresh air solutions with energy recovery, exhaust fans, and indoor air quality improvement.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Ventilation HRV systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Ventilation HRV systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -168,7 +168,7 @@ const VentilationHRV = () => {
                 Choose the right ventilation technology for your air quality needs
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {ventilationTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -225,7 +225,7 @@ const VentilationHRV = () => {
                 Energy Recovery Benefits
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                HRV and ERV systems recover up to 85% of energy from exhaust air, 
+                HRV and ERV systems recover up to 85% of energy from exhaust air,
                 significantly reducing heating and cooling costs while maintaining fresh air supply.
               </p>
               <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -266,8 +266,8 @@ const VentilationHRV = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={ventilationHrv} 
+                    <img
+                      src={ventilationHrv}
                       alt={`${product.name} - Ventilation System`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -278,7 +278,7 @@ const VentilationHRV = () => {
                       Fresh Air
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -296,7 +296,7 @@ const VentilationHRV = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919335888888', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -315,7 +315,7 @@ const VentilationHRV = () => {
                 Improve Indoor Air Quality
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -326,7 +326,7 @@ const VentilationHRV = () => {
                   <p className="text-muted-foreground">Eliminate dust, allergens, VOCs, and harmful indoor air pollutants</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Fan className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -336,7 +336,7 @@ const VentilationHRV = () => {
                   <p className="text-muted-foreground">Maintain optimal humidity levels to prevent mold and improve comfort</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -346,7 +346,7 @@ const VentilationHRV = () => {
                   <p className="text-muted-foreground">Recover energy from exhaust air to minimize operating costs</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Home className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -368,11 +368,11 @@ const VentilationHRV = () => {
                 Ventilation System Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete ventilation solutions across Bareilly district. Professional installation 
+                Complete ventilation solutions across Bareilly district. Professional installation
                 of HRV systems, exhaust fans, and fresh air systems with air quality expertise.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -382,13 +382,13 @@ const VentilationHRV = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="ventilation-hrv" 
+        <YouTubeVideos
+          category="ventilation-hrv"
           title="Ventilation HRV Videos"
           description="Learn about heat recovery ventilation and fresh air systems."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

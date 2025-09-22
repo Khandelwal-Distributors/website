@@ -71,10 +71,10 @@ const PortableAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${portableAc})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${portableAc})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -86,15 +86,15 @@ const PortableAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Mobile AC solutions for rented homes and temporary spaces in Bareilly, Uttar Pradesh. 
+              Mobile AC solutions for rented homes and temporary spaces in Bareilly, Uttar Pradesh.
               No installation required - plug, play, and enjoy instant cooling anywhere you go.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="cta" size="lg">
-                <Phone className="h-5 w-5" />
+                <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Portable ACs in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Portable ACs in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -137,7 +137,7 @@ const PortableAC = () => {
                 Ideal cooling solutions for temporary and space-constrained environments
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
               {applications.map((app, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -167,8 +167,8 @@ const PortableAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={portableAc} 
+                    <img
+                      src={portableAc}
                       alt={`${product.name} - Portable Air Conditioner`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -176,7 +176,7 @@ const PortableAC = () => {
                       {product.rating}
                     </Badge>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -194,7 +194,7 @@ const PortableAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -216,7 +216,7 @@ const PortableAC = () => {
                 Get your portable AC running in minutes with our easy setup process
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -227,7 +227,7 @@ const PortableAC = () => {
                   <p className="text-muted-foreground">Place near window, connect exhaust hose to window kit</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
@@ -237,7 +237,7 @@ const PortableAC = () => {
                   <p className="text-muted-foreground">Connect to power outlet and turn on the unit</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
@@ -259,12 +259,12 @@ const PortableAC = () => {
                 Portable AC Sales & Support in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete portable AC solutions across Bareilly district. Sales, delivery, 
+                Complete portable AC solutions across Bareilly district. Sales, delivery,
                 setup assistance, and service support for all portable air conditioner models.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
                   Get Best Price Quote
                 </Button>
               </div>
@@ -273,13 +273,13 @@ const PortableAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="portable-ac" 
+        <YouTubeVideos
+          category="portable-ac"
           title="Portable AC Videos"
           description="Learn about portable air conditioners and their benefits."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

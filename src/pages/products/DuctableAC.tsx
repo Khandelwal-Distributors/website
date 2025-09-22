@@ -80,10 +80,10 @@ const DuctableAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${ductableAc})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${ductableAc})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -95,15 +95,15 @@ const DuctableAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Concealed ductable AC systems for large spaces in Bareilly, Uttar Pradesh. 
+              Concealed ductable AC systems for large spaces in Bareilly, Uttar Pradesh.
               Central air conditioning with hidden installation, uniform cooling, and centralized control.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Ductable ACs in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Ductable ACs in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -146,7 +146,7 @@ const DuctableAC = () => {
                 Understanding ductable AC specifications for proper system design
               </p>
             </div>
-            
+
             <div className="max-w-3xl mx-auto">
               <Card>
                 <CardHeader>
@@ -178,7 +178,7 @@ const DuctableAC = () => {
                 Ideal central cooling solutions for various large space requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
               {applications.map((app, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -208,8 +208,8 @@ const DuctableAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={ductableAc} 
+                    <img
+                      src={ductableAc}
                       alt={`${product.name} - Ductable AC`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -220,7 +220,7 @@ const DuctableAC = () => {
                       Concealed
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -238,7 +238,7 @@ const DuctableAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -257,7 +257,7 @@ const DuctableAC = () => {
                 Professional Installation Process
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -268,7 +268,7 @@ const DuctableAC = () => {
                   <p className="text-muted-foreground">Detailed assessment of space, electrical, and ducting requirements</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
@@ -278,7 +278,7 @@ const DuctableAC = () => {
                   <p className="text-muted-foreground">Custom duct layout and false ceiling planning for optimal airflow</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
@@ -288,7 +288,7 @@ const DuctableAC = () => {
                   <p className="text-muted-foreground">Professional installation of unit, ducting, and control systems</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
@@ -310,11 +310,11 @@ const DuctableAC = () => {
                 Ductable AC Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete ductable AC solutions across Bareilly district. Professional design, 
+                Complete ductable AC solutions across Bareilly district. Professional design,
                 installation, and service for central air conditioning systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -324,13 +324,13 @@ const DuctableAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="ductable-ac" 
+        <YouTubeVideos
+          category="ductable-ac"
           title="Ductable AC Videos"
           description="Learn about concealed ductable AC installation and maintenance."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

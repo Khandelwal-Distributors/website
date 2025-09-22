@@ -82,10 +82,10 @@ const AlkalineRO = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${alkalineRo})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${alkalineRo})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -97,15 +97,15 @@ const AlkalineRO = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Advanced alkaline water purification systems for homes and offices in Bareilly, Uttar Pradesh. 
+              Advanced alkaline water purification systems for homes and offices in Bareilly, Uttar Pradesh.
               Multi-stage RO+UV+Alkaline technology for pure, healthy, mineral-rich water.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Alkaline RO systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Alkaline RO systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -148,7 +148,7 @@ const AlkalineRO = () => {
                 Comprehensive water treatment for complete purity and health benefits
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {stages.map((stage, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -180,7 +180,7 @@ const AlkalineRO = () => {
                 Experience improved health and wellness with alkaline mineral water
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
               {healthBenefits.map((benefit, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -210,8 +210,8 @@ const AlkalineRO = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={alkalineRo} 
+                    <img
+                      src={alkalineRo}
                       alt={`${product.name} - Alkaline RO Water Purifier`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -222,7 +222,7 @@ const AlkalineRO = () => {
                       Alkaline
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -240,7 +240,7 @@ const AlkalineRO = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919897595000', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -259,7 +259,7 @@ const AlkalineRO = () => {
                 Complete Service & Maintenance
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -270,7 +270,7 @@ const AlkalineRO = () => {
                   <p className="text-muted-foreground">Professional installation, plumbing connections, and system commissioning</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Droplets className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -280,7 +280,7 @@ const AlkalineRO = () => {
                   <p className="text-muted-foreground">Timely filter changes, genuine spare parts, and system optimization</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -302,11 +302,11 @@ const AlkalineRO = () => {
                 Alkaline RO Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete alkaline RO solutions across Bareilly district. Professional installation, 
+                Complete alkaline RO solutions across Bareilly district. Professional installation,
                 regular maintenance, and 24/7 service support for healthy water systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -316,13 +316,13 @@ const AlkalineRO = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="alkaline-ro" 
+        <YouTubeVideos
+          category="alkaline-ro"
           title="Alkaline RO Videos"
           description="Watch installation guides and health benefits of alkaline water systems."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

@@ -66,7 +66,7 @@ const Voltas = () => {
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main>
           {/* Hero Section */}
           <section className="relative py-20 bg-gradient-to-br from-primary/10 to-primary-light/5">
@@ -82,28 +82,25 @@ const Voltas = () => {
                       <p className="text-primary font-semibold">India's No.1 AC Brand</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-muted-foreground mb-8">
-                    Experience India's most trusted air conditioning brand. Voltas combines 
-                    decades of innovation with understanding of Indian climate to deliver 
+                    Experience India's most trusted air conditioning brand. Voltas combines
+                    decades of innovation with understanding of Indian climate to deliver
                     superior cooling solutions in Bareilly and across Uttar Pradesh.
                   </p>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg">
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Voltas Quote
                     </Button>
-                    <Button variant="outline" size="lg">
-                      Explore Range
-                    </Button>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-1/2">
-                  <img 
-                    src={inverterSplitAC} 
-                    alt="Voltas Inverter Split AC" 
+                  <img
+                    src={inverterSplitAC}
+                    alt="Voltas Inverter Split AC"
                     className="w-full rounded-lg shadow-lg"
                   />
                 </div>
@@ -117,7 +114,7 @@ const Voltas = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Why Choose Voltas in Bareilly?
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {whyChooseVoltas.map((item, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300">
@@ -144,14 +141,14 @@ const Voltas = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Voltas Product Range
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {products.map((product, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-0">
                       <div className="h-48 overflow-hidden">
-                        <img 
-                          src={product.image} 
+                        <img
+                          src={product.image}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -184,11 +181,11 @@ const Voltas = () => {
               <p className="text-xl mb-8 opacity-90">
                 Experience superior cooling designed for Indian homes in Bareilly
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Book Free Demo
+                  Get Best Price
                 </Button>
                 <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
                   <Link to="/contact">Compare Models</Link>
@@ -197,7 +194,7 @@ const Voltas = () => {
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>

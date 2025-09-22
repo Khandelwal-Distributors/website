@@ -233,12 +233,12 @@ const Products = () => {
           })}
         </script>
       </Helmet>
-      
+
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section 
+        <section
           className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${productsHeroBg})` }}
         >
@@ -253,11 +253,11 @@ const Products = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-2xl">
-              Explore our comprehensive range of HVAC solutions, air conditioners, 
+              Explore our comprehensive range of HVAC solutions, air conditioners,
               water systems, and air purification products from leading brands.
             </p>
             <div className="mt-8">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Free Consultation
               </Button>
@@ -273,8 +273,8 @@ const Products = () => {
                 <Link key={category.id} to={`/products/${category.id === 'water-solutions' ? 'water-cooler' : category.id === 'air-purifiers' ? 'air-purifier' : category.id}`}>
                   <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                     <div className="relative overflow-hidden">
-                      <OptimizedImage 
-                        src={category.image} 
+                      <OptimizedImage
+                        src={category.image}
                         alt={category.title}
                         className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                       />
@@ -282,7 +282,7 @@ const Products = () => {
                         {category.icon}
                       </div>
                     </div>
-                  
+
                     <CardHeader>
                       <CardTitle className="text-xl font-bold text-primary">
                         {category.title}
@@ -329,7 +329,7 @@ const Products = () => {
                         </div>
                       </div>
 
-                      <Button variant="outline" className="w-full mt-4">
+                      <Button variant="outline" className="w-full mt-4" onClick={() => window.open('tel:+919429693410', '_self')}>
                         <Phone className="h-4 w-4" />
                         Get Quote
                       </Button>
@@ -349,56 +349,56 @@ const Products = () => {
                 Commercial HVAC Solutions
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Specialized HVAC systems for commercial spaces including gyms, salons, 
+                Specialized HVAC systems for commercial spaces including gyms, salons,
                 hospitals, schools, hotels, and more.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {[
-                { 
-                  title: "VRV Systems", 
-                  brand: "Daikin Exclusive", 
+                {
+                  title: "VRV Systems",
+                  brand: "Daikin Exclusive",
                   description: "Variable Refrigerant Volume systems for maximum efficiency",
                   image: vrvSystem,
                   products: ["Multi-zone control", "Energy recovery", "Heat pump technology"],
                   link: "/products/vrv-system"
                 },
-                { 
-                  title: "Chillers", 
-                  brand: "Multi-Brand", 
+                {
+                  title: "Chillers",
+                  brand: "Multi-Brand",
                   description: "Industrial cooling solutions for large facilities",
                   image: chillerSystem,
                   products: ["Water-cooled chillers", "Air-cooled systems", "Modular designs"],
                   link: "/products/chiller-system"
                 },
-                { 
-                  title: "Heat Pumps", 
-                  brand: "Daikin & Carrier", 
+                {
+                  title: "Heat Pumps",
+                  brand: "Daikin & Carrier",
                   description: "Energy-efficient heating and cooling systems",
                   image: heatPump,
                   products: ["Inverter technology", "All-season comfort", "Eco-friendly refrigerant"],
                   link: "/products/heat-pump"
                 },
-                { 
-                  title: "Ductable ACs", 
-                  brand: "All Major Brands", 
+                {
+                  title: "Ductable ACs",
+                  brand: "All Major Brands",
                   description: "Central air conditioning with concealed installation",
                   image: ductableAc,
                   products: ["Concealed design", "Uniform cooling", "Centralized control"],
                   link: "/products/ductable-ac"
                 },
-                { 
-                  title: "Cold Rooms & Storage", 
-                  brand: "Daikin, Carrier, Blue Star", 
+                {
+                  title: "Cold Rooms & Storage",
+                  brand: "Daikin, Carrier, Blue Star",
                   description: "Commercial refrigeration and cold storage solutions",
                   image: coldRoom,
                   products: ["Walk-in freezers", "Temperature control", "Food grade materials"],
                   link: "/products/cold-room"
                 },
-                { 
-                  title: "Air Handling Units", 
-                  brand: "Daikin Exclusive", 
+                {
+                  title: "Air Handling Units",
+                  brand: "Daikin Exclusive",
                   description: "AHU systems for large commercial applications",
                   image: ahuSystem,
                   products: ["High CFM capacity", "Energy recovery", "Modular construction"],
@@ -408,8 +408,8 @@ const Products = () => {
                 <Link key={index} to={item.link}>
                   <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                     <div className="relative overflow-hidden">
-                      <OptimizedImage 
-                        src={item.image} 
+                      <OptimizedImage
+                        src={item.image}
                         alt={item.title}
                         className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                       />
@@ -431,7 +431,7 @@ const Products = () => {
                           </div>
                         ))}
                       </div>
-                      <Button variant="outline" size="sm" className="w-full">
+                      <Button variant="outline" size="sm" className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                         <Phone className="h-4 w-4" />
                         Get Quote
                       </Button>
@@ -456,11 +456,11 @@ const Products = () => {
               Get expert consultation and competitive pricing on all products
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Call for Free Site Visit
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
+              <Button variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+919429693410', '_self')}>
                 Request Quote
               </Button>
             </div>

@@ -55,26 +55,26 @@ const Godrej = () => {
         <meta name="description" content="Authorized Godrej AC dealer in Bareilly, UP. India's most economical AC brand. Budget split & window ACs made in India. Affordable cooling. Call +91 98765 43210" />
         <meta name="keywords" content="Godrej AC Bareilly, economical AC India, budget AC Bareilly, affordable cooling UP, Indian AC brand Bareilly" />
         <link rel="canonical" href="https://khandelwaldistributors.com/brands/godrej" />
-        
+
         <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Godrej Air Conditioning Systems",
-          "brand": "Godrej",
-          "description": "India's most economical AC brand with budget-friendly split and window ACs in Bareilly, Uttar Pradesh",
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock"
-          }
-        })}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Godrej Air Conditioning Systems",
+            "brand": "Godrej",
+            "description": "India's most economical AC brand with budget-friendly split and window ACs in Bareilly, Uttar Pradesh",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            }
+          })}
         </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main>
           {/* Hero Section */}
           <section className="relative py-20 bg-gradient-to-br from-primary/10 to-primary-light/5">
@@ -90,28 +90,25 @@ const Godrej = () => {
                       <p className="text-primary font-semibold">India's Most Economical AC</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-muted-foreground mb-8">
-                    Experience affordable cooling with India's most trusted and economical AC brand. 
-                    Godrej brings you reliable, budget-friendly air conditioning solutions 
+                    Experience affordable cooling with India's most trusted and economical AC brand.
+                    Godrej brings you reliable, budget-friendly air conditioning solutions
                     made in India for Indian homes in Bareilly, UP.
                   </p>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg">
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Lowest Price
                     </Button>
-                    <Button variant="outline" size="lg">
-                      View Offers
-                    </Button>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-1/2">
-                  <img 
-                    src={splitAC} 
-                    alt="Godrej Split AC" 
+                  <img
+                    src={splitAC}
+                    alt="Godrej Split AC"
                     className="w-full rounded-lg shadow-lg"
                   />
                 </div>
@@ -125,7 +122,7 @@ const Godrej = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Why Choose Godrej in Bareilly?
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {whyChooseGodrej.map((item, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300">
@@ -152,14 +149,14 @@ const Godrej = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Godrej AC Range
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {products.map((product, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-0">
                       <div className="h-48 overflow-hidden">
-                        <img 
-                          src={product.image} 
+                        <img
+                          src={product.image}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -192,20 +189,17 @@ const Godrej = () => {
               <p className="text-xl mb-8 opacity-90">
                 Get India's most economical AC solutions in Bareilly
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
                   Call for Best Deal
-                </Button>
-                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-                  <Link to="/contact">Check Availability</Link>
                 </Button>
               </div>
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>

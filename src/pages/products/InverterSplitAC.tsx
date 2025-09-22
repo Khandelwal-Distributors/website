@@ -66,10 +66,10 @@ const InverterSplitAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/inverter-split-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/inverter-split-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -81,12 +81,12 @@ const InverterSplitAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Discover energy-efficient inverter split ACs from top brands in Bareilly, Uttar Pradesh. 
+              Discover energy-efficient inverter split ACs from top brands in Bareilly, Uttar Pradesh.
               Save up to 60% on electricity bills with advanced inverter technology and smart features.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button 
-                variant="cta" 
+              <Button
+                variant="cta"
                 size="lg"
                 onClick={() => window.open('tel:+919429693410', '_self')}
               >
@@ -141,8 +141,8 @@ const InverterSplitAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={inverterSplitAc} 
+                    <img
+                      src={inverterSplitAc}
                       alt={`${product.name} - Inverter Split AC`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -150,7 +150,7 @@ const InverterSplitAC = () => {
                       {product.rating}
                     </Badge>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -168,7 +168,7 @@ const InverterSplitAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -187,11 +187,11 @@ const InverterSplitAC = () => {
                 Professional AC Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Serving Bareilly, Pilibhit, Budaun, Shahjahanpur and surrounding areas with 
+                Serving Bareilly, Pilibhit, Budaun, Shahjahanpur and surrounding areas with
                 expert AC installation, maintenance, and repair services since 2010.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
                   Call: +91 9429693410
                 </Button>
@@ -201,13 +201,13 @@ const InverterSplitAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="inverter-split-ac" 
+        <YouTubeVideos
+          category="inverter-split-ac"
           title="Inverter Split AC Videos"
           description="Watch detailed reviews and installation guides for inverter split air conditioners."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

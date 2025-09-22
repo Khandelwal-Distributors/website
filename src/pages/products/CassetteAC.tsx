@@ -27,13 +27,13 @@ const CassetteAC = () => {
   ];
 
   const applications = [
-    { name: "Office Spaces", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Retail Stores", icon: <ShoppingBag className="h-6 w-6" /> }, 
-    { name: "Restaurants", icon: <Hotel className="h-6 w-6" /> }, 
+    { name: "Office Spaces", icon: <Building className="h-6 w-6" /> },
+    { name: "Retail Stores", icon: <ShoppingBag className="h-6 w-6" /> },
+    { name: "Restaurants", icon: <Hotel className="h-6 w-6" /> },
     { name: "Hotel Lobbies", icon: <Hotel className="h-6 w-6" /> },
-    { name: "Conference Rooms", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Showrooms", icon: <ShoppingBag className="h-6 w-6" /> }, 
-    { name: "Clinics", icon: <Hospital className="h-6 w-6" /> }, 
+    { name: "Conference Rooms", icon: <Building className="h-6 w-6" /> },
+    { name: "Showrooms", icon: <ShoppingBag className="h-6 w-6" /> },
+    { name: "Clinics", icon: <Hospital className="h-6 w-6" /> },
     { name: "Reception Areas", icon: <Building className="h-6 w-6" /> }
   ];
 
@@ -77,10 +77,10 @@ const CassetteAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/cassette-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/cassette-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -92,15 +92,15 @@ const CassetteAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Premium ceiling-mounted cassette ACs for commercial spaces in Bareilly, Uttar Pradesh. 
+              Premium ceiling-mounted cassette ACs for commercial spaces in Bareilly, Uttar Pradesh.
               360° airflow, invisible design, perfect for offices, restaurants, and large rooms.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Cassette ACs in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Cassette ACs in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -143,7 +143,7 @@ const CassetteAC = () => {
                 Ideal cooling solutions for various commercial and institutional spaces
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {applications.map((app, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -173,8 +173,8 @@ const CassetteAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={cassetteAc} 
+                    <img
+                      src={cassetteAc}
                       alt={`${product.name} - Cassette Air Conditioner`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -182,7 +182,7 @@ const CassetteAC = () => {
                       {product.rating}
                     </Badge>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -200,7 +200,7 @@ const CassetteAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -219,13 +219,13 @@ const CassetteAC = () => {
                 Cassette AC Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Professional ceiling cassette AC installation across Bareilly district. 
+                Professional ceiling cassette AC installation across Bareilly district.
                 Expert false ceiling work, electrical connections, and comprehensive service support.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-94296-93410
                 </Button>
               </div>
             </div>
@@ -233,13 +233,13 @@ const CassetteAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="cassette-ac" 
+        <YouTubeVideos
+          category="cassette-ac"
           title="Cassette AC Videos"
           description="Watch detailed installation guides and reviews for ceiling cassette air conditioners."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

@@ -55,26 +55,26 @@ const Midea = () => {
         <meta name="description" content="Authorized Midea AC dealer in Bareilly, UP. Most economical split & cassette ACs for homes and offices. Budget-friendly cooling solutions. Call +91 98765 43210" />
         <meta name="keywords" content="Midea AC Bareilly, economical AC Bareilly, budget AC UP, cassette AC Bareilly, affordable cooling Bareilly" />
         <link rel="canonical" href="https://khandelwaldistributors.com/brands/midea" />
-        
+
         <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Midea Air Conditioning Systems",
-          "brand": "Midea",
-          "description": "Economical split and cassette AC systems for homes and offices in Bareilly, Uttar Pradesh",
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock"
-          }
-        })}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Midea Air Conditioning Systems",
+            "brand": "Midea",
+            "description": "Economical split and cassette AC systems for homes and offices in Bareilly, Uttar Pradesh",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            }
+          })}
         </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main>
           {/* Hero Section */}
           <section className="relative py-20 bg-gradient-to-br from-primary/10 to-primary-light/5">
@@ -90,28 +90,25 @@ const Midea = () => {
                       <p className="text-primary font-semibold">Smart & Economical</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-muted-foreground mb-8">
-                    Discover affordable cooling solutions with Midea's economical split and cassette ACs. 
-                    Global quality at local prices, perfect for homes and offices in Bareilly, 
+                    Discover affordable cooling solutions with Midea's economical split and cassette ACs.
+                    Global quality at local prices, perfect for homes and offices in Bareilly,
                     Uttar Pradesh.
                   </p>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button variant="cta" size="lg">
-                      <Phone className="h-5 w-5" />
+                      <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
                       Get Budget Quote
-                    </Button>
-                    <Button variant="outline" size="lg">
-                      Compare Models
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-1/2">
-                  <img 
-                    src={splitAC} 
-                    alt="Midea Split AC" 
+                  <img
+                    src={splitAC}
+                    alt="Midea Split AC"
                     className="w-full rounded-lg shadow-lg"
                   />
                 </div>
@@ -125,7 +122,7 @@ const Midea = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Why Choose Midea in Bareilly?
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {whyChooseMidea.map((item, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300">
@@ -152,14 +149,14 @@ const Midea = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Midea Product Range
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {products.map((product, index) => (
                   <Card key={index} className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-0">
                       <div className="h-48 overflow-hidden">
-                        <img 
-                          src={product.image} 
+                        <img
+                          src={product.image}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -192,20 +189,17 @@ const Midea = () => {
               <p className="text-xl mb-8 opacity-90">
                 Get the most economical AC solutions in Bareilly
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" />
-                  Get Affordable Quote
-                </Button>
-                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-                  <Link to="/contact">Compare Prices</Link>
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                  Get Affordable Quotes
                 </Button>
               </div>
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>

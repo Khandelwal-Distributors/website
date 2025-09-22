@@ -27,13 +27,13 @@ const VRVSystem = () => {
   ];
 
   const applications = [
-    { name: "Corporate Offices", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Hotels & Resorts", icon: <Hotel className="h-6 w-6" /> }, 
-    { name: "Hospitals & Healthcare", icon: <Hospital className="h-6 w-6" /> }, 
+    { name: "Corporate Offices", icon: <Building className="h-6 w-6" /> },
+    { name: "Hotels & Resorts", icon: <Hotel className="h-6 w-6" /> },
+    { name: "Hospitals & Healthcare", icon: <Hospital className="h-6 w-6" /> },
     { name: "Shopping Malls", icon: <ShoppingBag className="h-6 w-6" /> },
-    { name: "Educational Institutions", icon: <School className="h-6 w-6" /> }, 
-    { name: "Data Centers", icon: <Factory className="h-6 w-6" /> }, 
-    { name: "Manufacturing Facilities", icon: <Factory className="h-6 w-6" /> }, 
+    { name: "Educational Institutions", icon: <School className="h-6 w-6" /> },
+    { name: "Data Centers", icon: <Factory className="h-6 w-6" /> },
+    { name: "Manufacturing Facilities", icon: <Factory className="h-6 w-6" /> },
     { name: "Mixed-Use Buildings", icon: <Building2 className="h-6 w-6" /> }
   ];
 
@@ -77,10 +77,10 @@ const VRVSystem = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/vrv-system.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/vrv-system.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -92,15 +92,15 @@ const VRVSystem = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Advanced Variable Refrigerant Volume systems for commercial buildings in Bareilly, Uttar Pradesh. 
+              Advanced Variable Refrigerant Volume systems for commercial buildings in Bareilly, Uttar Pradesh.
               Energy-efficient HVAC solutions with individual zone control and smart technology.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about VRV Systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about VRV Systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -143,7 +143,7 @@ const VRVSystem = () => {
                 Perfect HVAC solutions for diverse commercial and institutional buildings
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {applications.map((app, index) => (
                 <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
@@ -173,8 +173,8 @@ const VRVSystem = () => {
               {systems.map((system, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={vrvSystem} 
+                    <img
+                      src={vrvSystem}
                       alt={`${system.name} - VRV System`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -182,7 +182,7 @@ const VRVSystem = () => {
                       {system.efficiency}
                     </Badge>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{system.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -200,7 +200,7 @@ const VRVSystem = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -219,7 +219,7 @@ const VRVSystem = () => {
                 Why Choose Our VRV Solutions?
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -229,7 +229,7 @@ const VRVSystem = () => {
                   <p className="text-muted-foreground">Custom system design, load calculations, and technical drawings for optimal performance</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Installation & Commissioning</CardTitle>
@@ -238,7 +238,7 @@ const VRVSystem = () => {
                   <p className="text-muted-foreground">Professional installation, testing, and system commissioning by certified technicians</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Service & Maintenance</CardTitle>
@@ -259,13 +259,13 @@ const VRVSystem = () => {
                 VRV System Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete VRV system solutions across Bareilly district. From design consultation 
+                Complete VRV system solutions across Bareilly district. From design consultation
                 to installation and commissioning - your partner for premium HVAC systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-90844-17884
                 </Button>
               </div>
             </div>
@@ -273,13 +273,13 @@ const VRVSystem = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="vrv-system" 
+        <YouTubeVideos
+          category="vrv-system"
           title="VRV System Videos"
           description="Explore variable refrigerant volume systems for large commercial spaces."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

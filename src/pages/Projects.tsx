@@ -41,7 +41,7 @@ const Projects = () => {
         <meta name="keywords" content="HVAC projects, air conditioning installation, commercial AC projects, industrial cooling, residential HVAC" />
         <link rel="canonical" href="/projects" />
       </Helmet>
-      
+
       <div className="min-h-screen bg-background">
         <Header />
         <main>
@@ -57,20 +57,21 @@ const Projects = () => {
                   Discover our successful HVAC installations across diverse industries and sectors
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                  <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale">
+                  <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale" onClick={() => window.open('tel:+919429693410', '_self')}>
                     <Phone className="h-5 w-5" />
                     Get Project Quote
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     className="bg-white/10 border-white/30 hover:bg-white/20 text-white flex items-center gap-2 hover-scale"
+                    onClick={() => window.open('https://wa.me/919084417884', '_self')}
                   >
                     <MessageCircle className="h-5 w-5" />
                     WhatsApp Us
                   </Button>
                 </div>
-                
+
                 {/* Project Statistics */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                   <div className="text-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
@@ -102,11 +103,11 @@ const Projects = () => {
                   Featured <span className="text-primary">Projects</span>
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  From small residential installations to large commercial projects, 
+                  From small residential installations to large commercial projects,
                   we've delivered excellence across all scales and complexities.
                 </p>
               </div>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {(!projects || projects.length === 0) ? (
                   <div className="col-span-full text-center py-12">
@@ -114,88 +115,88 @@ const Projects = () => {
                   </div>
                 ) : (
                   projects.map((project, index) => (
-                  <Card 
-                    key={index} 
-                    className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="aspect-video overflow-hidden relative">
-                      <OptimizedImage 
-                        src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"} 
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                        {project.completion_year}
-                      </div>
-                      <div className="absolute bottom-4 left-4 flex items-center gap-1">
-                        {[...Array(Math.floor(project.rating || 5))].map((_, idx) => (
-                          <Star key={idx} className="h-3 w-3 fill-accent-warm text-accent-warm" />
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <CardHeader className="relative">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                        {project.title}
-                      </CardTitle>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Building2 className="h-4 w-4" />
-                          {project.project_type}
+                    <Card
+                      key={index}
+                      className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="aspect-video overflow-hidden relative">
+                        <OptimizedImage
+                          src={project.image_url || "/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                          {project.completion_year}
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="h-4 w-4" />
-                          {project.capacity}
-                        </div>
-                      </div>
-                      {project.location && (
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          {project.location}
-                        </div>
-                      )}
-                    </CardHeader>
-                    
-                    <CardContent>
-                      {project.description && (
-                        <p className="text-sm text-muted-foreground mb-4">
-                          {project.description.length > 140 ? project.description.slice(0, 140) + '…' : project.description}
-                        </p>
-                      )}
-                      <div className="mb-4">
-                        <p className="text-sm text-muted-foreground">
-                          <strong>Client:</strong> {project.client}
-                        </p>
-                      </div>
-                      
-                      {project.features && project.features.length > 0 && (
-                        <div className="space-y-2 mb-6">
-                          <h4 className="font-semibold text-sm">Key Features:</h4>
-                          {project.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-sm">
-                              <CheckCircle className="h-3 w-3 text-primary flex-shrink-0" />
-                              <span>{feature}</span>
-                            </div>
+                        <div className="absolute bottom-4 left-4 flex items-center gap-1">
+                          {[...Array(Math.floor(project.rating || 5))].map((_, idx) => (
+                            <Star key={idx} className="h-3 w-3 fill-accent-warm text-accent-warm" />
                           ))}
                         </div>
-                      )}
-                      
-                      <Button 
-                        variant="outline" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
-                        onClick={() => {
-                          if (project.project_url) {
-                            window.open(project.project_url, '_blank', 'noopener,noreferrer');
-                          }
-                        }}
-                        disabled={!project.project_url}
-                      >
-                        {project.project_url ? 'View Project Details' : 'Details Coming Soon'}
-                      </Button>
-                    </CardContent>
-                  </Card>
+                      </div>
+
+                      <CardHeader className="relative">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                          {project.title}
+                        </CardTitle>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Building2 className="h-4 w-4" />
+                            {project.project_type}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            {project.capacity}
+                          </div>
+                        </div>
+                        {project.location && (
+                          <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                            <Calendar className="h-4 w-4" />
+                            {project.location}
+                          </div>
+                        )}
+                      </CardHeader>
+
+                      <CardContent>
+                        {project.description && (
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {project.description.length > 140 ? project.description.slice(0, 140) + '…' : project.description}
+                          </p>
+                        )}
+                        <div className="mb-4">
+                          <p className="text-sm text-muted-foreground">
+                            <strong>Client:</strong> {project.client}
+                          </p>
+                        </div>
+
+                        {project.features && project.features.length > 0 && (
+                          <div className="space-y-2 mb-6">
+                            <h4 className="font-semibold text-sm">Key Features:</h4>
+                            {project.features.map((feature, idx) => (
+                              <div key={idx} className="flex items-center gap-2 text-sm">
+                                <CheckCircle className="h-3 w-3 text-primary flex-shrink-0" />
+                                <span>{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        <Button
+                          variant="outline"
+                          className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                          onClick={() => {
+                            if (project.project_url) {
+                              window.open(project.project_url, '_blank', 'noopener,noreferrer');
+                            }
+                          }}
+                          disabled={!project.project_url}
+                        >
+                          {project.project_url ? 'View Project Details' : 'Details Coming Soon'}
+                        </Button>
+                      </CardContent>
+                    </Card>
                   ))
                 )}
               </div>
@@ -209,31 +210,32 @@ const Projects = () => {
                 Ready to Start Your <span className="text-primary">Next Project?</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                Let us help you design and implement the perfect HVAC solution for your space. 
+                Let us help you design and implement the perfect HVAC solution for your space.
                 Contact our experts for a free consultation and project quote.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale animate-fade-in" style={{ animationDelay: "0.4s" }}>
+                <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale animate-fade-in" style={{ animationDelay: "0.4s" }} onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Free Consultation
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="bg-green-600 text-white border-green-600 hover:bg-green-700 flex items-center gap-2 hover-scale animate-fade-in"
                   style={{ animationDelay: "0.5s" }}
+                  onClick={() => window.open('tel:+919429693410', '_self')}
                 >
                   <MessageCircle className="h-5 w-5" />
                   WhatsApp for Quick Quote
                 </Button>
               </div>
-              
+
               <div className="bg-white/60 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
                 <p className="text-sm text-muted-foreground mb-3">
                   Want to explore our other services and products?
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => window.location.href = '/'}
                   className="hover-scale"
                 >

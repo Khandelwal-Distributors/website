@@ -27,26 +27,26 @@ const SolarWaterHeater = () => {
   ];
 
   const types = [
-    { 
-      title: "Evacuated Tube Collectors (ETC)", 
+    {
+      title: "Evacuated Tube Collectors (ETC)",
       description: "Best for North Indian climate, works in winters too",
       features: ["High Efficiency", "Works in Cold", "Vacuum Insulation"]
     },
-    { 
-      title: "Flat Plate Collectors (FPC)", 
+    {
+      title: "Flat Plate Collectors (FPC)",
       description: "Durable design for commercial applications",
       features: ["Commercial Grade", "Weather Resistant", "Easy Maintenance"]
     }
   ];
 
   const applications = [
-    { name: "Residential Homes", icon: <Home className="h-6 w-6" /> }, 
-    { name: "Hotels & Resorts", icon: <Hotel className="h-6 w-6" /> }, 
-    { name: "Hospitals", icon: <Hospital className="h-6 w-6" /> }, 
+    { name: "Residential Homes", icon: <Home className="h-6 w-6" /> },
+    { name: "Hotels & Resorts", icon: <Hotel className="h-6 w-6" /> },
+    { name: "Hospitals", icon: <Hospital className="h-6 w-6" /> },
     { name: "Schools & Colleges", icon: <School className="h-6 w-6" /> },
-    { name: "Hostels", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Gymnasiums", icon: <Factory className="h-6 w-6" /> }, 
-    { name: "Swimming Pools", icon: <Building className="h-6 w-6" /> }, 
+    { name: "Hostels", icon: <Building className="h-6 w-6" /> },
+    { name: "Gymnasiums", icon: <Factory className="h-6 w-6" /> },
+    { name: "Swimming Pools", icon: <Building className="h-6 w-6" /> },
     { name: "Industrial Processes", icon: <Factory className="h-6 w-6" /> }
   ];
 
@@ -90,10 +90,10 @@ const SolarWaterHeater = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/solar-water-heater.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/solar-water-heater.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -105,15 +105,15 @@ const SolarWaterHeater = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Eco-friendly solar water heating systems for homes and businesses in Bareilly, Uttar Pradesh. 
+              Eco-friendly solar water heating systems for homes and businesses in Bareilly, Uttar Pradesh.
               Reduce electricity bills by 80% with clean, renewable solar energy technology.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Solar Water Heaters in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Solar Water Heaters in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -156,7 +156,7 @@ const SolarWaterHeater = () => {
                 Choose the right technology based on your needs and climate conditions
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {types.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -212,8 +212,8 @@ const SolarWaterHeater = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={solarWaterHeater} 
+                    <img
+                      src={solarWaterHeater}
                       alt={`${product.name} - Solar Water Heater`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -224,7 +224,7 @@ const SolarWaterHeater = () => {
                       Eco-Friendly
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -242,7 +242,7 @@ const SolarWaterHeater = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919897595000', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -261,7 +261,7 @@ const SolarWaterHeater = () => {
                 Calculate Your Savings
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                A typical 200L solar water heater can save ₹15,000-20,000 annually on electricity bills. 
+                A typical 200L solar water heater can save ₹15,000-20,000 annually on electricity bills.
                 Your investment pays back in just 2-3 years with 20+ years of free hot water!
               </p>
               <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -290,13 +290,13 @@ const SolarWaterHeater = () => {
                 Solar Water Heater Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Professional solar water heater installation across Bareilly district. 
+                Professional solar water heater installation across Bareilly district.
                 Complete solution from roof survey to commissioning with 5-year warranty.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-98975-95000
                 </Button>
               </div>
             </div>
@@ -304,13 +304,13 @@ const SolarWaterHeater = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="solar-water-heater" 
+        <YouTubeVideos
+          category="solar-water-heater"
           title="Solar Water Heater Videos"
           description="Watch installation guides and benefits of solar water heating systems."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

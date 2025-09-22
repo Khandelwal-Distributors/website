@@ -27,20 +27,20 @@ const AirPurifier = () => {
   ];
 
   const airPurifierTypes = [
-    { 
-      title: "HEPA Air Purifiers", 
+    {
+      title: "HEPA Air Purifiers",
       description: "High-efficiency filters remove 99.97% particles",
       features: ["HEPA Filter", "Pre-Filter", "Carbon Filter"],
       applications: ["Homes", "Offices", "Clinics"]
     },
-    { 
-      title: "UV-C Air Purifiers", 
+    {
+      title: "UV-C Air Purifiers",
       description: "Ultraviolet light kills bacteria and viruses",
       features: ["UV-C Lamp", "Germicidal Action", "Chemical-Free"],
       applications: ["Hospitals", "Labs", "Commercial Spaces"]
     },
-    { 
-      title: "Ion Air Purifiers", 
+    {
+      title: "Ion Air Purifiers",
       description: "Generate ions to neutralize airborne contaminants",
       features: ["Negative Ions", "No Filter Replacement", "Quiet Operation"],
       applications: ["Bedrooms", "Study Rooms", "Small Offices"]
@@ -48,20 +48,20 @@ const AirPurifier = () => {
   ];
 
   const waterPurifierTypes = [
-    { 
-      title: "RO Water Purifiers", 
+    {
+      title: "RO Water Purifiers",
       description: "Reverse osmosis removes dissolved impurities",
       features: ["RO Membrane", "TDS Removal", "Storage Tank"],
       applications: ["High TDS Areas", "Hard Water", "Bore Well Water"]
     },
-    { 
-      title: "UV Water Purifiers", 
+    {
+      title: "UV Water Purifiers",
       description: "Ultraviolet disinfection kills harmful microorganisms",
       features: ["UV Lamp", "Chemical-Free", "No Waste Water"],
       applications: ["Municipal Water", "Low TDS Water", "Microbe Treatment"]
     },
-    { 
-      title: "Alkaline Water Purifiers", 
+    {
+      title: "Alkaline Water Purifiers",
       description: "Add beneficial minerals and increase pH",
       features: ["Mineral Addition", "pH Balance", "Health Benefits"],
       applications: ["Health Conscious", "Premium Homes", "Wellness Centers"]
@@ -108,10 +108,10 @@ const AirPurifier = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${airPurifier})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${airPurifier})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -123,15 +123,15 @@ const AirPurifier = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Advanced air and water purification systems for homes and offices in Bareilly, Uttar Pradesh. 
+              Advanced air and water purification systems for homes and offices in Bareilly, Uttar Pradesh.
               HEPA air purifiers, RO water systems, and UV-C technology for complete health protection.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
-                Get Best Price Quote
+                Get Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Air Purifiers in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Air Purifiers in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -174,7 +174,7 @@ const AirPurifier = () => {
                 Choose the right air purification technology for your needs
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {airPurifierTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -210,7 +210,7 @@ const AirPurifier = () => {
                 Select the ideal water purification system based on your water quality
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
               {waterPurifierTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -255,8 +255,8 @@ const AirPurifier = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={airPurifier} 
+                    <img
+                      src={airPurifier}
                       alt={`${product.name} - Air/Water Purifier`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -267,7 +267,7 @@ const AirPurifier = () => {
                       Health Guard
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -285,7 +285,7 @@ const AirPurifier = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919335888888', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -304,7 +304,7 @@ const AirPurifier = () => {
                 Health & Wellness Benefits
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Clean air and pure water are fundamental for good health. Our purification systems 
+                Clean air and pure water are fundamental for good health. Our purification systems
                 protect you and your family from harmful pollutants, bacteria, and contaminants.
               </p>
               <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -337,7 +337,7 @@ const AirPurifier = () => {
                 Complete Service & Support
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -347,7 +347,7 @@ const AirPurifier = () => {
                   <p className="text-muted-foreground">Professional installation with proper positioning and connections</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Filter Replacement</CardTitle>
@@ -356,7 +356,7 @@ const AirPurifier = () => {
                   <p className="text-muted-foreground">Timely filter changes with genuine parts and quality assurance</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Testing</CardTitle>
@@ -365,7 +365,7 @@ const AirPurifier = () => {
                   <p className="text-muted-foreground">Regular air quality and water purity testing services</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Maintenance</CardTitle>
@@ -386,11 +386,11 @@ const AirPurifier = () => {
                 Air & Water Purifier Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete purification solutions across Bareilly district. Installation, maintenance, 
+                Complete purification solutions across Bareilly district. Installation, maintenance,
                 and service for air purifiers and water systems with health-focused approach.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -400,13 +400,13 @@ const AirPurifier = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="air-purifier" 
+        <YouTubeVideos
+          category="air-purifier"
           title="Air Purifier Videos"
           description="Learn about air purification technology and product demonstrations."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

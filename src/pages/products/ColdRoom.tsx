@@ -27,20 +27,20 @@ const ColdRoom = () => {
   ];
 
   const temperatureRanges = [
-    { 
-      title: "Chiller Rooms", 
+    {
+      title: "Chiller Rooms",
       range: "+2°C to +10°C",
       description: "For dairy products, fruits, vegetables, and pharmaceuticals",
       applications: ["Dairy Products", "Fresh Fruits", "Vegetables", "Medicines"]
     },
-    { 
-      title: "Freezer Rooms", 
+    {
+      title: "Freezer Rooms",
       range: "-18°C to -25°C",
       description: "For frozen foods, ice cream, and long-term storage",
       applications: ["Frozen Foods", "Ice Cream", "Meat Products", "Fish Storage"]
     },
-    { 
-      title: "Blast Chillers", 
+    {
+      title: "Blast Chillers",
       range: "-40°C Rapid",
       description: "For rapid cooling and blast freezing applications",
       applications: ["Bakery Items", "Cooked Foods", "Seafood", "Ready Meals"]
@@ -92,10 +92,10 @@ const ColdRoom = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${coldRoom})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${coldRoom})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -107,15 +107,15 @@ const ColdRoom = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Commercial cold storage solutions for businesses in Bareilly, Uttar Pradesh. 
+              Commercial cold storage solutions for businesses in Bareilly, Uttar Pradesh.
               Walk-in freezers, blast chillers, and temperature-controlled storage for food, pharma, and industrial use.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Cold Room systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Cold Room systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -158,7 +158,7 @@ const ColdRoom = () => {
                 Different temperature ranges for various storage requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {temperatureRanges.map((range, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -215,8 +215,8 @@ const ColdRoom = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={coldRoom} 
+                    <img
+                      src={coldRoom}
                       alt={`${product.name} - Cold Room System`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -227,7 +227,7 @@ const ColdRoom = () => {
                       Commercial
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -245,7 +245,7 @@ const ColdRoom = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919897595000', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -264,7 +264,7 @@ const ColdRoom = () => {
                 Advanced Cold Room Features
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -275,7 +275,7 @@ const ColdRoom = () => {
                   <p className="text-muted-foreground">Stainless steel interior and food-grade insulation for hygiene</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Thermometer className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -285,7 +285,7 @@ const ColdRoom = () => {
                   <p className="text-muted-foreground">Precise temperature monitoring with alarms and data logging</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Snowflake className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -295,7 +295,7 @@ const ColdRoom = () => {
                   <p className="text-muted-foreground">Automatic defrosting to maintain efficiency and prevent ice buildup</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Factory className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -317,11 +317,11 @@ const ColdRoom = () => {
                 Cold Room Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete cold storage solutions across Bareilly district. Professional design, 
+                Complete cold storage solutions across Bareilly district. Professional design,
                 installation, and maintenance of cold rooms for all commercial applications.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -331,13 +331,13 @@ const ColdRoom = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="cold-room" 
+        <YouTubeVideos
+          category="cold-room"
           title="Cold Room Videos"
           description="Watch cold room construction and refrigeration system installations."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

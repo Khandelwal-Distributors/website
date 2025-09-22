@@ -27,22 +27,22 @@ const DeepFreezers = () => {
   ];
 
   const freezerTypes = [
-    { 
-      title: "Glass Door Freezers", 
+    {
+      title: "Glass Door Freezers",
       description: "Perfect for retail display with excellent visibility",
       features: ["Transparent glass doors", "LED interior lighting", "Digital controls", "Auto defrost function"],
       applications: ["Ice Cream Parlors", "Convenience Stores", "Supermarkets"],
       priceRange: "₹35,000 - ₹60,000"
     },
-    { 
-      title: "Chest Freezers", 
+    {
+      title: "Chest Freezers",
       description: "High-capacity horizontal freezers for bulk storage",
       features: ["Large storage capacity", "Energy efficient", "Manual/Auto defrost", "Removable baskets"],
       applications: ["Restaurants", "Hotels", "Food Processing"],
       priceRange: "₹25,000 - ₹70,000"
     },
-    { 
-      title: "Vertical Freezers", 
+    {
+      title: "Vertical Freezers",
       description: "Space-saving upright design with multiple compartments",
       features: ["Multi-shelf design", "Door storage", "Adjustable shelves", "Compact footprint"],
       applications: ["Small Restaurants", "Cafes", "Bakeries"],
@@ -51,13 +51,13 @@ const DeepFreezers = () => {
   ];
 
   const applications = [
-    { name: "Restaurants & Hotels", icon: <Hotel className="h-6 w-6" /> }, 
-    { name: "Ice Cream Parlors", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Supermarkets", icon: <Building className="h-6 w-6" /> }, 
+    { name: "Restaurants & Hotels", icon: <Hotel className="h-6 w-6" /> },
+    { name: "Ice Cream Parlors", icon: <Building className="h-6 w-6" /> },
+    { name: "Supermarkets", icon: <Building className="h-6 w-6" /> },
     { name: "Food Processing Units", icon: <Factory className="h-6 w-6" /> },
-    { name: "Hospitals & Pharmacies", icon: <Hospital className="h-6 w-6" /> }, 
-    { name: "Catering Services", icon: <Building className="h-6 w-6" /> }, 
-    { name: "Bakeries & Confectionery", icon: <Building className="h-6 w-6" /> }, 
+    { name: "Hospitals & Pharmacies", icon: <Hospital className="h-6 w-6" /> },
+    { name: "Catering Services", icon: <Building className="h-6 w-6" /> },
+    { name: "Bakeries & Confectionery", icon: <Building className="h-6 w-6" /> },
     { name: "Convenience Stores", icon: <Building className="h-6 w-6" /> }
   ];
 
@@ -101,10 +101,10 @@ const DeepFreezers = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: `url(${deepFreezer})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: `url(${deepFreezer})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -116,15 +116,15 @@ const DeepFreezers = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Premium Elanpro deep freezers and commercial refrigeration solutions in Bareilly, Uttar Pradesh. 
+              Premium Elanpro deep freezers and commercial refrigeration solutions in Bareilly, Uttar Pradesh.
               Glass door freezers, chest freezers, and display freezers for restaurants, hotels, and commercial use.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Elanpro Deep Freezers in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Elanpro Deep Freezers in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -167,7 +167,7 @@ const DeepFreezers = () => {
                 Choose the right commercial freezer for your business needs
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {freezerTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -228,8 +228,8 @@ const DeepFreezers = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={deepFreezer} 
+                    <img
+                      src={deepFreezer}
                       alt={`${product.name} - Elanpro Deep Freezer`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -240,7 +240,7 @@ const DeepFreezers = () => {
                       {product.type}
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -258,7 +258,7 @@ const DeepFreezers = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -277,13 +277,13 @@ const DeepFreezers = () => {
                 Elanpro Deep Freezer Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Authorized Elanpro dealer in Bareilly with complete commercial refrigeration solutions. 
+                Authorized Elanpro dealer in Bareilly with complete commercial refrigeration solutions.
                 Professional installation, maintenance, and repair services for all Elanpro freezer models.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  Call: +91-90844-17884
                 </Button>
               </div>
             </div>
@@ -291,13 +291,13 @@ const DeepFreezers = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="deep-freezers" 
+        <YouTubeVideos
+          category="deep-freezers"
           title="Deep Freezer Videos"
           description="Watch detailed reviews and installation guides for commercial deep freezers."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

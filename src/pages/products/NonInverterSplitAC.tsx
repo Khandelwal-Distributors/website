@@ -74,10 +74,10 @@ const NonInverterSplitAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/split-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/split-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -89,15 +89,15 @@ const NonInverterSplitAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Affordable fixed-speed split air conditioners for homes and offices in Bareilly, Uttar Pradesh. 
+              Affordable fixed-speed split air conditioners for homes and offices in Bareilly, Uttar Pradesh.
               Lower upfront cost with reliable cooling performance and easy maintenance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Non-Inverter Split ACs in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Non-Inverter Split ACs in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -140,7 +140,7 @@ const NonInverterSplitAC = () => {
                 Understanding the differences to make the right choice for your needs
               </p>
             </div>
-            
+
             <div className="max-w-4xl mx-auto">
               <Card>
                 <CardHeader>
@@ -189,8 +189,8 @@ const NonInverterSplitAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={splitAc} 
+                    <img
+                      src={splitAc}
                       alt={`${product.name} - Non-Inverter Split AC`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -201,7 +201,7 @@ const NonInverterSplitAC = () => {
                       Budget Friendly
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -219,7 +219,7 @@ const NonInverterSplitAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -238,7 +238,7 @@ const NonInverterSplitAC = () => {
                 Non-Inverter ACs Are Perfect For
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card className="text-center">
                 <CardHeader>
@@ -249,7 +249,7 @@ const NonInverterSplitAC = () => {
                   <p className="text-muted-foreground">Perfect for bedrooms, small offices, and compact spaces</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -259,7 +259,7 @@ const NonInverterSplitAC = () => {
                   <p className="text-muted-foreground">Ideal for cost-conscious customers seeking affordable cooling</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -269,7 +269,7 @@ const NonInverterSplitAC = () => {
                   <p className="text-muted-foreground">Great for spaces used for few hours daily</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Thermometer className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -291,13 +291,13 @@ const NonInverterSplitAC = () => {
                 Non-Inverter AC Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Professional installation and service for non-inverter ACs across Bareilly district. 
+                Professional installation and service for non-inverter ACs across Bareilly district.
                 Affordable cooling solutions with reliable after-sales support and maintenance.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" />
-                  Call: +91-XXXXX-XXXXX
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                  Call: +91-94296-93410
                 </Button>
               </div>
             </div>
@@ -305,13 +305,13 @@ const NonInverterSplitAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="non-inverter-split-ac" 
+        <YouTubeVideos
+          category="non-inverter-split-ac"
           title="Non-Inverter Split AC Videos"
           description="Watch reviews and installation guides for non-inverter air conditioners."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

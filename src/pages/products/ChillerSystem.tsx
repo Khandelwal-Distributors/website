@@ -27,20 +27,20 @@ const ChillerSystem = () => {
   ];
 
   const types = [
-    { 
-      title: "Air-Cooled Chillers", 
+    {
+      title: "Air-Cooled Chillers",
       description: "Easy installation, no cooling tower required",
       features: ["Plug & Play", "Lower Installation Cost", "Compact Design"],
       applications: ["Small Offices", "Retail Stores", "Restaurants"]
     },
-    { 
-      title: "Water-Cooled Chillers", 
+    {
+      title: "Water-Cooled Chillers",
       description: "Higher efficiency for large installations",
       features: ["High COP", "Quiet Operation", "Long Life"],
       applications: ["Hospitals", "Hotels", "Large Offices"]
     },
-    { 
-      title: "Absorption Chillers", 
+    {
+      title: "Absorption Chillers",
       description: "Uses waste heat or steam for cooling",
       features: ["Eco-Friendly", "Low Electricity", "Waste Heat Recovery"],
       applications: ["Industries", "Cogeneration", "District Cooling"]
@@ -92,10 +92,10 @@ const ChillerSystem = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${chillerSystem})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${chillerSystem})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -107,15 +107,15 @@ const ChillerSystem = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              High-capacity industrial chiller systems for manufacturing and commercial applications in Bareilly, Uttar Pradesh. 
+              High-capacity industrial chiller systems for manufacturing and commercial applications in Bareilly, Uttar Pradesh.
               Air-cooled, water-cooled, and absorption chillers with precise temperature control.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Chiller Systems in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Chiller Systems in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -158,7 +158,7 @@ const ChillerSystem = () => {
                 Choose the right chiller technology based on your capacity and efficiency requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
               {types.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -218,8 +218,8 @@ const ChillerSystem = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={chillerSystem} 
+                    <img
+                      src={chillerSystem}
                       alt={`${product.name} - Industrial Chiller System`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -230,7 +230,7 @@ const ChillerSystem = () => {
                       Industrial
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -248,7 +248,7 @@ const ChillerSystem = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919897595000', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -267,7 +267,7 @@ const ChillerSystem = () => {
                 Complete Engineering Solutions
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -277,7 +277,7 @@ const ChillerSystem = () => {
                   <p className="text-muted-foreground">Precise cooling load assessment and system sizing for optimal performance</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">System Design</CardTitle>
@@ -286,7 +286,7 @@ const ChillerSystem = () => {
                   <p className="text-muted-foreground">Custom chiller plant design with piping, pumps, and control systems</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Installation</CardTitle>
@@ -295,7 +295,7 @@ const ChillerSystem = () => {
                   <p className="text-muted-foreground">Professional installation, commissioning, and performance testing</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Maintenance</CardTitle>
@@ -316,11 +316,11 @@ const ChillerSystem = () => {
                 Industrial Chiller Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete industrial chiller solutions across Bareilly district. From engineering design 
+                Complete industrial chiller solutions across Bareilly district. From engineering design
                 to installation and maintenance - your trusted partner for industrial cooling systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919897595000', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -330,13 +330,13 @@ const ChillerSystem = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="chiller-system" 
+        <YouTubeVideos
+          category="chiller-system"
           title="Industrial Chiller Videos"
           description="Explore industrial cooling solutions and chiller system installations."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

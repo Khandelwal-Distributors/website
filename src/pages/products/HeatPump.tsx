@@ -27,20 +27,20 @@ const HeatPump = () => {
   ];
 
   const types = [
-    { 
-      title: "Air Source Heat Pumps", 
+    {
+      title: "Air Source Heat Pumps",
       description: "Extract heat from outdoor air for heating and cooling",
       features: ["Easy Installation", "Lower Initial Cost", "Suitable for Most Climates"],
       applications: ["Residential Homes", "Small Offices", "Retail Stores"]
     },
-    { 
-      title: "Ground Source Heat Pumps", 
+    {
+      title: "Ground Source Heat Pumps",
       description: "Use stable ground temperature for highly efficient operation",
       features: ["Highest Efficiency", "Long Lifespan", "Minimal Maintenance"],
       applications: ["Large Homes", "Commercial Buildings", "Industrial Facilities"]
     },
-    { 
-      title: "Water Source Heat Pumps", 
+    {
+      title: "Water Source Heat Pumps",
       description: "Utilize water bodies for heat exchange",
       features: ["Very High COP", "Consistent Performance", "Environmentally Friendly"],
       applications: ["Near Water Bodies", "District Cooling", "Large Complexes"]
@@ -92,10 +92,10 @@ const HeatPump = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-16" style={{backgroundImage: `url(${heatPump})`}}>
+        <section className="relative py-16" style={{ backgroundImage: `url(${heatPump})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -107,15 +107,15 @@ const HeatPump = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Energy-efficient heat pump systems for all-season comfort in Bareilly, Uttar Pradesh. 
+              Energy-efficient heat pump systems for all-season comfort in Bareilly, Uttar Pradesh.
               Eco-friendly heating and cooling with up to 80% energy savings using renewable technology.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg">
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919876543210?text=Hello, I need information about Heat Pumps in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Heat Pumps in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -158,7 +158,7 @@ const HeatPump = () => {
                 Choose the right heat pump technology based on your location and requirements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
               {types.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -210,7 +210,7 @@ const HeatPump = () => {
                 Incredible Energy Savings
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Heat pumps are 3-5 times more efficient than traditional heating systems. 
+                Heat pumps are 3-5 times more efficient than traditional heating systems.
                 For every 1 unit of electricity consumed, they produce 3-5 units of heating or cooling.
               </p>
               <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -247,8 +247,8 @@ const HeatPump = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={heatPump} 
+                    <img
+                      src={heatPump}
                       alt={`${product.name} - Heat Pump System`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -259,7 +259,7 @@ const HeatPump = () => {
                       Eco-Friendly
                     </div>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -277,7 +277,7 @@ const HeatPump = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={() => window.open('tel:+919335888888', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -296,7 +296,7 @@ const HeatPump = () => {
                 Complete Heat Pump Solutions
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardHeader>
@@ -306,7 +306,7 @@ const HeatPump = () => {
                   <p className="text-muted-foreground">Detailed assessment of site conditions and heat pump feasibility</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">System Design</CardTitle>
@@ -315,7 +315,7 @@ const HeatPump = () => {
                   <p className="text-muted-foreground">Custom heat pump system design for optimal performance</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Installation</CardTitle>
@@ -324,7 +324,7 @@ const HeatPump = () => {
                   <p className="text-muted-foreground">Professional installation with commissioning and testing</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Maintenance</CardTitle>
@@ -345,11 +345,11 @@ const HeatPump = () => {
                 Heat Pump Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete heat pump solutions across Bareilly district. From site assessment 
+                Complete heat pump solutions across Bareilly district. From site assessment
                 to installation and maintenance - your partner for renewable energy HVAC systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>
@@ -359,13 +359,13 @@ const HeatPump = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="heat-pump" 
+        <YouTubeVideos
+          category="heat-pump"
           title="Heat Pump Videos"
           description="Explore heat pump technology and energy-efficient heating solutions."
         />
       </main>
-      
+
       <Footer />
     </div>
   );

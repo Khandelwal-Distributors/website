@@ -66,10 +66,10 @@ const WindowAC = () => {
       </Helmet>
 
       <Header />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{backgroundImage: "url('/src/assets/window-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: "url('/src/assets/window-ac.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-6">
@@ -81,27 +81,27 @@ const WindowAC = () => {
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Affordable window ACs for homes and offices in Bareilly, Uttar Pradesh. 
+              Affordable window ACs for homes and offices in Bareilly, Uttar Pradesh.
               Compact design, easy installation, and reliable cooling at budget-friendly prices.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button 
-                variant="cta" 
+              <Button
+                variant="cta"
                 size="lg"
                 onClick={() => window.open('tel:+919429693410', '_self')}
               >
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className="bg-green-600 text-white border-green-600 hover:bg-green-700" 
-                      onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in this product. Please share more details.', '_blank')}
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      WhatsApp
-                    </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-green-600 text-white border-green-600 hover:bg-green-700"
+                onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in this product. Please share more details.', '_blank')}
+              >
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp
+              </Button>
             </div>
           </div>
         </section>
@@ -146,8 +146,8 @@ const WindowAC = () => {
               {products.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
-                    <img 
-                      src={windowAc} 
+                    <img
+                      src={windowAc}
                       alt={`${product.name} - Window Air Conditioner`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
@@ -155,7 +155,7 @@ const WindowAC = () => {
                       {product.rating}
                     </Badge>
                   </div>
-                  
+
                   <CardHeader>
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
@@ -173,13 +173,13 @@ const WindowAC = () => {
                         </div>
                       ))}
                     </div>
-                <Button 
-                  className="w-full"
-                  onClick={() => window.open('tel:+919429693410', '_self')}
-                >
-                  <Phone className="h-4 w-4" />
-                  Get Quote
-                </Button>
+                    <Button
+                      className="w-full"
+                      onClick={() => window.open('tel:+919429693410', '_self')}
+                    >
+                      <Phone className="h-4 w-4" />
+                      Get Quote
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -195,12 +195,12 @@ const WindowAC = () => {
                 Window AC Installation & Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Expert window AC installation services across Bareilly district. 
+                Expert window AC installation services across Bareilly district.
                 Professional mounting, electrical connections, and post-installation support.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button 
-                  variant="secondary" 
+                <Button
+                  variant="secondary"
                   size="lg"
                   onClick={() => window.open('tel:+919429693410', '_self')}
                 >
@@ -213,13 +213,13 @@ const WindowAC = () => {
         </section>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="window-ac" 
+        <YouTubeVideos
+          category="window-ac"
           title="Window AC Videos"
           description="Watch installation guides and reviews for window air conditioners."
         />
       </main>
-      
+
       <Footer />
     </div>
   );
