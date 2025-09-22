@@ -730,12 +730,10 @@ export default function Admin() {
                     </DialogTrigger>
                     <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
-                        <DialogTitle>
-                          {editingProduct ? 'Edit Product' : 'Add New Product'}
-                        </DialogTitle>
+                        <DialogTitle>Add New Product</DialogTitle>
                       </DialogHeader>
                       <ProductForm
-                        product={editingProduct}
+                        product={null}
                         onSave={saveProduct}
                         loading={loading}
                         brands={brands || []}
