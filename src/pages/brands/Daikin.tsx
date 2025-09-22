@@ -9,6 +9,9 @@ import daikinLogo from "@/assets/brands/daikin-logo.jpg";
 import vrvSystem from "@/assets/vrv-system.jpg";
 import splitAC from "@/assets/split-ac.jpg";
 import cassetteAC from "@/assets/cassette-ac.jpg";
+import chillerSystem from "@/assets/chiller-system.jpg";
+import heatPump from "@/assets/heat-pump.jpg";
+import ventilationHrv from "@/assets/ventilation-hrv.jpg";
 
 const Daikin = () => {
   const products = [
@@ -33,19 +36,19 @@ const Daikin = () => {
     {
       name: "Chiller Systems",
       description: "Centralized cooling for large buildings and complexes",
-      image: "/src/assets/chiller-system.jpg",
+      image: chillerSystem,
       features: ["High Efficiency", "Centralized Control", "Scalable Capacity"]
     },
     {
       name: "Heat Pump Systems",
       description: "Year-round comfort with heating and cooling solutions",
-      image: "/src/assets/heat-pump.jpg",
+      image: heatPump,
       features: ["Dual Function", "Energy Saving", "All Weather Operation"]
     },
     {
       name: "HRV Systems",
       description: "Heat Recovery Ventilation for fresh air and energy efficiency",
-      image: "/src/assets/ventilation-hrv.jpg",
+      image: ventilationHrv,
       features: ["Fresh Air Supply", "Heat Recovery", "Energy Efficient"]
     }
   ];
