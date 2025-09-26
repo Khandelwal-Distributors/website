@@ -191,6 +191,11 @@ export default function Checkout() {
       console.log('Payment order created:', paymentData);
       dbOrderId = paymentData?.db_order_id || null;
 
+      if (!paymentData?.payment_session_id) {
+        console.error('Invalid payment session from server:', paymentData);
+        throw new Error('Invalid payment session. Please contact support or try again.');
+      }
+
       if (!window.Cashfree) {
         throw new Error('Cashfree SDK not loaded');
       }
