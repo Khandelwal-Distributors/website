@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Trash2, Edit, Plus, Video, Package, FolderOpen, Save } from 'lucide-react';
+import { Trash2, Edit, Plus, Video, Package, FolderOpen, Save, ShoppingCart } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Product, useBrands } from '@/hooks/useProducts';
@@ -44,14 +44,42 @@ interface Project {
   is_featured: boolean;
 }
 
+interface Order {
+  id: string;
+  user_id: string;
+  product_id: string;
+  customer_name: string;
+  customer_email: string;
+  customer_phone: string;
+  customer_address: string;
+  customer_city: string;
+  customer_state?: string;
+  customer_pincode: string;
+  quantity: number;
+  total_amount: number;
+  status: string;
+  payment_status: string;
+  payment_method?: string;
+  order_date: string;
+  delivery_date?: string;
+  notes?: string;
+  products?: {
+    name: string;
+    model: string;
+    brand: string;
+  };
+}
+
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [accessCode, setAccessCode] = useState('');
   const [videos, setVideos] = useState<VideoContent[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [productSearch, setProductSearch] = useState('');
+  const [orderStatusFilter, setOrderStatusFilter] = useState<string>('all');
   const [loading, setLoading] = useState(false);
   const [editingVideo, setEditingVideo] = useState<VideoContent | null>(null);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
@@ -134,6 +162,28 @@ export default function Admin() {
       toast({
         title: 'Error',
         description: 'Failed to load products.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const loadOrders = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('orders')
+        .select(`
+          *,
+          products (name, model, brand)
+        `)
+        .order('created_at', { ascending: false });
+      
+      if (error) throw error;
+      setOrders(data || []);
+    } catch (error) {
+      console.error('Error loading orders:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to load orders.',
         variant: 'destructive',
       });
     }
@@ -347,6 +397,35 @@ export default function Admin() {
     }
   };
 
+  const updateOrderStatus = async (orderId: string, status: string, paymentStatus?: string) => {
+    try {
+      const updateData: any = { status };
+      if (paymentStatus) {
+        updateData.payment_status = paymentStatus;
+      }
+
+      const { error } = await supabase
+        .from('orders')
+        .update(updateData)
+        .eq('id', orderId);
+      
+      if (error) throw error;
+      
+      await loadOrders();
+      toast({
+        title: 'Success',
+        description: 'Order status updated successfully.',
+      });
+    } catch (error) {
+      console.error('Error updating order status:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to update order status.',
+        variant: 'destructive',
+      });
+    }
+  };
+
   const deleteProject = async (id: string) => {
     try {
       const { error } = await supabase
@@ -415,6 +494,7 @@ export default function Admin() {
       loadVideos();
       loadProjects();
       loadProducts();
+      loadOrders();
     }
   }, [isAuthenticated]);
 
@@ -429,6 +509,11 @@ export default function Admin() {
     product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.model.toLowerCase().includes(productSearch.toLowerCase())
   );
+
+  // Filter orders based on status
+  const filteredOrders = orderStatusFilter === 'all' 
+    ? orders 
+    : orders.filter(order => order.status === orderStatusFilter);
 
   if (!isAuthenticated) {
     return (
@@ -496,7 +581,7 @@ export default function Admin() {
 
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue="videos" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-4">
               <TabsTrigger value="videos" className="flex items-center gap-2">
                 <Video className="h-4 w-4" />
                 Videos
@@ -508,6 +593,10 @@ export default function Admin() {
               <TabsTrigger value="products" className="flex items-center gap-2">
                 <Package className="h-4 w-4" />
                 Products
+              </TabsTrigger>
+              <TabsTrigger value="orders" className="flex items-center gap-2">
+                <ShoppingCart className="h-4 w-4" />
+                Orders
               </TabsTrigger>
             </TabsList>
 
@@ -822,6 +911,143 @@ export default function Admin() {
                     <h3 className="text-xl font-semibold mb-2">No Products Found</h3>
                     <p className="text-muted-foreground">
                       {productSearch ? 'Try adjusting your search terms' : 'Start by adding your first product'}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="orders" className="space-y-6">
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-semibold">Order Management</h2>
+                <div className="flex items-center gap-4">
+                  <Select
+                    value={orderStatusFilter}
+                    onValueChange={setOrderStatusFilter}
+                  >
+                    <SelectTrigger className="w-48">
+                      <SelectValue placeholder="Filter by status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Orders</SelectItem>
+                      <SelectItem value="pending">Pending</SelectItem>
+                      <SelectItem value="confirmed">Confirmed</SelectItem>
+                      <SelectItem value="processing">Processing</SelectItem>
+                      <SelectItem value="shipped">Shipped</SelectItem>
+                      <SelectItem value="delivered">Delivered</SelectItem>
+                      <SelectItem value="cancelled">Cancelled</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {filteredOrders.map((order) => (
+                  <Card key={order.id}>
+                    <CardContent className="p-6">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className="font-semibold text-lg">Order #{order.id.slice(-8).toUpperCase()}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {new Date(order.order_date).toLocaleDateString('en-IN', {
+                              day: 'numeric',
+                              month: 'long',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Badge variant={
+                            order.status === 'delivered' ? 'default' :
+                            order.status === 'cancelled' ? 'destructive' :
+                            order.status === 'shipped' ? 'secondary' :
+                            'outline'
+                          }>
+                            {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                          </Badge>
+                          <Badge variant={
+                            order.payment_status === 'paid' ? 'default' :
+                            order.payment_status === 'failed' ? 'destructive' :
+                            'outline'
+                          }>
+                            {order.payment_status.charAt(0).toUpperCase() + order.payment_status.slice(1)}
+                          </Badge>
+                        </div>
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <h4 className="font-medium mb-2">Customer Details</h4>
+                          <p className="text-sm"><strong>Name:</strong> {order.customer_name}</p>
+                          <p className="text-sm"><strong>Email:</strong> {order.customer_email}</p>
+                          <p className="text-sm"><strong>Phone:</strong> {order.customer_phone}</p>
+                          <p className="text-sm"><strong>Address:</strong> {order.customer_address}, {order.customer_city}, {order.customer_state} - {order.customer_pincode}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-medium mb-2">Product Details</h4>
+                          {order.products && (
+                            <>
+                              <p className="text-sm"><strong>Product:</strong> {order.products.name}</p>
+                              <p className="text-sm"><strong>Brand:</strong> {order.products.brand}</p>
+                              <p className="text-sm"><strong>Model:</strong> {order.products.model}</p>
+                            </>
+                          )}
+                          <p className="text-sm"><strong>Quantity:</strong> {order.quantity}</p>
+                          <p className="text-sm"><strong>Total Amount:</strong> ₹{Number(order.total_amount).toLocaleString()}</p>
+                        </div>
+                      </div>
+
+                      {order.notes && (
+                        <div className="mb-4">
+                          <h4 className="font-medium mb-2">Notes</h4>
+                          <p className="text-sm text-muted-foreground">{order.notes}</p>
+                        </div>
+                      )}
+
+                      <div className="flex gap-2 pt-4 border-t">
+                        <Select
+                          value={order.status}
+                          onValueChange={(value) => updateOrderStatus(order.id, value)}
+                        >
+                          <SelectTrigger className="w-40">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="pending">Pending</SelectItem>
+                            <SelectItem value="confirmed">Confirmed</SelectItem>
+                            <SelectItem value="processing">Processing</SelectItem>
+                            <SelectItem value="shipped">Shipped</SelectItem>
+                            <SelectItem value="delivered">Delivered</SelectItem>
+                            <SelectItem value="cancelled">Cancelled</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        
+                        <Select
+                          value={order.payment_status}
+                          onValueChange={(value) => updateOrderStatus(order.id, order.status, value)}
+                        >
+                          <SelectTrigger className="w-40">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="pending">Payment Pending</SelectItem>
+                            <SelectItem value="paid">Paid</SelectItem>
+                            <SelectItem value="failed">Failed</SelectItem>
+                            <SelectItem value="refunded">Refunded</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+                {filteredOrders.length === 0 && (
+                  <div className="text-center py-12">
+                    <ShoppingCart className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2">No Orders Found</h3>
+                    <p className="text-muted-foreground">
+                      {orderStatusFilter !== 'all' ? 'No orders match the selected status filter' : 'No orders have been placed yet'}
                     </p>
                   </div>
                 )}
