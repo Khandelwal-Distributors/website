@@ -9,7 +9,7 @@ const corsHeaders = {
 
 const CASHFREE_CLIENT_ID = Deno.env.get('CASHFREE_CLIENT_ID');
 const CASHFREE_CLIENT_SECRET = Deno.env.get('CASHFREE_CLIENT_SECRET');
-const CASHFREE_BASE_URL = 'https://sandbox.cashfree.com/pg'; // Change to production when going live
+const CASHFREE_BASE_URL = 'https://api.cashfree.com/pg'; // Production URL
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -92,10 +92,16 @@ serve(async (req) => {
 
     try {
       if (orderDetails && !orderDetails.user_id && orderDetails.customer_email) {
-        const { data: userByEmail } = await supabase.auth.admin.getUserByEmail(orderDetails.customer_email);
-        if (userByEmail?.user?.id) {
-          await supabase.from('orders').update({ user_id: userByEmail.user.id }).eq('id', dbOrderId);
-          orderDetails = { ...orderDetails, user_id: userByEmail.user.id } as any;
+        // Get user by email using list users with filter
+        const { data: users } = await supabase.auth.admin.listUsers({
+          page: 1,
+          perPage: 1
+        });
+        
+        const userByEmail = users?.users?.find(user => user.email === orderDetails?.customer_email);
+        if (userByEmail?.id) {
+          await supabase.from('orders').update({ user_id: userByEmail.id }).eq('id', dbOrderId);
+          orderDetails = { ...orderDetails, user_id: userByEmail.id } as any;
         }
       }
     } catch (linkErr) {
@@ -105,7 +111,7 @@ serve(async (req) => {
     return new Response(JSON.stringify({ order_status, payment_status, app_status, order: orderDetails }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in verify-payment function:', error);
     return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
       status: 500,

@@ -9,7 +9,7 @@ const corsHeaders = {
 
 const CASHFREE_CLIENT_ID = Deno.env.get('CASHFREE_CLIENT_ID');
 const CASHFREE_CLIENT_SECRET = Deno.env.get('CASHFREE_CLIENT_SECRET');
-const CASHFREE_BASE_URL = 'https://sandbox.cashfree.com/pg'; // Change to 'https://api.cashfree.com/pg' for production
+const CASHFREE_BASE_URL = 'https://api.cashfree.com/pg'; // Production URL
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -113,7 +113,7 @@ serve(async (req) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in create-payment function:', error);
     return new Response(JSON.stringify({ 
       error: error.message || 'Internal server error'

@@ -197,7 +197,7 @@ export default function Checkout() {
 
       // Initialize Cashfree SDK
       const cashfree = window.Cashfree({
-        mode: "sandbox" // Change to "production" for live environment
+        mode: "production" // Production environment
       });
 
       console.log('Cashfree SDK initialized');
