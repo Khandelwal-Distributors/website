@@ -24,8 +24,8 @@ const Index = () => {
         <DaikinSolutionPlaza />
         <ProductCategories />
         <Services />
-        <OurClients />
         <ProjectsShowcase />
+        <OurClients />
         <div data-section="sale">
           <EndOfSeasonSale />
         </div>
