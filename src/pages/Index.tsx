@@ -13,6 +13,7 @@ import BrochureDownload from "@/components/BrochureDownload";
 import OurClients from "@/components/OurClients";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import RentAnAC from "@/components/RentAnAC";
+import ScrollableProductCategories from "@/components/ScrollableProductCategories";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
         <BrandShowcase />
         <DaikinSolutionPlaza />
         <ProductCategories />
+        <ScrollableProductCategories />
         <Services />
         <ProjectsShowcase />
         <OurClients />
