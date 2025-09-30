@@ -23,14 +23,14 @@ const TickerTape = () => {
   const duplicatedItems = [...items, ...items];
 
   return (
-    <div className="bg-black text-white overflow-hidden border-b border-white/10">
+    <div className="bg-slate-100 text-slate-800 overflow-hidden border-b border-slate-200">
       <div className="relative flex">
         <div className="flex animate-scroll">
           {duplicatedItems.map((item, index) => (
             <Link
               key={index}
               to={item.link}
-              className="flex-shrink-0 px-8 py-2.5 hover:bg-white/10 transition-colors duration-200 whitespace-nowrap text-sm font-medium"
+              className="flex-shrink-0 px-8 py-2.5 hover:bg-slate-200 transition-colors duration-200 whitespace-nowrap text-sm font-medium"
             >
               {item.text}
             </Link>
