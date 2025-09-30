@@ -80,16 +80,14 @@ const ScrollableProductCategories = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
-          <div>
-            <h2 className="text-3xl font-bold mb-2">
-              Browse by <span className="text-primary">Category</span>
-            </h2>
-            <p className="text-muted-foreground">
-              Explore our complete range of HVAC products
-            </p>
-          </div>
-          <div className="hidden md:flex gap-2">
+        <div className="text-center mb-8 animate-fade-in-up">
+          <h2 className="text-3xl font-bold mb-2">
+            Browse by <span className="text-primary">Category</span>
+          </h2>
+          <p className="text-muted-foreground">
+            Explore our complete range of HVAC products
+          </p>
+          <div className="flex justify-center gap-2 mt-4">
             <Button
               variant="outline"
               size="icon"
@@ -124,26 +122,32 @@ const ScrollableProductCategories = () => {
               to={`/products/${category.slug}`}
               className="flex-shrink-0 snap-start"
             >
-              <Card className="w-[280px] group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="w-[320px] group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="text-lg font-bold mb-1">{category.name}</h3>
-                    <p className="text-sm text-white/90">{category.description}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <h3 className="text-xl font-bold mb-2 drop-shadow-lg">{category.name}</h3>
+                    <p className="text-sm text-white drop-shadow-md leading-relaxed">{category.description}</p>
                   </div>
                 </div>
                 <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                      View Details
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
                   <Button 
-                    variant="ghost" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                    variant="outline" 
+                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
                   >
-                    View Products
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Explore Category
                   </Button>
                 </CardContent>
               </Card>
