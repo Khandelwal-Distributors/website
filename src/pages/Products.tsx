@@ -143,7 +143,7 @@ const Products = () => {
       description: "Eco-friendly solar water heating systems",
       image: solarWaterHeater,
       icon: <Zap className="h-6 w-6" />,
-      brands: ["Inter Solar"],
+      brands: ["Inter Solar", "Sun Stellar"],
       products: [
         { name: "Inter Solar 100L", capacity: "100 Liters", rating: "Residential", price: "₹25,000" },
         { name: "Inter Solar 200L", capacity: "200 Liters", rating: "Family", price: "₹35,000" },
