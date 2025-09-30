@@ -213,4 +213,103 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- Shop Products -->
+  <url>
+    <loc>https://khandelwaldistributors.com/product/amstrad-1-6-ton-4-star-inverter-split-ac</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/amstrad-2-0-ton-3-star-inverter-split-ac</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/carrier-1-ton-5-star-inverter-split-ac-xpert-lumo</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/cruise-1-0-ton-portable-ac</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/daikin-1-5-ton-3-star-inverter-split-ac-ftkc50</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/daikin-1-5-ton-5-star-inverter-split-ac</loc>
+    <lastmod>2025-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/godrej-1-5-ton-3-star-inverter-split-ac</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/godrej-1-5-ton-3-star-inverter-split-ac-wood-style</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/godrej-1-7-ton-3-star-inverter-split-ac</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/godrej-2-5-ton-3-star-inverter-split-ac</loc>
+    <lastmod>2025-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/midea-2-0-ton-2-star-inverter-split-ac</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/mitsubishi-heavy-2-1-ton-5-star-heating-cooling-inverter-split-ac</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/mitsubishi-heavy-2-2-ton-3-star-non-inverter-split-ac</loc>
+    <lastmod>2025-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://khandelwaldistributors.com/product/test-ac-1-rupee</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
