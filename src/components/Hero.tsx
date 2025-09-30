@@ -21,11 +21,11 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             Professional HVAC Solutions & 
             <span className="text-accent-warm"> Air Conditioning </span>
             Services
-          </h2>
+          </h1>
           
           <p className="text-xl mb-8 text-white/90">
             Authorized dealer for Daikin, Mitsubishi Heavy, Carrier & more. 
