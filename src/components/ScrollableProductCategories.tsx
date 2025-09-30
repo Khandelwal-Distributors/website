@@ -4,62 +4,132 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import splitAc from "@/assets/split-ac.jpg";
+import inverterSplitAc from "@/assets/inverter-split-ac.jpg";
 import windowAc from "@/assets/window-ac.jpg";
 import cassetteAc from "@/assets/cassette-ac.jpg";
 import ductableAc from "@/assets/ductable-ac.jpg";
+import floorStandingAc from "@/assets/floor-standing-ac.jpg";
+import portableAc from "@/assets/portable-ac.jpg";
 import vrvSystem from "@/assets/vrv-system.jpg";
 import chillerSystem from "@/assets/chiller-system.jpg";
+import ahuSystem from "@/assets/ahu-system.jpg";
+import heatPump from "@/assets/heat-pump.jpg";
+import ventilationHrv from "@/assets/ventilation-hrv.jpg";
 import airPurifier from "@/assets/air-purifier.jpg";
 import waterCooler from "@/assets/water-cooler.jpg";
+import deepFreezer from "@/assets/deep-freezer.jpg";
+import coldRoom from "@/assets/cold-room.jpg";
+import solarWaterHeater from "@/assets/solar-water-heater.jpg";
+import alkalineRo from "@/assets/alkaline-ro.jpg";
 
 const categories = [
   {
-    name: "Split AC Systems",
-    image: splitAc,
+    name: "Inverter Split AC",
+    image: inverterSplitAc,
     slug: "inverter-split-ac",
-    description: "Energy-efficient cooling for homes"
+    description: "Homes, bedrooms, offices, retail shops"
   },
   {
-    name: "Window AC Units",
+    name: "Non-Inverter Split AC",
+    image: splitAc,
+    slug: "non-inverter-split-ac",
+    description: "Budget cooling for small spaces"
+  },
+  {
+    name: "Window AC",
     image: windowAc,
     slug: "window-ac",
-    description: "Compact and affordable cooling"
+    description: "Small rooms, server rooms, cabins"
   },
   {
     name: "Cassette AC",
     image: cassetteAc,
     slug: "cassette-ac",
-    description: "Ceiling-mounted commercial solutions"
+    description: "Offices, showrooms, restaurants, malls"
   },
   {
     name: "Ductable AC",
     image: ductableAc,
     slug: "ductable-ac",
-    description: "Concealed cooling for large spaces"
+    description: "Villas, banquet halls, conference rooms"
   },
   {
-    name: "VRV Systems",
+    name: "Floor Standing AC",
+    image: floorStandingAc,
+    slug: "floor-standing-ac",
+    description: "Halls, auditoriums, large waiting areas"
+  },
+  {
+    name: "Portable AC",
+    image: portableAc,
+    slug: "portable-ac",
+    description: "Temporary cooling, events, construction sites"
+  },
+  {
+    name: "VRV/VRF Systems",
     image: vrvSystem,
     slug: "vrv-system",
-    description: "Advanced multi-zone climate control"
+    description: "Corporate buildings, hotels, hospitals"
   },
   {
     name: "Chiller Systems",
     image: chillerSystem,
     slug: "chiller-system",
-    description: "Industrial cooling solutions"
+    description: "Industries, large buildings, process cooling"
+  },
+  {
+    name: "AHU Systems",
+    image: ahuSystem,
+    slug: "ahu-system",
+    description: "Centralized HVAC, hospitals, factories"
+  },
+  {
+    name: "Heat Pumps",
+    image: heatPump,
+    slug: "heat-pump",
+    description: "Water heating for hotels, gyms, homes"
+  },
+  {
+    name: "Ventilation HRV",
+    image: ventilationHrv,
+    slug: "ventilation-hrv",
+    description: "Fresh air for homes, offices, basements"
   },
   {
     name: "Air Purifiers",
     image: airPurifier,
     slug: "air-purifier",
-    description: "Clean and healthy indoor air"
+    description: "Homes, offices, clinics, clean rooms"
   },
   {
     name: "Water Coolers",
     image: waterCooler,
     slug: "water-cooler",
-    description: "Hot & cold water dispensers"
+    description: "Offices, schools, hospitals, waiting areas"
+  },
+  {
+    name: "Deep Freezers",
+    image: deepFreezer,
+    slug: "deep-freezers",
+    description: "Ice cream parlors, restaurants, cold storage"
+  },
+  {
+    name: "Cold Rooms",
+    image: coldRoom,
+    slug: "cold-room",
+    description: "Food processing, pharma, cold storage"
+  },
+  {
+    name: "Solar Water Heaters",
+    image: solarWaterHeater,
+    slug: "solar-water-heater",
+    description: "Eco-friendly heating for homes, hotels"
+  },
+  {
+    name: "Alkaline RO",
+    image: alkalineRo,
+    slug: "alkaline-ro",
+    description: "Healthy drinking water for homes, offices"
   }
 ];
 
@@ -137,17 +207,12 @@ const ScrollableProductCategories = () => {
                   </div>
                 </div>
                 <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                      View Details
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                  </div>
                   <Button 
                     variant="outline" 
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
                   >
                     Explore Category
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
               </Card>
