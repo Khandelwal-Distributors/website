@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import TickerTape from "@/components/TickerTape";
 import Hero from "@/components/Hero";
 import BrandShowcase from "@/components/BrandShowcase";
 import DaikinSolutionPlaza from "@/components/DaikinSolutionPlaza";
@@ -19,6 +20,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <TickerTape />
       <main>
         <Hero />
         <BrandShowcase />
