@@ -12,7 +12,7 @@ const StoreProfiles = () => {
       description: "Find our location and read customer reviews",
       color: "text-green-600",
       bgColor: "bg-green-50",
-      link: "#"
+      link: "https://share.google/TwYFogNXb5wRwrRqr"
     },
     {
       platform: "Justdial",
@@ -22,7 +22,7 @@ const StoreProfiles = () => {
       description: "Verified business profile with customer feedback",
       color: "text-blue-600",
       bgColor: "bg-blue-50",
-      link: "#"
+      link: "https://jsdl.in/DT-99BTBTYE"
     },
     {
       platform: "IndiaMART",
@@ -32,7 +32,7 @@ const StoreProfiles = () => {
       description: "B2B marketplace profile for bulk orders",
       color: "text-orange-600",
       bgColor: "bg-orange-50",
-      link: "#"
+      link: "https://www.indiamart.com/khandelwal-distributors-up/"
     }
   ];
 
