@@ -83,6 +83,11 @@ const DeepFreezers = () => {
             "category": "Commercial Refrigeration",
             "description": "Commercial deep freezers and refrigeration solutions for restaurants and retail in Bareilly, UP",
             "brand": ["Elanpro", "Blue Star", "Voltas", "Carrier"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.5",
+              "reviewCount": "1478"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "25000",

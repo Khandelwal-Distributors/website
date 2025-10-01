@@ -68,6 +68,11 @@ const FloorStandingAC = () => {
             "category": "Commercial Air Conditioning",
             "description": "High-capacity floor standing air conditioners for large spaces in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Cruise", "Blue Star", "Voltas"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "692"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "110000",

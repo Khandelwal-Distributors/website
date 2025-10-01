@@ -84,6 +84,11 @@ const VentilationHRV = () => {
             "category": "Ventilation Solutions",
             "description": "Fresh air ventilation and heat recovery systems for buildings in Bareilly, UP",
             "brand": ["Daikin", "Astberg", "Panasonic", "Systemair"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "745"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "15000",

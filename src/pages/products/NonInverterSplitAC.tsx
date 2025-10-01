@@ -56,6 +56,11 @@ const NonInverterSplitAC = () => {
             "category": "Air Conditioning",
             "description": "Affordable fixed-speed split air conditioners for homes and offices in Bareilly, UP",
             "brand": ["Carrier", "Godrej", "Amstrad", "Voltas", "Blue Star", "Cruise"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.4",
+              "reviewCount": "1356"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "20000",

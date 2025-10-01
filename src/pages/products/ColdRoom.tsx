@@ -74,6 +74,11 @@ const ColdRoom = () => {
             "category": "Commercial Refrigeration",
             "description": "Temperature-controlled cold storage systems for commercial applications in Bareilly, UP",
             "brand": ["Blue Star", "Carrier", "Voltas", "Elanpro"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "834"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "150000",

@@ -48,6 +48,11 @@ const InverterSplitAC = () => {
             "category": "Air Conditioning",
             "description": "Energy-efficient inverter split ACs for homes and offices in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Amstrad", "Midea", "Godrej"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "1852"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "25000",

@@ -90,6 +90,11 @@ const AirPurifier = () => {
             "category": "Health & Wellness",
             "description": "Air and water purification systems for health protection in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Blue Star", "Kent", "Aquaguard"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "1893"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "15000",

@@ -48,6 +48,11 @@ const WindowAC = () => {
             "category": "Air Conditioning",
             "description": "Affordable window ACs for homes and offices in Bareilly, UP",
             "brand": ["Carrier", "Godrej", "Amstrad", "Cruise", "Voltas", "Blue Star"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "1247"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "18000",

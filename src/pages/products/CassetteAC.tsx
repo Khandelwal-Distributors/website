@@ -59,6 +59,11 @@ const CassetteAC = () => {
             "category": "Commercial Air Conditioning",
             "description": "Premium ceiling-mounted cassette ACs for commercial spaces in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Cruise", "Blue Star", "Voltas"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "928"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "75000",

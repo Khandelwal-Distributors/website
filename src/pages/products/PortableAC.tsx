@@ -53,6 +53,11 @@ const PortableAC = () => {
             "category": "Mobile Air Conditioning",
             "description": "Mobile AC solutions for rented homes and temporary spaces in Bareilly, UP",
             "brand": ["Cruise", "Lloyd", "Godrej", "Blue Star"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.5",
+              "reviewCount": "892"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "25000",

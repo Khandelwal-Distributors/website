@@ -62,6 +62,11 @@ const DuctableAC = () => {
             "category": "Central Air Conditioning",
             "description": "Concealed ductable AC systems for large spaces in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Blue Star", "Voltas", "Cruise"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "735"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "145000",

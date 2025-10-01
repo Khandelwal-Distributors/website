@@ -84,6 +84,11 @@ const AHUSystem = () => {
             "category": "Commercial HVAC",
             "description": "Professional air handling systems for commercial and industrial applications in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Blue Star", "Voltas"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "674"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "650000",

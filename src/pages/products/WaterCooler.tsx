@@ -83,6 +83,11 @@ const WaterCooler = () => {
             "category": "Water Cooling Solutions",
             "description": "Water cooling and dispensing solutions for commercial and residential use in Bareilly, UP",
             "brand": ["Blue Star", "Voltas", "Usha", "Kent"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "1143"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "12000",

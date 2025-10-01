@@ -74,6 +74,11 @@ const HeatPump = () => {
             "category": "Eco-Friendly HVAC",
             "description": "Energy-efficient heat pump systems for all-season comfort in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Mitsubishi"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "583"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "150000",

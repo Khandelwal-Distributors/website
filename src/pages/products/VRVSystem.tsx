@@ -59,6 +59,11 @@ const VRVSystem = () => {
             "category": "Commercial HVAC",
             "description": "Advanced Variable Refrigerant Volume systems for commercial buildings in Bareilly, UP",
             "brand": ["Daikin", "Mitsubishi", "Carrier"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "563"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "420000",

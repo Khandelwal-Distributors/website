@@ -74,6 +74,11 @@ const ChillerSystem = () => {
             "category": "Industrial HVAC",
             "description": "High-capacity industrial chiller systems for manufacturing and commercial applications in Bareilly, UP",
             "brand": ["Daikin", "Carrier", "Blue Star", "Voltas"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "521"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "1200000",

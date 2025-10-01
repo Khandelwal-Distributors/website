@@ -72,6 +72,11 @@ const SolarWaterHeater = () => {
             "category": "Renewable Energy",
             "description": "Eco-friendly solar water heating systems for homes and businesses in Bareilly, UP",
             "brand": ["Tata Power Solar", "Racold", "V-Guard", "Havells"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "1624"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "25000",

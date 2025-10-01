@@ -64,6 +64,11 @@ const AlkalineRO = () => {
             "category": "Water Purification",
             "description": "Advanced alkaline water purification systems for homes and offices in Bareilly, UP",
             "brand": ["Zero B", "Kent", "Aquaguard", "Blue Star"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "1567"
+            },
             "offers": {
               "@type": "AggregateOffer",
               "lowPrice": "15000",
