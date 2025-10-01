@@ -79,12 +79,12 @@ const Contact = () => {
               <CardTitle className="text-lg">Visit Us</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-sm mb-3">Free Site Visit</p>
+              <p className="text-sm mb-3">Our showroom</p>
               <Button 
                 variant="outline" 
                 size="sm" 
                 className="w-full bg-white/10 border-white/30 hover:bg-white/20"
-                onClick={() => window.open('tel:+919429693410', '_self')}
+                onClick={() => window.open('https://share.google/TwYFogNXb5wRwrRqr')}
               >
                 <MapPin className="h-4 w-4" />
                 Schedule Visit
