@@ -61,7 +61,7 @@ const Cruise = () => {
         <title>Cruise AC Dealer Bareilly | Portable & Heavy Duty ACs | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Cruise AC dealer in Bareilly, UP. Portable ACs, heavy duty split & floor standing units. Flexible cooling solutions. Call +91 98765 43210" />
         <meta name="keywords" content="Cruise AC Bareilly, portable AC Bareilly, heavy duty AC UP, floor standing AC Bareilly, mobile cooling Bareilly" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/cruise" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/cruise" />
 
         <script type="application/ld+json">
           {JSON.stringify({

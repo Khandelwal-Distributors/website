@@ -54,7 +54,7 @@ const Amstrad = () => {
         <title>Amstrad AC Dealer Bareilly | UK Brand Split & Window AC | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Amstrad AC dealer in Bareilly, UP. Premium UK brand split & window ACs at competitive prices. Quality + affordability. Call +91 98765 43210" />
         <meta name="keywords" content="Amstrad AC Bareilly, UK brand AC Bareilly, split AC UP, window AC Bareilly, competitive AC prices Bareilly" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/amstrad" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/amstrad" />
 
         <script type="application/ld+json">
           {JSON.stringify({

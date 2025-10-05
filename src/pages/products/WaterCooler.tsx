@@ -74,7 +74,7 @@ const WaterCooler = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Water Cooler Dealers in Bareilly | Premium Cooling Solutions" />
         <meta name="twitter:description" content="Premium water cooling and dispensing solutions for offices, schools, and commercial spaces in Bareilly. Pure, cool water 24/7." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/water-cooler" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/water-cooler" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

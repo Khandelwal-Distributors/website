@@ -65,7 +65,7 @@ const ChillerSystem = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Industrial Chiller Dealers in Bareilly | Commercial Cooling Solutions" />
         <meta name="twitter:description" content="Premium industrial chiller systems in Bareilly. Air-cooled, water-cooled, and absorption chillers for manufacturing and commercial applications." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/chiller-system" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/chiller-system" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

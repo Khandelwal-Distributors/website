@@ -50,7 +50,7 @@ const VRVSystem = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best VRV System Dealers in Bareilly | Commercial HVAC Solutions" />
         <meta name="twitter:description" content="Premium VRV/VRF systems for commercial buildings in Bareilly. Energy efficient, individual zone control, expert installation and service." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/vrv-system" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/vrv-system" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

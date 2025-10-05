@@ -39,7 +39,7 @@ const WindowAC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Window AC Dealers in Bareilly | Affordable Air Conditioners" />
         <meta name="twitter:description" content="Shop quality window ACs in Bareilly. Best prices, expert installation, reliable service. Perfect for small rooms and budget-conscious buyers." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/window-ac" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/window-ac" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

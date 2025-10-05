@@ -61,7 +61,7 @@ const Carrier = () => {
         <title>Carrier AC Dealer Bareilly | Split & Window AC Units | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Carrier AC dealer in Bareilly, UP. Reliable split ACs, window units, portable ACs. 120+ years of cooling innovation. Call +91 98765 43210" />
         <meta name="keywords" content="Carrier AC Bareilly, split AC Bareilly, window AC UP, portable AC Bareilly, Carrier dealer Uttar Pradesh" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/carrier" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/carrier" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

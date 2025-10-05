@@ -61,7 +61,7 @@ const Voltas = () => {
         <title>Voltas AC Dealer Bareilly | India's No.1 AC Brand | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Voltas AC dealer in Bareilly, UP. India's No.1 AC brand with inverter split ACs, window units. Made for India. Call +91 98765 43210" />
         <meta name="keywords" content="Voltas AC Bareilly, India No.1 AC brand, inverter AC Bareilly, split AC UP, Voltas dealer Uttar Pradesh" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/voltas" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/voltas" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

@@ -65,7 +65,7 @@ const HeatPump = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
         <meta name="twitter:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/heat-pump" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/heat-pump" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

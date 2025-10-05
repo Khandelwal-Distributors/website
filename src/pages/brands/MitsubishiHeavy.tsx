@@ -63,7 +63,7 @@ const MitsubishiHeavy = () => {
         <title>Mitsubishi Heavy AC Dealer Bareilly | Commercial HVAC Systems | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Mitsubishi Heavy AC dealer in Bareilly, UP. Heavy-duty commercial ACs, chiller systems, floor standing units. Expert installation. Call +91 98765 43210" />
         <meta name="keywords" content="Mitsubishi Heavy Bareilly, commercial AC Bareilly, heavy duty AC UP, chiller systems Bareilly, industrial AC Bareilly" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/mitsubishi-heavy" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/mitsubishi-heavy" />
 
         <script type="application/ld+json">
           {JSON.stringify({

@@ -75,7 +75,7 @@ const AHUSystem = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best AHU System Dealers in Bareilly | Air Handling Unit Solutions" />
         <meta name="twitter:description" content="Premium air handling units for commercial and industrial applications in Bareilly. Custom AHU systems with advanced filtration and energy recovery." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ahu-system" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/ahu-system" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

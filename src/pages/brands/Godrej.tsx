@@ -54,7 +54,7 @@ const Godrej = () => {
         <title>Godrej AC Dealer Bareilly | India's Most Economical AC | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Godrej AC dealer in Bareilly, UP. India's most economical AC brand. Budget split & window ACs made in India. Affordable cooling. Call +91 98765 43210" />
         <meta name="keywords" content="Godrej AC Bareilly, economical AC India, budget AC Bareilly, affordable cooling UP, Indian AC brand Bareilly" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/godrej" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/godrej" />
 
         <script type="application/ld+json">
           {JSON.stringify({

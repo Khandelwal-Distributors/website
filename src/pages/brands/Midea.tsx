@@ -54,7 +54,7 @@ const Midea = () => {
         <title>Midea AC Dealer Bareilly | Economical Split & Cassette AC | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Midea AC dealer in Bareilly, UP. Most economical split & cassette ACs for homes and offices. Budget-friendly cooling solutions. Call +91 98765 43210" />
         <meta name="keywords" content="Midea AC Bareilly, economical AC Bareilly, budget AC UP, cassette AC Bareilly, affordable cooling Bareilly" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/midea" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/midea" />
 
         <script type="application/ld+json">
           {JSON.stringify({

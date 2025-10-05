@@ -59,7 +59,7 @@ const FloorStandingAC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Floor Standing AC Dealers in Bareilly | Large Space Cooling" />
         <meta name="twitter:description" content="Premium floor standing ACs for large spaces in Bareilly. High capacity, powerful airflow, perfect for halls and commercial applications." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/floor-standing-ac" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/floor-standing-ac" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

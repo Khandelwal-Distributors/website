@@ -65,7 +65,7 @@ const ColdRoom = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Cold Room Dealers in Bareilly | Commercial Refrigeration Systems" />
         <meta name="twitter:description" content="Premium cold rooms and walk-in freezers in Bareilly. Temperature-controlled storage for food, pharma, and commercial applications." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/cold-room" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/cold-room" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

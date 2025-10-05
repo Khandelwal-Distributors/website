@@ -50,7 +50,7 @@ const CassetteAC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Cassette AC Dealers in Bareilly | Commercial Air Conditioning" />
         <meta name="twitter:description" content="Premium cassette ACs for commercial spaces in Bareilly. 360° airflow, invisible design, expert installation for offices and restaurants." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/cassette-ac" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/cassette-ac" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

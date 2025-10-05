@@ -44,7 +44,7 @@ const PortableAC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Portable AC Dealers in Bareilly | Mobile Air Conditioning Solutions" />
         <meta name="twitter:description" content="Premium portable ACs for rent homes and temporary spaces in Bareilly. Easy setup, no installation, move anywhere cooling solutions." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/portable-ac" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/portable-ac" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

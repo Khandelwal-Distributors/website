@@ -75,7 +75,7 @@ const VentilationHRV = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Ventilation & HRV System Dealers in Bareilly | Fresh Air Solutions" />
         <meta name="twitter:description" content="Premium ventilation and heat recovery systems in Bareilly. Fresh air solutions with energy recovery for homes and commercial buildings." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ventilation-hrv" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/ventilation-hrv" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

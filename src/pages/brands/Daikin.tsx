@@ -82,7 +82,7 @@ const Daikin = () => {
         <title>Daikin AC Dealer Bareilly | VRV Systems & Split AC | Khandelwal Distributors</title>
         <meta name="description" content="Authorized Daikin AC dealer in Bareilly, UP. Premium VRV systems, inverter split ACs, cassette units. Expert installation & service. Call +91 98765 43210" />
         <meta name="keywords" content="Daikin AC Bareilly, VRV systems Bareilly, Daikin dealer UP, split AC Bareilly, commercial AC Bareilly, Daikin service center" />
-        <link rel="canonical" href="https://khandelwaldistributors.com/brands/daikin" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/brands/daikin" />
 
         <script type="application/ld+json">
           {JSON.stringify({

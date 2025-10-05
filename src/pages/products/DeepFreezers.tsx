@@ -74,7 +74,7 @@ const DeepFreezers = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Elanpro Deep Freezer Dealers in Bareilly | Commercial Refrigeration Solutions" />
         <meta name="twitter:description" content="Premium Elanpro deep freezers and commercial refrigeration solutions for restaurants, hotels, and commercial establishments in Bareilly." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/deep-freezers" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/deep-freezers" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

@@ -53,7 +53,7 @@ const DuctableAC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Ductable AC Dealers in Bareilly | Central Air Conditioning Systems" />
         <meta name="twitter:description" content="Premium ductable ACs for large spaces in Bareilly. Concealed installation, uniform cooling, centralized control for offices and homes." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/ductable-ac" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/ductable-ac" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

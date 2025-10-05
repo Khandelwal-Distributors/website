@@ -81,7 +81,7 @@ const AirPurifier = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Air & Water Purifier Dealers in Bareilly | Health Solutions" />
         <meta name="twitter:description" content="Premium air and water purification systems in Bareilly. HEPA air purifiers, RO water systems for complete health protection and wellness." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products/air-purifier" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/air-purifier" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
