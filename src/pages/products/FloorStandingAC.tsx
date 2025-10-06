@@ -88,6 +88,27 @@ const FloorStandingAC = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": products.map((product, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Product",
+                "name": product.name,
+                "description": product.features.join(", "),
+                "offers": {
+                  "@type": "Offer",
+                  "price": product.price.replace(/[^\d]/g, ''),
+                  "priceCurrency": "INR",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       <Header />

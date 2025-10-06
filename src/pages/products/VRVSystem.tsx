@@ -79,6 +79,27 @@ const VRVSystem = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": systems.map((system, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Product",
+                "name": system.name,
+                "description": system.features.join(", "),
+                "offers": {
+                  "@type": "Offer",
+                  "price": system.price.replace(/[^\d]/g, ''),
+                  "priceCurrency": "INR",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       <Header />
