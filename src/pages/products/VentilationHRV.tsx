@@ -98,8 +98,8 @@ const VentilationHRV = () => {
             },
             "provider": {
               "@type": "LocalBusiness",
-              "name": "KD Enterprises",
-              "address": "Bareilly, Uttar Pradesh, India",
+              "name": "Khandelwal Distributors",
+              "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
               "telephone": "+919429693410"
             }
           })}
