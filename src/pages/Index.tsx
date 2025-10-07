@@ -58,8 +58,8 @@ const Index = () => {
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "500",
+      ratingValue: "4.7",
+      reviewCount: "892",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
