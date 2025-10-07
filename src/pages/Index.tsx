@@ -22,124 +22,126 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://khandelwaldistributors.com/#organization",
-    "name": "Khandelwal Distributors",
-    "alternateName": "KD HVAC Solutions",
-    "description": "Professional HVAC solutions and air conditioning services provider in Uttar Pradesh. Authorized dealer for Daikin, Mitsubishi Heavy, Carrier and more premium brands.",
-    "url": "https://khandelwaldistributors.com",
-    "telephone": "+919429693410",
-    "email": "contact@khandelwaldistributors.com",
-    "address": {
+    name: "Khandelwal Distributors",
+    alternateName: "KD HVAC Solutions",
+    description:
+      "Professional HVAC solutions and air conditioning services provider in Uttar Pradesh. Authorized dealer for Daikin, Mitsubishi Heavy, Carrier and more premium brands.",
+    url: "https://khandelwaldistributors.com",
+    telephone: "+919429693410",
+    email: "admin@khandelwaldistributors.com",
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": "Uttar Pradesh",
-      "addressCountry": "IN"
+      addressLocality: "Uttar Pradesh",
+      addressCountry: "IN",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": "26.8467",
-      "longitude": "80.9462"
+      latitude: "26.8467",
+      longitude: "80.9462",
     },
-    "areaServed": {
+    areaServed: {
       "@type": "State",
-      "name": "Uttar Pradesh"
+      name: "Uttar Pradesh",
     },
-    "priceRange": "$$",
-    "image": "https://khandelwaldistributors.com/lovable-uploads/favicon.png",
-    "logo": {
+    priceRange: "$$",
+    image: "https://khandelwaldistributors.com/lovable-uploads/favicon.png",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://khandelwaldistributors.com/lovable-uploads/favicon.png"
+      url: "https://khandelwaldistributors.com/lovable-uploads/favicon.png",
     },
-    "sameAs": [
-      "https://www.facebook.com/khandelwaldistributors",
-      "https://www.instagram.com/khandelwaldistributors"
+    sameAs: [
+      "https://www.facebook.com/khandelwaldistributor",
+      "https://www.instagram.com/kd.bly",
+      "https://www.linkedin.com/company/khandelwal-distributors",
+      "https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET",
+      "https://www.indiamart.com/khandelwal-distributors-up",
     ],
-    "aggregateRating": {
+    aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "500"
+      ratingValue: "4.8",
+      reviewCount: "500",
     },
-    "hasOfferCatalog": {
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "HVAC Products and Services",
-      "itemListElement": [
+      name: "HVAC Products and Services",
+      itemListElement: [
         {
           "@type": "OfferCatalog",
-          "name": "Air Conditioning Systems",
-          "itemListElement": [
+          name: "Air Conditioning Systems",
+          itemListElement: [
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Product",
-                "name": "Split AC Systems",
-                "description": "Energy-efficient split air conditioning systems for residential and commercial use"
-              }
+                name: "Split AC Systems",
+                description: "Energy-efficient split air conditioning systems for residential and commercial use",
+              },
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Product",
-                "name": "VRV/VRF Systems",
-                "description": "Variable refrigerant volume systems for large commercial projects"
-              }
+                name: "VRV/VRF Systems",
+                description: "Variable refrigerant volume systems for large commercial projects",
+              },
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Product",
-                "name": "Cassette AC Systems",
-                "description": "Ceiling-mounted cassette air conditioning systems"
-              }
-            }
-          ]
+                name: "Cassette AC Systems",
+                description: "Ceiling-mounted cassette air conditioning systems",
+              },
+            },
+          ],
         },
         {
           "@type": "OfferCatalog",
-          "name": "HVAC Services",
-          "itemListElement": [
+          name: "HVAC Services",
+          itemListElement: [
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "AC Installation",
-                "description": "Professional air conditioning installation services",
-                "provider": {
-                  "@id": "https://khandelwaldistributors.com/#organization"
-                }
-              }
+                name: "AC Installation",
+                description: "Professional air conditioning installation services",
+                provider: {
+                  "@id": "https://khandelwaldistributors.com/#organization",
+                },
+              },
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "HVAC Maintenance",
-                "description": "Regular maintenance and servicing for all HVAC systems",
-                "provider": {
-                  "@id": "https://khandelwaldistributors.com/#organization"
-                }
-              }
+                name: "HVAC Maintenance",
+                description: "Regular maintenance and servicing for all HVAC systems",
+                provider: {
+                  "@id": "https://khandelwaldistributors.com/#organization",
+                },
+              },
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Commercial HVAC Projects",
-                "description": "Complete HVAC solutions for commercial and industrial projects",
-                "provider": {
-                  "@id": "https://khandelwaldistributors.com/#organization"
-                }
-              }
-            }
-          ]
-        }
-      ]
-    }
+                name: "Commercial HVAC Projects",
+                description: "Complete HVAC solutions for commercial and industrial projects",
+                provider: {
+                  "@id": "https://khandelwaldistributors.com/#organization",
+                },
+              },
+            },
+          ],
+        },
+      ],
+    },
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <Header />
       <TickerTape />
