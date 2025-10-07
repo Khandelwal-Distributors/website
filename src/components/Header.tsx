@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, MessageCircle, User, LogOut, ShoppingCart, ChevronDown } from "lucide-react";
+import { Phone, Menu, MessageCircle, User, LogOut, ShoppingCart, ChevronDown, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import banner from "@/assets/kd_banner.png";
@@ -137,6 +137,40 @@ const Header = () => {
                 >
                   Contact
                 </button>
+
+                {/* Social Media Links */}
+                <div className="pt-4 mt-4 border-t border-border">
+                  <p className="text-sm font-semibold mb-3">Follow Us</p>
+                  <div className="flex items-center gap-4">
+                    <a 
+                      href="https://www.facebook.com/khandelwaldistributor" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="h-6 w-6" />
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/kd.bly" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="h-6 w-6" />
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/company/khandelwal-distributors" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-6 w-6" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
