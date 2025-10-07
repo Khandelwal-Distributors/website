@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg text-primary mb-4">Khandelwal Distributors</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Your trusted partner for all HVAC and air conditioning needs. 
+              Your trusted partner for all HVAC and air conditioning needs.
               Authorized dealer for premium brands with expert installation and service.
             </p>
             <div className="flex items-center gap-1 text-sm">
@@ -17,7 +17,7 @@ const Footer = () => {
               <span>25+ Years of Excellence</span>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Our Brands</h4>
             <ul className="space-y-2 text-sm">
@@ -63,7 +63,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Residential Products</h4>
             <ul className="space-y-2 text-sm">
@@ -109,7 +109,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Commercial Products</h4>
             <ul className="space-y-2 text-sm">
@@ -165,7 +165,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <div className="space-y-3 text-sm">
@@ -189,7 +189,7 @@ const Footer = () => {
                 </span>
               </div>
             </div>
-            
+
             <div className="mt-6">
               <h5 className="font-semibold mb-2 text-sm">Quick Links</h5>
               <ul className="space-y-1 text-sm">
@@ -204,11 +204,6 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin" className="text-muted-foreground hover:text-primary transition-colors">
-                    Admin Login
-                  </Link>
-                </li>
-                <li>
                   <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
                     Privacy Policy
                   </Link>
@@ -217,11 +212,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-8 pt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Khandelwal Distributors. All rights reserved. | 
-            <span className="text-primary"> Licensed HVAC Contractor</span> | 
+            © 2024 Khandelwal Distributors. All rights reserved. |
+            <span className="text-primary"> Licensed HVAC Contractor</span> |
             <span className="text-accent-warm"> Authorized Dealer</span> |
             <Link to="/privacy-policy" className="hover:text-primary transition-colors"> Privacy Policy</Link>
           </p>

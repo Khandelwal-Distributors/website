@@ -4,5 +4,17 @@
             "source": "/((?!api).*)",
             "destination": "/index.html"
         }
+    ],
+    "redirects": [
+        {
+            "source": "/product/:path*",
+            "destination": "/shop",
+            "permanent": true
+        },
+        {
+            "source": "/category/:path*",
+            "destination": "/products",
+            "permanent": true
+        }
     ]
 }
