@@ -21,6 +21,7 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
 // GuestOrder removed - guest orders are no longer supported
 import Admin from "./pages/Admin";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Import individual product category pages
 import InverterSplitAC from "./pages/products/InverterSplitAC";
@@ -108,6 +109,8 @@ const App = () => {
                   <Route path="/brands/godrej" element={<Godrej />} />
                   <Route path="/brands/cruise" element={<Cruise />} />
                   <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
+                  
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   
                   <Route path="*" element={<NotFound />} />
                 </Routes>

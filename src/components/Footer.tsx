@@ -208,6 +208,11 @@ const Footer = () => {
                     Admin Login
                   </Link>
                 </li>
+                <li>
+                  <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -217,7 +222,8 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © 2024 Khandelwal Distributors. All rights reserved. | 
             <span className="text-primary"> Licensed HVAC Contractor</span> | 
-            <span className="text-accent-warm"> Authorized Dealer</span>
+            <span className="text-accent-warm"> Authorized Dealer</span> |
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors"> Privacy Policy</Link>
           </p>
         </div>
       </div>
