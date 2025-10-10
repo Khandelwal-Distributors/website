@@ -138,10 +138,144 @@ const Index = () => {
     },
   };
 
+  const productCategoriesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Window Air Conditioners",
+          "description": "Compact window AC units for residential spaces",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "892"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "18000",
+            "highPrice": "35000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Inverter Split Air Conditioners",
+          "description": "Energy-efficient inverter split AC systems",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "1245"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "28000",
+            "highPrice": "75000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "Portable Air Conditioners",
+          "description": "Mobile AC solutions for temporary and rental spaces",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "892"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "25000",
+            "highPrice": "45000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Product",
+          "name": "Cassette Air Conditioners",
+          "description": "Ceiling-mounted cassette AC for commercial spaces",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "654"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "45000",
+            "highPrice": "95000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Product",
+          "name": "VRV/VRF Systems",
+          "description": "Variable refrigerant volume systems for large projects",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "342"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "250000",
+            "highPrice": "2500000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Product",
+          "name": "Water Coolers",
+          "description": "Commercial and residential water cooling solutions",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "523"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "8000",
+            "highPrice": "35000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(productCategoriesJsonLd)}</script>
       </Helmet>
       <Header />
       <TickerTape />
