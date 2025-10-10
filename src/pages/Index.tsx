@@ -267,6 +267,258 @@ const Index = () => {
             "availability": "https://schema.org/InStock"
           }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "Product",
+          "name": "Non-Inverter Split Air Conditioners",
+          "description": "Fixed speed split AC systems for reliable cooling",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.3",
+            "reviewCount": "756"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "20000",
+            "highPrice": "35000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "Product",
+          "name": "Floor Standing Air Conditioners",
+          "description": "Powerful floor-mounted ACs for large commercial spaces",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "432"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "120000",
+            "highPrice": "180000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "Product",
+          "name": "Ductable Air Conditioners",
+          "description": "Concealed duct AC systems for aesthetic commercial installations",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "387"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "55000",
+            "highPrice": "150000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "Product",
+          "name": "Alkaline RO Water Systems",
+          "description": "Advanced alkaline water purification with RO technology",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "612"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "15000",
+            "highPrice": "25000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "item": {
+          "@type": "Product",
+          "name": "Solar Water Heaters",
+          "description": "Eco-friendly solar water heating systems",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "489"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "25000",
+            "highPrice": "50000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "item": {
+          "@type": "Product",
+          "name": "Ventilation & HRV Systems",
+          "description": "Advanced ventilation and heat recovery solutions",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "324"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "15000",
+            "highPrice": "70000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "item": {
+          "@type": "Product",
+          "name": "Air & Water Purifiers",
+          "description": "Advanced purification systems for clean air and water",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "698"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "12000",
+            "highPrice": "25000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "item": {
+          "@type": "Product",
+          "name": "Deep Freezers & Commercial Refrigeration",
+          "description": "Commercial deep freezers and refrigeration by Elanpro",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "421"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "38000",
+            "highPrice": "65000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "item": {
+          "@type": "Product",
+          "name": "AHU Systems",
+          "description": "Air Handling Units for large commercial HVAC projects",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "287"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "150000",
+            "highPrice": "800000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "item": {
+          "@type": "Product",
+          "name": "Chiller Systems",
+          "description": "Industrial water-cooled and air-cooled chiller systems",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "198"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "300000",
+            "highPrice": "2000000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "item": {
+          "@type": "Product",
+          "name": "Heat Pump Systems",
+          "description": "Energy-efficient heat pump technology for heating and cooling",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "243"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "80000",
+            "highPrice": "400000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "item": {
+          "@type": "Product",
+          "name": "Cold Room Solutions",
+          "description": "Walk-in cold storage rooms for commercial applications",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "156"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "200000",
+            "highPrice": "1500000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
       }
     ]
   };
