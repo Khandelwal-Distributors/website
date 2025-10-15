@@ -11,12 +11,78 @@ import inverterSplitAc from "@/assets/inverter-split-ac.jpg";
 
 const InverterSplitAC = () => {
   const products = [
-    { name: "Daikin FTXS35K Inverter", capacity: "1.5 Ton", rating: "5 Star", price: "₹38,000", features: ["Inverter Technology", "Copper Condenser", "5 Year Warranty"] },
-    { name: "Carrier Inverter Neo", capacity: "1 Ton", rating: "5 Star", price: "₹32,000", features: ["Dual Inverter", "Anti-Corrosion", "Smart Connect"] },
-    { name: "Mitsubishi Heavy Inverter", capacity: "1 Ton", rating: "5 Star", price: "₹35,000", features: ["Heavy Duty", "PM 2.5 Filter", "Silent Operation"] },
-    { name: "Amstrad Inverter Pro", capacity: "1.5 Ton", rating: "4 Star", price: "₹28,000", features: ["UK Technology", "Energy Saver", "Quick Cooling"] },
-    { name: "Midea Inverter Smart", capacity: "1 Ton", rating: "5 Star", price: "₹30,000", features: ["WiFi Control", "Voice Control", "Self Cleaning"] },
-    { name: "Godrej Inverter Green", capacity: "1.5 Ton", rating: "3 Star", price: "₹25,000", features: ["Eco Mode", "Fast Cooling", "Anti-Bacterial"] }
+    { 
+      name: "Daikin MTKL50U 1.5 Ton 5 Star", 
+      capacity: "1.5 Ton", 
+      rating: "5 Star", 
+      price: "₹42,990", 
+      features: ["PM 2.5 Filter", "Copper Condenser", "Dew Clean Technology"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Carrier Hybridjet 1.5 Ton 5 Star", 
+      capacity: "1.5 Ton", 
+      rating: "5 Star", 
+      price: "₹38,500", 
+      features: ["Dual Inverter", "Flexicool Technology", "Auto Clean"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Mitsubishi Heavy SRK35ZSA-W 1 Ton 5 Star", 
+      capacity: "1 Ton", 
+      rating: "5 Star", 
+      price: "₹39,990", 
+      features: ["Industrial Grade", "PM 2.5 Filter", "Turbo Cooling"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Voltas 1.5 Ton 5 Star Vectra Platina", 
+      capacity: "1.5 Ton", 
+      rating: "5 Star", 
+      price: "₹36,990", 
+      features: ["4-in-1 Adjustable Mode", "Copper Condenser", "Smart Diagnosis"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Godrej 1.5 Ton 5 Star NXW 18 TAI5 WWN", 
+      capacity: "1.5 Ton", 
+      rating: "5 Star", 
+      price: "₹34,490", 
+      features: ["Eco Mode", "I-Sense Technology", "Anti-Bacterial Filter"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Midea 1.5 Ton 5 Star Inverter Veloce Pro", 
+      capacity: "1.5 Ton", 
+      rating: "5 Star", 
+      price: "₹35,990", 
+      features: ["WiFi Control", "Follow Me Function", "Self Clean"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Amstrad 1.5 Ton 3 Star AM20SI3", 
+      capacity: "1.5 Ton", 
+      rating: "3 Star", 
+      price: "₹28,990", 
+      features: ["UK Technology", "Turbo Cool", "100% Copper"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Daikin JTKJ50UV16 1.5 Ton 3 Star", 
+      capacity: "1.5 Ton", 
+      rating: "3 Star", 
+      price: "₹37,990", 
+      features: ["Triple Display", "Coanda Airflow", "Power Chill Operation"],
+      image: inverterSplitAc // Replace with specific product image
+    },
+    { 
+      name: "Carrier 1 Ton 3 Star Esko Neo Plus", 
+      capacity: "1 Ton", 
+      rating: "3 Star", 
+      price: "₹29,990", 
+      features: ["Dual Filter", "HD Filter", "Flexicool Technology"],
+      image: inverterSplitAc // Replace with specific product image
+    }
   ];
 
   const benefits = [
@@ -47,7 +113,7 @@ const InverterSplitAC = () => {
             "name": "Inverter Split Air Conditioners",
             "category": "Air Conditioning",
             "description": "Energy-efficient inverter split ACs for homes and offices in Bareilly, UP",
-            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Amstrad", "Midea", "Godrej"],
+            "brand": ["Daikin", "Carrier", "Mitsubishi Heavy", "Amstrad", "Midea", "Godrej", "Voltas"],
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.8",
@@ -55,8 +121,8 @@ const InverterSplitAC = () => {
             },
             "offers": {
               "@type": "AggregateOffer",
-              "lowPrice": "25000",
-              "highPrice": "38000",
+              "lowPrice": "28990",
+              "highPrice": "42990",
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock"
             },
@@ -168,13 +234,16 @@ const InverterSplitAC = () => {
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
                     <img
-                      src={inverterSplitAc}
+                      src={product.image}
                       alt={`${product.name} - Inverter Split AC`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
                     <Badge className="absolute top-4 right-4 bg-accent-warm">
                       {product.rating}
                     </Badge>
+                    <div className="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded text-xs">
+                      Energy Saver
+                    </div>
                   </div>
 
                   <CardHeader>
@@ -210,11 +279,11 @@ const InverterSplitAC = () => {
           <div className="container mx-auto px-4">
             <div className="bg-primary rounded-2xl p-8 text-white text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Professional AC Installation & Service in Bareilly
+                Professional Inverter AC Installation in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Serving Bareilly, Pilibhit, Budaun, Shahjahanpur and surrounding areas with
-                expert AC installation, maintenance, and repair services since 2010.
+                Khandelwal Distributors has been providing reliable inverter AC sales, installation, and
+                expert service across Bareilly, Pilibhit, Budaun, and Shahjahanpur since 2010.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>

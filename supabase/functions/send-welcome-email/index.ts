@@ -54,7 +54,7 @@ const handler = async (req: Request): Promise<Response> => {
           </ul>
           
           <div style="margin: 30px 0; text-align: center;">
-            <a href="${Deno.env.get('SITE_URL') || 'https://khandelwaldistributors.com'}/auth" 
+            <a href="${Deno.env.get('SITE_URL') || 'https://www.khandelwaldistributors.com'}/auth" 
                style="background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
               Login to Your Account
             </a>

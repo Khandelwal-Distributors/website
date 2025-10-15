@@ -21,12 +21,12 @@ const Index = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://khandelwaldistributors.com/#organization",
+    "@id": "https://www.khandelwaldistributors.com/#organization",
     name: "Khandelwal Distributors",
     alternateName: "KD HVAC Solutions",
     description:
       "Professional HVAC solutions and air conditioning services provider in Uttar Pradesh. Authorized dealer for Daikin, Mitsubishi Heavy, Carrier and more premium brands.",
-    url: "https://khandelwaldistributors.com",
+    url: "https://www.khandelwaldistributors.com",
     telephone: "+919429693410",
     email: "admin@khandelwaldistributors.com",
     address: {
@@ -44,10 +44,10 @@ const Index = () => {
       name: "Uttar Pradesh",
     },
     priceRange: "$$",
-    image: "https://khandelwaldistributors.com/lovable-uploads/favicon.png",
+    image: "https://www.khandelwaldistributors.com/lovable-uploads/favicon.png",
     logo: {
       "@type": "ImageObject",
-      url: "https://khandelwaldistributors.com/lovable-uploads/favicon.png",
+      url: "https://www.khandelwaldistributors.com/lovable-uploads/favicon.png",
     },
     sameAs: [
       "https://www.facebook.com/khandelwaldistributor",
@@ -106,7 +106,7 @@ const Index = () => {
                 name: "AC Installation",
                 description: "Professional air conditioning installation services",
                 provider: {
-                  "@id": "https://khandelwaldistributors.com/#organization",
+                  "@id": "https://www.khandelwaldistributors.com/#organization",
                 },
               },
             },
@@ -117,7 +117,7 @@ const Index = () => {
                 name: "HVAC Maintenance",
                 description: "Regular maintenance and servicing for all HVAC systems",
                 provider: {
-                  "@id": "https://khandelwaldistributors.com/#organization",
+                  "@id": "https://www.khandelwaldistributors.com/#organization",
                 },
               },
             },
@@ -128,7 +128,7 @@ const Index = () => {
                 name: "Commercial HVAC Projects",
                 description: "Complete HVAC solutions for commercial and industrial projects",
                 provider: {
-                  "@id": "https://khandelwaldistributors.com/#organization",
+                  "@id": "https://www.khandelwaldistributors.com/#organization",
                 },
               },
             },
