@@ -7,19 +7,14 @@
     ],
     "redirects": [
         {
-            "source": "/product/:path*",
-            "destination": "/shop",
-            "permanent": true
-        },
-        {
             "source": "/category/:path*",
             "destination": "/products",
             "permanent": true
         },
         {
-            "source": "/brand/:path*", 
-            "destination": "/brands/:path*", 
-            "permanent": true 
+            "source": "/brand/:path*",
+            "destination": "/brands/:path*",
+            "permanent": true
         }
     ]
 }

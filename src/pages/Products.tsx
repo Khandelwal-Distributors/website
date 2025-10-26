@@ -130,7 +130,7 @@ const Products = () => {
       description: "Advanced alkaline water purification with RO technology",
       image: alkalineRo,
       icon: <Wind className="h-6 w-6" />,
-      brands: ["Zero B"],
+      brands: ["Mitusbishi", "Zero B"],
       products: [
         { name: "Zero B Alkaline Pro", capacity: "RO+UV+Alkaline", rating: "7 Stage", price: "₹18,000" },
         { name: "Zero B Premium", capacity: "RO+UV+TDS", rating: "6 Stage", price: "₹15,000" },
