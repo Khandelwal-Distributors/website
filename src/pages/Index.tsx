@@ -523,11 +523,98 @@ const Index = () => {
     ]
   };
 
+  const rentalServiceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Air Conditioner Rental Service",
+    "description": "Flexible AC rental solutions for homes, offices, and events. Monthly, seasonal, and event-based rental plans with free installation, maintenance, and 24/7 support.",
+    "provider": {
+      "@id": "https://www.khandelwaldistributors.com/#organization"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Uttar Pradesh"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AC Rental Plans",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Monthly AC Rental",
+          "description": "1.5 Ton Split AC with free installation, uninstallation, maintenance and 24/7 support",
+          "price": "2999",
+          "priceCurrency": "INR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2999",
+            "priceCurrency": "INR",
+            "unitText": "MONTH"
+          },
+          "eligibleDuration": {
+            "@type": "QuantitativeValue",
+            "value": "3",
+            "unitCode": "MON",
+            "minValue": "3"
+          },
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Seasonal AC Rental",
+          "description": "1.5 Ton Split AC for 4 months with all-inclusive service - best value for summer",
+          "price": "8999",
+          "priceCurrency": "INR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "8999",
+            "priceCurrency": "INR",
+            "unitText": "SEASON"
+          },
+          "eligibleDuration": {
+            "@type": "QuantitativeValue",
+            "value": "4",
+            "unitCode": "MON"
+          },
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Event AC Rental",
+          "description": "Portable AC units for events with same day installation and 24/7 technical support",
+          "price": "1299",
+          "priceCurrency": "INR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "1299",
+            "priceCurrency": "INR",
+            "unitText": "DAY"
+          },
+          "eligibleDuration": {
+            "@type": "QuantitativeValue",
+            "value": "3",
+            "unitCode": "DAY",
+            "minValue": "3"
+          },
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    "serviceType": "Air Conditioner Rental",
+    "termsOfService": "Free installation and uninstallation included. Free maintenance and service. 24/7 customer support. Minimum rental periods apply.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "387"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(productCategoriesJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(rentalServiceJsonLd)}</script>
       </Helmet>
       <Header />
       <TickerTape />
