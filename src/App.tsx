@@ -22,6 +22,8 @@ import Orders from "./pages/Orders";
 // GuestOrder removed - guest orders are no longer supported
 import Admin from "./pages/Admin";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import RefundPolicy from "./pages/RefundPolicy";
 
 // Import individual product category pages
 import InverterSplitAC from "./pages/products/InverterSplitAC";
@@ -111,6 +113,8 @@ const App = () => {
                   <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
                   
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                  <Route path="/refund-policy" element={<RefundPolicy />} />
                   
                   <Route path="*" element={<NotFound />} />
                 </Routes>
