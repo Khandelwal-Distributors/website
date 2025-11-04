@@ -9,33 +9,33 @@ const Hero = () => {
   return (
     <section className="relative min-h-[700px] sm:min-h-[600px] flex items-center py-12 sm:py-0">
       <div className="absolute inset-0">
-        <OptimizedImage 
-          src={heroImage} 
-          alt="Professional HVAC Installation" 
+        <OptimizedImage
+          src={heroImage}
+          alt="Professional HVAC Installation"
           className="w-full h-full"
           loading="eager"
           priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Professional HVAC Solutions & 
+            Professional HVAC Solutions &
             <span className="text-accent-warm"> Air Conditioning </span>
             Services
           </h1>
-          
+
           <p className="text-xl mb-8 text-white/90">
-            Authorized dealer for Daikin, Mitsubishi Heavy, Carrier & more. 
+            Authorized dealer for Daikin, Mitsubishi Heavy, Carrier & more.
             Expert installation, servicing & commercial HVAC projects.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button 
-              variant="cta" 
-              size="lg" 
+            <Button
+              variant="cta"
+              size="lg"
               className="text-lg px-8 hover:scale-105 transition-transform duration-300"
               onClick={() => window.open('tel:+919429693410', '_self')}
             >
@@ -52,8 +52,8 @@ const Hero = () => {
               </Link>
             </Button>
             {/* WhatsApp button for mobile */}
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about HVAC services', '_blank')}
               className="sm:hidden bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700 hover:scale-105 transition-all duration-300"
@@ -62,7 +62,7 @@ const Hero = () => {
               WhatsApp
             </Button>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 text-sm">
             <div className="flex items-center gap-2 hover:text-accent-warm transition-colors duration-300">
               <CheckCircle className="h-5 w-5 text-accent-warm" />

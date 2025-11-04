@@ -8,16 +8,16 @@ import { Phone, MessageCircle, CheckCircle2, Shield, Award, Clock } from "lucide
 import YouTubeVideos from "@/components/YouTubeVideos";
 
 import wallPanelsImg from "@/assets/ot-wall-panels.jpg";
-import laminarAirflowImg from "@/assets/ot-laminar-airflow.jpg";
+import laminarAirflowImg from "@/assets/ot-laminar-airflow.webp";
 import xrayViewerImg from "@/assets/ot-xray-viewer.jpg";
 import hermeticDoorImg from "@/assets/ot-hermetic-door.jpg";
 import controlPanelImg from "@/assets/ot-control-panel.jpg";
-import multiArmPendantImg from "@/assets/ot-multi-arm-pendant.jpg";
+import multiArmPendantImg from "@/assets/ot-multiarm-pendant.webp";
 import ahuImg from "@/assets/ot-ahu.jpg";
 import passBoxImg from "@/assets/ot-pass-box.jpg";
 import peripheralLightingImg from "@/assets/ot-peripheral-lighting.jpg";
 import flooringImg from "@/assets/ot-flooring.jpg";
-import pressureDampersImg from "@/assets/ot-pressure-dampers.jpg";
+import pressureDampersImg from "@/assets/ot-pressure-damper.webp";
 import instrumentStorageImg from "@/assets/ot-instrument-storage.jpg";
 import otHeroBg from "@/assets/ot-hero-bg.jpg";
 
@@ -209,7 +209,7 @@ const ModularOT = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919429693410?text=I'm interested in Modular OT installation. Please provide more details.", "_blank");
+    window.open("https://wa.me/919084417884?text=I'm interested in Modular OT installation. Please provide more details.", "_blank");
   };
 
   const structuredData = {
@@ -217,88 +217,183 @@ const ModularOT = () => {
     "@type": "Product",
     "name": "Modular Operating Theatre (OT) - Complete Turnkey Solution",
     "description": "Complete modular operating theatre installation including wall panels, laminar air flow, hermetically sealed doors, AHU systems, and all critical OT components. ISO compliant with HEPA filtration.",
+    "image": [
+      wallPanelsImg,
+      laminarAirflowImg,
+      hermeticDoorImg
+    ],
     "brand": {
       "@type": "Brand",
-      "name": "KD Air Conditioning & Services"
+      "name": "Khandelwal Distributors"
     },
+    "category": "Medical Equipment",
+    "url": "https://www.khandelwaldistributors.com/products/modular-ot",
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock",
+      "url": "https://www.khandelwaldistributors.com/products/modular-ot",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "INR",
+        "price": "999999"
+      },
       "seller": {
         "@type": "Organization",
-        "name": "KD Air Conditioning & Services"
+        "name": "Khandelwal Distributors",
+        "telephone": "+919897595000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "G-35, MCI Plaza, Civil Lines",
+          "addressLocality": "Bareilly",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "243001",
+          "addressCountry": "IN"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Uttar Pradesh"
       }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "87"
+      "ratingValue": "4.8",
+      "reviewCount": "198",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
   return (
     <>
       <Helmet>
-        <title>Modular Operating Theatre (OT) Installation | Complete Turnkey Solution - Ahmedabad</title>
-        <meta name="description" content="Complete modular OT installation including wall panels, laminar air flow, HEPA filtration, hermetically sealed doors, AHU systems. ISO compliant. 25+ years experience in Ahmedabad." />
-        <meta name="keywords" content="modular OT, operating theatre, laminar air flow, HEPA filter, OT installation, hospital OT, surgical theatre, OT AHU, hermetically sealed door, OT flooring, Ahmedabad" />
-        <link rel="canonical" href="https://www.kdairconditioningservices.in/products/modular-ot" />
-        
+        <title>Modular Operating Theatre (OT) Installation | Complete Turnkey Solution - Bareilly, UP</title>
+        <meta name="description" content="Complete modular OT installation in Bareilly, UP. Wall panels, laminar air flow, HEPA filtration, hermetically sealed doors, AHU systems. ISO compliant. 25+ years experience." />
+        <meta name="keywords" content="modular OT Bareilly, operating theatre Bareilly, laminar air flow, HEPA filter, OT installation Bareilly UP, hospital OT, surgical theatre, OT AHU, hermetically sealed door, OT flooring, modular OT India" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Khandelwal Distributors" />
+        <meta name="geo.region" content="IN-UP" />
+        <meta name="geo.placename" content="Bareilly" />
+        <meta name="geo.position" content="28.3670;79.4304" />
+        <meta name="ICBM" content="28.3670, 79.4304" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products/modular-ot" />
+
         {/* Open Graph */}
-        <meta property="og:title" content="Modular Operating Theatre (OT) - Complete Turnkey Solution" />
-        <meta property="og:description" content="ISO compliant modular OT with laminar air flow, HEPA filtration, and all critical components" />
+        <meta property="og:title" content="Modular Operating Theatre (OT) - Complete Turnkey Solution | Bareilly, UP" />
+        <meta property="og:description" content="ISO compliant modular OT with laminar air flow, HEPA filtration, and all critical components. Expert installation in Bareilly, Uttar Pradesh." />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://www.kdairconditioningservices.in/products/modular-ot" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/modular-ot" />
         <meta property="og:image" content={wallPanelsImg} />
-        
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="Khandelwal Distributors" />
+        <meta property="product:category" content="Medical Equipment" />
+        <meta property="product:availability" content="in stock" />
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Modular Operating Theatre (OT) - Complete Solution" />
         <meta name="twitter:description" content="Complete modular OT with ISO compliance and 25+ years expertise" />
         <meta name="twitter:image" content={wallPanelsImg} />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+
+        {/* LocalBusiness Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Khandelwal Distributors",
+            "description": "Professional Modular OT Installation in Bareilly, Uttar Pradesh",
+            "image": wallPanelsImg,
+            "telephone": "+919429693410",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "G-35, MCI Plaza, Civil Lines",
+              "addressLocality": "Bareilly",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "243001",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "28.3670",
+              "longitude": "79.4304"
+            },
+            "url": "https://www.khandelwaldistributors.com",
+            "priceRange": "₹₹₹",
+            "areaServed": ["Bareilly", "Pilibhit", "Budaun", "Shahjahanpur", "Uttar Pradesh"]
+          })}
+        </script>
+
+        {/* BreadcrumbList Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.khandelwaldistributors.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://www.khandelwaldistributors.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Modular Operating Theatre",
+                "item": "https://www.khandelwaldistributors.com/products/modular-ot"
+              }
+            ]
+          })}
         </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         {/* Hero Section */}
         <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-100"
             style={{ backgroundImage: `url(${otHeroBg})` }}
           />
-          <div className="absolute inset-0 bg-blue-500/20" />
+          <div className="absolute inset-0 bg-black/70" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
                 Modular Operating Theatre (OT)
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-white">
                 Complete Turnkey Installation with ISO Compliance
               </p>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg text-white/90 max-w-3xl mx-auto">
                 State-of-the-art modular operating theatre solutions including all critical components - from wall panels and laminar air flow to hermetically sealed doors and advanced AHU systems. Ensuring sterile, safe surgical environments.
               </p>
               <div className="flex flex-wrap gap-4 justify-center pt-4">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   onClick={handleCallNow}
-                  className="gap-2"
+                  className="gap-2 bg-accent-warm hover:bg-accent-warm/90"
                 >
                   <Phone className="w-5 h-5" />
-                  Call: +91 9429693410
+                  Call: +91 9897595000
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
+                <Button
+                  size="lg"
                   onClick={handleWhatsApp}
-                  className="gap-2"
+                  className="gap-2 bg-green-600 hover:bg-green-700 text-white"
                 >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp Quote
@@ -335,13 +430,13 @@ const ModularOT = () => {
                 All essential components for a fully functional, ISO-compliant modular operating theatre
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {components.map((component, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
                   <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={component.image} 
+                    <img
+                      src={component.image}
                       alt={component.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       loading="lazy"
@@ -467,7 +562,7 @@ const ModularOT = () => {
             </div>
             <div className="pt-8 border-t border-border/50 mt-8">
               <p className="text-sm text-muted-foreground">
-                📍 Serving Ahmedabad & Gujarat | ⚡ 25+ Years Experience | 🏆 ISO Certified Installations
+                📍 Serving Bareilly, Pilibhit, Budaun, Shahjahanpur & Uttar Pradesh | ⚡ 25+ Years Experience | 🏆 ISO Certified Installations
               </p>
             </div>
           </div>

@@ -80,7 +80,7 @@ const RentAnAC = () => {
             Rent an <span className="text-primary">Air Conditioner</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Perfect for temporary needs, events, or trying before buying. 
+            Perfect for temporary needs, events, or trying before buying.
             Professional installation and maintenance included in all rental plans.
           </p>
         </div>
@@ -103,11 +103,10 @@ const RentAnAC = () => {
         {/* Rental Plans */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {rentalPlans.map((plan, index) => (
-            <Card 
-              key={index} 
-              className={`group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 relative ${
-                plan.popular ? 'ring-2 ring-primary' : ''
-              }`}
+            <Card
+              key={index}
+              className={`group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 relative ${plan.popular ? 'ring-2 ring-primary' : ''
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -116,7 +115,7 @@ const RentAnAC = () => {
                   </div>
                 </div>
               )}
-              
+
               <CardHeader className="text-center">
                 <CardTitle className="text-xl">{plan.title}</CardTitle>
                 <div className="text-3xl font-bold text-primary">
@@ -124,7 +123,7 @@ const RentAnAC = () => {
                   <span className="text-sm font-normal text-muted-foreground">{plan.period}</span>
                 </div>
               </CardHeader>
-              
+
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, idx) => (
@@ -134,18 +133,18 @@ const RentAnAC = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="space-y-3">
-                  <Button 
-                    variant="cta" 
+                  <Button
+                    variant="cta"
                     className="w-full"
                     onClick={() => window.open('tel:+919429693410', '_self')}
                   >
                     <Phone className="h-4 w-4" />
                     Call Now
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full bg-green-600 text-white border-green-600 hover:bg-green-700"
                     onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in renting an AC. Please share more details about the rental plans.', '_blank')}
                   >
@@ -162,20 +161,20 @@ const RentAnAC = () => {
         <div className="bg-gradient-to-r from-primary/10 to-accent-warm/10 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Need a Custom Rental Solution?</h3>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            We offer customized rental packages for offices, events, and temporary installations. 
+            We offer customized rental packages for offices, events, and temporary installations.
             Contact our experts for personalized pricing and solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="cta" 
+            <Button
+              variant="cta"
               size="lg"
               onClick={() => window.open('tel:+919429693410', '_self')}
             >
               <Phone className="h-5 w-5" />
               Call for Custom Quote
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="bg-green-600 text-white border-green-600 hover:bg-green-700"
               onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need a custom rental solution for my requirements. Please share details.', '_blank')}
