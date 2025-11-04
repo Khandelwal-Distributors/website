@@ -28,6 +28,7 @@ import chillerSystem from "@/assets/chiller-system.jpg";
 import heatPump from "@/assets/heat-pump.jpg";
 import ductableAc from "@/assets/ductable-ac.jpg";
 import deepFreezer from "@/assets/deep-freezer.jpg";
+import wallPanelsImg from "@/assets/ot-wall-panels.jpg";
 import EndOfSeasonSale from "@/components/EndOfSeasonSale";
 import productsHeroBg from "@/assets/products-hero-bg.jpg";
 
@@ -403,6 +404,14 @@ const Products = () => {
                   image: ahuSystem,
                   products: ["High CFM capacity", "Energy recovery", "Modular construction"],
                   link: "/products/ahu-system"
+                },
+                {
+                  title: "Modular Operating Theatre (OT)",
+                  brand: "Complete Turnkey Solution",
+                  description: "ISO compliant modular OT with all critical components",
+                  image: wallPanelsImg,
+                  products: ["HEPA filtration", "Hermetically sealed doors", "Laminar air flow"],
+                  link: "/products/modular-ot"
                 }
               ].map((item, index) => (
                 <Link key={index} to={item.link}>
