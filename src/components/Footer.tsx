@@ -199,19 +199,19 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <a href="tel:+919429693410" className="text-muted-foreground hover:text-primary">
                   +91 9429693410
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:info@khandelwaldistributors.com" className="text-muted-foreground hover:text-primary">
+              <div className="flex items-start gap-2">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
+                <a href="mailto:info@khandelwaldistributors.com" className="text-muted-foreground hover:text-primary break-all">
                   admin@khandelwaldistributors.com
                 </a>
               </div>
               <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-primary mt-1" />
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
                 <span className="text-muted-foreground">
                   G-35, MCI Plaza, Mission Market, Civil Lines, Bareilly<br />
                   Bahadurganj Road, Sadar Bazar, Shahjahanpur
