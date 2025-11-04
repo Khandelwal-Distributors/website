@@ -44,6 +44,7 @@ import DuctableAC from "./pages/products/DuctableAC";
 import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
 import DeepFreezers from "./pages/products/DeepFreezers";
+import ModularOT from "./pages/products/ModularOT";
 
 // Import brand pages
 import Voltas from "./pages/brands/Voltas";
@@ -101,6 +102,7 @@ const App = () => {
                   <Route path="/products/cold-room" element={<ColdRoom />} />
                   <Route path="/products/ahu-system" element={<AHUSystem />} />
                   <Route path="/products/deep-freezers" element={<DeepFreezers />} />
+                  <Route path="/products/modular-ot" element={<ModularOT />} />
                   
                   {/* Brand pages routes */}
                   <Route path="/brands/voltas" element={<Voltas />} />
