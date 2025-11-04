@@ -373,7 +373,7 @@ const ModularOT = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Modular Operating Theatre (OT)
+                Modular Operating Theatre (OT) in Bareilly
               </h1>
               <p className="text-xl text-white">
                 Complete Turnkey Installation with ISO Compliance
