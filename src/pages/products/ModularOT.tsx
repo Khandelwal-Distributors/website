@@ -17,6 +17,9 @@ import ahuImg from "@/assets/ot-ahu.jpg";
 import passBoxImg from "@/assets/ot-pass-box.jpg";
 import peripheralLightingImg from "@/assets/ot-peripheral-lighting.jpg";
 import flooringImg from "@/assets/ot-flooring.jpg";
+import pressureDampersImg from "@/assets/ot-pressure-dampers.jpg";
+import instrumentStorageImg from "@/assets/ot-instrument-storage.jpg";
+import otHeroBg from "@/assets/ot-hero-bg.jpg";
 
 const ModularOT = () => {
   const components = [
@@ -149,6 +152,32 @@ const ModularOT = () => {
         "Slip Resistant",
         "Coved Edges"
       ]
+    },
+    {
+      name: "Pressure Dampers",
+      image: pressureDampersImg,
+      description: "Medical-grade pressure control dampers for maintaining precise positive pressure differential in the OT, ensuring contamination-free environment and proper air flow control.",
+      features: [
+        "Automatic Pressure Control",
+        "Medical Grade Construction",
+        "Low Leakage Design",
+        "Quiet Operation",
+        "Easy Maintenance",
+        "Real-time Monitoring"
+      ]
+    },
+    {
+      name: "Instrument Storage",
+      image: instrumentStorageImg,
+      description: "Stainless steel sterile instrument storage cabinets with organized compartments, ensuring proper storage, quick access, and maintaining sterility of surgical instruments.",
+      features: [
+        "Stainless Steel 304 Grade",
+        "Sterile Environment",
+        "Organized Compartments",
+        "Glass/Solid Doors",
+        "Adjustable Shelving",
+        "Easy to Clean"
+      ]
     }
   ];
 
@@ -239,8 +268,12 @@ const ModularOT = () => {
         <Header />
         
         {/* Hero Section */}
-        <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto">
+        <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-10"
+            style={{ backgroundImage: `url(${otHeroBg})` }}
+          />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Modular Operating Theatre (OT)
