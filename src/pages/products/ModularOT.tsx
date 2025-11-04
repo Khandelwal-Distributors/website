@@ -270,9 +270,10 @@ const ModularOT = () => {
         {/* Hero Section */}
         <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-10"
+            className="absolute inset-0 bg-cover bg-center opacity-30"
             style={{ backgroundImage: `url(${otHeroBg})` }}
           />
+          <div className="absolute inset-0 bg-blue-500/20" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
