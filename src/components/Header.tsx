@@ -55,6 +55,32 @@ const Header = () => {
     { name: "Cruise", path: "/brands/cruise" },
     { name: "Mitsubishi Heavy", path: "/brands/mitsubishi-heavy" },
   ];
+
+  const productCategories = {
+    residential: [
+      { name: "Inverter Split AC", path: "/products/inverter-split-ac" },
+      { name: "Non-Inverter Split AC", path: "/products/non-inverter-split-ac" },
+      { name: "Window AC", path: "/products/window-ac" },
+      { name: "Portable AC", path: "/products/portable-ac" },
+      { name: "Cassette AC", path: "/products/cassette-ac" },
+      { name: "Floor Standing AC", path: "/products/floor-standing-ac" },
+      { name: "Water Cooler", path: "/products/water-cooler" },
+      { name: "Air Purifier", path: "/products/air-purifier" },
+      { name: "Alkaline RO", path: "/products/alkaline-ro" },
+      { name: "Solar Water Heater", path: "/products/solar-water-heater" },
+      { name: "Ventilation & HRV", path: "/products/ventilation-hrv" },
+    ],
+    commercial: [
+      { name: "VRV System", path: "/products/vrv-system" },
+      { name: "Chiller System", path: "/products/chiller-system" },
+      { name: "Ductable AC", path: "/products/ductable-ac" },
+      { name: "AHU System", path: "/products/ahu-system" },
+      { name: "Cold Room", path: "/products/cold-room" },
+      { name: "Heat Pump", path: "/products/heat-pump" },
+      { name: "Deep Freezers", path: "/products/deep-freezers" },
+      { name: "Modular OT", path: "/products/modular-ot" },
+    ]
+  };
   return (
     <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
@@ -85,12 +111,40 @@ const Header = () => {
                 >
                   Shop
                 </Link>
-                <Link
-                  to="/products"
-                  className="text-lg font-medium hover:text-primary transition-colors"
-                >
-                  Product Categories
-                </Link>
+
+                {/* Product Categories Dropdown */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="justify-start text-lg font-medium p-0 h-auto">
+                      Product Categories <ChevronDown className="h-4 w-4 ml-1" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="bg-background border w-64">
+                    <div className="px-2 py-1.5 text-sm font-semibold">Residential</div>
+                    {productCategories.residential.map((product) => (
+                      <DropdownMenuItem key={product.name} asChild>
+                        <Link to={product.path} className="cursor-pointer">
+                          {product.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                    <div className="my-1 h-px bg-border" />
+                    <div className="px-2 py-1.5 text-sm font-semibold">Commercial</div>
+                    {productCategories.commercial.map((product) => (
+                      <DropdownMenuItem key={product.name} asChild>
+                        <Link to={product.path} className="cursor-pointer">
+                          {product.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                    <div className="my-1 h-px bg-border" />
+                    <DropdownMenuItem asChild>
+                      <Link to="/products" className="cursor-pointer font-semibold text-primary">
+                        View All Products
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
                 {/* Brands Dropdown */}
                 <DropdownMenu>
