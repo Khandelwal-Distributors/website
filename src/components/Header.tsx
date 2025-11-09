@@ -18,7 +18,6 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -120,15 +119,12 @@ const Header = () => {
                       Product Categories <ChevronDown className="h-4 w-4 ml-1" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    align="start"
-                    sideOffset={6}
-                    collisionPadding={16}
-                    className="bg-background border w-64 p-0 max-h-[70vh] overflow-hidden z-50"
-                  >
-                    <ScrollArea className="max-h-[70vh]">
-                      <div className="p-2 pb-4">
-                        <div className="px-2 py-1.5 text-sm font-semibold">Residential</div>
+                  <DropdownMenuContent align="start" className="bg-background border w-56">
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger className="cursor-pointer">
+                        Residential
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuSubContent className="bg-background border max-h-[60vh] overflow-y-auto">
                         {productCategories.residential.map((product) => (
                           <DropdownMenuItem key={product.name} asChild>
                             <Link to={product.path} className="cursor-pointer">
@@ -136,8 +132,14 @@ const Header = () => {
                             </Link>
                           </DropdownMenuItem>
                         ))}
-                        <div className="my-1 h-px bg-border" />
-                        <div className="px-2 py-1.5 text-sm font-semibold">Commercial</div>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuSub>
+                    
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger className="cursor-pointer">
+                        Commercial
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuSubContent className="bg-background border max-h-[60vh] overflow-y-auto">
                         {productCategories.commercial.map((product) => (
                           <DropdownMenuItem key={product.name} asChild>
                             <Link to={product.path} className="cursor-pointer">
@@ -145,14 +147,15 @@ const Header = () => {
                             </Link>
                           </DropdownMenuItem>
                         ))}
-                        <div className="my-1 h-px bg-border" />
-                        <DropdownMenuItem asChild>
-                          <Link to="/products" className="cursor-pointer font-semibold text-primary">
-                            View All Products
-                          </Link>
-                        </DropdownMenuItem>
-                      </div>
-                    </ScrollArea>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuSub>
+
+                    <div className="my-1 h-px bg-border" />
+                    <DropdownMenuItem asChild>
+                      <Link to="/products" className="cursor-pointer font-semibold text-primary">
+                        View All Products
+                      </Link>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
 
