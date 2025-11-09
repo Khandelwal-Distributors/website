@@ -120,9 +120,14 @@ const Header = () => {
                       Product Categories <ChevronDown className="h-4 w-4 ml-1" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-background border w-64 p-0 max-h-[calc(100vh-8rem)]">
-                    <ScrollArea className="h-full max-h-[calc(100vh-8rem)]">
-                      <div className="p-2">
+                  <DropdownMenuContent
+                    align="start"
+                    sideOffset={6}
+                    collisionPadding={16}
+                    className="bg-background border w-64 p-0 max-h-[70vh] overflow-hidden z-50"
+                  >
+                    <ScrollArea className="max-h-[70vh]">
+                      <div className="p-2 pb-4">
                         <div className="px-2 py-1.5 text-sm font-semibold">Residential</div>
                         {productCategories.residential.map((product) => (
                           <DropdownMenuItem key={product.name} asChild>
