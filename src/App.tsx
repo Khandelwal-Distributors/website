@@ -13,6 +13,7 @@ import Products from "./pages/Products";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
+import AuthCallback from "./pages/AuthCallback";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
@@ -72,6 +73,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/auth" element={<Auth />} />
+                  <Route path="/auth/callback" element={<AuthCallback />} />
                   <Route path="/shop" element={<Shop />} />
                   <Route path="/product/:slug" element={<ProductDetail />} />
                   <Route path="/checkout" element={<Checkout />} />
