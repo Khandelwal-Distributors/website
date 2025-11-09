@@ -18,6 +18,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -119,30 +120,34 @@ const Header = () => {
                       Product Categories <ChevronDown className="h-4 w-4 ml-1" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-background border w-64">
-                    <div className="px-2 py-1.5 text-sm font-semibold">Residential</div>
-                    {productCategories.residential.map((product) => (
-                      <DropdownMenuItem key={product.name} asChild>
-                        <Link to={product.path} className="cursor-pointer">
-                          {product.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                    <div className="my-1 h-px bg-border" />
-                    <div className="px-2 py-1.5 text-sm font-semibold">Commercial</div>
-                    {productCategories.commercial.map((product) => (
-                      <DropdownMenuItem key={product.name} asChild>
-                        <Link to={product.path} className="cursor-pointer">
-                          {product.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                    <div className="my-1 h-px bg-border" />
-                    <DropdownMenuItem asChild>
-                      <Link to="/products" className="cursor-pointer font-semibold text-primary">
-                        View All Products
-                      </Link>
-                    </DropdownMenuItem>
+                  <DropdownMenuContent align="start" className="bg-background border w-64 p-0 max-h-[calc(100vh-8rem)]">
+                    <ScrollArea className="h-full max-h-[calc(100vh-8rem)]">
+                      <div className="p-2">
+                        <div className="px-2 py-1.5 text-sm font-semibold">Residential</div>
+                        {productCategories.residential.map((product) => (
+                          <DropdownMenuItem key={product.name} asChild>
+                            <Link to={product.path} className="cursor-pointer">
+                              {product.name}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                        <div className="my-1 h-px bg-border" />
+                        <div className="px-2 py-1.5 text-sm font-semibold">Commercial</div>
+                        {productCategories.commercial.map((product) => (
+                          <DropdownMenuItem key={product.name} asChild>
+                            <Link to={product.path} className="cursor-pointer">
+                              {product.name}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                        <div className="my-1 h-px bg-border" />
+                        <DropdownMenuItem asChild>
+                          <Link to="/products" className="cursor-pointer font-semibold text-primary">
+                            View All Products
+                          </Link>
+                        </DropdownMenuItem>
+                      </div>
+                    </ScrollArea>
                   </DropdownMenuContent>
                 </DropdownMenu>
 
