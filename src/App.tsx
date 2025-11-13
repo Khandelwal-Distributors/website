@@ -25,6 +25,8 @@ import Admin from "./pages/Admin";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./pages/BlogDetail";
 
 // Import individual product category pages
 import InverterSplitAC from "./pages/products/InverterSplitAC";
@@ -115,6 +117,10 @@ const App = () => {
                   <Route path="/brands/godrej" element={<Godrej />} />
                   <Route path="/brands/cruise" element={<Cruise />} />
                   <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
+                  
+                  {/* Blog routes */}
+                  <Route path="/blogs" element={<Blogs />} />
+                  <Route path="/blogs/:slug" element={<BlogDetail />} />
                   
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

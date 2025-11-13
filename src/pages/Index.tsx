@@ -16,6 +16,7 @@ import OurClients from "@/components/OurClients";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import RentAnAC from "@/components/RentAnAC";
 import ScrollableProductCategories from "@/components/ScrollableProductCategories";
+import BlogsSection from "@/components/BlogsSection";
 
 const Index = () => {
   const jsonLd = {
@@ -609,12 +610,76 @@ const Index = () => {
     }
   };
 
+  const siteNavigationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Site Navigation",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "Products",
+        "description": "Complete catalog of HVAC and air conditioning products",
+        "url": "https://www.khandelwaldistributors.com/products"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "Shop",
+        "description": "Buy air conditioners and HVAC equipment online",
+        "url": "https://www.khandelwaldistributors.com/shop"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "Projects",
+        "description": "Our commercial HVAC installation portfolio",
+        "url": "https://www.khandelwaldistributors.com/projects"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Blogs",
+        "description": "HVAC guides, tips, and industry insights",
+        "url": "https://www.khandelwaldistributors.com/blogs"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 5,
+        "name": "Brands",
+        "description": "Authorized dealer for premium HVAC brands",
+        "url": "https://www.khandelwaldistributors.com/#brands"
+      }
+    ]
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Khandelwal Distributors",
+    "alternateName": "KD HVAC Solutions",
+    "url": "https://www.khandelwaldistributors.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.khandelwaldistributors.com/shop?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@id": "https://www.khandelwaldistributors.com/#organization"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(productCategoriesJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(rentalServiceJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(siteNavigationJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteJsonLd)}</script>
       </Helmet>
       <Header />
       <TickerTape />
@@ -633,6 +698,7 @@ const Index = () => {
         <div data-section="rent">
           <RentAnAC />
         </div>
+        <BlogsSection />
         <YouTubeVideos />
         <StoreProfiles />
         <BrochureDownload />

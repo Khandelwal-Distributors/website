@@ -184,6 +184,13 @@ const Header = () => {
                   Projects
                 </Link>
 
+                <Link
+                  to="/blogs"
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  Blogs
+                </Link>
+
                 <button
                   onClick={() => scrollToSection('sale')}
                   className="text-lg font-medium hover:text-primary transition-colors text-left text-accent-warm"
