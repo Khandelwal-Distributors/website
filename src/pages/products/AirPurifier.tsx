@@ -12,10 +12,10 @@ import airPurifier from "@/assets/air-purifier.jpg";
 const AirPurifier = () => {
   const products = [
     { name: "Daikin MC55UVM6", type: "HEPA Air Purifier", coverage: "400 sq ft", price: "₹18,000", features: ["6-Layer Filtration", "Streamer Technology", "PM 2.5 Display"] },
-    { name: "Carrier AquaEdge RO", type: "Water Purifier", capacity: "RO+UV+UF", price: "₹15,000", features: ["7-Stage Purification", "Mineral Cartridge", "TDS Display"] },
+    { name: "Ion Exchange Aquasoft", type: "Water Softener", capacity: "2000 LPH", price: "₹45,000", features: ["Automatic Regeneration", "Digital Control", "Hardness Removal"] },
     { name: "Blue Star Air Cleaner", type: "UV-C Air Purifier", coverage: "300 sq ft", price: "₹12,000", features: ["UV-C Technology", "Pre Filter", "Silent Operation"] },
     { name: "Daikin Ururu Sarara", type: "AC with Purifier", capacity: "1.5 Ton + Purifier", price: "₹65,000", features: ["Cooling + Purification", "Humidity Control", "PM 2.5 Removal"] },
-    { name: "Kent Grand Plus", type: "RO Water Purifier", capacity: "8L Storage", price: "₹13,000", features: ["RO+UV+UF+TDS", "Mineral RO", "Save Water Tech"] },
+    { name: "Kent Autosoft", type: "Water Softener", capacity: "1000 LPH", price: "₹35,000", features: ["Fully Automatic", "High Flow Rate", "Low Maintenance"] },
     { name: "Sharp Plasmacluster", type: "Ion Air Purifier", coverage: "500 sq ft", price: "₹22,000", features: ["Plasmacluster Ions", "HEPA Filter", "Humidifying"] }
   ];
 
@@ -47,49 +47,49 @@ const AirPurifier = () => {
     }
   ];
 
-  const waterPurifierTypes = [
+  const waterSoftenerTypes = [
     {
-      title: "RO Water Purifiers",
-      description: "Reverse osmosis removes dissolved impurities",
-      features: ["RO Membrane", "TDS Removal", "Storage Tank"],
-      applications: ["High TDS Areas", "Hard Water", "Bore Well Water"]
+      title: "Automatic Water Softeners",
+      description: "Fully automatic ion exchange systems for hardness removal",
+      features: ["Auto Regeneration", "Digital Control", "Timer Based"],
+      applications: ["Hotels", "Hospitals", "Industries"]
     },
     {
-      title: "UV Water Purifiers",
-      description: "Ultraviolet disinfection kills harmful microorganisms",
-      features: ["UV Lamp", "Chemical-Free", "No Waste Water"],
-      applications: ["Municipal Water", "Low TDS Water", "Microbe Treatment"]
+      title: "Manual Water Softeners",
+      description: "Manual regeneration systems for cost-effective softening",
+      features: ["Manual Valve", "Low Maintenance", "Budget Friendly"],
+      applications: ["Small Hotels", "Residences", "Laundries"]
     },
     {
-      title: "Alkaline Water Purifiers",
-      description: "Add beneficial minerals and increase pH",
-      features: ["Mineral Addition", "pH Balance", "Health Benefits"],
-      applications: ["Health Conscious", "Premium Homes", "Wellness Centers"]
+      title: "Industrial Water Softeners",
+      description: "High-capacity softeners for commercial applications",
+      features: ["High Flow Rate", "Twin Tank", "Continuous Operation"],
+      applications: ["Manufacturing", "Boilers", "Cooling Towers"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Air & Water Purifier Price in Bareilly | HEPA Air Purifiers | RO Water Systems</title>
-        <meta name="description" content="Buy Air & Water Purifiers in Bareilly, UP. Best prices on Daikin, Carrier, Blue Star air purifiers & RO systems. HEPA, UV-C technology. Health protection for homes & offices." />
-        <meta name="keywords" content="air purifier price Bareilly, water purifier Bareilly, HEPA air cleaner UP, RO system Bareilly, PM 2.5 removal, healthy air water solutions" />
-        <meta property="og:title" content="Best Air & Water Purifier Dealers in Bareilly | Health Solutions" />
-        <meta property="og:description" content="Premium air and water purification systems in Bareilly. HEPA air purifiers, RO water systems for complete health protection and wellness." />
+        <title>Air Purifier & Water Softener Price in Bareilly | HEPA Air Purifiers | Water Softening Systems</title>
+        <meta name="description" content="Buy Air Purifiers & Water Softeners in Bareilly, UP. Best prices on Daikin, Carrier, Blue Star air purifiers & Ion Exchange softeners. HEPA, UV-C technology. Health protection for homes & offices." />
+        <meta name="keywords" content="air purifier price Bareilly, water softener Bareilly, HEPA air cleaner UP, water softening system Bareilly, PM 2.5 removal, healthy air solutions, hard water treatment" />
+        <meta property="og:title" content="Best Air Purifier & Water Softener Dealers in Bareilly | Health Solutions" />
+        <meta property="og:description" content="Premium air purification and water softening systems in Bareilly. HEPA air purifiers, water softeners for complete health protection and wellness." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/air-purifier.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Air & Water Purifier Dealers in Bareilly | Health Solutions" />
-        <meta name="twitter:description" content="Premium air and water purification systems in Bareilly. HEPA air purifiers, RO water systems for complete health protection and wellness." />
+        <meta name="twitter:title" content="Best Air Purifier & Water Softener Dealers in Bareilly | Health Solutions" />
+        <meta name="twitter:description" content="Premium air purification and water softening systems in Bareilly. HEPA air purifiers, water softeners for complete health protection and wellness." />
         <link rel="canonical" href="https://www.khandelwaldistributors.com/products/air-purifier" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Air & Water Purifiers",
+            "name": "Air Purifiers & Water Softeners",
             "category": "Health & Wellness",
-            "description": "Air and water purification systems for health protection in Bareilly, UP",
-            "brand": ["Daikin", "Carrier", "Blue Star", "Kent", "Aquaguard"],
+            "description": "Air purification and water softening systems for health protection in Bareilly, UP",
+            "brand": ["Daikin", "Carrier", "Blue Star", "Kent", "Ion Exchange"],
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.7",
@@ -139,25 +139,25 @@ const AirPurifier = () => {
         {/* Hero Section */}
         <section className="relative py-16" style={{ backgroundImage: `url(${airPurifier})` }}>
           <div className="absolute inset-0 bg-black/40"></div>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 lg:pl-12 xl:pl-16 relative z-10">
             <div className="flex items-center gap-4 mb-6">
               <Link to="/products" className="text-white hover:text-accent-warm transition-colors">
                 <ArrowLeft className="h-6 w-6" />
               </Link>
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Air & Water Purifiers in Bareilly
+                Air Purifiers & Water Softeners in Bareilly
               </h1>
             </div>
             <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Advanced air and water purification systems for homes and offices in Bareilly, Uttar Pradesh.
-              HEPA air purifiers, RO water systems, and UV-C technology for complete health protection.
+              Advanced air purification and water softening systems for homes and offices in Bareilly, Uttar Pradesh.
+              HEPA air purifiers, water softeners, and UV-C technology for complete health protection and water quality.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Air Purifiers in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Air Purifiers and Water Softeners in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
@@ -169,7 +169,7 @@ const AirPurifier = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center text-primary mb-12">
-              Benefits of Air & Water Purifiers
+              Benefits of Air Purifiers & Water Softeners
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
@@ -227,18 +227,18 @@ const AirPurifier = () => {
               ))}
             </div>
 
-            {/* Water Purifier Types */}
+            {/* Water Softener Types */}
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">
-                Types of Water Purifiers
+                Types of Water Softeners
               </h2>
               <p className="text-xl text-muted-foreground">
-                Select the ideal water purification system based on your water quality
+                Select the ideal water softening system based on your water hardness and requirements
               </p>
             </div>
 
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-              {waterPurifierTypes.map((type, index) => (
+              {waterSoftenerTypes.map((type, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-xl text-primary">{type.title}</CardTitle>
@@ -270,10 +270,10 @@ const AirPurifier = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">
-                Premium Air & Water Purifier Models in Bareilly
+                Premium Air Purifier & Water Softener Models in Bareilly
               </h2>
               <p className="text-xl text-muted-foreground">
-                High-performance purification systems with comprehensive service support
+                High-performance air purification and water softening systems with comprehensive service support
               </p>
             </div>
 
@@ -283,7 +283,7 @@ const AirPurifier = () => {
                   <div className="relative">
                     <img
                       src={airPurifier}
-                      alt={`${product.name} - Air/Water Purifier`}
+                      alt={`${product.name} - Air Purifier/Water Softener`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
                     <Badge className="absolute top-4 right-4 bg-accent-warm">
@@ -409,11 +409,11 @@ const AirPurifier = () => {
           <div className="container mx-auto px-4">
             <div className="bg-primary rounded-2xl p-8 text-white text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Air & Water Purifier Service in Bareilly
+                Air Purifier & Water Softener Service in Bareilly
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete purification solutions across Bareilly district. Installation, maintenance,
-                and service for air purifiers and water systems with health-focused approach.
+                Complete air purification and water softening solutions across Bareilly district. Installation, maintenance,
+                and service for air purifiers and water softeners with health-focused approach.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>

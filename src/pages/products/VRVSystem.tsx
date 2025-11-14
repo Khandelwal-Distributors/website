@@ -256,7 +256,7 @@ const VRVSystem = () => {
         {/* Hero Section */}
         <section className="relative py-20" style={{ backgroundImage: `url(${vrvImageBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-primary/80"></div>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 lg:pl-12 xl:pl-16 relative z-10">
             <div className="flex items-center gap-4 mb-6">
               <Link to="/products" className="text-white hover:text-accent-warm transition-colors">
                 <ArrowLeft className="h-6 w-6" />

@@ -166,8 +166,8 @@ const Products = () => {
     },
     {
       id: "air-purifiers",
-      title: "Air & Water Purifiers",
-      description: "Advanced purification systems for clean air and water",
+      title: "Air Purifiers & Water Softeners",
+      description: "Advanced air purification and water softening systems for homes and offices",
       image: airPurifier,
       icon: <Wind className="h-6 w-6" />,
       brands: ["Daikin", "Carrier", "Blue Star"],

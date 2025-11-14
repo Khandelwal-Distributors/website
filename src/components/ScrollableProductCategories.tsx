@@ -96,10 +96,10 @@ const categories = [
     description: "Fresh air for homes, offices, basements"
   },
   {
-    name: "Air Purifiers",
+    name: "Air Purifiers & Water Softeners",
     image: airPurifier,
     slug: "air-purifier",
-    description: "Homes, offices, clinics, clean rooms"
+    description: "Homes, offices, clean air & soft water"
   },
   {
     name: "Water Coolers",

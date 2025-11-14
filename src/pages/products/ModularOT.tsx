@@ -366,7 +366,7 @@ const ModularOT = () => {
         <Header />
 
         {/* Hero Section */}
-        <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
+        <section className="relative py-20 px-4 lg:pl-12 xl:pl-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-100"
             style={{ backgroundImage: `url(${otHeroBg})` }}

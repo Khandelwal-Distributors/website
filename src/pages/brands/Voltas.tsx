@@ -70,7 +70,7 @@ const Voltas = () => {
         <main>
           {/* Hero Section */}
           <section className="relative py-20 bg-gradient-to-br from-primary/10 to-primary-light/5">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 lg:pl-12 xl:pl-16">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 <div className="lg:w-1/2">
                   <div className="flex items-center gap-4 mb-6">

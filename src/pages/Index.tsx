@@ -400,8 +400,8 @@ const Index = () => {
         "position": 13,
         "item": {
           "@type": "Product",
-          "name": "Air & Water Purifiers",
-          "description": "Advanced purification systems for clean air and water",
+          "name": "Air Purifiers & Water Softeners",
+          "description": "Advanced air purification and water softening systems for clean air and soft water",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.5",
@@ -646,9 +646,9 @@ const Index = () => {
       {
         "@type": "SiteNavigationElement",
         "position": 5,
-        "name": "Brands",
+        "name": "VRV System",
         "description": "Authorized dealer for premium HVAC brands",
-        "url": "https://www.khandelwaldistributors.com/#brands"
+        "url": "https://www.khandelwaldistributors.com/products/vrv-system"
       }
     ]
   };

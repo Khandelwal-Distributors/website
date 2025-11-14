@@ -81,7 +81,7 @@ const ProductCategories = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Wind className="h-4 w-4 text-primary" />
-                  <span>Air & Water Purifiers</span>
+                  <span>Air Purifiers & Water Softeners</span>
                 </li>
               </ul>
               <div className="flex flex-col sm:flex-row gap-2">

@@ -123,7 +123,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/products/air-purifier" className="text-muted-foreground hover:text-primary transition-colors">
-                  Air Purifiers
+                  Air Purifiers & Water Softeners
                 </Link>
               </li>
               <li>

@@ -65,7 +65,7 @@ const Header = () => {
       { name: "Cassette AC", path: "/products/cassette-ac" },
       { name: "Floor Standing AC", path: "/products/floor-standing-ac" },
       { name: "Water Cooler", path: "/products/water-cooler" },
-      { name: "Air Purifier", path: "/products/air-purifier" },
+      { name: "Air Purifiers & Water Softeners", path: "/products/air-purifier" },
       { name: "Alkaline RO", path: "/products/alkaline-ro" },
       { name: "Solar Water Heater", path: "/products/solar-water-heater" },
       { name: "Ventilation & HRV", path: "/products/ventilation-hrv" },
