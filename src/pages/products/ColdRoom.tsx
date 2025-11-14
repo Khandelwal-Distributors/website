@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Snowflake, Thermometer, Shield, Factory, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Snowflake, Thermometer, Shield, Factory, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import coldRoom from "@/assets/cold-room.jpg";
@@ -352,6 +352,70 @@ const ColdRoom = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Preview Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge className="mb-4">Expert Guide</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  Complete Guide to Cold Rooms in India
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Essential guide for food safety, business growth, and compliance
+                </p>
+              </div>
+
+              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/5">
+                    <img 
+                      src={coldRoom} 
+                      alt="Cold Room Guide - Food safety and storage solutions"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-8">
+                    <Badge className="mb-3">6 min read</Badge>
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Cold Rooms in India: Essential Guide for Food Safety and Business Growth
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Learn how to choose the right cold room for your restaurant, hotel, or food business. 
+                      Understand temperature ranges, insulation types, capacity planning, and FSSAI compliance 
+                      requirements for cold storage in India.
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Temperature range selection guide</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Capacity calculation for your business</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Energy efficiency tips to reduce costs</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">FSSAI compliance and maintenance</span>
+                      </div>
+                    </div>
+                    <Link to="/blogs/cold-rooms-india-food-safety-business">
+                      <Button size="lg" className="w-full md:w-auto">
+                        Read Complete Guide
+                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </section>

@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, MessageCircle, CheckCircle2, Shield, Award, Clock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Phone, MessageCircle, CheckCircle2, Shield, Award, Clock, ArrowLeft } from "lucide-react";
 import YouTubeVideos from "@/components/YouTubeVideos";
+import { Link } from "react-router-dom";
 
 import wallPanelsImg from "@/assets/ot-wall-panels.jpg";
 import laminarAirflowImg from "@/assets/ot-laminar-airflow.webp";
@@ -532,6 +534,70 @@ const ModularOT = () => {
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Preview Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge className="mb-4">Expert Guide</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  Complete Guide to Modular Operation Theatres
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  The future of surgical excellence in Indian hospitals
+                </p>
+              </div>
+
+              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/5">
+                    <img 
+                      src={otHeroBg} 
+                      alt="Modular OT Guide - Surgical excellence and compliance"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-8">
+                    <Badge className="mb-3">8 min read</Badge>
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Modular Operation Theatres: The Future of Surgical Excellence in Indian Hospitals
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Discover how modular OTs are revolutionizing surgical infrastructure in India. Learn about 
+                      ISO Class 5 standards, NABH compliance, component selection, and cost planning for hospitals 
+                      and surgical centers.
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">ISO Class 5 & NABH compliance standards</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Complete component breakdown & selection</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Cost planning & ROI calculation</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Installation timeline & maintenance tips</span>
+                      </div>
+                    </div>
+                    <Link to="/blogs/modular-operation-theatre-india-hospitals">
+                      <Button size="lg" className="w-full md:w-auto">
+                        Read Complete Guide
+                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </section>

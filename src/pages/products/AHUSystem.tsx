@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Filter, Zap, Building, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Filter, Zap, Building, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import ahuSystem from "@/assets/ahu-system.jpg";
@@ -395,6 +395,70 @@ const AHUSystem = () => {
                   Get Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Preview Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge className="mb-4">Expert Guide</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  AHU vs TFA vs HRV: Complete Comparison Guide
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Choose the right ventilation system for your building
+                </p>
+              </div>
+
+              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/5">
+                    <img 
+                      src={ahuSystem} 
+                      alt="Ventilation Systems Guide - AHU, TFA, and HRV comparison"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-8">
+                    <Badge className="mb-3">10 min read</Badge>
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      AHU vs TFA vs HRV: Complete Guide to Ventilation Systems for Indian Buildings
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Confused between AHU, TFA, and HRV systems? This comprehensive guide compares all three 
+                      ventilation technologies with side-by-side specifications, applications, and cost analysis 
+                      to help you make the right choice.
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Detailed comparison table with specs</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Best applications for each system</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Energy efficiency & cost analysis</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Capacity selection & installation guide</span>
+                      </div>
+                    </div>
+                    <Link to="/blogs/ahu-tfa-hrv-differences-ventilation-guide">
+                      <Button size="lg" className="w-full md:w-auto">
+                        Read Complete Guide
+                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </section>

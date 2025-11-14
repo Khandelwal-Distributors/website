@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Snowflake, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Snowflake, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import heatPump from "@/assets/heat-pump.jpg";
@@ -380,6 +380,70 @@ const HeatPump = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Preview Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge className="mb-4">Expert Guide</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  Complete Guide to Heat Pumps for Water Heating
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Learn how heat pumps can reduce your water heating costs by 70%
+                </p>
+              </div>
+
+              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/5">
+                    <img 
+                      src={heatPump} 
+                      alt="Heat Pump Guide - Energy efficient water heating"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-8">
+                    <Badge className="mb-3">5 min read</Badge>
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Heat Pumps for Water Heating: A Game-Changer for Indian Hotels and Industries
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Learn how heat pump water heaters can reduce your water heating costs by 70% compared to 
+                      electric geysers, making them ideal for hotels, hospitals, and industries. Discover capacity 
+                      planning, energy savings, and ROI calculations.
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">60-70% reduction in water heating costs</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">COP ratings and efficiency explained</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Capacity sizing for hotels & industries</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Installation best practices in India</span>
+                      </div>
+                    </div>
+                    <Link to="/blogs/heat-pumps-water-heating-india">
+                      <Button size="lg" className="w-full md:w-auto">
+                        Read Complete Guide
+                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </section>

@@ -1,3 +1,10 @@
+import vrvSystemImg from '@/assets/vrv-system.jpg';
+import heatPumpImg from '@/assets/heat-pump.jpg';
+import coldRoomImg from '@/assets/cold-room.jpg';
+import otHeroBgImg from '@/assets/ot-hero-bg.jpg';
+import alkalineRoImg from '@/assets/alkaline-ro.jpg';
+import ahuSystemImg from '@/assets/ahu-system.jpg';
+
 export interface Blog {
   id: string;
   slug: string;
@@ -23,7 +30,7 @@ export const blogs: Blog[] = [
     date: "2024-11-08",
     readTime: "6 min read",
     category: "Commercial HVAC",
-    image: "/src/assets/vrv-system.jpg",
+    image: vrvSystemImg,
     tags: ["VRV", "Energy Efficiency", "Commercial HVAC", "Cost Savings"],
     featured: true,
     content: `
@@ -215,7 +222,7 @@ VRV systems represent a significant upfront investment, but for Indian commercia
     date: "2024-11-05",
     readTime: "5 min read",
     category: "Energy Solutions",
-    image: "/src/assets/heat-pump.jpg",
+    image: heatPumpImg,
     tags: ["Heat Pump", "Water Heating", "Energy Savings", "Hotels"],
     featured: true,
     content: `
@@ -566,7 +573,7 @@ For Indian hotels, hospitals, and industries, heat pump water heaters represent 
     date: "2024-11-01",
     readTime: "7 min read",
     category: "Commercial Refrigeration",
-    image: "/src/assets/cold-room.jpg",
+    image: coldRoomImg,
     tags: ["Cold Room", "Food Safety", "Commercial", "FSSAI"],
     featured: true,
     content: `
@@ -1019,7 +1026,7 @@ For any food business in India, a cold room is a strategic investment that pays 
     date: "2024-10-28",
     readTime: "8 min read",
     category: "Healthcare Infrastructure",
-    image: "/src/assets/ot-hero-bg.jpg",
+    image: otHeroBgImg,
     tags: ["Modular OT", "Healthcare", "Hospitals", "Infection Control"],
     featured: true,
     content: `
@@ -1661,7 +1668,7 @@ In a competitive healthcare landscape where patient safety, quality certificatio
     date: "2024-10-25",
     readTime: "6 min read",
     category: "Water Purification",
-    image: "/src/assets/alkaline-ro.jpg",
+    image: alkalineRoImg,
     tags: ["Alkaline Water", "Water Purifier", "Health", "RO System"],
     featured: true,
     content: `
@@ -2198,7 +2205,7 @@ For most Indian families, a quality alkaline RO system in the ₹15,000-20,000 r
     date: "2024-10-22",
     readTime: "9 min read",
     category: "Ventilation Systems",
-    image: "/src/assets/ahu-system.jpg",
+    image: ahuSystemImg,
     tags: ["AHU", "TFA", "HRV", "Ventilation", "Indoor Air Quality"],
     featured: false,
     content: `
