@@ -333,13 +333,28 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      merchant_products: {
+        Row: {
+          additional_image_link: string | null
+          availability: string | null
+          brand: string | null
+          condition: string | null
+          description: string | null
+          google_product_category: string | null
+          gtin: string | null
+          id: string | null
+          image_link: string | null
+          link: string | null
+          mpn: string | null
+          price: string | null
+          sale_price: string | null
+          title: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      generate_order_access_url: {
-        Args: { order_id: string }
-        Returns: string
-      }
+      generate_order_access_url: { Args: { order_id: string }; Returns: string }
       get_guest_order: {
         Args: { p_access_token: string; p_customer_email: string }
         Returns: {
@@ -368,6 +383,12 @@ export type Database = {
           updated_at: string
           user_id: string
         }[]
+        SetofOptions: {
+          from: "*"
+          to: "orders"
+          isOneToOne: false
+          isSetofReturn: true
+        }
       }
     }
     Enums: {
