@@ -197,35 +197,35 @@ const DeepFreezers = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-16" style={{ backgroundImage: `url(${chestFreezerImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 py-10 md:py-16" style={{ backgroundImage: `url(${chestFreezerImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="absolute inset-0 bg-black/50"></div>
-          <div className="container mx-auto px-4 lg:pl-12 xl:pl-16 relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <Link to="/products" className="text-white hover:text-accent-warm transition-colors">
-                <ArrowLeft className="h-6 w-6" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="flex items-start gap-3 mb-4 md:mb-6">
+              <Link to="/products" className="text-white hover:text-accent-warm transition-colors mt-1">
+                <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" />
               </Link>
-              <h1 className="text-3xl md:text-5xl font-bold text-white">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Kitchen & Restaurant Equipment in Bareilly
               </h1>
             </div>
-            <p className="text-xl text-white/90 max-w-4xl mb-6">
+            <p className="text-base md:text-xl text-white/90 max-w-4xl mb-4 md:mb-6">
               Complete range of commercial kitchen and restaurant equipment from <strong>Elanpro, Trufrost & Rockwell</strong>. 
               Visi coolers, deep freezers, coffee machines, softy machines, dishwashers, bar refrigeration and more.
             </p>
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
               {brands.map((brand) => (
-                <Badge key={brand} variant="secondary" className="text-sm px-4 py-1">
+                <Badge key={brand} variant="secondary" className="text-xs md:text-sm px-3 py-1">
                   {brand}
                 </Badge>
               ))}
             </div>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
-                <Phone className="h-5 w-5" />
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Button variant="cta" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Phone className="h-4 w-4 md:h-5 md:w-5" />
                 Get Best Price Quote
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Kitchen & Restaurant Equipment in Bareilly', '_blank')}>
-                <MessageCircle className="h-5 w-5" />
+              <Button variant="outline" size="default" className="w-full sm:w-auto bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Kitchen & Restaurant Equipment in Bareilly', '_blank')}>
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
                 WhatsApp
               </Button>
             </div>
@@ -233,19 +233,19 @@ const DeepFreezers = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardHeader className="pb-2">
-                    <div className="mx-auto bg-primary/10 text-primary p-3 rounded-full w-fit">
-                      {benefit.icon}
+                  <CardHeader className="pb-2 px-3 pt-4 md:px-6">
+                    <div className="mx-auto bg-primary/10 text-primary p-2 md:p-3 rounded-full w-fit">
+                      <div className="h-5 w-5 md:h-6 md:w-6">{benefit.icon}</div>
                     </div>
-                    <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                    <CardTitle className="text-sm md:text-lg">{benefit.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                  <CardContent className="px-3 pb-4 md:px-6">
+                    <p className="text-muted-foreground text-xs md:text-sm">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -254,61 +254,61 @@ const DeepFreezers = () => {
         </section>
 
         {/* Equipment Categories */}
-        <section className="py-12 bg-muted/30">
+        <section className="py-8 md:py-12 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-4">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 md:mb-4">
                 Our Product Range
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-base md:text-xl text-muted-foreground">
                 Complete kitchen & restaurant equipment solutions from trusted brands
               </p>
             </div>
 
-            <div className="space-y-16">
+            <div className="space-y-10 md:space-y-16">
               {equipmentCategories.map((category, index) => (
-                <div key={index} className="grid lg:grid-cols-2 gap-8 items-start">
+                <div key={index} className="grid lg:grid-cols-2 gap-6 md:gap-8 items-start">
                   {/* Image Section */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="relative group overflow-hidden rounded-2xl shadow-lg">
+                    <div className="relative group overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
                       <img 
                         src={category.image} 
                         alt={category.title}
-                        className="w-full h-72 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-56 sm:h-64 md:h-80 lg:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.title}</h3>
-                        <p className="text-white/90">{category.description}</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2">{category.title}</h3>
+                        <p className="text-sm md:text-base text-white/90 line-clamp-2">{category.description}</p>
                       </div>
                     </div>
                   </div>
                   
                   {/* Content Section */}
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
                       {category.features.map((feature, fIndex) => (
-                        <Badge key={fIndex} variant="secondary" className="text-sm">
+                        <Badge key={fIndex} variant="secondary" className="text-xs md:text-sm">
                           {feature}
                         </Badge>
                       ))}
                     </div>
                     
-                    <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-6">
                       {category.products.map((product, pIndex) => (
-                        <div key={pIndex} className="bg-card border rounded-xl p-4 hover:shadow-lg hover:border-primary/30 transition-all">
-                          <h4 className="font-semibold text-foreground mb-2">{product.name}</h4>
-                          <div className="flex justify-between items-center">
-                            <span className="text-sm text-muted-foreground">{product.capacity}</span>
-                            <span className="text-sm font-bold text-primary">{product.price}</span>
+                        <div key={pIndex} className="bg-card border rounded-lg md:rounded-xl p-3 md:p-4 hover:shadow-lg hover:border-primary/30 transition-all">
+                          <h4 className="font-semibold text-foreground text-sm md:text-base mb-1 md:mb-2">{product.name}</h4>
+                          <div className="flex justify-between items-center gap-2">
+                            <span className="text-xs md:text-sm text-muted-foreground">{product.capacity}</span>
+                            <span className="text-xs md:text-sm font-bold text-primary whitespace-nowrap">{product.price}</span>
                           </div>
                         </div>
                       ))}
                     </div>
                     
-                    <Button size="lg" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
-                      <Phone className="h-5 w-5 mr-2" />
-                      Get Quote for {category.title}
+                    <Button size="default" className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                      <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+                      <span className="text-sm md:text-base">Get Quote for {category.title}</span>
                     </Button>
                   </div>
                 </div>
@@ -318,16 +318,16 @@ const DeepFreezers = () => {
         </section>
 
         {/* Applications */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center text-primary mb-8">Ideal For</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <h2 className="text-xl md:text-2xl font-bold text-center text-primary mb-6 md:mb-8">Ideal For</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {applications.map((app, index) => (
-                <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
-                  <div className="text-primary mx-auto mb-2 flex justify-center">
-                    {app.icon}
+                <div key={index} className="bg-card border rounded-lg p-3 md:p-4 text-center hover:shadow-md transition-shadow">
+                  <div className="text-primary mx-auto mb-1 md:mb-2 flex justify-center">
+                    <div className="h-5 w-5 md:h-6 md:w-6">{app.icon}</div>
                   </div>
-                  <span className="font-medium text-sm">{app.name}</span>
+                  <span className="font-medium text-xs md:text-sm">{app.name}</span>
                 </div>
               ))}
             </div>
@@ -335,14 +335,14 @@ const DeepFreezers = () => {
         </section>
 
         {/* Brands Section */}
-        <section className="py-12 bg-muted/30">
+        <section className="py-8 md:py-12 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center text-primary mb-8">Authorized Dealer For</h2>
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-center text-primary mb-6 md:mb-8">Authorized Dealer For</h2>
+            <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl mx-auto">
               {brands.map((brand) => (
-                <div key={brand} className="bg-card border rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-                  <h3 className="text-xl font-bold text-primary">{brand}</h3>
-                  <p className="text-sm text-muted-foreground mt-2">Authorized Dealer</p>
+                <div key={brand} className="bg-card border rounded-lg md:rounded-xl p-3 md:p-6 text-center hover:shadow-lg transition-shadow">
+                  <h3 className="text-sm md:text-xl font-bold text-primary">{brand}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-2">Authorized Dealer</p>
                 </div>
               ))}
             </div>
@@ -350,24 +350,24 @@ const DeepFreezers = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
           <div className="container mx-auto px-4">
-            <div className="bg-primary rounded-2xl p-8 text-white text-center">
-              <h2 className="text-3xl font-bold mb-4">
+            <div className="bg-primary rounded-xl md:rounded-2xl p-5 md:p-8 text-white text-center">
+              <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4">
                 Professional Installation & Service in Bareilly
               </h2>
-              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+              <p className="text-sm md:text-xl mb-5 md:mb-8 max-w-3xl mx-auto opacity-90">
                 Authorized dealer for Elanpro, Trufrost & Rockwell with complete kitchen equipment solutions.
                 Professional installation, AMC, and repair services across Bareilly & nearby areas.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
-                  <Phone className="h-5 w-5" />
-                  Call: +91-90844-17884
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+                <Button variant="secondary" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
+                  <Phone className="h-4 w-4 md:h-5 md:w-5" />
+                  <span className="text-sm md:text-base">Call: +91-90844-17884</span>
                 </Button>
-                <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Kitchen Equipment', '_blank')}>
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp Us
+                <Button variant="outline" size="default" className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Kitchen Equipment', '_blank')}>
+                  <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
+                  <span className="text-sm md:text-base">WhatsApp Us</span>
                 </Button>
               </div>
             </div>
