@@ -8,6 +8,15 @@ import { Phone, ArrowLeft, Thermometer, Snowflake, Shield, Zap, Building, Hotel,
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import deepFreezer from "@/assets/deep-freezer.jpg";
+import visiCoolerImg from "@/assets/equipment/visi-cooler.jpg";
+import chestFreezerImg from "@/assets/equipment/chest-freezer.jpg";
+import underCounterImg from "@/assets/equipment/under-counter-freezer.jpg";
+import confectioneryImg from "@/assets/equipment/confectionery-showcase.jpg";
+import coffeeMachineImg from "@/assets/equipment/coffee-machine.jpg";
+import softyMachineImg from "@/assets/equipment/softy-machine.jpg";
+import prepTableImg from "@/assets/equipment/prep-table.jpg";
+import dishwasherImg from "@/assets/equipment/dishwasher.jpg";
+import barCoolerImg from "@/assets/equipment/bar-cooler.jpg";
 
 const DeepFreezers = () => {
   const brands = ["Elanpro", "Trufrost", "Rockwell"];
@@ -16,6 +25,7 @@ const DeepFreezers = () => {
     {
       title: "Visi Coolers & Freezers",
       description: "Glass door display units for maximum product visibility",
+      image: visiCoolerImg,
       products: [
         { name: "Single Door Visi Cooler", capacity: "200-400L", price: "₹25,000 - ₹45,000" },
         { name: "Double Door Visi Cooler", capacity: "500-800L", price: "₹55,000 - ₹85,000" },
@@ -29,6 +39,7 @@ const DeepFreezers = () => {
     {
       title: "Chest Freezers",
       description: "High-capacity horizontal freezers for bulk storage",
+      image: chestFreezerImg,
       products: [
         { name: "Small Chest Freezer", capacity: "100-200L", price: "₹18,000 - ₹28,000" },
         { name: "Medium Chest Freezer", capacity: "300-400L", price: "₹32,000 - ₹45,000" },
@@ -40,6 +51,7 @@ const DeepFreezers = () => {
     {
       title: "Under Counter Freezers & Refrigerators",
       description: "Space-saving units that fit under kitchen counters",
+      image: underCounterImg,
       products: [
         { name: "Under Counter Refrigerator", capacity: "100-150L", price: "₹22,000 - ₹35,000" },
         { name: "Under Counter Freezer", capacity: "100-150L", price: "₹28,000 - ₹42,000" },
@@ -50,6 +62,7 @@ const DeepFreezers = () => {
     {
       title: "Confectionery Display Showcases",
       description: "Elegant display cases for bakeries and sweet shops",
+      image: confectioneryImg,
       products: [
         { name: "Curved Glass Display", capacity: "3-4 ft", price: "₹45,000 - ₹70,000" },
         { name: "Straight Glass Display", capacity: "4-5 ft", price: "₹55,000 - ₹85,000" },
@@ -61,6 +74,7 @@ const DeepFreezers = () => {
     {
       title: "Coffee Machines",
       description: "Professional espresso and coffee brewing equipment",
+      image: coffeeMachineImg,
       products: [
         { name: "Semi-Automatic Espresso", capacity: "2 Group", price: "₹1,20,000 - ₹2,00,000" },
         { name: "Fully Automatic Coffee", capacity: "50+ cups/hr", price: "₹2,50,000 - ₹4,50,000" },
@@ -72,6 +86,7 @@ const DeepFreezers = () => {
     {
       title: "Softy & Ice Cream Machines",
       description: "Soft serve and ice cream making equipment",
+      image: softyMachineImg,
       products: [
         { name: "Single Flavor Softy", capacity: "15-18 L/hr", price: "₹85,000 - ₹1,20,000" },
         { name: "Twin Flavor Softy", capacity: "30-36 L/hr", price: "₹1,40,000 - ₹2,00,000" },
@@ -83,6 +98,7 @@ const DeepFreezers = () => {
     {
       title: "Cooled Prep Tables",
       description: "Refrigerated work tables for food preparation",
+      image: prepTableImg,
       products: [
         { name: "2 Door Prep Table", capacity: "300L", price: "₹65,000 - ₹95,000" },
         { name: "3 Door Prep Table", capacity: "450L", price: "₹85,000 - ₹1,25,000" },
@@ -94,6 +110,7 @@ const DeepFreezers = () => {
     {
       title: "Professional Dishwashers",
       description: "Commercial glass and dishwashing machines",
+      image: dishwasherImg,
       products: [
         { name: "Undercounter Glasswasher", capacity: "20 racks/hr", price: "₹75,000 - ₹1,20,000" },
         { name: "Hood Type Dishwasher", capacity: "40-60 racks/hr", price: "₹1,50,000 - ₹2,50,000" },
@@ -105,6 +122,7 @@ const DeepFreezers = () => {
     {
       title: "Bar Refrigeration Equipment",
       description: "Specialized cooling solutions for bars and pubs",
+      image: barCoolerImg,
       products: [
         { name: "Back Bar Cooler", capacity: "200-400L", price: "₹45,000 - ₹80,000" },
         { name: "Beer Keg Cooler", capacity: "2-4 kegs", price: "₹65,000 - ₹1,10,000" },
@@ -251,15 +269,20 @@ const DeepFreezers = () => {
               {equipmentCategories.map((category, index) => (
                 <Card key={index} className="overflow-hidden">
                   <CardHeader className="bg-primary/5 border-b">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      <div>
+                    <div className="flex flex-col md:flex-row md:items-center gap-6">
+                      <img 
+                        src={category.image} 
+                        alt={category.title}
+                        className="w-full md:w-48 h-36 object-cover rounded-lg"
+                      />
+                      <div className="flex-1">
                         <CardTitle className="text-2xl text-primary">{category.title}</CardTitle>
                         <CardDescription className="text-base mt-1">{category.description}</CardDescription>
+                        <Button className="mt-4" onClick={() => window.open('tel:+919084417884', '_self')}>
+                          <Phone className="h-4 w-4 mr-2" />
+                          Get Quote
+                        </Button>
                       </div>
-                      <Button onClick={() => window.open('tel:+919084417884', '_self')}>
-                        <Phone className="h-4 w-4 mr-2" />
-                        Get Quote
-                      </Button>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
