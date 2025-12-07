@@ -265,48 +265,53 @@ const DeepFreezers = () => {
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-16">
               {equipmentCategories.map((category, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <CardHeader className="bg-primary/5 border-b">
-                    <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div key={index} className="grid lg:grid-cols-2 gap-8 items-start">
+                  {/* Image Section */}
+                  <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                    <div className="relative group overflow-hidden rounded-2xl shadow-lg">
                       <img 
                         src={category.image} 
                         alt={category.title}
-                        className="w-full md:w-48 h-36 object-cover rounded-lg"
+                        className="w-full h-72 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="flex-1">
-                        <CardTitle className="text-2xl text-primary">{category.title}</CardTitle>
-                        <CardDescription className="text-base mt-1">{category.description}</CardDescription>
-                        <Button className="mt-4" onClick={() => window.open('tel:+919084417884', '_self')}>
-                          <Phone className="h-4 w-4 mr-2" />
-                          Get Quote
-                        </Button>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.title}</h3>
+                        <p className="text-white/90">{category.description}</p>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  </div>
+                  
+                  {/* Content Section */}
+                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {category.features.map((feature, fIndex) => (
+                        <Badge key={fIndex} variant="secondary" className="text-sm">
+                          {feature}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="grid sm:grid-cols-2 gap-3 mb-6">
                       {category.products.map((product, pIndex) => (
-                        <div key={pIndex} className="bg-card border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div key={pIndex} className="bg-card border rounded-xl p-4 hover:shadow-lg hover:border-primary/30 transition-all">
                           <h4 className="font-semibold text-foreground mb-2">{product.name}</h4>
-                          <p className="text-sm text-muted-foreground mb-1">Capacity: {product.capacity}</p>
-                          <p className="text-sm font-medium text-primary">{product.price}</p>
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm text-muted-foreground">{product.capacity}</span>
+                            <span className="text-sm font-bold text-primary">{product.price}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
-                    <div className="border-t pt-4">
-                      <h4 className="font-semibold mb-3 text-foreground">Key Features:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {category.features.map((feature, fIndex) => (
-                          <Badge key={fIndex} variant="outline" className="text-sm">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    
+                    <Button size="lg" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
+                      <Phone className="h-5 w-5 mr-2" />
+                      Get Quote for {category.title}
+                    </Button>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
