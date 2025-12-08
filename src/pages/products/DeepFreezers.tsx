@@ -296,12 +296,12 @@ const DeepFreezers = () => {
                     
                     <div className="grid grid-cols-1 gap-2 md:gap-3 mb-4 md:mb-6">
                       {category.products.map((product, pIndex) => (
-                        <div key={pIndex} className="bg-card border rounded-lg md:rounded-xl p-3 md:p-4 hover:shadow-lg hover:border-primary/30 transition-all">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                            <h4 className="font-semibold text-foreground text-sm md:text-base">{product.name}</h4>
-                            <span className="text-xs md:text-sm font-bold text-primary">{product.price}</span>
+                        <div key={pIndex} className="bg-card border rounded-lg md:rounded-xl p-3 md:p-4 hover:shadow-lg hover:border-primary/30 transition-all overflow-hidden">
+                          <h4 className="font-semibold text-foreground text-sm md:text-base break-words">{product.name}</h4>
+                          <div className="flex flex-wrap items-center justify-between gap-1 mt-1">
+                            <span className="text-xs text-muted-foreground">{product.capacity}</span>
+                            <span className="text-xs md:text-sm font-bold text-primary whitespace-nowrap">{product.price}</span>
                           </div>
-                          <span className="text-xs text-muted-foreground">{product.capacity}</span>
                         </div>
                       ))}
                     </div>
