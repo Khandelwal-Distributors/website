@@ -60,6 +60,7 @@ const SolarWaterHeater = () => {
         <meta property="og:description" content="Premium solar water heating systems in Bareilly. Save 80% on electricity bills with eco-friendly solar geysers. Professional installation and service." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/solar-water-heater.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/solar-water-heater" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Solar Water Heater Dealers in Bareilly | Eco-Friendly Geyser Systems" />
         <meta name="twitter:description" content="Premium solar water heating systems in Bareilly. Save 80% on electricity bills with eco-friendly solar geysers. Professional installation and service." />

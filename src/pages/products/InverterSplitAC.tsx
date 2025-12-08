@@ -102,6 +102,7 @@ const InverterSplitAC = () => {
         <meta property="og:description" content="Shop premium inverter split ACs in Bareilly. Top brands, expert installation, best prices. Save up to 60% on electricity bills." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/inverter-split-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/inverter-split-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Inverter Split AC Dealers in Bareilly | Energy Efficient Air Conditioners" />
         <meta name="twitter:description" content="Shop premium inverter split ACs in Bareilly. Top brands, expert installation, best prices. Save up to 60% on electricity bills." />

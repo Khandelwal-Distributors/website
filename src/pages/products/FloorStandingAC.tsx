@@ -56,6 +56,7 @@ const FloorStandingAC = () => {
         <meta property="og:description" content="Premium floor standing ACs for large spaces in Bareilly. High capacity, powerful airflow, perfect for halls and commercial applications." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/floor-standing-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/floor-standing-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Floor Standing AC Dealers in Bareilly | Large Space Cooling" />
         <meta name="twitter:description" content="Premium floor standing ACs for large spaces in Bareilly. High capacity, powerful airflow, perfect for halls and commercial applications." />

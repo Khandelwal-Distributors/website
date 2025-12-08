@@ -36,6 +36,7 @@ const WindowAC = () => {
         <meta property="og:description" content="Shop quality window ACs in Bareilly. Best prices, expert installation, reliable service. Perfect for small rooms and budget-conscious buyers." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/window-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/window-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Window AC Dealers in Bareilly | Affordable Air Conditioners" />
         <meta name="twitter:description" content="Shop quality window ACs in Bareilly. Best prices, expert installation, reliable service. Perfect for small rooms and budget-conscious buyers." />

@@ -41,6 +41,7 @@ const PortableAC = () => {
         <meta property="og:description" content="Premium portable ACs for rent homes and temporary spaces in Bareilly. Easy setup, no installation, move anywhere cooling solutions." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/portable-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/portable-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Portable AC Dealers in Bareilly | Mobile Air Conditioning Solutions" />
         <meta name="twitter:description" content="Premium portable ACs for rent homes and temporary spaces in Bareilly. Easy setup, no installation, move anywhere cooling solutions." />

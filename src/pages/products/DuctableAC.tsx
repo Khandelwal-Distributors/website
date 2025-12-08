@@ -50,6 +50,7 @@ const DuctableAC = () => {
         <meta property="og:description" content="Premium ductable ACs for large spaces in Bareilly. Concealed installation, uniform cooling, centralized control for offices and homes." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/ductable-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/ductable-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Ductable AC Dealers in Bareilly | Central Air Conditioning Systems" />
         <meta name="twitter:description" content="Premium ductable ACs for large spaces in Bareilly. Concealed installation, uniform cooling, centralized control for offices and homes." />

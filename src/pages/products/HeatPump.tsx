@@ -62,6 +62,7 @@ const HeatPump = () => {
         <meta property="og:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/heat-pump.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/heat-pump" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
         <meta name="twitter:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />

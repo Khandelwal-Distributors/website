@@ -78,6 +78,7 @@ const AirPurifier = () => {
         <meta property="og:description" content="Premium air purification and water softening systems in Bareilly. HEPA air purifiers, water softeners for complete health protection and wellness." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/air-purifier.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/air-purifier" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Air Purifier & Water Softener Dealers in Bareilly | Health Solutions" />
         <meta name="twitter:description" content="Premium air purification and water softening systems in Bareilly. HEPA air purifiers, water softeners for complete health protection and wellness." />

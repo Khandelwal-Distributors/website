@@ -71,6 +71,7 @@ const WaterCooler = () => {
         <meta property="og:description" content="Premium water cooling and dispensing solutions for offices, schools, and commercial spaces in Bareilly. Pure, cool water 24/7." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/water-cooler.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/water-cooler" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Water Cooler Dealers in Bareilly | Premium Cooling Solutions" />
         <meta name="twitter:description" content="Premium water cooling and dispensing solutions for offices, schools, and commercial spaces in Bareilly. Pure, cool water 24/7." />

@@ -47,6 +47,7 @@ const CassetteAC = () => {
         <meta property="og:description" content="Premium cassette ACs for commercial spaces in Bareilly. 360° airflow, invisible design, expert installation for offices and restaurants." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/cassette-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/cassette-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Cassette AC Dealers in Bareilly | Commercial Air Conditioning" />
         <meta name="twitter:description" content="Premium cassette ACs for commercial spaces in Bareilly. 360° airflow, invisible design, expert installation for offices and restaurants." />

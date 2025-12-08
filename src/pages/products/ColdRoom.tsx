@@ -62,6 +62,7 @@ const ColdRoom = () => {
         <meta property="og:description" content="Premium cold rooms and walk-in freezers in Bareilly. Temperature-controlled storage for food, pharma, and commercial applications." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/cold-room.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/cold-room" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Cold Room Dealers in Bareilly | Commercial Refrigeration Systems" />
         <meta name="twitter:description" content="Premium cold rooms and walk-in freezers in Bareilly. Temperature-controlled storage for food, pharma, and commercial applications." />

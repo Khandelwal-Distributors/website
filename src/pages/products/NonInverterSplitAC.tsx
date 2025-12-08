@@ -44,6 +44,7 @@ const NonInverterSplitAC = () => {
         <meta property="og:description" content="Affordable non-inverter split ACs in Bareilly. Lower upfront cost, reliable cooling, perfect for budget-conscious buyers. Professional installation and service." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/split-ac.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/non-inverter-split-ac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Non-Inverter AC Dealers in Bareilly | Budget Air Conditioners" />
         <meta name="twitter:description" content="Affordable non-inverter split ACs in Bareilly. Lower upfront cost, reliable cooling, perfect for budget-conscious buyers. Professional installation and service." />

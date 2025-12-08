@@ -52,6 +52,7 @@ const AlkalineRO = () => {
         <meta property="og:description" content="Premium alkaline RO water purifiers in Bareilly. 8-stage purification, health benefits, mineral rich water with professional installation." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/alkaline-ro.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/alkaline-ro" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Alkaline RO Dealers in Bareilly | Healthy Water Solutions" />
         <meta name="twitter:description" content="Premium alkaline RO water purifiers in Bareilly. 8-stage purification, health benefits, mineral rich water with professional installation." />

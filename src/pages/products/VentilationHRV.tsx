@@ -72,6 +72,7 @@ const VentilationHRV = () => {
         <meta property="og:description" content="Premium ventilation and heat recovery systems in Bareilly. Fresh air solutions with energy recovery for homes and commercial buildings." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/ventilation-hrv.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/ventilation-hrv" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Ventilation & HRV System Dealers in Bareilly | Fresh Air Solutions" />
         <meta name="twitter:description" content="Premium ventilation and heat recovery systems in Bareilly. Fresh air solutions with energy recovery for homes and commercial buildings." />

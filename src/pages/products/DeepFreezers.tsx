@@ -49,7 +49,7 @@ const DeepFreezers = () => {
       features: ["Thick insulation", "Lock & key", "Removable baskets", "Manual/Auto defrost"]
     },
     {
-      title: "Under Counter Freezers & Refrigerators",
+      title: "Under Counter Refrigerators",
       description: "Space-saving units that fit under kitchen counters",
       image: underCounterImg,
       products: [
@@ -60,7 +60,7 @@ const DeepFreezers = () => {
       features: ["Stainless steel construction", "Compact design", "Reversible door", "Low noise operation"]
     },
     {
-      title: "Confectionery Display Showcases",
+      title: "Confectionery Showcases",
       description: "Elegant display cases for bakeries and sweet shops",
       image: confectioneryImg,
       products: [
@@ -162,6 +162,7 @@ const DeepFreezers = () => {
         <meta property="og:description" content="Premium kitchen & restaurant equipment - visi coolers, freezers, coffee machines, dishwashers from Elanpro, Trufrost, Rockwell in Bareilly." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/deep-freezer.jpg" />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/products/deep-freezers" />
         <link rel="canonical" href="https://www.khandelwaldistributors.com/products/deep-freezers" />
         <script type="application/ld+json">
           {JSON.stringify({
