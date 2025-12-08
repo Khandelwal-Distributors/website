@@ -153,7 +153,7 @@ const DeepFreezers = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
         <title>Kitchen & Restaurant Equipment in Bareilly | Visi Coolers, Deep Freezers, Coffee Machines | Elanpro, Trufrost, Rockwell</title>
         <meta name="description" content="Buy commercial kitchen & restaurant equipment in Bareilly. Visi coolers, deep freezers, coffee machines, softy machines, dishwashers, bar refrigeration from Elanpro, Trufrost, Rockwell. Professional installation & service." />
