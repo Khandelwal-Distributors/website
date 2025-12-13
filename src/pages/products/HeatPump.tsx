@@ -4,85 +4,111 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Snowflake, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Droplets, MessageCircle, CheckCircle2, Flame, Building2, Home, Waves } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import heatPump from "@/assets/heat-pump.jpg";
 
 const HeatPump = () => {
-  const products = [
-    { name: "Daikin Altherma Heat Pump", capacity: "8 kW", type: "Air to Water", price: "₹4,50,000", features: ["All Season", "COP 4.5", "R-32 Refrigerant"] },
-    { name: "Carrier Aquazone Heat Pump", capacity: "12 kW", type: "Water to Water", price: "₹6,00,000", features: ["Ground Source", "High Efficiency", "Modular Design"] },
-    { name: "Daikin Air Source Heat Pump", capacity: "6 kW", type: "Air to Air", price: "₹3,80,000", features: ["Inverter Tech", "Quiet Operation", "Smart Controls"] },
-    { name: "Mitsubishi Ecodan", capacity: "10 kW", type: "Air to Water", price: "₹5,20,000", features: ["Premium Quality", "Weather Resistant", "High COP"] },
-    { name: "Carrier Geothermal Heat Pump", capacity: "15 kW", type: "Ground Source", price: "₹8,50,000", features: ["Underground Loop", "Highest Efficiency", "25 Year Life"] },
-    { name: "Daikin VRV Heat Recovery", capacity: "20 HP", type: "Commercial", price: "₹12,00,000", features: ["Simultaneous H&C", "Energy Recovery", "Zone Control"] }
+  const brands = [
+    { name: "Sun Stellar", highlight: "Premium Heat Pump Water Heaters" },
+    { name: "Inter Solar", highlight: "Stainless Steel Heat Pumps" },
+    { name: "Racold", highlight: "Trusted Water Heating" },
+    { name: "V-Guard", highlight: "Quality & Reliability" }
   ];
+
+  const residentialProducts = [
+    { name: "Sun Stellar 200L Heat Pump", capacity: "200 Liters", power: "3 kW", price: "On Request", features: ["Energy Efficient", "Digital Display", "Auto Mode"] },
+    { name: "Sun Stellar 300L Heat Pump", capacity: "300 Liters", power: "5 kW", price: "₹1,30,000 + GST", features: ["Special Offer", "High Capacity", "COP 4.0+"], isOffer: true },
+    { name: "Sun Stellar 500L Heat Pump", capacity: "500 Liters", power: "7 kW", price: "On Request", features: ["Large Family", "Premium Build", "Smart Controls"] },
+    { name: "Inter Solar 200L SS Heat Pump", capacity: "200 Liters", power: "3 kW", price: "On Request", features: ["Stainless Steel Tank", "Corrosion Resistant", "Long Life"] },
+    { name: "Inter Solar 300L SS Heat Pump", capacity: "300 Liters", power: "5 kW", price: "On Request", features: ["SS Construction", "High Durability", "Low Maintenance"] },
+    { name: "Racold Heat Pump 200L", capacity: "200 Liters", power: "3 kW", price: "On Request", features: ["Titanium Enamel", "5 Star Rating", "Warranty"] }
+  ];
+
+  const commercialProducts = [
+    { name: "Daikin Commercial Heat Pump", capacity: "1000+ Liters", type: "Commercial", price: "On Request", features: ["Industrial Grade", "High COP", "Modular Design"], brand: "Daikin" },
+    { name: "Inter Solar Commercial System", capacity: "2000+ Liters", type: "Commercial", price: "On Request", features: ["Stainless Steel", "Centralized Control", "Energy Monitoring"], brand: "Inter Solar" },
+    { name: "Sun Stellar Swimming Pool Heater", capacity: "Pool Heating", type: "Swimming Pool", price: "On Request", features: ["Year-round Swimming", "Energy Efficient", "Auto Temperature"], brand: "Sun Stellar" }
+  ];
+
+  const specialOffer = {
+    title: "Special Offer on Sun Stellar Heat Pumps",
+    description: "300L Capacity with 140L/hr Heating Rate",
+    price: "₹1,30,000 + GST",
+    features: ["300 Liters Storage", "140 L/hr Heating Capacity", "Energy Efficient COP 4.0+", "Digital Temperature Control", "All-Weather Operation", "5 Year Warranty"]
+  };
 
   const benefits = [
-    { icon: <Leaf className="h-6 w-6" />, title: "Eco-Friendly", description: "Reduce carbon footprint with renewable energy technology" },
-    { icon: <Zap className="h-6 w-6" />, title: "Energy Efficient", description: "COP up to 5.0 - produce 5 units of heat for 1 unit of electricity" },
-    { icon: <Thermometer className="h-6 w-6" />, title: "All Season", description: "Heating in winter and cooling in summer with one system" },
-    { icon: <Snowflake className="h-6 w-6" />, title: "Consistent Comfort", description: "Maintains stable temperatures throughout the year" }
+    { icon: <Leaf className="h-6 w-6" />, title: "80% Energy Savings", description: "Compared to conventional electric water heaters" },
+    { icon: <Zap className="h-6 w-6" />, title: "COP 4.0+", description: "4 units of heat for every 1 unit of electricity" },
+    { icon: <Thermometer className="h-6 w-6" />, title: "All Weather", description: "Works efficiently even in cold weather conditions" },
+    { icon: <Droplets className="h-6 w-6" />, title: "Unlimited Hot Water", description: "Continuous hot water supply for your family" }
   ];
 
-  const types = [
+  const categories = [
     {
-      title: "Air Source Heat Pumps",
-      description: "Extract heat from outdoor air for heating and cooling",
-      features: ["Easy Installation", "Lower Initial Cost", "Suitable for Most Climates"],
-      applications: ["Residential Homes", "Small Offices", "Retail Stores"]
+      icon: <Home className="h-8 w-8" />,
+      title: "Residential Heat Pumps",
+      description: "Perfect for homes and families",
+      capacities: ["200L", "300L", "500L"],
+      powers: ["3 kW", "5 kW", "7 kW"],
+      brands: ["Sun Stellar", "Inter Solar", "Racold", "V-Guard"]
     },
     {
-      title: "Ground Source Heat Pumps",
-      description: "Use stable ground temperature for highly efficient operation",
-      features: ["Highest Efficiency", "Long Lifespan", "Minimal Maintenance"],
-      applications: ["Large Homes", "Commercial Buildings", "Industrial Facilities"]
+      icon: <Building2 className="h-8 w-8" />,
+      title: "Commercial Heat Pumps",
+      description: "Hotels, Hospitals & Industries",
+      capacities: ["1000L+", "2000L+", "Custom"],
+      powers: ["10 kW+", "20 kW+", "Modular"],
+      brands: ["Daikin", "Inter Solar"]
     },
     {
-      title: "Water Source Heat Pumps",
-      description: "Utilize water bodies for heat exchange",
-      features: ["Very High COP", "Consistent Performance", "Environmentally Friendly"],
-      applications: ["Near Water Bodies", "District Cooling", "Large Complexes"]
+      icon: <Waves className="h-8 w-8" />,
+      title: "Swimming Pool Heat Pumps",
+      description: "Year-round pool heating",
+      capacities: ["All Pool Sizes"],
+      powers: ["Customized"],
+      brands: ["Sun Stellar"]
     }
   ];
 
   const applications = [
-    "Residential Heating/Cooling", "Hotels & Resorts", "Hospitals", "Schools & Universities",
-    "Swimming Pool Heating", "Industrial Processes", "District Heating", "Agricultural Applications"
+    "Residential Homes", "Hotels & Resorts", "Hospitals", "Hostels & PGs",
+    "Swimming Pools", "Factories", "Commercial Buildings", "Gyms & Spas"
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Heat Pump System Price in Bareilly | Energy Efficient Heating Cooling | Eco-Friendly HVAC</title>
-        <meta name="description" content="Buy Heat Pump Systems in Bareilly, UP. Best prices on Daikin, Carrier heat pumps. All-season heating & cooling with 80% energy savings. Ground source, air source systems." />
-        <meta name="keywords" content="heat pump price Bareilly, energy efficient heating UP, ground source heat pump, air source heat pump, eco-friendly HVAC Bareilly, renewable energy cooling" />
-        <meta property="og:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
-        <meta property="og:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
+        <title>Heat Pump Water Heater Price in Bareilly | Sun Stellar, Inter Solar, Racold | Energy Efficient</title>
+        <meta name="description" content="Buy Heat Pump Water Heaters in Bareilly. Special offer on Sun Stellar 300L at ₹1,30,000 + GST. Residential 200L, 300L, 500L & Commercial solutions by Daikin, Inter Solar. Swimming pool heaters available." />
+        <meta name="keywords" content="heat pump water heater Bareilly, sun stellar heat pump, inter solar heat pump, racold heat pump, swimming pool heater, commercial heat pump, energy efficient water heater UP" />
+        <meta property="og:title" content="Heat Pump Water Heaters in Bareilly | Sun Stellar, Inter Solar Dealer" />
+        <meta property="og:description" content="Special offer on Sun Stellar 300L Heat Pump at ₹1,30,000 + GST. Residential & Commercial heat pump solutions. Swimming pool heaters available." />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="/src/assets/heat-pump.jpg" />
         <meta property="og:url" content="https://www.khandelwaldistributors.com/products/heat-pump" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Heat Pump Dealers in Bareilly | Eco-Friendly Heating & Cooling" />
-        <meta name="twitter:description" content="Premium heat pump systems in Bareilly. All-season comfort with 80% energy savings. Air source, ground source, and water source heat pumps." />
+        <meta name="twitter:title" content="Heat Pump Water Heaters in Bareilly | Sun Stellar, Inter Solar Dealer" />
+        <meta name="twitter:description" content="Special offer on Sun Stellar 300L Heat Pump at ₹1,30,000 + GST. Residential & Commercial heat pump solutions." />
         <link rel="canonical" href="https://www.khandelwaldistributors.com/products/heat-pump" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Heat Pump Systems",
-            "category": "Eco-Friendly HVAC",
-            "description": "Energy-efficient heat pump systems for all-season comfort in Bareilly, UP",
-            "brand": ["Daikin", "Carrier", "Mitsubishi"],
+            "name": "Heat Pump Water Heaters",
+            "category": "Water Heating Solutions",
+            "description": "Energy-efficient heat pump water heaters in Bareilly. Residential and commercial solutions by Sun Stellar, Inter Solar, Racold, Daikin.",
+            "brand": ["Sun Stellar", "Inter Solar", "Racold", "V-Guard", "Daikin"],
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "583"
+              "ratingValue": "4.7",
+              "reviewCount": "742"
             },
             "offers": {
               "@type": "AggregateOffer",
-              "lowPrice": "150000",
+              "lowPrice": "85000",
               "highPrice": "500000",
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock"
@@ -95,27 +121,6 @@ const HeatPump = () => {
             }
           })}
         </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": products.map((product, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "item": {
-                "@type": "Product",
-                "name": product.name,
-                "description": product.features.join(", "),
-                "offers": {
-                  "@type": "Offer",
-                  "price": product.price.replace(/[^\d]/g, ''),
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock"
-                }
-              }
-            }))
-          })}
-        </script>
       </Helmet>
 
       <Header />
@@ -123,29 +128,67 @@ const HeatPump = () => {
       <main>
         {/* Hero Section */}
         <section className="relative py-16" style={{ backgroundImage: `url(${heatPump})` }}>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto px-4 lg:pl-12 xl:pl-16 relative z-10">
             <div className="flex items-center gap-4 mb-6">
               <Link to="/products" className="text-white hover:text-accent-warm transition-colors">
                 <ArrowLeft className="h-6 w-6" />
               </Link>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Heat Pump Systems in Bareilly
+              <h1 className="text-3xl md:text-5xl font-bold text-white">
+                Heat Pump Water Heaters in Bareilly
               </h1>
             </div>
-            <p className="text-xl text-white/90 max-w-3xl mb-8">
-              Energy-efficient heat pump systems for all-season comfort in Bareilly, Uttar Pradesh.
-              Eco-friendly heating and cooling with up to 80% energy savings using renewable technology.
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mb-6">
+              Energy-efficient heat pump water heaters with up to 80% electricity savings.
+              Residential & Commercial solutions by Sun Stellar, Inter Solar, Racold & more.
             </p>
+            
+            {/* Brand Badges */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {brands.map((brand, index) => (
+                <Badge key={index} variant="secondary" className="bg-white/20 text-white border-white/30 px-3 py-1">
+                  {brand.name}
+                </Badge>
+              ))}
+            </div>
+
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                 <Phone className="h-5 w-5" />
-                Get Best Price Quote
+                Get Best Price
               </Button>
-              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Heat Pumps in Bareilly', '_blank')}>
+              <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919429693410?text=Hello, I need information about Heat Pump Water Heaters in Bareilly', '_blank')}>
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Special Offer Section */}
+        <section className="py-12 bg-gradient-to-r from-orange-500 to-red-500">
+          <div className="container mx-auto px-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="text-white">
+                  <Badge className="bg-yellow-400 text-black mb-4">Limited Time Offer</Badge>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2">{specialOffer.title}</h2>
+                  <p className="text-lg opacity-90 mb-4">{specialOffer.description}</p>
+                  <div className="text-4xl md:text-5xl font-bold mb-6">{specialOffer.price}</div>
+                  <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Phone className="h-5 w-5 mr-2" />
+                    Call Now to Avail Offer
+                  </Button>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {specialOffer.features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 text-white">
+                      <CheckCircle2 className="h-5 w-5 text-yellow-400 flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -154,19 +197,19 @@ const HeatPump = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center text-primary mb-12">
-              Benefits of Heat Pump Systems
+              Why Choose Heat Pump Water Heaters?
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
               {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardHeader>
+                  <CardHeader className="pb-2">
                     <div className="mx-auto bg-primary/10 text-primary p-3 rounded-full w-fit">
                       {benefit.icon}
                     </div>
-                    <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                    <CardTitle className="text-base md:text-lg">{benefit.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{benefit.description}</p>
+                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -174,117 +217,167 @@ const HeatPump = () => {
           </div>
         </section>
 
-        {/* Types Section */}
+        {/* Categories Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">
-                Types of Heat Pump Systems
+                Heat Pump Solutions for Every Need
               </h2>
               <p className="text-xl text-muted-foreground">
-                Choose the right heat pump technology based on your location and requirements
+                From homes to hotels, we have the right heat pump for you
               </p>
             </div>
 
-            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {types.map((type, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+            <div className="grid md:grid-cols-3 gap-8">
+              {categories.map((category, index) => (
+                <Card key={index} className="hover:shadow-xl transition-shadow">
                   <CardHeader>
-                    <CardTitle className="text-xl text-primary">{type.title}</CardTitle>
-                    <CardDescription className="text-base">{type.description}</CardDescription>
+                    <div className="bg-primary/10 text-primary p-4 rounded-full w-fit mb-4">
+                      {category.icon}
+                    </div>
+                    <CardTitle className="text-xl text-primary">{category.title}</CardTitle>
+                    <CardDescription className="text-base">{category.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <h4 className="font-semibold mb-3">Key Features:</h4>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-sm text-muted-foreground mb-2">Capacities:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {category.capacities.map((cap, i) => (
+                            <Badge key={i} variant="outline">{cap}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm text-muted-foreground mb-2">Power Options:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {category.powers.map((power, i) => (
+                            <Badge key={i} variant="secondary">{power}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm text-muted-foreground mb-2">Brands:</h4>
+                        <p className="text-sm">{category.brands.join(", ")}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Highlighted Brands */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-primary mb-12">
+              Our Trusted Brands
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {brands.map((brand, index) => (
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-2 hover:border-primary/50">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{brand.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{brand.highlight}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Residential Products */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-primary mb-4">
+                Residential Heat Pump Water Heaters
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Available in 200L, 300L & 500L capacities with 3kW, 5kW & 7kW power options
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {residentialProducts.map((product, index) => (
+                <Card key={index} className={`hover:shadow-xl transition-shadow ${product.isOffer ? 'ring-2 ring-orange-500' : ''}`}>
+                  <div className="relative">
+                    <img
+                      src={heatPump}
+                      alt={`${product.name} - Heat Pump Water Heater`}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    {product.isOffer && (
+                      <Badge className="absolute top-4 left-4 bg-orange-500 text-white">
+                        Special Offer
+                      </Badge>
+                    )}
+                    <Badge className="absolute top-4 right-4 bg-primary">
+                      {product.power}
+                    </Badge>
+                  </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">{product.capacity}</span>
+                      <span className={`text-lg font-bold ${product.isOffer ? 'text-orange-500' : 'text-accent-warm'}`}>
+                        {product.price}
+                      </span>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent>
                     <div className="space-y-2 mb-4">
-                      {type.features.map((feature, fIndex) => (
+                      {product.features.map((feature, fIndex) => (
                         <div key={fIndex} className="flex items-center text-sm">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                          <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}
                     </div>
-                    <h4 className="font-semibold mb-2">Best For:</h4>
-                    <div className="text-sm text-muted-foreground">
-                      {type.applications.join(", ")}
-                    </div>
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
+                      <Phone className="h-4 w-4 mr-2" />
+                      Get Quote
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
             </div>
-
-            {/* Applications */}
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-primary mb-6">Heat Pump Applications</h3>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {applications.map((app, index) => (
-                <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
-                  <div className="flex justify-center mb-2">
-                    <Leaf className="h-8 w-8 text-primary" />
-                  </div>
-                  <span className="font-medium">{app}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
-        {/* Energy Savings Section */}
+        {/* Commercial Products */}
         <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-8 text-white text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                Incredible Energy Savings
-              </h2>
-              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Heat pumps are 3-5 times more efficient than traditional heating systems.
-                For every 1 unit of electricity consumed, they produce 3-5 units of heating or cooling.
-              </p>
-              <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold">80%</div>
-                  <div className="text-sm opacity-90">Energy Savings</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold">COP 5.0</div>
-                  <div className="text-sm opacity-90">Efficiency Rating</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold">25 Years</div>
-                  <div className="text-sm opacity-90">System Lifespan</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Product Showcase */}
-        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">
-                Premium Heat Pump Models in Bareilly
+                Commercial & Swimming Pool Heat Pumps
               </h2>
               <p className="text-xl text-muted-foreground">
-                High-efficiency heat pump systems with comprehensive installation and service support
+                High-capacity solutions by Daikin and Inter Solar for hotels, hospitals & pools
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.map((product, index) => (
+            <div className="grid md:grid-cols-3 gap-8">
+              {commercialProducts.map((product, index) => (
                 <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
                     <img
                       src={heatPump}
-                      alt={`${product.name} - Heat Pump System`}
+                      alt={`${product.name} - ${product.type} Heat Pump`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
                     <Badge className="absolute top-4 right-4 bg-accent-warm">
                       {product.type}
                     </Badge>
-                    <div className="absolute top-4 left-4 bg-green-600 text-white px-2 py-1 rounded text-xs">
-                      Eco-Friendly
-                    </div>
+                    <Badge className="absolute top-4 left-4 bg-primary">
+                      {product.brand}
+                    </Badge>
                   </div>
 
                   <CardHeader>
@@ -299,13 +392,13 @@ const HeatPump = () => {
                     <div className="space-y-2 mb-4">
                       {product.features.map((feature, fIndex) => (
                         <div key={fIndex} className="flex items-center text-sm">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                          <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919335888888', '_self')}>
-                      <Phone className="h-4 w-4" />
+                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
+                      <Phone className="h-4 w-4 mr-2" />
                       Get Quote
                     </Button>
                   </CardContent>
@@ -315,8 +408,60 @@ const HeatPump = () => {
           </div>
         </section>
 
-        {/* Technical Services */}
+        {/* Energy Savings Section */}
+        <section className="py-16 bg-gradient-to-r from-green-500 to-green-600">
+          <div className="container mx-auto px-4">
+            <div className="text-white text-center">
+              <h2 className="text-3xl font-bold mb-4">
+                Incredible Energy Savings
+              </h2>
+              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                Heat pump water heaters are 3-4 times more efficient than conventional electric geysers.
+                Save up to 80% on your water heating electricity bills!
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-3xl font-bold">80%</div>
+                  <div className="text-sm opacity-90">Energy Savings</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-3xl font-bold">COP 4.0+</div>
+                  <div className="text-sm opacity-90">Efficiency Rating</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-3xl font-bold">15+ Years</div>
+                  <div className="text-sm opacity-90">System Lifespan</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-3xl font-bold">24/7</div>
+                  <div className="text-sm opacity-90">Hot Water Supply</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Applications */}
         <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-primary mb-12">
+              Applications
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {applications.map((app, index) => (
+                <div key={index} className="bg-card border rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                  <div className="flex justify-center mb-2">
+                    <Flame className="h-8 w-8 text-primary" />
+                  </div>
+                  <span className="font-medium text-sm">{app}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technical Services */}
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">
@@ -324,22 +469,13 @@ const HeatPump = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card className="text-center">
                 <CardHeader>
                   <CardTitle className="text-primary">Site Survey</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Detailed assessment of site conditions and heat pump feasibility</p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <CardTitle className="text-primary">System Design</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Custom heat pump system design for optimal performance</p>
+                  <p className="text-muted-foreground text-sm">Free site assessment and capacity calculation</p>
                 </CardContent>
               </Card>
 
@@ -348,16 +484,25 @@ const HeatPump = () => {
                   <CardTitle className="text-primary">Installation</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Professional installation with commissioning and testing</p>
+                  <p className="text-muted-foreground text-sm">Professional installation with plumbing & electrical</p>
                 </CardContent>
               </Card>
 
               <Card className="text-center">
                 <CardHeader>
-                  <CardTitle className="text-primary">Maintenance</CardTitle>
+                  <CardTitle className="text-primary">Warranty</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Regular maintenance and performance optimization services</p>
+                  <p className="text-muted-foreground text-sm">Up to 5 years comprehensive warranty</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <CardTitle className="text-primary">AMC Service</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">Annual maintenance contracts available</p>
                 </CardContent>
               </Card>
             </div>
@@ -365,96 +510,32 @@ const HeatPump = () => {
         </section>
 
         {/* Local Service Section */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="bg-primary rounded-2xl p-8 text-white text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Heat Pump Installation in Bareilly
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-primary mb-6">
+                Heat Pump Dealer in Bareilly, Uttar Pradesh
               </h2>
-              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Complete heat pump solutions across Bareilly district. From site assessment
-                to installation and maintenance - your partner for renewable energy HVAC systems.
+              <p className="text-lg text-muted-foreground mb-8">
+                Khandelwal Distributors is the authorized dealer for Sun Stellar, Inter Solar, Racold and V-Guard 
+                heat pump water heaters in Bareilly and surrounding areas. We provide complete solutions including 
+                sales, installation, and after-sales service.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919335888888', '_self')}>
+                <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Get Best Price Quote
+                  Call: +91 94296 93410
+                </Button>
+                <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919429693410?text=Hello, I need information about Heat Pump Water Heaters', '_blank')}>
+                  <MessageCircle className="h-5 w-5" />
+                  WhatsApp Inquiry
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Blog Preview Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <Badge className="mb-4">Expert Guide</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Complete Guide to Heat Pumps for Water Heating
-                </h2>
-                <p className="text-xl text-muted-foreground">
-                  Learn how heat pumps can reduce your water heating costs by 70%
-                </p>
-              </div>
-
-              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
-                <div className="md:flex">
-                  <div className="md:w-2/5">
-                    <img 
-                      src={heatPump} 
-                      alt="Heat Pump Guide - Energy efficient water heating"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="md:w-3/5 p-8">
-                    <Badge className="mb-3">5 min read</Badge>
-                    <h3 className="text-2xl font-bold text-primary mb-4">
-                      Heat Pumps for Water Heating: A Game-Changer for Indian Hotels and Industries
-                    </h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      Learn how heat pump water heaters can reduce your water heating costs by 70% compared to 
-                      electric geysers, making them ideal for hotels, hospitals, and industries. Discover capacity 
-                      planning, energy savings, and ROI calculations.
-                    </p>
-                    <div className="space-y-2 mb-6">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">60-70% reduction in water heating costs</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">COP ratings and efficiency explained</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">Capacity sizing for hotels & industries</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">Installation best practices in India</span>
-                      </div>
-                    </div>
-                    <Link to="/blogs/heat-pumps-water-heating-india">
-                      <Button size="lg" className="w-full md:w-auto">
-                        Read Complete Guide
-                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Video Section */}
-        <YouTubeVideos
-          category="heat-pump"
-          title="Heat Pump Videos"
-          description="Explore heat pump technology and energy-efficient heating solutions."
-        />
+        <YouTubeVideos category="heat_pump" />
       </main>
 
       <Footer />
