@@ -19,7 +19,7 @@ const HeatPump = () => {
 
   const residentialProducts = [
     { name: "Sun Stellar 200L Heat Pump", capacity: "200 Liters", power: "3 kW", price: "On Request", features: ["Energy Efficient", "Digital Display", "Auto Mode"] },
-    { name: "Sun Stellar 300L Heat Pump", capacity: "300 Liters", power: "5 kW", price: "₹1,30,000 + GST", features: ["Special Offer", "High Capacity", "COP 4.0+"], isOffer: true },
+    { name: "Sun Stellar 300L Heat Pump", capacity: "300 Liters", power: "5 kW", price: "₹1,30,000 + GST", features: ["140 L/hr Heating", "High Capacity", "COP 4.0+"] },
     { name: "Sun Stellar 500L Heat Pump", capacity: "500 Liters", power: "7 kW", price: "On Request", features: ["Large Family", "Premium Build", "Smart Controls"] },
     { name: "Inter Solar 200L SS Heat Pump", capacity: "200 Liters", power: "3 kW", price: "On Request", features: ["Stainless Steel Tank", "Corrosion Resistant", "Long Life"] },
     { name: "Inter Solar 300L SS Heat Pump", capacity: "300 Liters", power: "5 kW", price: "On Request", features: ["SS Construction", "High Durability", "Low Maintenance"] },
@@ -165,28 +165,49 @@ const HeatPump = () => {
           </div>
         </section>
 
-        {/* Special Offer Section */}
-        <section className="py-12 bg-gradient-to-r from-orange-500 to-red-500">
+        {/* Featured Product - Sun Stellar 300L */}
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="text-white">
-                  <Badge className="bg-yellow-400 text-black mb-4">Limited Time Offer</Badge>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">{specialOffer.title}</h2>
-                  <p className="text-lg opacity-90 mb-4">{specialOffer.description}</p>
-                  <div className="text-4xl md:text-5xl font-bold mb-6">{specialOffer.price}</div>
-                  <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100" onClick={() => window.open('tel:+919429693410', '_self')}>
-                    <Phone className="h-5 w-5 mr-2" />
-                    Call Now to Avail Offer
-                  </Button>
+            <div className="text-center mb-8">
+              <Badge variant="secondary" className="mb-4">Featured Product</Badge>
+              <h2 className="text-3xl font-bold text-primary">Sun Stellar 300L Heat Pump Water Heater</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src={heatPump}
+                  alt="Sun Stellar 300L Heat Pump Water Heater"
+                  className="w-full rounded-2xl shadow-lg"
+                />
+                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">5 kW</Badge>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-muted-foreground mb-4">High-capacity heat pump with 140L/hr heating rate, perfect for large families and commercial applications.</p>
+                  <div className="text-3xl font-bold text-primary mb-2">₹1,30,000 + GST</div>
+                  <p className="text-sm text-muted-foreground">300 Liters | 140 L/hr Heating Capacity</p>
                 </div>
+                
                 <div className="grid grid-cols-2 gap-3">
-                  {specialOffer.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2 text-white">
-                      <CheckCircle2 className="h-5 w-5 text-yellow-400 flex-shrink-0" />
+                  {["300 Liters Storage", "140 L/hr Heating Rate", "COP 4.0+ Efficiency", "Digital Temperature Control", "All-Weather Operation", "5 Year Warranty"].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
+                </div>
+                
+                <div className="flex flex-wrap gap-4">
+                  <Button size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Phone className="h-5 w-5 mr-2" />
+                    Get Best Price
+                  </Button>
+                  <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919429693410?text=Hello, I need information about Sun Stellar 300L Heat Pump', '_blank')}>
+                    <MessageCircle className="h-5 w-5 mr-2" />
+                    WhatsApp
+                  </Button>
                 </div>
               </div>
             </div>
@@ -304,18 +325,13 @@ const HeatPump = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {residentialProducts.map((product, index) => (
-                <Card key={index} className={`hover:shadow-xl transition-shadow ${product.isOffer ? 'ring-2 ring-orange-500' : ''}`}>
+                <Card key={index} className="hover:shadow-xl transition-shadow">
                   <div className="relative">
                     <img
                       src={heatPump}
                       alt={`${product.name} - Heat Pump Water Heater`}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
-                    {product.isOffer && (
-                      <Badge className="absolute top-4 left-4 bg-orange-500 text-white">
-                        Special Offer
-                      </Badge>
-                    )}
                     <Badge className="absolute top-4 right-4 bg-primary">
                       {product.power}
                     </Badge>
@@ -325,7 +341,7 @@ const HeatPump = () => {
                     <CardTitle className="text-lg text-primary">{product.name}</CardTitle>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-muted-foreground">{product.capacity}</span>
-                      <span className={`text-lg font-bold ${product.isOffer ? 'text-orange-500' : 'text-accent-warm'}`}>
+                      <span className="text-lg font-bold text-accent-warm">
                         {product.price}
                       </span>
                     </div>
