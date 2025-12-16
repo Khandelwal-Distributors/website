@@ -551,6 +551,70 @@ const HeatPump = () => {
           </div>
         </section>
 
+        {/* Blog Preview Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge className="mb-4">Expert Guide</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  Complete Guide to Heat Pump Water Heaters in India
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Learn everything about heat pump technology, energy savings, and selection tips
+                </p>
+              </div>
+
+              <Card className="overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="md:flex">
+                  <div className="md:w-2/5">
+                    <img 
+                      src={heatPump} 
+                      alt="Heat Pump Water Heater Guide - Energy Efficient Water Heating"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-8">
+                    <Badge className="mb-3">5 min read</Badge>
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Heat Pump Water Heaters: The Smart Choice for Energy-Efficient Hot Water
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Discover how heat pump water heaters can reduce your electricity bills by up to 80% compared 
+                      to conventional geysers. Learn about COP ratings, capacity selection, installation requirements, 
+                      and why brands like Sun Stellar and Inter Solar are leading the market in India.
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Up to 80% energy savings vs electric geysers</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">COP 4.0+ efficiency ratings explained</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Residential vs commercial heat pump selection</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">Installation tips for Indian climate</span>
+                      </div>
+                    </div>
+                    <Link to="/blogs/heat-pump-water-heater-guide-india">
+                      <Button size="lg" className="w-full md:w-auto">
+                        Read Complete Guide
+                        <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         <YouTubeVideos category="heat_pump" />
       </main>
 
