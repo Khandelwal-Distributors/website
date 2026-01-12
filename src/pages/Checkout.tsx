@@ -63,18 +63,6 @@ export default function Checkout() {
 
   const product = location.state?.product as Product;
 
-  // Redirect to auth if not authenticated
-  useEffect(() => {
-    if (!user) {
-      toast({
-        title: 'Authentication Required',
-        description: 'Please sign in to place an order.',
-        variant: 'destructive',
-      });
-      navigate('/auth', { state: { redirectTo: location.pathname, product } });
-    }
-  }, [user, navigate, location.pathname, product, toast]);
-
   const form = useForm<CheckoutForm>({
     defaultValues: {
       customer_name: '',
@@ -154,9 +142,9 @@ export default function Checkout() {
     try {
       console.log('Starting payment process...');
 
-      // Prepare order data (user is guaranteed to exist due to auth check)
+      // Prepare order data (user_id is optional for guest checkout)
       const orderData = {
-        user_id: user!.id,
+        user_id: user?.id || null,
         product_id: product.id,
         customer_name: data.customer_name,
         customer_email: data.customer_email,

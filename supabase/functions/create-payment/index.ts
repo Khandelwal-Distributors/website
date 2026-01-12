@@ -34,19 +34,15 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Validate that user_id is provided (authentication required)
-    if (!orderData.user_id) {
-      throw new Error('Authentication required to create an order');
-    }
-
-    // Create order in database first
+    // Create order in database first (user_id is optional for guest orders)
     const { data: order, error: orderError } = await supabase
       .from('orders')
       .insert({
         ...orderData,
+        user_id: orderData.user_id || null, // Allow null for guest orders
         status: 'pending',
         payment_status: 'pending',
-        access_token: crypto.randomUUID() // Generate secure access token for authenticated orders
+        access_token: crypto.randomUUID() // Generate secure access token for order tracking
       })
       .select()
       .single();

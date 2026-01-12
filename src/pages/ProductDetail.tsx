@@ -98,21 +98,8 @@ export default function ProductDetail() {
   };
 
   const handleBuyNow = () => {
-    // Check if user is authenticated
-    const authState = supabase.auth.getSession();
-    authState.then(({ data: { session } }) => {
-      if (!session) {
-        // Store the product info in sessionStorage so we can redirect back after auth
-        sessionStorage.setItem('pendingCheckout', JSON.stringify(product));
-        toast({
-          title: 'Sign In Required',
-          description: 'Please sign in with Google to purchase products.',
-        });
-        navigate('/auth');
-        return;
-      }
-      navigate('/checkout', { state: { product } });
-    });
+    // Allow guest checkout - directly navigate to checkout
+    navigate('/checkout', { state: { product } });
   };
 
   const specifications = product.specifications as Record<string, string>;
