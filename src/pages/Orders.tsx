@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Loader2, Package, Calendar, MapPin, Phone, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -42,12 +43,13 @@ export default function Orders() {
 
   useEffect(() => {
     if (!user) {
-      navigate("/auth");
+      // Guest users should not be forced into Google sign-in; show the guest access UI instead.
+      setLoading(false);
       return;
     }
-    
+
     fetchOrders();
-  }, [user, navigate]);
+  }, [user]);
 
   const fetchOrders = async () => {
     try {
@@ -123,6 +125,43 @@ export default function Orders() {
         <div className="min-h-screen flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
+      </>
+    );
+  }
+
+  if (!user) {
+    return (
+      <>
+        <Helmet>
+          <title>My Orders | Khandelwal Distributors - HVAC Solutions</title>
+          <meta
+            name="description"
+            content="View your orders. Guest users can access orders via email link or guest access page."
+          />
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+
+        <Header />
+
+        <main className="min-h-screen bg-background">
+          <div className="container mx-auto px-4 py-8">
+            <Card className="max-w-xl mx-auto text-center py-12">
+              <CardContent className="space-y-4">
+                <Package className="h-12 w-12 text-muted-foreground mx-auto" />
+                <h1 className="text-2xl font-bold">Sign in to view saved orders</h1>
+                <p className="text-muted-foreground">
+                  If you checked out as a guest, open Guest Order Access (or use the link sent to your email).
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button onClick={() => navigate("/auth")}>Sign In</Button>
+                  <Button variant="outline" onClick={() => navigate("/orders/guest")}>Guest Order Access</Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+
+        <Footer />
       </>
     );
   }
