@@ -18,6 +18,29 @@ export default function Auth() {
   // Check if user is coming from a purchase flow
   const hasPendingCheckout = sessionStorage.getItem('pendingCheckout');
 
+  // If user reaches /auth from a purchase flow, redirect to guest checkout (no sign-in required)
+  useEffect(() => {
+    const state = location.state as any;
+    const redirectTo = state?.redirectTo;
+    const productFromState = state?.product;
+
+    if (redirectTo === "/checkout" && productFromState) {
+      navigate("/checkout", { state: { product: productFromState }, replace: true });
+      return;
+    }
+
+    const pendingCheckout = sessionStorage.getItem("pendingCheckout");
+    if (pendingCheckout) {
+      try {
+        const product = JSON.parse(pendingCheckout);
+        sessionStorage.removeItem("pendingCheckout");
+        navigate("/checkout", { state: { product }, replace: true });
+      } catch {
+        sessionStorage.removeItem("pendingCheckout");
+      }
+    }
+  }, [navigate, location]);
+
   // Redirect if user is already authenticated
   useEffect(() => {
     if (user) {
