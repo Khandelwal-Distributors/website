@@ -15,8 +15,6 @@ import { Search, Filter, Truck, Shield, Award, Clock,
   PlaneTakeoff
 } from 'lucide-react';
 import { useProducts, useBrands, type ProductFilters, type Product } from '@/hooks/useProducts';
-import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import YouTubeVideos from '@/components/YouTubeVideos';
 
 const TONNAGE_OPTIONS = [1.0, 1.5, 2.0, 2.5, 3.0];
@@ -31,7 +29,6 @@ export default function Shop() {
   const [showFilters, setShowFilters] = useState(false);
 
   const navigate = useNavigate();
-  const { toast } = useToast();
 
   const { data: products = [], isLoading: productsLoading } = useProducts(filters);
   const { data: brands = [] } = useBrands();
@@ -68,21 +65,8 @@ export default function Shop() {
   };
 
   const handleBuyNow = (product: Product) => {
-    // Check if user is authenticated
-    const authState = supabase.auth.getSession();
-    authState.then(({ data: { session } }) => {
-      if (!session) {
-        // Store the product info in sessionStorage so we can redirect back after auth
-        sessionStorage.setItem('pendingCheckout', JSON.stringify(product));
-        toast({
-          title: 'Sign In Required',
-          description: 'Please sign in with Google to purchase products.',
-        });
-        navigate('/auth');
-        return;
-      }
-      navigate('/checkout', { state: { product } });
-    });
+    // Guest checkout: don't force Google sign-in
+    navigate('/checkout', { state: { product } });
   };
 
   const clearFilters = () => {
