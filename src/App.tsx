@@ -20,7 +20,7 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
-// GuestOrder removed - guest orders are no longer supported
+import GuestOrder from "./pages/GuestOrder";
 import Admin from "./pages/Admin";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -81,8 +81,8 @@ const App = () => {
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/order-success" element={<OrderSuccess />} />
                   <Route path="/payment-success" element={<PaymentSuccess />} />
-        <Route path="/orders" element={<Orders />} />
-        {/* Guest orders route removed - authentication now required */}
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/orders/guest" element={<GuestOrder />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/admin" element={<Admin />} />
