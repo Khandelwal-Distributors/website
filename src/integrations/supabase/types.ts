@@ -69,7 +69,7 @@ export type Database = {
           status: string | null
           total_amount: number
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           access_token?: string | null
@@ -95,7 +95,7 @@ export type Database = {
           status?: string | null
           total_amount: number
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           access_token?: string | null
@@ -121,7 +121,7 @@ export type Database = {
           status?: string | null
           total_amount?: number
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: [
           {
@@ -381,7 +381,7 @@ export type Database = {
           status: string | null
           total_amount: number
           updated_at: string
-          user_id: string
+          user_id: string | null
         }[]
         SetofOptions: {
           from: "*"
