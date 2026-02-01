@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Search, Filter, Truck, Shield, Award, Clock,
   SlidersHorizontal, Grid3X3, List, ChevronDown,
-  PlaneTakeoff
+  PlaneTakeoff, ArrowRight
 } from 'lucide-react';
 import { useProducts, useBrands, type ProductFilters, type Product } from '@/hooks/useProducts';
 import YouTubeVideos from '@/components/YouTubeVideos';
@@ -193,36 +193,85 @@ export default function Shop() {
               </p>
             </div>
 
-            {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
-                <Truck className="h-8 w-8 text-green-600" />
-                <div className="text-center">
-                  <p className="font-semibold">Free Shipping</p>
-                  <p className="text-sm text-muted-foreground">All Over India</p>
+            {/* Business Profiles - Main Highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-6">
+              <a 
+                href="https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
+              >
+                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
+                <img 
+                  src="/icons/jd_icon.png" 
+                  alt="JustDial" 
+                  className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
+                />
+                <div className="text-left flex-1">
+                  <p className="font-bold text-lg">JustDial</p>
+                  <p className="text-sm text-muted-foreground">400+ ratings</p>
                 </div>
-              </div>
-              <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
-                <Award className="h-8 w-8 text-blue-600" />
-                <div className="text-center">
-                  <p className="font-semibold">Best Price</p>
-                  <p className="text-sm text-muted-foreground">Guaranteed</p>
+              </a>
+              
+              <a 
+                href="https://www.indiamart.com/khandelwal-distributors-up" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
+              >
+                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
+                <img 
+                  src="/icons/indiamart_icon.webp" 
+                  alt="IndiaMART" 
+                  className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
+                />
+                <div className="text-left flex-1">
+                  <p className="font-bold text-lg">IndiaMART</p>
+                  <p className="text-sm text-muted-foreground">Trusted Seller</p>
                 </div>
-              </div>
-              <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
-                <Shield className="h-8 w-8 text-purple-600" />
-                <div className="text-center">
-                  <p className="font-semibold">Warranty</p>
-                  <p className="text-sm text-muted-foreground">On All Products</p>
+              </a>
+              
+              <a 
+                href="https://maps.app.goo.gl/khandelwaldistributors" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
+              >
+                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
+                <img 
+                  src="/icons/maps_icon.webp" 
+                  alt="Google Maps" 
+                  className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
+                />
+                <div className="text-left flex-1">
+                  <p className="font-bold text-lg">Google Maps</p>
+                  <p className="text-sm text-muted-foreground">Most Searched</p>
                 </div>
-              </div>
-              <div className="flex items-center justify-center gap-3 p-4 bg-white/50 rounded-lg">
-                <PlaneTakeoff className="h-8 w-8 text-orange-600" />
-                <div className="text-center">
-                  <p className="font-semibold">Best Brands</p>
-                  <p className="text-sm text-muted-foreground">Authorized Dealer</p>
-                </div>
-              </div>
+              </a>
+            </div>
+
+            {/* Feature Tags */}
+            <div className="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
+              <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Truck className="h-4 w-4 mr-2 inline" />
+                Free Shipping All Over UP
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Award className="h-4 w-4 mr-2 inline" />
+                Best Price Guaranteed
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Shield className="h-4 w-4 mr-2 inline" />
+                Warranty On All Products
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <PlaneTakeoff className="h-4 w-4 mr-2 inline" />
+                Best Brands
+              </Badge>
+              <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Award className="h-4 w-4 mr-2 inline" />
+                Authorized Dealer
+              </Badge>
             </div>
           </div>
         </section>
