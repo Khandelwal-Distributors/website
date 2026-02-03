@@ -7,14 +7,12 @@ import ProductCard from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { 
-  Star, Phone, ShoppingCart, MessageCircle, Wind, Zap, 
-  Shield, Thermometer, Volume2, Leaf, Wifi, Settings 
+import {
+  Star, Phone, ShoppingCart, MessageCircle, Wind, Zap,
+  Shield, Volume2, Leaf, Wifi, Settings
 } from 'lucide-react';
 import { useProduct, useRecommendedProducts } from '@/hooks/useProducts';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import YouTubeVideos from '@/components/YouTubeVideos';
 
 export default function ProductDetail() {
@@ -22,10 +20,10 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  
+
   const { data: product, isLoading, error } = useProduct(slug || '');
   const { data: recommendedProducts = [] } = useRecommendedProducts(
-    product?.id || '', 
+    product?.id || '',
     product?.brand
   );
 
@@ -76,13 +74,12 @@ export default function ProductDetail() {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-5 w-5 ${
-          i < Math.floor(rating) 
-            ? 'fill-yellow-400 text-yellow-400' 
-            : i < rating 
-            ? 'fill-yellow-400/50 text-yellow-400' 
+        className={`h-5 w-5 ${i < Math.floor(rating)
+          ? 'fill-yellow-400 text-yellow-400'
+          : i < rating
+            ? 'fill-yellow-400/50 text-yellow-400'
             : 'text-muted-foreground'
-        }`}
+          }`}
       />
     ));
   };
@@ -111,7 +108,7 @@ export default function ProductDetail() {
         <meta name="description" content={product.seo_description || `Buy ${product.name} ${product.model} at best price. ${product.tonnage} ton AC with ${product.energy_rating} energy rating. Free installation & warranty.`} />
         <meta name="keywords" content={`${product.name}, ${product.model}, ${product.brand}, ${product.tonnage} ton AC, ${product.energy_rating}, air conditioner`} />
         <link rel="canonical" href={`${window.location.origin}/product/${product.slug}`} />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={product.seo_title || `${product.name} - ${product.model}`} />
         <meta property="og:description" content={product.seo_description || product.description || `Buy ${product.name} at best price with free installation & warranty.`} />
@@ -120,14 +117,14 @@ export default function ProductDetail() {
         <meta property="og:image" content={product.image_urls[0]} />
         <meta property="product:price:amount" content={product.price.toString()} />
         <meta property="product:price:currency" content="INR" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={product.seo_title || `${product.name} - ${product.model}`} />
         <meta name="twitter:description" content={product.seo_description || product.description || `Buy ${product.name} at best price.`} />
         <meta name="twitter:image" content={product.image_urls[0]} />
-        
-        {/* Structured Data */}
+
+        {/* Structured Data - Product Only */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org/",
@@ -140,6 +137,8 @@ export default function ProductDetail() {
             },
             "description": product.description,
             "image": product.image_urls,
+            "sku": product.slug,
+            "mpn": product.model,
             "offers": {
               "@type": "Offer",
               "url": `${window.location.origin}/product/${product.slug}`,
@@ -147,7 +146,12 @@ export default function ProductDetail() {
               "price": product.price,
               "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
               "itemCondition": "https://schema.org/NewCondition",
-              "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+              "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Khandelwal Distributors",
+                "url": "https://www.khandelwaldistributors.com"
+              }
             },
             "aggregateRating": {
               "@type": "AggregateRating",
@@ -182,16 +186,15 @@ export default function ProductDetail() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               {product.image_urls.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
                   {product.image_urls.map((url, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 ${
-                        selectedImageIndex === index ? 'border-primary' : 'border-transparent'
-                      }`}
+                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 ${selectedImageIndex === index ? 'border-primary' : 'border-transparent'
+                        }`}
                     >
                       <img
                         src={url || '/api/placeholder/80/80'}
@@ -292,11 +295,11 @@ export default function ProductDetail() {
               {/* Action Buttons */}
               <div className="space-y-3">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <Button size="lg" variant="secondary" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I am interested in this product. Please share the best price and details.', '_blank')} className="text-lg py-6 bg-green-600 hover:bg-green-700 text-white">
+                  <Button size="lg" variant="secondary" onClick={handleWhatsApp} className="text-lg py-6 bg-green-600 hover:bg-green-700 text-white">
                     <MessageCircle className="mr-2 h-5 w-5" />
                     WhatsApp
                   </Button>
-                  <Button size="lg" variant="outline" onClick={() => window.open('tel:+919429693410', '_self')} className="text-lg py-6">
+                  <Button size="lg" variant="outline" onClick={handleCallNow} className="text-lg py-6">
                     <Phone className="mr-2 h-5 w-5" />
                     Call Now
                   </Button>
@@ -379,11 +382,11 @@ export default function ProductDetail() {
                   </div>
                 </CardContent>
               </Card>
-          )}
+            )}
           </div>
 
           {/* Video Section */}
-          <YouTubeVideos 
+          <YouTubeVideos
             category="products"
             title="Product Videos"
             description="Watch detailed product reviews and installation guides."
@@ -399,6 +402,7 @@ export default function ProductDetail() {
                     key={recommendedProduct.id}
                     product={recommendedProduct}
                     onBuyNow={() => navigate('/checkout', { state: { product: recommendedProduct } })}
+                    disableSchema={true}
                   />
                 ))}
               </div>

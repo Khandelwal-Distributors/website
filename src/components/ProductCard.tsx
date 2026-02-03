@@ -9,9 +9,10 @@ import OptimizedImage from '@/components/OptimizedImage';
 interface ProductCardProps {
   product: Product;
   onBuyNow?: (product: Product) => void;
+  disableSchema?: boolean; // Disable schema markup for secondary product listings
 }
 
-export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
+export default function ProductCard({ product, onBuyNow, disableSchema = false }: ProductCardProps) {
   const handleCallNow = () => {
     window.open('tel:+919429693410', '_self');
   };
@@ -32,45 +33,50 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-4 w-4 ${
-          i < Math.floor(rating) 
-            ? 'fill-yellow-400 text-yellow-400' 
-            : i < rating 
-            ? 'fill-yellow-400/50 text-yellow-400' 
-            : 'text-muted-foreground'
-        }`}
+        className={`h-4 w-4 ${i < Math.floor(rating)
+            ? 'fill-yellow-400 text-yellow-400'
+            : i < rating
+              ? 'fill-yellow-400/50 text-yellow-400'
+              : 'text-muted-foreground'
+          }`}
       />
     ));
   };
 
   return (
-    <article 
-      itemScope 
-      itemType="https://schema.org/Product"
+    <article
+      {...(!disableSchema && {
+        itemScope: true,
+        itemType: "https://schema.org/Product"
+      })}
       className="group hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
     >
-      {/* Hidden structured data */}
-      <meta itemProp="name" content={product.name} />
-      <meta itemProp="description" content={product.description || `${product.name} ${product.model} - ${product.tonnage} ton AC with ${product.energy_rating} energy rating`} />
-      <meta itemProp="image" content={product.image_urls[0]} />
-      <meta itemProp="brand" content={product.brand} />
-      <meta itemProp="model" content={product.model} />
-      <meta itemProp="sku" content={product.id} />
-      
-      {/* Price data */}
-      <div itemProp="offers" itemScope itemType="https://schema.org/Offer" style={{ display: 'none' }}>
-        <meta itemProp="priceCurrency" content="INR" />
-        <meta itemProp="price" content={product.price.toString()} />
-        <meta itemProp="availability" content={product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"} />
-        <meta itemProp="itemCondition" content="https://schema.org/NewCondition" />
-        <meta itemProp="url" content={`${window.location.origin}/product/${product.slug}`} />
-      </div>
+      {/* Hidden structured data - only render if schema is enabled */}
+      {!disableSchema && (
+        <>
+          <meta itemProp="name" content={product.name} />
+          <meta itemProp="description" content={product.description || `${product.name} ${product.model} - ${product.tonnage} ton AC with ${product.energy_rating} energy rating`} />
+          <meta itemProp="image" content={product.image_urls[0]} />
+          <meta itemProp="brand" content={product.brand} />
+          <meta itemProp="model" content={product.model} />
+          <meta itemProp="sku" content={product.id} />
 
-      {/* Rating data */}
-      <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" style={{ display: 'none' }}>
-        <meta itemProp="ratingValue" content={product.star_rating.toString()} />
-        <meta itemProp="reviewCount" content={product.review_count.toString()} />
-      </div>
+          {/* Price data */}
+          <div itemProp="offers" itemScope itemType="https://schema.org/Offer" style={{ display: 'none' }}>
+            <meta itemProp="priceCurrency" content="INR" />
+            <meta itemProp="price" content={product.price.toString()} />
+            <meta itemProp="availability" content={product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"} />
+            <meta itemProp="itemCondition" content="https://schema.org/NewCondition" />
+            <meta itemProp="url" content={`${window.location.origin}/product/${product.slug}`} />
+          </div>
+
+          {/* Rating data */}
+          <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" style={{ display: 'none' }}>
+            <meta itemProp="ratingValue" content={product.star_rating.toString()} />
+            <meta itemProp="reviewCount" content={product.review_count.toString()} />
+          </div>
+        </>
+      )}
 
       <Card>
         <div className="relative">
@@ -84,14 +90,14 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
               />
             </div>
           </Link>
-          
+
           {/* Discount Badge */}
           {product.discount_percent > 0 && (
             <Badge className="absolute top-3 left-3 bg-red-500 text-white font-semibold">
               -{product.discount_percent}% OFF
             </Badge>
           )}
-          
+
           {/* Featured Badge */}
           {product.is_featured && (
             <Badge className="absolute top-3 right-3 bg-accent-warm text-accent-warm-foreground">
@@ -117,7 +123,7 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
           </div>
 
           {/* Product Name */}
-          <Link 
+          <Link
             to={`/product/${product.slug}`}
             className="block hover:text-primary transition-colors"
           >
@@ -190,8 +196,8 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
 
           {/* Action Buttons */}
           <div className="grid grid-cols-2 gap-2 pt-2">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={handleCallNow}
               className="flex items-center gap-2"
@@ -199,7 +205,7 @@ export default function ProductCard({ product, onBuyNow }: ProductCardProps) {
               <Phone className="h-4 w-4" />
               Call Now
             </Button>
-            <Button 
+            <Button
               variant="cta"
               size="sm"
               onClick={handleBuyNow}
