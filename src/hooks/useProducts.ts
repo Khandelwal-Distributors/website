@@ -24,6 +24,7 @@ export interface Product {
   slug: string;
   seo_title: string | null;
   seo_description: string | null;
+  ac_type: 'split' | 'window' | 'cassette' | 'ductable' | 'tower';
   created_at: string;
   updated_at: string;
 }
@@ -44,6 +45,7 @@ export interface ProductFilters {
   maxPrice?: number;
   tonnage?: number[];
   energyRating?: string[];
+  acType?: string[];
   sortBy?: 'price_asc' | 'price_desc' | 'rating' | 'newest';
 }
 
@@ -79,6 +81,10 @@ export function useProducts(filters: ProductFilters = {}) {
 
       if (filters.energyRating && filters.energyRating.length > 0) {
         query = query.in('energy_rating', filters.energyRating);
+      }
+
+      if (filters.acType && filters.acType.length > 0) {
+        query = query.in('ac_type', filters.acType);
       }
 
       // Apply sorting

@@ -10,7 +10,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Search, Filter, Truck, Shield, Award, Clock,
+import {
+  Search, Filter, Truck, Shield, Award, Clock,
   SlidersHorizontal, Grid3X3, List, ChevronDown,
   PlaneTakeoff, ArrowRight
 } from 'lucide-react';
@@ -19,6 +20,13 @@ import YouTubeVideos from '@/components/YouTubeVideos';
 
 const TONNAGE_OPTIONS = [1.0, 1.5, 2.0, 2.5, 3.0];
 const ENERGY_RATINGS = ['3 Star', '4 Star', '5 Star'];
+const AC_TYPES = [
+  { value: 'split', label: 'Split AC' },
+  { value: 'window', label: 'Window AC' },
+  { value: 'cassette', label: 'Cassette AC' },
+  { value: 'ductable', label: 'Ductable AC' },
+  { value: 'tower', label: 'Tower AC' }
+];
 
 export default function Shop() {
   const [filters, setFilters] = useState<ProductFilters>({
@@ -32,7 +40,7 @@ export default function Shop() {
 
   const { data: products = [], isLoading: productsLoading } = useProducts(filters);
   const { data: brands = [] } = useBrands();
-  
+
   // Filter brands to match home page showcase - all 8 brands
   const featuredBrandNames = ["Daikin", "Mitsubishi Heavy", "Carrier", "Voltas", "Amstrad", "Midea", "Godrej", "Cruise"];
   const filteredBrands = brands.filter(brand => featuredBrandNames.includes(brand.name));
@@ -64,6 +72,15 @@ export default function Shop() {
     }
   };
 
+  const handleAcTypeChange = (type: string, checked: boolean) => {
+    const currentTypes = filters.acType || [];
+    if (checked) {
+      handleFilterChange('acType', [...currentTypes, type]);
+    } else {
+      handleFilterChange('acType', currentTypes.filter(t => t !== type));
+    }
+  };
+
   const handleBuyNow = (product: Product) => {
     // Guest checkout: don't force Google sign-in
     navigate('/checkout', { state: { product } });
@@ -80,13 +97,13 @@ export default function Shop() {
     <>
       <Helmet>
         <title>AC Shopping - Best Air Conditioners Online | Khandelwal Distributors</title>
-        <meta name="description" content="Shop for the best air conditioners and HVAC products online. Wide range of 1 ton, 1.5 ton, 2 ton ACs from top brands like Daikin, Carrier, Mitsubishi Heavy. Free installation & warranty. Browse through products like water coolers, dispensers, chest freezers, Alkaline RO, etc. from premium brands like ElanPro, Usha and ZeroB" />
-        <meta name="keywords" content="air conditioner, AC, split AC, inverter AC, 1 ton AC, 1.5 ton AC, 2 ton AC, Daikin, Carrier, Mitsubishi Heavy, Voltas, Godrej, buy AC online, HVAC products, water cooler, deep freezer, alkaline RO" />
+        <meta name="description" content="Shop for the best air conditioners and HVAC products online. Wide range of Split, Window, Cassette, Ductable & Tower ACs in 1 ton, 1.5 ton, 2 ton from top brands like Daikin, Carrier, Mitsubishi Heavy. Free installation & warranty. Browse through products like water coolers, dispensers, chest freezers, Alkaline RO, etc. from premium brands like ElanPro, Usha and ZeroB" />
+        <meta name="keywords" content="air conditioner, AC, split AC, window AC, cassette AC, ductable AC, tower AC, inverter AC, 1 ton AC, 1.5 ton AC, 2 ton AC, Daikin, Carrier, Mitsubishi Heavy, Voltas, Godrej, buy AC online, HVAC products, water cooler, deep freezer, alkaline RO" />
         <link rel="canonical" href={`${window.location.origin}/shop`} />
 
         {/* Open Graph */}
         <meta property="og:title" content="AC Shopping - Best Air Conditioners Online | Khandelwal Distributors" />
-        <meta property="og:description" content="Shop for the best air conditioners online. Wide range of ACs from top brands with free installation & warranty." />
+        <meta property="og:description" content="Shop for the best air conditioners online. Wide range of Split, Window, Cassette, Ductable & Tower ACs from top brands with free installation & warranty." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${window.location.origin}/shop`} />
         <meta property="og:image" content={`${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`} />
@@ -195,16 +212,16 @@ export default function Shop() {
 
             {/* Business Profiles - Main Highlights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-6">
-              <a 
-                href="https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET" 
-                target="_blank" 
+              <a
+                href="https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
-                <img 
-                  src="/icons/jd_icon.png" 
-                  alt="JustDial" 
+                <img
+                  src="/icons/jd_icon.png"
+                  alt="JustDial"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -212,17 +229,17 @@ export default function Shop() {
                   <p className="text-sm text-muted-foreground">400+ ratings</p>
                 </div>
               </a>
-              
-              <a 
-                href="https://www.indiamart.com/khandelwal-distributors-up" 
-                target="_blank" 
+
+              <a
+                href="https://www.indiamart.com/khandelwal-distributors-up"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
-                <img 
-                  src="/icons/indiamart_icon.webp" 
-                  alt="IndiaMART" 
+                <img
+                  src="/icons/indiamart_icon.webp"
+                  alt="IndiaMART"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -230,17 +247,17 @@ export default function Shop() {
                   <p className="text-sm text-muted-foreground">Trusted Seller</p>
                 </div>
               </a>
-              
-              <a 
-                href="https://maps.app.goo.gl/khandelwaldistributors" 
-                target="_blank" 
+
+              <a
+                href="https://maps.app.goo.gl/khandelwaldistributors"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" />
-                <img 
-                  src="/icons/maps_icon.webp" 
-                  alt="Google Maps" 
+                <img
+                  src="/icons/maps_icon.webp"
+                  alt="Google Maps"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -361,6 +378,25 @@ export default function Shop() {
                 {showFilters && (
                   <div className="border-t pt-4 space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {/* AC Type Filter */}
+                      <div>
+                        <h3 className="font-medium mb-3">AC Type</h3>
+                        <div className="space-y-2">
+                          {AC_TYPES.map((type) => (
+                            <div key={type.value} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`ac-type-${type.value}`}
+                                checked={(filters.acType || []).includes(type.value)}
+                                onCheckedChange={(checked) => handleAcTypeChange(type.value, checked as boolean)}
+                              />
+                              <label htmlFor={`ac-type-${type.value}`} className="text-sm">
+                                {type.label}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
                       {/* Tonnage Filter */}
                       <div>
                         <h3 className="font-medium mb-3">Tonnage</h3>
@@ -398,7 +434,9 @@ export default function Shop() {
                           ))}
                         </div>
                       </div>
+                    </div>
 
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {/* Price Range */}
                       <div>
                         <h3 className="font-medium mb-3">Price Range</h3>
@@ -476,8 +514,8 @@ export default function Shop() {
         </main>
 
         {/* Video Section */}
-        <YouTubeVideos 
-          category="shop" 
+        <YouTubeVideos
+          category="shop"
           title="Product Showcase Videos"
           description="Watch detailed reviews and demonstrations of our HVAC products."
         />
