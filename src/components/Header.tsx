@@ -84,7 +84,7 @@ const Header = () => {
   const isShopPage = location.pathname === '/shop';
 
   return (
-    <header className={`bg-white border-b border-border shadow-sm ${isShopPage ? 'md:sticky md:top-0 md:z-50' : 'sticky top-0 z-50'}`}>
+    <header className={`bg-white border-b border-border shadow-sm ${isShopPage ? 'md:sticky md:top-0 md:z-30' : 'sticky top-0 z-50'}`}>
       <div className="container mx-auto px-4 py-4">
         {/* Single Responsive Layout */}
         <div className=" flex items-center">
