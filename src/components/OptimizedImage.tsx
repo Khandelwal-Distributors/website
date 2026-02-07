@@ -10,18 +10,18 @@ interface OptimizedImageProps {
   onLoad?: () => void;
 }
 
-const OptimizedImage = ({ 
-  src, 
-  alt, 
-  className = '', 
+const OptimizedImage = ({
+  src,
+  alt,
+  className = '',
   loading = 'lazy',
   priority = false,
-  onLoad 
+  onLoad
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
-  
+
   const resolvedSrc = useMemo(() => {
     if (src?.startsWith('http://')) return src.replace('http://', 'https://');
     return src;
@@ -68,15 +68,14 @@ const OptimizedImage = ({
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer-overlay" />
         </div>
       )}
-      
+
       {/* Actual image */}
       <img
         ref={imgRef}
         src={resolvedSrc}
         alt={alt}
-        className={`w-full h-full object-cover transition-all duration-500 ease-out ${
-          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-        }`}
+        className={`w-full h-full transition-all duration-500 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          } ${className}`}
         loading={priority ? 'eager' : loading}
         decoding="async"
         fetchPriority={priority ? 'high' : 'auto'}

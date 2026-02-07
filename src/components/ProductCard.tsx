@@ -34,10 +34,10 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false }
       <Star
         key={i}
         className={`h-4 w-4 ${i < Math.floor(rating)
-            ? 'fill-yellow-400 text-yellow-400'
-            : i < rating
-              ? 'fill-yellow-400/50 text-yellow-400'
-              : 'text-muted-foreground'
+          ? 'fill-yellow-400 text-yellow-400'
+          : i < rating
+            ? 'fill-yellow-400/50 text-yellow-400'
+            : 'text-muted-foreground'
           }`}
       />
     ));
@@ -82,11 +82,11 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false }
         <div className="relative">
           {/* Product Image */}
           <Link to={`/product/${product.slug}`}>
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
+            <div className="aspect-square overflow-hidden bg-white flex items-center justify-center rounded-t-lg">
               <OptimizedImage
-                src={product.image_urls[0] || '/api/placeholder/400/300'}
+                src={product.image_urls[0] || '/api/placeholder/400/00'}
                 alt={`${product.name} ${product.model} - ${product.tonnage} ton ${product.brand} air conditioner`}
-                className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full group-hover:scale-105 transition-transform duration-300 object-contain"
               />
             </div>
           </Link>

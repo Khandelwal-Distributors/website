@@ -179,11 +179,11 @@ export default function ProductDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Product Images */}
             <div className="space-y-4">
-              <div className="aspect-square overflow-hidden rounded-lg bg-muted">
+              <div className="aspect-square overflow-hidden rounded-lg bg-muted flex items-center justify-center">
                 <img
                   src={product.image_urls[selectedImageIndex] || '/api/placeholder/600/600'}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
@@ -193,13 +193,13 @@ export default function ProductDetail() {
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 ${selectedImageIndex === index ? 'border-primary' : 'border-transparent'
+                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 flex items-center justify-center ${selectedImageIndex === index ? 'border-primary' : 'border-transparent'
                         }`}
                     >
                       <img
                         src={url || '/api/placeholder/80/80'}
                         alt={`${product.name} view ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </button>
                   ))}
