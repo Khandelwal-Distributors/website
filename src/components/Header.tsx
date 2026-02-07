@@ -81,8 +81,10 @@ const Header = () => {
       { name: "Modular OT", path: "/products/modular-ot" },
     ]
   };
+  const isShopPage = location.pathname === '/shop';
+
   return (
-    <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+    <header className={`bg-white border-b border-border shadow-sm ${isShopPage ? 'md:sticky md:top-0 md:z-50' : 'sticky top-0 z-50'}`}>
       <div className="container mx-auto px-4 py-4">
         {/* Single Responsive Layout */}
         <div className=" flex items-center">
@@ -134,7 +136,7 @@ const Header = () => {
                         ))}
                       </DropdownMenuSubContent>
                     </DropdownMenuSub>
-                    
+
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger className="cursor-pointer">
                         Commercial
@@ -216,27 +218,27 @@ const Header = () => {
                 <div className="pt-4 mt-4 border-t border-border">
                   <p className="text-sm font-semibold mb-3">Follow Us</p>
                   <div className="flex items-center gap-4">
-                    <a 
-                      href="https://www.facebook.com/khandelwaldistributor" 
-                      target="_blank" 
+                    <a
+                      href="https://www.facebook.com/khandelwaldistributor"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                       aria-label="Facebook"
                     >
                       <Facebook className="h-6 w-6" />
                     </a>
-                    <a 
-                      href="https://www.instagram.com/kd.bly" 
-                      target="_blank" 
+                    <a
+                      href="https://www.instagram.com/kd.bly"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                       aria-label="Instagram"
                     >
                       <Instagram className="h-6 w-6" />
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/company/khandelwal-distributors" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/company/khandelwal-distributors"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                       aria-label="LinkedIn"

@@ -293,181 +293,203 @@ export default function Shop() {
           </div>
         </section>
 
-        <main className="container mx-auto px-4 py-8">
-          {/* Search and Filters Bar */}
-          <Card className="mb-6">
-            <CardContent className="p-6">
-              <div className="space-y-4">
-                {/* Search Bar */}
-                <form onSubmit={handleSearch} className="flex gap-2">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      placeholder="Search for ACs by brand, model, or features..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10"
-                    />
-                  </div>
-                  <Button type="submit">Search</Button>
-                </form>
-
-                {/* Quick Filters */}
-                <div className="flex flex-wrap items-center gap-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowFilters(!showFilters)}
-                    className="flex items-center gap-2"
-                  >
-                    <SlidersHorizontal className="h-4 w-4" />
-                    Filters
-                    <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
-                  </Button>
-
-                  {/* Brand Filter */}
-                  <Select value={filters.brand || 'all'} onValueChange={(value) => handleFilterChange('brand', value === 'all' ? undefined : value)}>
-                    <SelectTrigger className="w-40">
-                      <SelectValue placeholder="All Brands" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Brands</SelectItem>
-                      {filteredBrands.map((brand) => (
-                        <SelectItem key={brand.id} value={brand.name}>
-                          {brand.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  {/* Sort */}
-                  <Select value={filters.sortBy} onValueChange={(value) => handleFilterChange('sortBy', value as any)}>
-                    <SelectTrigger className="w-40">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="rating">Best Rated</SelectItem>
-                      <SelectItem value="price_asc">Price: Low to High</SelectItem>
-                      <SelectItem value="price_desc">Price: High to Low</SelectItem>
-                      <SelectItem value="newest">Newest First</SelectItem>
-                    </SelectContent>
-                  </Select>
-
-                  {/* View Mode */}
-                  <div className="flex items-center border rounded-md">
-                    <Button
-                      variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
-                      size="sm"
-                      onClick={() => setViewMode('grid')}
-                      className="rounded-r-none"
-                    >
-                      <Grid3X3 className="h-4 w-4" />
+        {/* Search and Filters Bar - Sticky */}
+        <div className="sticky top-0 z-40 bg-background border-b">
+          <div className="container mx-auto px-4">
+            <Card className="mb-0 rounded-none border-0 border-b">
+              <CardContent className="p-4 md:p-6">
+                <div className="space-y-4">
+                  {/* Search Bar */}
+                  <form onSubmit={handleSearch} className="flex gap-2">
+                    <div className="relative flex-1">
+                      <Input
+                        placeholder="Search for ACs by brand, model, or features..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="hidden md:block pl-10"
+                      />
+                      <Input
+                        placeholder="Search"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="md:hidden"
+                      />
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground hidden md:block" />
+                    </div>
+                    <Button type="submit" size="sm" className="hidden md:flex">Search</Button>
+                    <Button type="submit" size="icon" className="md:hidden">
+                      <Search className="h-4 w-4" />
                     </Button>
                     <Button
-                      variant={viewMode === 'list' ? 'secondary' : 'ghost'}
-                      size="sm"
-                      onClick={() => setViewMode('list')}
-                      className="rounded-l-none"
+                      type="button"
+                      size="icon"
+                      variant="outline"
+                      className="md:hidden"
+                      onClick={() => setShowFilters(!showFilters)}
                     >
-                      <List className="h-4 w-4" />
+                      <Filter className="h-4 w-4" />
                     </Button>
-                  </div>
-                </div>
+                  </form>
 
-                {/* Advanced Filters */}
-                {showFilters && (
-                  <div className="border-t pt-4 space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* AC Type Filter */}
-                      <div>
-                        <h3 className="font-medium mb-3">AC Type</h3>
-                        <div className="space-y-2">
-                          {AC_TYPES.map((type) => (
-                            <div key={type.value} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`ac-type-${type.value}`}
-                                checked={(filters.acType || []).includes(type.value)}
-                                onCheckedChange={(checked) => handleAcTypeChange(type.value, checked as boolean)}
-                              />
-                              <label htmlFor={`ac-type-${type.value}`} className="text-sm">
-                                {type.label}
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                  {/* Quick Filters - Desktop Only */}
+                  <div className="hidden md:flex flex-wrap items-center gap-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShowFilters(!showFilters)}
+                      className="flex items-center gap-2"
+                    >
+                      <SlidersHorizontal className="h-4 w-4" />
+                      Filters
+                      <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+                    </Button>
 
-                      {/* Tonnage Filter */}
-                      <div>
-                        <h3 className="font-medium mb-3">Tonnage</h3>
-                        <div className="space-y-2">
-                          {TONNAGE_OPTIONS.map((tonnage) => (
-                            <div key={tonnage} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`tonnage-${tonnage}`}
-                                checked={(filters.tonnage || []).includes(tonnage)}
-                                onCheckedChange={(checked) => handleTonnageChange(tonnage, checked as boolean)}
-                              />
-                              <label htmlFor={`tonnage-${tonnage}`} className="text-sm">
-                                {tonnage} Ton
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                    {/* Brand Filter */}
+                    <Select value={filters.brand || 'all'} onValueChange={(value) => handleFilterChange('brand', value === 'all' ? undefined : value)}>
+                      <SelectTrigger className="w-40">
+                        <SelectValue placeholder="All Brands" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Brands</SelectItem>
+                        {filteredBrands.map((brand) => (
+                          <SelectItem key={brand.id} value={brand.name}>
+                            {brand.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
 
-                      {/* Energy Rating Filter */}
-                      <div>
-                        <h3 className="font-medium mb-3">Energy Rating</h3>
-                        <div className="space-y-2">
-                          {ENERGY_RATINGS.map((rating) => (
-                            <div key={rating} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`rating-${rating}`}
-                                checked={(filters.energyRating || []).includes(rating)}
-                                onCheckedChange={(checked) => handleEnergyRatingChange(rating, checked as boolean)}
-                              />
-                              <label htmlFor={`rating-${rating}`} className="text-sm">
-                                {rating}
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    {/* Sort */}
+                    <Select value={filters.sortBy} onValueChange={(value) => handleFilterChange('sortBy', value as any)}>
+                      <SelectTrigger className="w-40">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="rating">Best Rated</SelectItem>
+                        <SelectItem value="price_asc">Price: Low to High</SelectItem>
+                        <SelectItem value="price_desc">Price: High to Low</SelectItem>
+                        <SelectItem value="newest">Newest First</SelectItem>
+                      </SelectContent>
+                    </Select>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Price Range */}
-                      <div>
-                        <h3 className="font-medium mb-3">Price Range</h3>
-                        <div className="space-y-2">
-                          <Input
-                            type="number"
-                            placeholder="Min Price"
-                            value={filters.minPrice || ''}
-                            onChange={(e) => handleFilterChange('minPrice', e.target.value ? Number(e.target.value) : undefined)}
-                          />
-                          <Input
-                            type="number"
-                            placeholder="Max Price"
-                            value={filters.maxPrice || ''}
-                            onChange={(e) => handleFilterChange('maxPrice', e.target.value ? Number(e.target.value) : undefined)}
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <Button variant="outline" onClick={clearFilters}>
-                        Clear Filters
+                    {/* View Mode */}
+                    <div className="flex items-center border rounded-md">
+                      <Button
+                        variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
+                        size="sm"
+                        onClick={() => setViewMode('grid')}
+                        className="rounded-r-none"
+                      >
+                        <Grid3X3 className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        variant={viewMode === 'list' ? 'secondary' : 'ghost'}
+                        size="sm"
+                        onClick={() => setViewMode('list')}
+                        className="rounded-l-none"
+                      >
+                        <List className="h-4 w-4" />
                       </Button>
                     </div>
                   </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
 
+                  {/* Advanced Filters */}
+                  {showFilters && (
+                    <div className="border-t pt-4 space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* AC Type Filter */}
+                        <div>
+                          <h3 className="font-medium mb-3">AC Type</h3>
+                          <div className="space-y-2">
+                            {AC_TYPES.map((type) => (
+                              <div key={type.value} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`ac-type-${type.value}`}
+                                  checked={(filters.acType || []).includes(type.value)}
+                                  onCheckedChange={(checked) => handleAcTypeChange(type.value, checked as boolean)}
+                                />
+                                <label htmlFor={`ac-type-${type.value}`} className="text-sm">
+                                  {type.label}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Tonnage Filter */}
+                        <div>
+                          <h3 className="font-medium mb-3">Tonnage</h3>
+                          <div className="space-y-2">
+                            {TONNAGE_OPTIONS.map((tonnage) => (
+                              <div key={tonnage} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`tonnage-${tonnage}`}
+                                  checked={(filters.tonnage || []).includes(tonnage)}
+                                  onCheckedChange={(checked) => handleTonnageChange(tonnage, checked as boolean)}
+                                />
+                                <label htmlFor={`tonnage-${tonnage}`} className="text-sm">
+                                  {tonnage} Ton
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Energy Rating Filter */}
+                        <div>
+                          <h3 className="font-medium mb-3">Energy Rating</h3>
+                          <div className="space-y-2">
+                            {ENERGY_RATINGS.map((rating) => (
+                              <div key={rating} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`rating-${rating}`}
+                                  checked={(filters.energyRating || []).includes(rating)}
+                                  onCheckedChange={(checked) => handleEnergyRatingChange(rating, checked as boolean)}
+                                />
+                                <label htmlFor={`rating-${rating}`} className="text-sm">
+                                  {rating}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Price Range */}
+                        <div>
+                          <h3 className="font-medium mb-3">Price Range</h3>
+                          <div className="space-y-2">
+                            <Input
+                              type="number"
+                              placeholder="Min Price"
+                              value={filters.minPrice || ''}
+                              onChange={(e) => handleFilterChange('minPrice', e.target.value ? Number(e.target.value) : undefined)}
+                            />
+                            <Input
+                              type="number"
+                              placeholder="Max Price"
+                              value={filters.maxPrice || ''}
+                              onChange={(e) => handleFilterChange('maxPrice', e.target.value ? Number(e.target.value) : undefined)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <Button variant="outline" onClick={clearFilters}>
+                          Clear Filters
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <main className="container mx-auto px-4 py-8">
           {/* Results Count */}
           <div className="flex justify-between items-center mb-6">
             <p className="text-muted-foreground">

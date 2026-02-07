@@ -82,7 +82,7 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false }
         <div className="relative">
           {/* Product Image */}
           <Link to={`/product/${product.slug}`}>
-            <div className="aspect-square overflow-hidden bg-white flex items-center justify-center rounded-t-lg">
+            <div className="h-60 md:h-auto md:aspect-square overflow-hidden bg-white flex items-center justify-center rounded-t-lg">
               <OptimizedImage
                 src={product.image_urls[0] || '/api/placeholder/400/00'}
                 alt={`${product.name} ${product.model} - ${product.tonnage} ton ${product.brand} air conditioner`}
@@ -145,7 +145,7 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false }
           </div>
 
           {/* Key Specifications */}
-          <div className="grid grid-cols-3 gap-2 py-2">
+          <div className="hidden md:grid grid-cols-3 gap-2 py-2">
             <div className="text-center">
               <Wind className="h-5 w-5 mx-auto mb-1 text-primary" />
               <p className="text-xs font-semibold">{product.tonnage} Ton</p>
