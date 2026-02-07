@@ -265,7 +265,9 @@ export default function ProductDetail() {
                 </div>
                 <div className="text-center">
                   <Settings className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-                  <p className="font-semibold">Inverter</p>
+                  <p className="font-semibold">
+                    {/fixed speed|non-?inverter/i.test(product.name) ? 'Fixed Speed' : 'Inverter'}
+                  </p>
                   <p className="text-sm text-muted-foreground">Technology</p>
                 </div>
               </div>
