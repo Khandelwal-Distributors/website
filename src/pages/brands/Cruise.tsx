@@ -5,12 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Star, CheckCircle, Truck, Zap, Shield, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useProducts } from "@/hooks/useProducts";
+import ProductCard from "@/components/ProductCard";
 import cruiseLogo from "@/assets/brands/cruise-logo.jpg";
 import portableAC from "@/assets/portable-ac.jpg";
 import splitAC from "@/assets/split-ac.jpg";
 import floorStandingAC from "@/assets/floor-standing-ac.jpg";
 
 const Cruise = () => {
+  const { data: brandProducts = [] } = useProducts({ brand: 'Cruise' });
   const products = [
     {
       name: "Portable AC Units",
@@ -186,6 +189,27 @@ const Cruise = () => {
               </div>
             </div>
           </section>
+
+          {/* Available Products Section */}
+          {brandProducts.length > 0 && (
+            <section className="py-16 bg-background">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-12">
+                  Available Cruise Products
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {brandProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      disableSchema={true}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* CTA Section */}
           <section className="py-16 bg-primary text-primary-foreground">

@@ -4,12 +4,16 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Star, CheckCircle, IndianRupee, TrendingUp, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useProducts } from "@/hooks/useProducts";
+import ProductCard from "@/components/ProductCard";
 import mideaLogo from "@/assets/brands/midea-logo.jpg";
 import splitAC from "@/assets/split-ac.jpg";
 import cassetteAC from "@/assets/cassette-ac.jpg";
+import ductableAC from "@/assets/ductable-ac.jpg";
+import floorStandingAC from "@/assets/floor-standing-ac.jpg";
 
 const Midea = () => {
+  const { data: brandProducts = [] } = useProducts({ brand: 'Midea' });
   const products = [
     {
       name: "Split AC Systems",
@@ -22,6 +26,18 @@ const Midea = () => {
       description: "Commercial cassette ACs for office and retail spaces",
       image: cassetteAC,
       features: ["360° Air Flow", "Commercial Grade", "Easy Maintenance"]
+    },
+    {
+      name: "Ductable AC Systems",
+      description: "Concealed cooling solutions for modern office and residential buildings",
+      image: ductableAC,
+      features: ["Hidden Installation", "Central Control", "Uniform Cooling"]
+    },
+    {
+      name: "Floor Standing AC Units",
+      description: "Powerful standalone units for large commercial spaces",
+      image: floorStandingAC,
+      features: ["High Capacity", "Independent Operation", "Flexible Placement"]
     }
   ];
 
@@ -179,6 +195,27 @@ const Midea = () => {
               </div>
             </div>
           </section>
+
+          {/* Available Products Section */}
+          {brandProducts.length > 0 && (
+            <section className="py-16 bg-background">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-12">
+                  Available Midea Products
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {brandProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      disableSchema={true}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* CTA Section */}
           <section className="py-16 bg-primary text-primary-foreground">

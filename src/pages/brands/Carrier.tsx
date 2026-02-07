@@ -5,12 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Star, CheckCircle, Thermometer, Clock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useProducts } from "@/hooks/useProducts";
+import ProductCard from "@/components/ProductCard";
 import carrierLogo from "@/assets/brands/carrier-logo.jpg";
 import splitAC from "@/assets/split-ac.jpg";
 import windowAC from "@/assets/window-ac.jpg";
 import portableAC from "@/assets/portable-ac.jpg";
 
 const Carrier = () => {
+  const { data: brandProducts = [] } = useProducts({ brand: 'Carrier' });
   const products = [
     {
       name: "Split Air Conditioners",
@@ -174,6 +177,27 @@ const Carrier = () => {
               </div>
             </div>
           </section>
+
+          {/* Available Products Section */}
+          {brandProducts.length > 0 && (
+            <section className="py-16 bg-background">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-12">
+                  Available Carrier Products
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {brandProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      disableSchema={true}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* CTA Section */}
           <section className="py-16 bg-primary text-primary-foreground">

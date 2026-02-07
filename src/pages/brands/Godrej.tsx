@@ -4,12 +4,14 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Star, CheckCircle, IndianRupee, Heart, Leaf, Award } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useProducts } from "@/hooks/useProducts";
+import ProductCard from "@/components/ProductCard";
 import godrejLogo from "@/assets/brands/godrej-logo.jpg";
 import splitAC from "@/assets/split-ac.jpg";
 import windowAC from "@/assets/window-ac.jpg";
 
 const Godrej = () => {
+  const { data: brandProducts = [] } = useProducts({ brand: 'Godrej' });
   const products = [
     {
       name: "Split AC Systems",
@@ -179,6 +181,27 @@ const Godrej = () => {
               </div>
             </div>
           </section>
+
+          {/* Available Products Section */}
+          {brandProducts.length > 0 && (
+            <section className="py-16 bg-background">
+              <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-12">
+                  Available Godrej Products
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {brandProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      disableSchema={true}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* CTA Section */}
           <section className="py-16 bg-primary text-primary-foreground">
