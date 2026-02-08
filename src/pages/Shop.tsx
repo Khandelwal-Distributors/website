@@ -135,7 +135,7 @@ export default function Shop() {
               "https://www.instagram.com/kd.bly",
               "https://www.linkedin.com/company/khandelwal-distributors",
               "https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET",
-              "https://www.indiamart.com/khandelwal-distributors-up",
+              "https://www.indiamart.com/khandelwal-distributors-up"
             ]
           })}
         </script>
