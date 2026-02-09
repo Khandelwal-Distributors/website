@@ -40,6 +40,8 @@ serve(async (req) => {
     const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, serviceKey);
 
+    let result;
+
     if (action === 'insert') {
       const { data: inserted, error } = await supabase
         .from('products')
@@ -47,12 +49,10 @@ serve(async (req) => {
         .select()
         .single();
       if (error) throw error;
-      return new Response(JSON.stringify({ success: true, product: inserted }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      result = { success: true, product: inserted };
     }
 
-    if (action === 'update') {
+    else if (action === 'update') {
       if (!id) {
         return new Response(JSON.stringify({ error: 'Missing id for update' }), {
           status: 400,
@@ -66,12 +66,10 @@ serve(async (req) => {
         .select()
         .single();
       if (error) throw error;
-      return new Response(JSON.stringify({ success: true, product: updated }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      result = { success: true, product: updated };
     }
 
-    if (action === 'delete') {
+    else if (action === 'delete') {
       if (!id) {
         return new Response(JSON.stringify({ error: 'Missing id for delete' }), {
           status: 400,
@@ -83,7 +81,11 @@ serve(async (req) => {
         .delete()
         .eq('id', id);
       if (error) throw error;
-      return new Response(JSON.stringify({ success: true }), {
+      result = { success: true };
+    }
+
+    if (result) {
+      return new Response(JSON.stringify(result), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }

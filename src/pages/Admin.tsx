@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Trash2, Edit, Plus, Video, Package, FolderOpen, Save, ShoppingCart } from 'lucide-react';
+import { Trash2, Edit, Plus, Video, Package, FolderOpen, Save, ShoppingCart, Download } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Product, useBrands } from '@/hooks/useProducts';
@@ -84,7 +84,7 @@ export default function Admin() {
   const [editingVideo, setEditingVideo] = useState<VideoContent | null>(null);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  
+
   const { toast } = useToast();
   const { data: brands } = useBrands();
 
@@ -113,7 +113,7 @@ export default function Admin() {
         .from('video_content')
         .select('*')
         .order('sort_order', { ascending: true });
-      
+
       if (error) throw error;
       setVideos(data || []);
     } catch (error) {
@@ -132,7 +132,7 @@ export default function Admin() {
         .from('projects')
         .select('*')
         .order('created_at', { ascending: false });
-      
+
       if (error) throw error;
       setProjects(data || []);
     } catch (error) {
@@ -151,11 +151,12 @@ export default function Admin() {
         .from('products')
         .select('*')
         .order('created_at', { ascending: false });
-      
+
       if (error) throw error;
       setProducts((data || []).map(product => ({
         ...product,
-        specifications: product.specifications as Record<string, any>
+        specifications: product.specifications as Record<string, any>,
+        ac_type: 'split' as 'split' | 'window' | 'cassette' | 'ductable' | 'tower'
       })));
     } catch (error) {
       console.error('Error loading products:', error);
@@ -176,7 +177,7 @@ export default function Admin() {
           products (name, model, brand)
         `)
         .order('created_at', { ascending: false });
-      
+
       if (error) throw error;
       setOrders(data || []);
     } catch (error) {
@@ -311,7 +312,7 @@ export default function Admin() {
       }
 
       // Generate slug from name if not provided
-      const slug = productData.slug || 
+      const slug = productData.slug ||
         productData.name.toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/(^-|-$)/g, '');
@@ -380,7 +381,7 @@ export default function Admin() {
         .from('video_content')
         .delete()
         .eq('id', id);
-      
+
       if (error) throw error;
       await loadVideos();
       toast({
@@ -408,9 +409,9 @@ export default function Admin() {
         .from('orders')
         .update(updateData)
         .eq('id', orderId);
-      
+
       if (error) throw error;
-      
+
       await loadOrders();
       toast({
         title: 'Success',
@@ -432,7 +433,7 @@ export default function Admin() {
         .from('projects')
         .delete()
         .eq('id', id);
-      
+
       if (error) throw error;
       await loadProjects();
       toast({
@@ -478,6 +479,47 @@ export default function Admin() {
     }
   };
 
+  const downloadSitemap = async () => {
+    try {
+      setLoading(true);
+      const { data, error } = await supabase.functions.invoke('update-sitemap-xml', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (error) throw error;
+
+      // Data is already the XML string from the edge function
+      const xmlContent = typeof data === 'string' ? data : JSON.stringify(data);
+
+      // Create blob and download
+      const blob = new Blob([xmlContent], { type: 'application/xml' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sitemap.xml';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+
+      toast({
+        title: 'Success',
+        description: 'Sitemap downloaded successfully.',
+      });
+    } catch (error: any) {
+      console.error('Error downloading sitemap:', error);
+      toast({
+        title: 'Error',
+        description: error?.message || 'Failed to download sitemap.',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const savedAuth = localStorage.getItem('admin_authenticated');
     if (savedAuth) {
@@ -499,8 +541,8 @@ export default function Admin() {
   }, [isAuthenticated]);
 
   // Filter videos based on selected category
-  const filteredVideos = categoryFilter === 'all' 
-    ? videos 
+  const filteredVideos = categoryFilter === 'all'
+    ? videos
     : videos.filter(video => video.category === categoryFilter);
 
   // Filter products based on search
@@ -511,8 +553,8 @@ export default function Admin() {
   );
 
   // Filter orders based on status
-  const filteredOrders = orderStatusFilter === 'all' 
-    ? orders 
+  const filteredOrders = orderStatusFilter === 'all'
+    ? orders
     : orders.filter(order => order.status === orderStatusFilter);
 
   if (!isAuthenticated) {
@@ -522,7 +564,7 @@ export default function Admin() {
           <title>Admin Access - HVAC Admin Panel</title>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
-        
+
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20">
           <Card className="w-full max-w-md">
             <CardHeader>
@@ -564,17 +606,27 @@ export default function Admin() {
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
               <h1 className="text-2xl font-bold">HVAC Admin Panel</h1>
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  setIsAuthenticated(false);
-                  setAccessCode('');
-                  localStorage.removeItem('admin_authenticated');
-                  localStorage.removeItem('admin_code');
-                }}
-              >
-                Logout
-              </Button>
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={downloadSitemap}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Download Sitemap
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsAuthenticated(false);
+                    setAccessCode('');
+                    localStorage.removeItem('admin_authenticated');
+                    localStorage.removeItem('admin_code');
+                  }}
+                >
+                  Logout
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -961,16 +1013,16 @@ export default function Admin() {
                         <div className="flex gap-2">
                           <Badge variant={
                             order.status === 'delivered' ? 'default' :
-                            order.status === 'cancelled' ? 'destructive' :
-                            order.status === 'shipped' ? 'secondary' :
-                            'outline'
+                              order.status === 'cancelled' ? 'destructive' :
+                                order.status === 'shipped' ? 'secondary' :
+                                  'outline'
                           }>
                             {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                           </Badge>
                           <Badge variant={
                             order.payment_status === 'paid' ? 'default' :
-                            order.payment_status === 'failed' ? 'destructive' :
-                            'outline'
+                              order.payment_status === 'failed' ? 'destructive' :
+                                'outline'
                           }>
                             {order.payment_status.charAt(0).toUpperCase() + order.payment_status.slice(1)}
                           </Badge>
@@ -1023,7 +1075,7 @@ export default function Admin() {
                             <SelectItem value="cancelled">Cancelled</SelectItem>
                           </SelectContent>
                         </Select>
-                        
+
                         <Select
                           value={order.payment_status}
                           onValueChange={(value) => updateOrderStatus(order.id, order.status, value)}
@@ -1061,14 +1113,14 @@ export default function Admin() {
 }
 
 // Video Form Component
-function VideoForm({ 
-  video, 
-  onSave, 
-  loading 
-}: { 
-  video: VideoContent | null; 
-  onSave: (data: Partial<VideoContent>) => void; 
-  loading: boolean; 
+function VideoForm({
+  video,
+  onSave,
+  loading
+}: {
+  video: VideoContent | null;
+  onSave: (data: Partial<VideoContent>) => void;
+  loading: boolean;
 }) {
   const [formData, setFormData] = useState({
     title: video?.title || '',
@@ -1118,40 +1170,40 @@ function VideoForm({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-        <Label htmlFor="category">Category</Label>
-        <Select
-          value={formData.category}
-          onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
-        >
-          <SelectTrigger>
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="homepage">Homepage</SelectItem>
-            <SelectItem value="products">Products (General)</SelectItem>
-            <SelectItem value="shop">Shop</SelectItem>
-            <SelectItem value="product-categories">Product Categories</SelectItem>
-            {/* Product Specific Categories */}
-            <SelectItem value="inverter-split-ac">Inverter Split AC</SelectItem>
-            <SelectItem value="non-inverter-split-ac">Non-Inverter Split AC</SelectItem>
-            <SelectItem value="window-ac">Window AC</SelectItem>
-            <SelectItem value="cassette-ac">Cassette AC</SelectItem>
-            <SelectItem value="ductable-ac">Ductable AC</SelectItem>
-            <SelectItem value="floor-standing-ac">Floor Standing AC</SelectItem>
-            <SelectItem value="portable-ac">Portable AC</SelectItem>
-            <SelectItem value="vrv-system">VRV System</SelectItem>
-            <SelectItem value="chiller-system">Chiller System</SelectItem>
-            <SelectItem value="ahu-system">AHU System</SelectItem>
-            <SelectItem value="heat-pump">Heat Pump</SelectItem>
-            <SelectItem value="ventilation-hrv">Ventilation HRV</SelectItem>
-            <SelectItem value="cold-room">Cold Room</SelectItem>
-            <SelectItem value="deep-freezers">Deep Freezers</SelectItem>
-            <SelectItem value="water-cooler">Water Cooler</SelectItem>
-            <SelectItem value="air-purifier">Air Purifier</SelectItem>
-            <SelectItem value="alkaline-ro">Alkaline RO</SelectItem>
-            <SelectItem value="solar-water-heater">Solar Water Heater</SelectItem>
-          </SelectContent>
-        </Select>
+          <Label htmlFor="category">Category</Label>
+          <Select
+            value={formData.category}
+            onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
+          >
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="homepage">Homepage</SelectItem>
+              <SelectItem value="products">Products (General)</SelectItem>
+              <SelectItem value="shop">Shop</SelectItem>
+              <SelectItem value="product-categories">Product Categories</SelectItem>
+              {/* Product Specific Categories */}
+              <SelectItem value="inverter-split-ac">Inverter Split AC</SelectItem>
+              <SelectItem value="non-inverter-split-ac">Non-Inverter Split AC</SelectItem>
+              <SelectItem value="window-ac">Window AC</SelectItem>
+              <SelectItem value="cassette-ac">Cassette AC</SelectItem>
+              <SelectItem value="ductable-ac">Ductable AC</SelectItem>
+              <SelectItem value="floor-standing-ac">Floor Standing AC</SelectItem>
+              <SelectItem value="portable-ac">Portable AC</SelectItem>
+              <SelectItem value="vrv-system">VRV System</SelectItem>
+              <SelectItem value="chiller-system">Chiller System</SelectItem>
+              <SelectItem value="ahu-system">AHU System</SelectItem>
+              <SelectItem value="heat-pump">Heat Pump</SelectItem>
+              <SelectItem value="ventilation-hrv">Ventilation HRV</SelectItem>
+              <SelectItem value="cold-room">Cold Room</SelectItem>
+              <SelectItem value="deep-freezers">Deep Freezers</SelectItem>
+              <SelectItem value="water-cooler">Water Cooler</SelectItem>
+              <SelectItem value="air-purifier">Air Purifier</SelectItem>
+              <SelectItem value="alkaline-ro">Alkaline RO</SelectItem>
+              <SelectItem value="solar-water-heater">Solar Water Heater</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div>
@@ -1184,14 +1236,14 @@ function VideoForm({
 }
 
 // Project Form Component
-function ProjectForm({ 
-  project, 
-  onSave, 
-  loading 
-}: { 
-  project: Project | null; 
-  onSave: (data: Partial<Project>) => void; 
-  loading: boolean; 
+function ProjectForm({
+  project,
+  onSave,
+  loading
+}: {
+  project: Project | null;
+  onSave: (data: Partial<Project>) => void;
+  loading: boolean;
 }) {
   const [formData, setFormData] = useState({
     title: project?.title || '',
@@ -1357,14 +1409,14 @@ function ProjectForm({
 }
 
 // Product Form Component
-function ProductForm({ 
-  product, 
-  onSave, 
+function ProductForm({
+  product,
+  onSave,
   loading,
-  brands 
-}: { 
-  product: Product | null; 
-  onSave: (data: Partial<Product>) => void; 
+  brands
+}: {
+  product: Product | null;
+  onSave: (data: Partial<Product>) => void;
   loading: boolean;
   brands: any[];
 }) {
@@ -1615,7 +1667,7 @@ function ProductForm({
             </div>
           </div>
         </div>
-        
+
         <div>
           <Label htmlFor="seo_title">SEO Title</Label>
           <Input
@@ -1625,7 +1677,7 @@ function ProductForm({
             placeholder="Custom title for search engines"
           />
         </div>
-        
+
         <div>
           <Label htmlFor="seo_description">SEO Description</Label>
           <Textarea
