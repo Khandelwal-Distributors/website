@@ -22,18 +22,18 @@ const RefundPolicy = () => {
         <meta name="description" content="Learn about our refund, return, and exchange policy for HVAC products and services at Khandelwal Distributors. Contact us to cancel your order." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.khandelwaldistributors.com/refund-policy" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Refund Policy | Khandelwal Distributors" />
         <meta property="og:description" content="Refund and Return Policy for Khandelwal Distributors" />
         <meta property="og:url" content="https://www.khandelwaldistributors.com/refund-policy" />
         <meta property="og:type" content="website" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Refund Policy | Khandelwal Distributors" />
         <meta name="twitter:description" content="Refund Policy for Khandelwal Distributors - HVAC Solutions" />
-        
+
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
@@ -41,7 +41,7 @@ const RefundPolicy = () => {
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main className="container mx-auto px-4 py-12">
           <Card className="max-w-4xl mx-auto p-8">
             <h1 className="text-4xl font-bold mb-6 text-foreground">Refund Policy</h1>
@@ -68,7 +68,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">2. Return Policy</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">2.1 Return Eligibility:</strong> Products may be returned within 7 days of delivery if they are unused, in original packaging, and with all accessories, manuals, and warranty cards intact.
+                  <strong className="text-foreground">2.1 Return Eligibility:</strong> Products may be returned within 5 days of delivery if they are unused, in original packaging, and with all accessories, manuals, and warranty cards intact.
                 </p>
                 <p>
                   <strong className="text-foreground">2.2 Non-Returnable Items:</strong> The following items cannot be returned:
@@ -99,7 +99,7 @@ const RefundPolicy = () => {
                   <strong className="text-foreground">3.3 Refund Method:</strong> Approved refunds will be processed using the same payment method used for the original purchase. If this is not possible, we will arrange an alternative refund method with you.
                 </p>
                 <p>
-                  <strong className="text-foreground">3.4 Refund Timeline:</strong> After approval, refunds will be processed within 7-10 business days. The time it takes for the refund to reflect in your account may vary depending on your bank or payment provider.
+                  <strong className="text-foreground">3.4 Refund Timeline:</strong> After approval, refunds will be processed within 2 business days. The time it takes for the refund to reflect in your account may vary depending on your bank or payment provider.
                 </p>
                 <p>
                   <strong className="text-foreground">3.5 Deductions:</strong> The following may be deducted from your refund:
@@ -117,7 +117,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">4. Exchange Policy</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">4.1 Exchange Eligibility:</strong> If you wish to exchange a product for a different model or specification, please call us at <a href="tel:+919429693410" className="text-primary hover:underline font-semibold">+91 9429693410</a> within 7 days of delivery.
+                  <strong className="text-foreground">4.1 Exchange Eligibility:</strong> If you wish to exchange a product for a different model or specification, please call us at <a href="tel:+919429693410" className="text-primary hover:underline font-semibold">+91 9429693410</a> within 5 days of delivery.
                 </p>
                 <p>
                   <strong className="text-foreground">4.2 Exchange Process:</strong> The product must meet all return policy conditions. Price differences will be adjusted at the time of exchange. Additional charges may apply for delivery and installation of the new product.
