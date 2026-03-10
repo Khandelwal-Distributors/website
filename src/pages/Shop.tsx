@@ -6,13 +6,12 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
   Search, Filter, Truck, Shield, Award, Clock,
-  SlidersHorizontal, Grid3X3, List, ChevronDown,
+  SlidersHorizontal, ChevronDown,
   PlaneTakeoff, ArrowRight
 } from 'lucide-react';
 import { useProducts, useBrands, type ProductFilters, type Product } from '@/hooks/useProducts';
@@ -33,7 +32,7 @@ export default function Shop() {
     sortBy: 'rating'
   });
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
   const [showFilters, setShowFilters] = useState(false);
 
   const navigate = useNavigate();
@@ -298,199 +297,170 @@ export default function Shop() {
           </div>
         </section>
 
-        {/* Search and Filters Bar - Sticky */}
-        <div className="sticky top-0 z-40 bg-background border-b">
+        {/* Search and Filters Bar */}
+        <div className="sticky top-0 z-40 bg-white shadow-sm md:static md:z-auto md:shadow-none md:border-b">
           <div className="container mx-auto px-4">
-            <Card className="mb-0 rounded-none border-0 border-b">
-              <CardContent className="p-4 md:p-6">
-                <div className="space-y-4">
-                  {/* Search Bar */}
-                  <form onSubmit={handleSearch} className="flex gap-2">
-                    <div className="relative flex-1">
-                      <Input
-                        placeholder="Search for ACs by brand, model, or features..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="hidden md:block pl-10"
-                      />
-                      <Input
-                        placeholder="Search"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="md:hidden"
-                      />
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground hidden md:block" />
-                    </div>
-                    <Button type="submit" size="sm" className="hidden md:flex">Search</Button>
-                    <Button type="submit" size="icon" className="md:hidden">
-                      <Search className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      type="button"
-                      size="icon"
-                      variant="outline"
-                      className="md:hidden"
-                      onClick={() => setShowFilters(!showFilters)}
-                    >
-                      <Filter className="h-4 w-4" />
-                    </Button>
-                  </form>
+            {/* Main toolbar row */}
+            <div className="flex items-center gap-2 py-3">
+              {/* Search */}
+              <form onSubmit={handleSearch} className="flex-1 flex items-center gap-2">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    placeholder="Search by brand, model, or features..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9 h-9 text-sm bg-muted/40 border-0 focus-visible:ring-1"
+                  />
+                </div>
+                <Button type="submit" size="sm" className="h-9 px-4 shrink-0 hidden md:inline-flex">Search</Button>
+              </form>
 
-                  {/* Quick Filters - Desktop Only */}
-                  <div className="hidden md:flex flex-wrap items-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setShowFilters(!showFilters)}
-                      className="flex items-center gap-2"
-                    >
-                      <SlidersHorizontal className="h-4 w-4" />
-                      Filters
-                      <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
-                    </Button>
+              {/* Desktop: Brand + Sort + Filters toggle */}
+              <div className="hidden md:flex items-center gap-2 shrink-0">
+                <Select value={filters.brand || 'all'} onValueChange={(value) => handleFilterChange('brand', value === 'all' ? undefined : value)}>
+                  <SelectTrigger className="h-9 w-36 text-sm bg-muted/40 border-0 focus:ring-1">
+                    <SelectValue placeholder="All Brands" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Brands</SelectItem>
+                    {filteredBrands.map((brand) => (
+                      <SelectItem key={brand.id} value={brand.name}>{brand.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
 
-                    {/* Brand Filter */}
-                    <Select value={filters.brand || 'all'} onValueChange={(value) => handleFilterChange('brand', value === 'all' ? undefined : value)}>
-                      <SelectTrigger className="w-40">
-                        <SelectValue placeholder="All Brands" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Brands</SelectItem>
-                        {filteredBrands.map((brand) => (
-                          <SelectItem key={brand.id} value={brand.name}>
-                            {brand.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                <Select value={filters.sortBy} onValueChange={(value) => handleFilterChange('sortBy', value as any)}>
+                  <SelectTrigger className="h-9 w-40 text-sm bg-muted/40 border-0 focus:ring-1">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="rating">Best Rated</SelectItem>
+                    <SelectItem value="price_asc">Price: Low to High</SelectItem>
+                    <SelectItem value="price_desc">Price: High to Low</SelectItem>
+                    <SelectItem value="newest">Newest First</SelectItem>
+                  </SelectContent>
+                </Select>
 
-                    {/* Sort */}
-                    <Select value={filters.sortBy} onValueChange={(value) => handleFilterChange('sortBy', value as any)}>
-                      <SelectTrigger className="w-40">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="rating">Best Rated</SelectItem>
-                        <SelectItem value="price_asc">Price: Low to High</SelectItem>
-                        <SelectItem value="price_desc">Price: High to Low</SelectItem>
-                        <SelectItem value="newest">Newest First</SelectItem>
-                      </SelectContent>
-                    </Select>
+                <Button
+                  variant={showFilters ? 'secondary' : 'outline'}
+                  size="sm"
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="h-9 gap-1.5 text-sm"
+                >
+                  <SlidersHorizontal className="h-3.5 w-3.5" />
+                  Filters
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+                </Button>
+              </div>
 
-                    {/* View Mode */}
-                    <div className="flex items-center border rounded-md">
-                      <Button
-                        variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
-                        size="sm"
-                        onClick={() => setViewMode('grid')}
-                        className="rounded-r-none"
-                      >
-                        <Grid3X3 className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant={viewMode === 'list' ? 'secondary' : 'ghost'}
-                        size="sm"
-                        onClick={() => setViewMode('list')}
-                        className="rounded-l-none"
-                      >
-                        <List className="h-4 w-4" />
-                      </Button>
+              {/* Mobile: search submit + filter toggle */}
+              <div className="flex items-center gap-2 md:hidden shrink-0">
+                <Button type="submit" form="" size="icon" className="h-9 w-9" onClick={handleSearch}>
+                  <Search className="h-4 w-4" />
+                </Button>
+                <Button
+                  type="button"
+                  size="icon"
+                  variant={showFilters ? 'secondary' : 'outline'}
+                  className="h-9 w-9"
+                  onClick={() => setShowFilters(!showFilters)}
+                >
+                  <Filter className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Advanced Filters */}
+            {showFilters && (
+              <div className="border-t py-4 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* AC Type Filter */}
+                  <div>
+                    <h3 className="font-medium mb-3">AC Type</h3>
+                    <div className="space-y-2">
+                      {AC_TYPES.map((type) => (
+                        <div key={type.value} className="flex items-center space-x-2">
+                          <Checkbox
+                            id={`ac-type-${type.value}`}
+                            checked={(filters.acType || []).includes(type.value)}
+                            onCheckedChange={(checked) => handleAcTypeChange(type.value, checked as boolean)}
+                          />
+                          <label htmlFor={`ac-type-${type.value}`} className="text-sm">
+                            {type.label}
+                          </label>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Advanced Filters */}
-                  {showFilters && (
-                    <div className="border-t pt-4 space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* AC Type Filter */}
-                        <div>
-                          <h3 className="font-medium mb-3">AC Type</h3>
-                          <div className="space-y-2">
-                            {AC_TYPES.map((type) => (
-                              <div key={type.value} className="flex items-center space-x-2">
-                                <Checkbox
-                                  id={`ac-type-${type.value}`}
-                                  checked={(filters.acType || []).includes(type.value)}
-                                  onCheckedChange={(checked) => handleAcTypeChange(type.value, checked as boolean)}
-                                />
-                                <label htmlFor={`ac-type-${type.value}`} className="text-sm">
-                                  {type.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
+                  {/* Tonnage Filter */}
+                  <div>
+                    <h3 className="font-medium mb-3">Tonnage</h3>
+                    <div className="space-y-2">
+                      {TONNAGE_OPTIONS.map((tonnage) => (
+                        <div key={tonnage} className="flex items-center space-x-2">
+                          <Checkbox
+                            id={`tonnage-${tonnage}`}
+                            checked={(filters.tonnage || []).includes(tonnage)}
+                            onCheckedChange={(checked) => handleTonnageChange(tonnage, checked as boolean)}
+                          />
+                          <label htmlFor={`tonnage-${tonnage}`} className="text-sm">
+                            {tonnage} Ton
+                          </label>
                         </div>
-
-                        {/* Tonnage Filter */}
-                        <div>
-                          <h3 className="font-medium mb-3">Tonnage</h3>
-                          <div className="space-y-2">
-                            {TONNAGE_OPTIONS.map((tonnage) => (
-                              <div key={tonnage} className="flex items-center space-x-2">
-                                <Checkbox
-                                  id={`tonnage-${tonnage}`}
-                                  checked={(filters.tonnage || []).includes(tonnage)}
-                                  onCheckedChange={(checked) => handleTonnageChange(tonnage, checked as boolean)}
-                                />
-                                <label htmlFor={`tonnage-${tonnage}`} className="text-sm">
-                                  {tonnage} Ton
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Energy Rating Filter */}
-                        <div>
-                          <h3 className="font-medium mb-3">Energy Rating</h3>
-                          <div className="space-y-2">
-                            {ENERGY_RATINGS.map((rating) => (
-                              <div key={rating} className="flex items-center space-x-2">
-                                <Checkbox
-                                  id={`rating-${rating}`}
-                                  checked={(filters.energyRating || []).includes(rating)}
-                                  onCheckedChange={(checked) => handleEnergyRatingChange(rating, checked as boolean)}
-                                />
-                                <label htmlFor={`rating-${rating}`} className="text-sm">
-                                  {rating}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* Price Range */}
-                        <div>
-                          <h3 className="font-medium mb-3">Price Range</h3>
-                          <div className="space-y-2">
-                            <Input
-                              type="number"
-                              placeholder="Min Price"
-                              value={filters.minPrice || ''}
-                              onChange={(e) => handleFilterChange('minPrice', e.target.value ? Number(e.target.value) : undefined)}
-                            />
-                            <Input
-                              type="number"
-                              placeholder="Max Price"
-                              value={filters.maxPrice || ''}
-                              onChange={(e) => handleFilterChange('maxPrice', e.target.value ? Number(e.target.value) : undefined)}
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex gap-2">
-                        <Button variant="outline" onClick={clearFilters}>
-                          Clear Filters
-                        </Button>
-                      </div>
+                      ))}
                     </div>
-                  )}
+                  </div>
+
+                  {/* Energy Rating Filter */}
+                  <div>
+                    <h3 className="font-medium mb-3">Energy Rating</h3>
+                    <div className="space-y-2">
+                      {ENERGY_RATINGS.map((rating) => (
+                        <div key={rating} className="flex items-center space-x-2">
+                          <Checkbox
+                            id={`rating-${rating}`}
+                            checked={(filters.energyRating || []).includes(rating)}
+                            onCheckedChange={(checked) => handleEnergyRatingChange(rating, checked as boolean)}
+                          />
+                          <label htmlFor={`rating-${rating}`} className="text-sm">
+                            {rating}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Price Range */}
+                  <div>
+                    <h3 className="font-medium mb-3">Price Range</h3>
+                    <div className="space-y-2">
+                      <Input
+                        type="number"
+                        placeholder="Min Price"
+                        value={filters.minPrice || ''}
+                        onChange={(e) => handleFilterChange('minPrice', e.target.value ? Number(e.target.value) : undefined)}
+                      />
+                      <Input
+                        type="number"
+                        placeholder="Max Price"
+                        value={filters.maxPrice || ''}
+                        onChange={(e) => handleFilterChange('maxPrice', e.target.value ? Number(e.target.value) : undefined)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <Button variant="outline" onClick={clearFilters}>
+                    Clear Filters
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -513,10 +483,7 @@ export default function Shop() {
               ))}
             </div>
           ) : (
-            <div className={viewMode === 'grid'
-              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              : "space-y-4"
-            }>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {products.map((product) => (
                 <ProductCard
                   key={product.id}

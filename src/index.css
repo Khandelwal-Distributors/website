@@ -116,10 +116,12 @@
     @apply border-border;
   }
 
-  html,
+  html {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground;
-    overflow-x: clip;
   }
 }
 
