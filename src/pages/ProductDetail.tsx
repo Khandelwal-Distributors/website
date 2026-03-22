@@ -229,6 +229,7 @@ export default function ProductDetail() {
               {/* Product Name & Model */}
               <div>
                 <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
+                <span className="inline-block bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full mb-2 tracking-wide uppercase">Serving Uttar Pradesh, India</span>
                 <p className="text-lg text-muted-foreground">
                   Model: <span className="font-semibold text-foreground">{product.model}</span>
                   {product.series && (

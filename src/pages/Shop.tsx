@@ -208,6 +208,7 @@ export default function Shop() {
               <h1 className="text-3xl md:text-4xl font-bold mb-4">
                 Shop Premium Air Conditioners & HVAC products
               </h1>
+              <span className="inline-block bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Serving Uttar Pradesh, India</span>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Find the perfect solution for your home with our wide selection of energy-efficient
                 HVAC products from top brands.
