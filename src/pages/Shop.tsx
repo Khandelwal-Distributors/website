@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
+import PincodeChecker from '@/components/PincodeChecker';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -34,6 +35,11 @@ export default function Shop() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const [showFilters, setShowFilters] = useState(false);
+  const [isPincodeServiceable, setIsPincodeServiceable] = useState(false);
+
+  const handlePincodeChange = useCallback((isServiceable: boolean) => {
+    setIsPincodeServiceable(isServiceable);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -123,7 +129,7 @@ export default function Shop() {
             "logo": `${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`,
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+91-9429693410",
+              "telephone": "+91-9084417884",
               "contactType": "customer service",
               "areaServed": "IN",
               "availableLanguage": "Hindi"
@@ -270,6 +276,13 @@ export default function Shop() {
                   <p className="text-sm text-muted-foreground">Most Searched</p>
                 </div>
               </a>
+            </div>
+
+            {/* Pincode Checker */}
+            <div className="flex justify-center mt-6">
+              <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-md">
+                <PincodeChecker onServiceabilityChange={handlePincodeChange} />
+              </div>
             </div>
 
             {/* Feature Tags */}

@@ -73,7 +73,7 @@ const NonInverterSplitAC = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919429693410"
+              "telephone": "+919084417884"
             }
           })}
         </script>
@@ -120,7 +120,7 @@ const NonInverterSplitAC = () => {
               Lower upfront cost with reliable cooling performance and easy maintenance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
@@ -246,7 +246,7 @@ const NonInverterSplitAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -323,7 +323,7 @@ const NonInverterSplitAC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
                   Call: +91-94296-93410
                 </Button>
               </div>

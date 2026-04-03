@@ -14,9 +14,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
-import { 
-  ShoppingCart, User, MapPin, Phone, Mail, 
-  CreditCard, Truck, Shield, Clock, CheckCircle, ArrowLeft 
+import {
+  ShoppingCart, User, MapPin, Phone, Mail,
+  CreditCard, Truck, Shield, Clock, CheckCircle, ArrowLeft
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -82,10 +82,10 @@ export default function Checkout() {
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       const formValues = form.getValues();
-      const hasUnsavedChanges = formValues.customer_name || 
-                               formValues.customer_phone || 
-                               formValues.customer_address;
-      
+      const hasUnsavedChanges = formValues.customer_name ||
+        formValues.customer_phone ||
+        formValues.customer_address;
+
       if (hasUnsavedChanges && !isSubmitting) {
         e.preventDefault();
         e.returnValue = '';
@@ -94,7 +94,7 @@ export default function Checkout() {
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
-    
+
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
@@ -281,8 +281,8 @@ export default function Checkout() {
         <main className="container mx-auto px-4 py-8">
           {/* Back Button */}
           <div className="mb-4">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               onClick={() => window.history.back()}
               className="flex items-center gap-2"
             >
@@ -330,7 +330,7 @@ export default function Checkout() {
                         <FormField
                           control={form.control}
                           name="customer_email"
-                          rules={{ 
+                          rules={{
                             required: 'Email is required',
                             pattern: {
                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -351,7 +351,7 @@ export default function Checkout() {
                         <FormField
                           control={form.control}
                           name="customer_phone"
-                          rules={{ 
+                          rules={{
                             required: 'Phone number is required',
                             pattern: {
                               value: /^[6-9]\d{9}$/,
@@ -389,10 +389,10 @@ export default function Checkout() {
                           <FormItem>
                             <FormLabel>Complete Address *</FormLabel>
                             <FormControl>
-                              <Textarea 
+                              <Textarea
                                 placeholder="House/Flat No., Building, Street, Area, Landmark"
                                 className="min-h-[80px]"
-                                {...field} 
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
@@ -445,11 +445,11 @@ export default function Checkout() {
                         <FormField
                           control={form.control}
                           name="customer_pincode"
-                          rules={{ 
+                          rules={{
                             required: 'PIN code is required',
                             pattern: {
-                              value: /^\d{6}$/,
-                              message: 'Enter a valid 6-digit PIN code'
+                              value: /^2[0-8]\d{4}$/,
+                              message: 'Sorry, we only deliver to UP & Uttarakhand. Please enter a valid PIN code.'
                             }
                           }}
                           render={({ field }) => (
@@ -478,10 +478,10 @@ export default function Checkout() {
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Textarea 
+                              <Textarea
                                 placeholder="Any special instructions or requirements for installation..."
                                 className="min-h-[80px]"
-                                {...field} 
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
@@ -516,9 +516,9 @@ export default function Checkout() {
                           )}
                         />
 
-                        <Button 
-                          type="submit" 
-                          className="w-full" 
+                        <Button
+                          type="submit"
+                          className="w-full"
                           size="lg"
                           disabled={isSubmitting}
                         >
@@ -637,11 +637,11 @@ export default function Checkout() {
                 <CardContent className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
-                    <button 
-                      onClick={() => window.open('tel:+919429693410', '_self')}
+                    <button
+                      onClick={() => window.open('tel:+919084417884', '_self')}
                       className="text-primary hover:underline"
                     >
-                      Call: +91 9429693410
+                      Call: +91 9084417884
                     </button>
                   </div>
                   <div className="flex items-center gap-2">

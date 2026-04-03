@@ -93,7 +93,7 @@ const Carrier = () => {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Carrier Quote
                     </Button>
@@ -211,7 +211,7 @@ const Carrier = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
                   Schedule Installation
                 </Button>
                 <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">

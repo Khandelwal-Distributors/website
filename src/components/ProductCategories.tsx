@@ -10,7 +10,7 @@ const ProductCategories = () => {
   const navigate = useNavigate();
 
   const handleCall = () => {
-    window.open('tel:+919429693410', '_self');
+    window.open('tel:+919084417884', '_self');
   };
 
   const handleResidentialNavigation = () => {

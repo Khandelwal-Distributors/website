@@ -81,7 +81,7 @@ const TermsAndConditions = () => {
                   <strong className="text-foreground">3.2 Payment:</strong> Payment must be made in full before the delivery or installation of products. We accept various payment methods including online payments, bank transfers, and cash on delivery (subject to approval).
                 </p>
                 <p>
-                  <strong className="text-foreground">3.3 Order Cancellation:</strong> You may cancel your order by calling us at <a href="tel:+919429693410" className="text-primary hover:underline">+91 9429693410</a> before the product is dispatched or installation begins. Cancellation requests must be confirmed by our customer service team.
+                  <strong className="text-foreground">3.3 Order Cancellation:</strong> You may cancel your order by calling us at <a href="tel:+919084417884" className="text-primary hover:underline">+91 9084417884</a> before the product is dispatched or installation begins. Cancellation requests must be confirmed by our customer service team.
                 </p>
               </div>
             </section>
@@ -111,7 +111,7 @@ const TermsAndConditions = () => {
                   <strong className="text-foreground">5.2 Free Services:</strong> Rental packages include free installation, uninstallation, maintenance, and 24/7 technical support during the rental period.
                 </p>
                 <p>
-                  <strong className="text-foreground">5.3 Rental Cancellation:</strong> You may cancel your rental service by calling us at <a href="tel:+919429693410" className="text-primary hover:underline">+91 9429693410</a> with appropriate notice. Early cancellation may be subject to charges as per the rental agreement.
+                  <strong className="text-foreground">5.3 Rental Cancellation:</strong> You may cancel your rental service by calling us at <a href="tel:+919084417884" className="text-primary hover:underline">+91 9084417884</a> with appropriate notice. Early cancellation may be subject to charges as per the rental agreement.
                 </p>
                 <p>
                   <strong className="text-foreground">5.4 Equipment Care:</strong> You are responsible for the proper care and maintenance of rented equipment. Any damage beyond normal wear and tear may result in additional charges.
@@ -126,7 +126,7 @@ const TermsAndConditions = () => {
                   <strong className="text-foreground">6.1 Manufacturer Warranty:</strong> All products come with the manufacturer's warranty. Warranty terms and conditions are provided by the respective manufacturers and may vary by product.
                 </p>
                 <p>
-                  <strong className="text-foreground">6.2 Service Support:</strong> We provide authorized service support for all brands we represent. Service requests can be made by calling our customer service at <a href="tel:+919429693410" className="text-primary hover:underline">+91 9429693410</a>.
+                  <strong className="text-foreground">6.2 Service Support:</strong> We provide authorized service support for all brands we represent. Service requests can be made by calling our customer service at <a href="tel:+919084417884" className="text-primary hover:underline">+91 9084417884</a>.
                 </p>
                 <p>
                   <strong className="text-foreground">6.3 Warranty Limitations:</strong> The warranty does not cover damage caused by improper installation, misuse, unauthorized modifications, or natural calamities.
@@ -183,7 +183,7 @@ const TermsAndConditions = () => {
                   If you have any questions about these Terms and Conditions, please contact us:
                 </p>
                 <div className="pl-4 space-y-1">
-                  <p><strong className="text-foreground">Phone:</strong> <a href="tel:+919429693410" className="text-primary hover:underline">+91 9429693410</a></p>
+                  <p><strong className="text-foreground">Phone:</strong> <a href="tel:+919084417884" className="text-primary hover:underline">+91 9084417884</a></p>
                   <p><strong className="text-foreground">Email:</strong> <a href="mailto:admin@khandelwaldistributors.com" className="text-primary hover:underline">admin@khandelwaldistributors.com</a></p>
                   <p><strong className="text-foreground">Address:</strong> G-35, MCI Plaza, Mission Market, Civil Lines, Bareilly, Uttar Pradesh</p>
                 </div>

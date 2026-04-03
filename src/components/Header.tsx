@@ -282,7 +282,7 @@ const Header = () => {
               <Button
                 variant="cta"
                 size="sm"
-                onClick={() => window.open('tel:+919429693410')}
+                onClick={() => window.open('tel:+919084417884')}
               >
                 <Phone className="h-4 w-4" />
                 Call +91 94296 93410

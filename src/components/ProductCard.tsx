@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Phone, ShoppingCart, Zap, Shield, Wind } from 'lucide-react';
+import { Star, MessageCircle, ShoppingCart, Zap, Shield, Wind } from 'lucide-react';
 import type { Product } from '@/hooks/useProducts';
 import OptimizedImage from '@/components/OptimizedImage';
 
@@ -10,11 +10,13 @@ interface ProductCardProps {
   product: Product;
   onBuyNow?: (product: Product) => void;
   disableSchema?: boolean; // Disable schema markup for secondary product listings
+  disableBuy?: boolean; // Disable Buy Now button (e.g. pincode not serviceable)
 }
 
-export default function ProductCard({ product, onBuyNow, disableSchema = false }: ProductCardProps) {
-  const handleCallNow = () => {
-    window.open('tel:+919429693410', '_self');
+export default function ProductCard({ product, onBuyNow, disableSchema = false, disableBuy = false }: ProductCardProps) {
+  const handleWhatsApp = () => {
+    const message = `Hi! I'm interested in ${product.name} (${product.model}). Could you please provide more details?`;
+    window.open(`https://wa.me/919084417884?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleBuyNow = () => {
@@ -199,17 +201,19 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false }
             <Button
               variant="outline"
               size="sm"
-              onClick={handleCallNow}
-              className="flex items-center gap-2"
+              onClick={handleWhatsApp}
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white border-green-600 hover:border-green-700"
             >
-              <Phone className="h-4 w-4" />
-              Call Now
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
             </Button>
             <Button
               variant="cta"
               size="sm"
               onClick={handleBuyNow}
+              disabled={disableBuy}
               className="flex items-center gap-2"
+              title={disableBuy ? 'Enter a serviceable pincode to buy' : undefined}
             >
               <ShoppingCart className="h-4 w-4" />
               Buy Now

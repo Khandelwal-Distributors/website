@@ -100,7 +100,7 @@ const Godrej = () => {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Lowest Price
                     </Button>
@@ -214,7 +214,7 @@ const Godrej = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Phone className="h-5 w-5" />
                   Call for Best Deal
                 </Button>

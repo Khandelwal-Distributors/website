@@ -37,7 +37,7 @@ const Hero = () => {
               variant="cta"
               size="lg"
               className="text-lg px-8 hover:scale-105 transition-transform duration-300"
-              onClick={() => window.open('tel:+919429693410', '_self')}
+              onClick={() => window.open('tel:+919084417884', '_self')}
             >
               <Phone className="h-5 w-5" />
               Call Now - Free Consultation

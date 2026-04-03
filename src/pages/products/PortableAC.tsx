@@ -70,7 +70,7 @@ const PortableAC = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919429693410"
+              "telephone": "+919084417884"
             }
           })}
         </script>
@@ -118,7 +118,7 @@ const PortableAC = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="cta" size="lg">
-                <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
                 Get Best Price Quote
               </Button>
               <Button variant="outline" size="lg" className="bg-green-600 text-white border-green-600 hover:bg-green-700" onClick={() => window.open('https://wa.me/919084417884?text=Hello, I need information about Portable ACs in Bareilly', '_blank')}>
@@ -221,7 +221,7 @@ const PortableAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919429693410', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -291,7 +291,7 @@ const PortableAC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
                   Get Best Price Quote
                 </Button>
               </div>

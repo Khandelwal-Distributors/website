@@ -28,7 +28,7 @@ const Index = () => {
     description:
       "Professional HVAC solutions and air conditioning services provider in Uttar Pradesh. Authorized dealer for Daikin, Mitsubishi Heavy, Carrier and more premium brands.",
     url: "https://www.khandelwaldistributors.com",
-    telephone: "+919429693410",
+    telephone: "+919084417884",
     email: "admin@khandelwaldistributors.com",
     address: {
       "@type": "PostalAddress",

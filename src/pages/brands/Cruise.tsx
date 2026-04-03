@@ -109,7 +109,7 @@ const Cruise = () => {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button variant="cta" size="lg">
-                      <Phone className="h-5 w-5" onClick={() => window.open('tel:+919429693410', '_self')} />
+                      <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
                       Get Quote
                     </Button>
                   </div>
@@ -222,11 +222,11 @@ const Cruise = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919429693410', '_self')}>
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Phone className="h-5 w-5" />
                   Discuss Your Needs
                 </Button>
-                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+919429693410', '_self')}>
+                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+919084417884', '_self')}>
                   <Link to="/contact">Get Custom Solution</Link>
                 </Button>
               </div>

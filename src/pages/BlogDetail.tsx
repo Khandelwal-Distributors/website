@@ -420,9 +420,9 @@ export default function BlogDetail() {
                 Our team at Khandelwal Distributors in Bareilly is ready to help you choose the perfect HVAC solution for your needs.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="tel:+919429693410">
+                <a href="tel:+919084417884">
                   <Button size="lg">
-                    Call: +91 9429693410
+                    Call: +91 9084417884
                   </Button>
                 </a>
                 <a href="https://wa.me/919084417884" target="_blank" rel="noopener noreferrer">

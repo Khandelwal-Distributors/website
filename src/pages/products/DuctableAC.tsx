@@ -79,7 +79,7 @@ const DuctableAC = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919429693410"
+              "telephone": "+919084417884"
             }
           })}
         </script>

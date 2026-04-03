@@ -166,7 +166,7 @@ const PrivacyPolicy = () => {
                   <li><strong>Withdraw Consent:</strong> Withdraw consent for processing where applicable</li>
                 </ul>
                 <p className="leading-relaxed mt-4">
-                  To exercise these rights, please contact us at admin@khandelwaldistributors.com or call +91 9429693410.
+                  To exercise these rights, please contact us at admin@khandelwaldistributors.com or call +91 9084417884.
                 </p>
               </div>
             </section>
@@ -224,7 +224,7 @@ const PrivacyPolicy = () => {
               <div className="space-y-2 text-foreground/90">
                 <p><strong>Khandelwal Distributors</strong></p>
                 <p>Email: admin@khandelwaldistributors.com</p>
-                <p>Phone: +91 9429693410</p>
+                <p>Phone: +91 9084417884</p>
                 <p>Address: G-35, MCI Plaza, Mission Market, Civil Lines, Bareilly</p>
               </div>
             </section>

@@ -27,10 +27,10 @@ const Contact = () => {
                   variant="cta" 
                   size="sm" 
                   className="w-full"
-                  onClick={() => window.open('tel:+919429693410', '_self')}
+                  onClick={() => window.open('tel:+919084417884', '_self')}
                 >
                   <Phone className="h-4 w-4" />
-                  +91 9429693410
+                  +91 9084417884
                 </Button>
             </CardContent>
           </Card>
@@ -125,7 +125,7 @@ const Contact = () => {
             <Button 
               variant="cta" 
               size="lg"
-              onClick={() => window.open('tel:+919429693410', '_self')}
+              onClick={() => window.open('tel:+919084417884', '_self')}
             >
               <Phone className="h-4 w-4" />
               Call for Free Site Visit
