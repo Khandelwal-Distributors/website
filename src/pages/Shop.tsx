@@ -278,13 +278,6 @@ export default function Shop() {
               </a>
             </div>
 
-            {/* Pincode Checker */}
-            <div className="flex justify-center mt-6">
-              <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-md">
-                <PincodeChecker onServiceabilityChange={handlePincodeChange} />
-              </div>
-            </div>
-
             {/* Feature Tags */}
             <div className="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
               <Badge variant="secondary" className="px-4 py-2 text-sm">
