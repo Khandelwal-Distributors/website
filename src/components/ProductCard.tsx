@@ -202,7 +202,7 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false, 
               variant="outline"
               size="sm"
               onClick={handleWhatsApp}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white border-green-600 hover:border-green-700"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white hover:text-white border-green-600 hover:border-green-700"
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
