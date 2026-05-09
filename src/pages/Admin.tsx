@@ -60,6 +60,11 @@ interface Order {
   status: string;
   payment_status: string;
   payment_method?: string;
+  cashfree_order_id?: string;
+  cf_payment_id?: string;
+  bank_reference?: string;
+  payment_time?: string;
+  payment_details?: Record<string, any>;
   order_date: string;
   delivery_date?: string;
   notes?: string;
@@ -393,6 +398,31 @@ export default function Admin() {
       toast({
         title: 'Error',
         description: 'Failed to delete video.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const fetchPaymentType = async (orderId: string) => {
+    try {
+      const { data, error } = await supabase.functions.invoke('verify-payment', {
+        body: { dbOrderId: orderId },
+      });
+      if (error) throw error;
+      await loadOrders();
+      const parts: string[] = [];
+      if (data?.payment_method) parts.push(data.payment_method.replace(/_/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()));
+      if (data?.bank_reference) parts.push(`Ref: ${data.bank_reference}`);
+      if (data?.cf_payment_id) parts.push(`CF ID: ${data.cf_payment_id}`);
+      toast({
+        title: 'Payment Details Fetched',
+        description: parts.length ? parts.join(' · ') : 'No payment details found for this order.',
+      });
+    } catch (error) {
+      console.error('Error fetching payment details:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch payment details from Cashfree.',
         variant: 'destructive',
       });
     }
@@ -1049,6 +1079,59 @@ export default function Admin() {
                           <p className="text-sm"><strong>Quantity:</strong> {order.quantity}</p>
                           <p className="text-sm"><strong>Total Amount:</strong> ₹{Number(order.total_amount).toLocaleString()}</p>
                         </div>
+                      </div>
+
+                      <div className="mb-4 p-3 bg-muted/40 rounded-lg">
+                        <h4 className="font-medium mb-2">Payment Details</h4>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1">
+                          {order.payment_method ? (
+                            <p className="text-sm"><strong>Type:</strong> {order.payment_method.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</p>
+                          ) : null}
+                          {order.cf_payment_id && (
+                            <p className="text-sm"><strong>CF Payment ID:</strong> {order.cf_payment_id}</p>
+                          )}
+                          {order.bank_reference && (
+                            <p className="text-sm"><strong>Bank Ref / UTR:</strong> {order.bank_reference}</p>
+                          )}
+                          {order.payment_time && (
+                            <p className="text-sm"><strong>Paid At:</strong> {new Date(order.payment_time).toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+                          )}
+                          {order.cashfree_order_id && (
+                            <p className="text-sm"><strong>Cashfree Order:</strong> {order.cashfree_order_id}</p>
+                          )}
+                          {/* Instrument-specific details */}
+                          {order.payment_details?.upi_id && (
+                            <p className="text-sm"><strong>UPI ID:</strong> {order.payment_details.upi_id}</p>
+                          )}
+                          {order.payment_details?.card_number && (
+                            <p className="text-sm"><strong>Card:</strong> **** {order.payment_details.card_number.slice(-4)}</p>
+                          )}
+                          {order.payment_details?.card_holder_name && (
+                            <p className="text-sm"><strong>Card Holder:</strong> {order.payment_details.card_holder_name}</p>
+                          )}
+                          {order.payment_details?.card_bank_name && (
+                            <p className="text-sm"><strong>Card Bank:</strong> {order.payment_details.card_bank_name}</p>
+                          )}
+                          {order.payment_details?.card_type && (
+                            <p className="text-sm"><strong>Card Type:</strong> {order.payment_details.card_type}</p>
+                          )}
+                          {order.payment_details?.bank_name && (
+                            <p className="text-sm"><strong>Bank:</strong> {order.payment_details.bank_name}</p>
+                          )}
+                          {order.payment_details?.provider && (
+                            <p className="text-sm"><strong>Wallet:</strong> {order.payment_details.provider}</p>
+                          )}
+                        </div>
+                        {!order.payment_method && order.cashfree_order_id && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="mt-2 h-7 text-xs"
+                            onClick={() => fetchPaymentType(order.id)}
+                          >
+                            Fetch Payment Details
+                          </Button>
+                        )}
                       </div>
 
                       {order.notes && (

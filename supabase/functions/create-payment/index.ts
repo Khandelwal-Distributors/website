@@ -19,9 +19,9 @@ serve(async (req) => {
 
   try {
     console.log('Creating payment order...');
-    
-    const { orderData, customerData } = await req.json();
-    
+
+    const { orderData, customerData, returnUrl } = await req.json();
+
     console.log('Order data:', orderData);
     console.log('Customer data:', customerData);
 
@@ -69,8 +69,8 @@ serve(async (req) => {
         customer_phone: customerData.customer_phone,
       },
       order_meta: {
-        return_url: `${req.headers.get('origin')}/payment-success?order_id=${order.id}`,
-        notify_url: `${req.headers.get('origin')}/api/payment-webhook`,
+        return_url: `${returnUrl || req.headers.get('origin') + '/payment-success'}?order_id=${order.id}`,
+        notify_url: `${req.headers.get('origin') || 'https://khandelwaldistributors.com'}/api/payment-webhook`,
       },
     };
 
@@ -111,7 +111,7 @@ serve(async (req) => {
 
   } catch (error: any) {
     console.error('Error in create-payment function:', error);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       error: error.message || 'Internal server error'
     }), {
       status: 500,

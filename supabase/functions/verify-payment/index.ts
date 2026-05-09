@@ -77,10 +77,89 @@ serve(async (req) => {
       app_status = 'cancelled';
     }
 
-    // Update order statuses
+    // Fetch payment method from Cashfree payments endpoint
+    // Always attempt this if the order has a cashfree_order_id — for old orders the
+    // current Cashfree status may differ from when the payment was originally made.
+    let payment_method: string | null = null;
+    let cf_payment_id: string | null = null;
+    let bank_reference: string | null = null;
+    let payment_time: string | null = null;
+    let payment_details: Record<string, any> | null = null;
+    if (order.cashfree_order_id) {
+      try {
+        const paymentsResponse = await fetch(`${CASHFREE_BASE_URL}/orders/${order.cashfree_order_id}/payments`, {
+          method: 'GET',
+          headers: {
+            'X-Client-Id': CASHFREE_CLIENT_ID!,
+            'X-Client-Secret': CASHFREE_CLIENT_SECRET!,
+            'x-api-version': '2023-08-01',
+          },
+        });
+        if (paymentsResponse.ok) {
+          const paymentsData = await paymentsResponse.json();
+          // paymentsData is an array; prefer the successful payment
+          const successfulPayment = Array.isArray(paymentsData)
+            ? paymentsData.find((p: any) => p.payment_status === 'SUCCESS') || paymentsData[0]
+            : paymentsData;
+
+          if (successfulPayment) {
+            // payment_group is the top-level field ("upi", "card", "net_banking", etc.)
+            // Fallback: extract the key from payment_method object e.g. { "upi": {...} }
+            const pmObject = successfulPayment.payment_method;
+            const pmObjectKey = pmObject && typeof pmObject === 'object' ? Object.keys(pmObject)[0] : null;
+            payment_method = successfulPayment.payment_group || pmObjectKey || null;
+
+            cf_payment_id = successfulPayment.cf_payment_id?.toString() || null;
+            bank_reference = successfulPayment.bank_reference || null;
+            payment_time = successfulPayment.payment_time || null;
+
+            // Build instrument-specific details
+            if (pmObject && pmObjectKey) {
+              const instrument = pmObject[pmObjectKey];
+              if (pmObjectKey === 'upi') {
+                payment_details = {
+                  upi_id: instrument?.upi_id || null,
+                  channel: instrument?.channel || null,
+                };
+              } else if (pmObjectKey === 'card') {
+                payment_details = {
+                  card_number: instrument?.card_number || null,
+                  card_holder_name: instrument?.card_holder_name || null,
+                  card_type: instrument?.card_type || null,
+                  card_bank_name: instrument?.card_bank_name || null,
+                  card_sub_type: instrument?.card_sub_type || null,
+                };
+              } else if (pmObjectKey === 'netbanking') {
+                payment_details = {
+                  bank_name: instrument?.netbanking_bank_name || null,
+                  bank_code: instrument?.netbanking_bank_code || null,
+                  channel: instrument?.channel || null,
+                };
+              } else if (pmObjectKey === 'app') {
+                payment_details = {
+                  provider: instrument?.provider || null,
+                  phone: instrument?.phone || null,
+                  channel: instrument?.channel || null,
+                };
+              }
+            }
+          }
+        }
+      } catch (pmErr) {
+        console.error('Failed to fetch payment method:', pmErr);
+      }
+    }
+
+    // Update order statuses and all captured payment details
+    const updatePayload: Record<string, any> = { payment_status, status: app_status };
+    if (payment_method) updatePayload.payment_method = payment_method;
+    if (cf_payment_id) updatePayload.cf_payment_id = cf_payment_id;
+    if (bank_reference) updatePayload.bank_reference = bank_reference;
+    if (payment_time) updatePayload.payment_time = payment_time;
+    if (payment_details) updatePayload.payment_details = payment_details;
     await supabase
       .from('orders')
-      .update({ payment_status, status: app_status })
+      .update(updatePayload)
       .eq('id', dbOrderId);
 
     // Fetch sanitized order details, and link to existing user if email matches
@@ -97,7 +176,7 @@ serve(async (req) => {
           page: 1,
           perPage: 1
         });
-        
+
         const userByEmail = users?.users?.find(user => user.email === orderDetails?.customer_email);
         if (userByEmail?.id) {
           await supabase.from('orders').update({ user_id: userByEmail.id }).eq('id', dbOrderId);
@@ -108,7 +187,7 @@ serve(async (req) => {
       console.error('Link user to order failed:', linkErr);
     }
 
-    return new Response(JSON.stringify({ order_status, payment_status, app_status, order: orderDetails }), {
+    return new Response(JSON.stringify({ order_status, payment_status, app_status, payment_method, cf_payment_id, bank_reference, payment_time, payment_details, order: orderDetails }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error: any) {
