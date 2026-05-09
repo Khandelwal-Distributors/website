@@ -17,6 +17,7 @@ import ProjectsShowcase from "@/components/ProjectsShowcase";
 import RentAnAC from "@/components/RentAnAC";
 import ScrollableProductCategories from "@/components/ScrollableProductCategories";
 import BlogsSection from "@/components/BlogsSection";
+import ArticonHighlight from "@/components/ArticonHighlight";
 
 const Index = () => {
   const jsonLd = {
@@ -686,6 +687,7 @@ const Index = () => {
       <main>
         <Hero />
         <BrandShowcase />
+        <ArticonHighlight />
         
         {/* Business Profiles Section */}
         <section className="py-12 bg-gradient-to-r from-primary/5 to-primary-light/5">
