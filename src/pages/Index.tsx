@@ -688,7 +688,7 @@ const Index = () => {
         <Hero />
         <BrandShowcase />
         <ArticonHighlight />
-        
+
         {/* Business Profiles Section */}
         <section className="py-12 bg-gradient-to-r from-primary/5 to-primary-light/5">
           <div className="container mx-auto px-4">
@@ -700,18 +700,18 @@ const Index = () => {
                 Trusted by thousands of customers across India
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-              <a 
-                href="https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET" 
-                target="_blank" 
+              <a
+                href="https://www.justdial.com/Bareilly/Khandelwal-Distributors-Civil-Lines/9999PX581-X581-121206195818-R6C6_BZDET"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <svg className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                <img 
-                  src="/icons/jd_icon.png" 
-                  alt="JustDial" 
+                <img
+                  src="/icons/jd_icon.png"
+                  alt="JustDial"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -719,17 +719,17 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">400+ ratings</p>
                 </div>
               </a>
-              
-              <a 
-                href="https://www.indiamart.com/khandelwal-distributors-up" 
-                target="_blank" 
+
+              <a
+                href="https://www.indiamart.com/khandelwal-distributors-up"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <svg className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                <img 
-                  src="/icons/indiamart_icon.webp" 
-                  alt="IndiaMART" 
+                <img
+                  src="/icons/indiamart_icon.webp"
+                  alt="IndiaMART"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -737,17 +737,17 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">Trusted Seller</p>
                 </div>
               </a>
-              
-              <a 
-                href="https://maps.app.goo.gl/khandelwaldistributors" 
-                target="_blank" 
+
+              <a
+                href="https://maps.app.goo.gl/khandelwaldistributors"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white hover:bg-white/80 rounded-lg shadow-md hover:shadow-lg transition-all group relative"
               >
                 <svg className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors absolute top-3 right-3 rotate-[-45deg]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                <img 
-                  src="/icons/maps_icon.webp" 
-                  alt="Google Maps" 
+                <img
+                  src="/icons/maps_icon.webp"
+                  alt="Google Maps"
                   className="h-16 w-16 object-contain group-hover:scale-110 transition-transform"
                 />
                 <div className="text-left flex-1">
@@ -758,7 +758,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-        
+
         <DaikinSolutionPlaza />
         <ProductCategories />
         <ScrollableProductCategories />
