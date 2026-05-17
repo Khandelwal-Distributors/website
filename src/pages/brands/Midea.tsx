@@ -115,7 +115,7 @@ const Midea = () => {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button variant="cta" size="lg">
-                      <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
+                      <Phone className="h-5 w-5" onClick={() => window.open('tel:+917017497935', '_self')} />
                       Get Budget Quote
                     </Button>
                   </div>
@@ -229,7 +229,7 @@ const Midea = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="secondary" size="lg">
-                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+919084417884', '_self')} />
+                  <Phone className="h-5 w-5" onClick={() => window.open('tel:+917017497935', '_self')} />
                   Get Affordable Quotes
                 </Button>
               </div>

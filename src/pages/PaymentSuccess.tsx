@@ -85,7 +85,7 @@ export default function PaymentSuccess() {
   };
 
   const handleCallClick = () => {
-    window.open('tel:+919084417884', '_self');
+    window.open('tel:+917017497935', '_self');
   };
 
   const handleWhatsAppClick = () => {
@@ -254,7 +254,7 @@ export default function PaymentSuccess() {
                   variant="outline"
                 >
                   <Phone className="h-4 w-4" />
-                  Call +91 9084417884
+                  Call +91 7017497935
                 </Button>
                 <Button 
                   onClick={handleWhatsAppClick}

@@ -188,7 +188,7 @@ const DeepFreezers = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884"
+              "telephone": "+917017497935"
             }
           })}
         </script>
@@ -221,7 +221,7 @@ const DeepFreezers = () => {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <Button variant="cta" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="cta" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-4 w-4 md:h-5 md:w-5" />
                 Get Best Price Quote
               </Button>
@@ -307,7 +307,7 @@ const DeepFreezers = () => {
                       ))}
                     </div>
                     
-                    <Button size="default" className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button size="default" className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                       <span className="text-sm md:text-base">Get Quote for {category.title}</span>
                     </Button>
@@ -362,7 +362,7 @@ const DeepFreezers = () => {
                 Professional installation, AMC, and repair services across Bareilly & nearby areas.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-                <Button variant="secondary" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="secondary" size="default" className="w-full sm:w-auto" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-4 w-4 md:h-5 md:w-5" />
                   <span className="text-sm md:text-base">Call: +91-90844-17884</span>
                 </Button>

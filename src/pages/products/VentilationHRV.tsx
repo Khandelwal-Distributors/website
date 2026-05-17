@@ -101,7 +101,7 @@ const VentilationHRV = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884"
+              "telephone": "+917017497935"
             }
           })}
         </script>

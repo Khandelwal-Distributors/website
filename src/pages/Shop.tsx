@@ -129,7 +129,7 @@ export default function Shop() {
             "logo": `${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`,
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+91-9084417884",
+              "telephone": "+91-7017497935",
               "contactType": "customer service",
               "areaServed": "IN",
               "availableLanguage": "Hindi"

@@ -638,10 +638,10 @@ export default function Checkout() {
                   <div className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
                     <button
-                      onClick={() => window.open('tel:+919084417884', '_self')}
+                      onClick={() => window.open('tel:+917017497935', '_self')}
                       className="text-primary hover:underline"
                     >
-                      Call: +91 9084417884
+                      Call: +91 7017497935
                     </button>
                   </div>
                   <div className="flex items-center gap-2">

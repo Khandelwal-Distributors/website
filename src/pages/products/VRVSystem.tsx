@@ -150,7 +150,7 @@ const VRVSystem = () => {
             "name": "Khandelwal Distributors - VRV System Specialists",
             "description": "Professional VRV system installation and maintenance services for commercial and residential buildings",
             "image": vrvSystemImg,
-            "telephone": "+919084417884",
+            "telephone": "+917017497935",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "G-35, MCI Plaza, Civil Lines",
@@ -274,7 +274,7 @@ const VRVSystem = () => {
               ✓ 30-50% Energy Savings &nbsp;|&nbsp; ✓ Authorized Daikin Dealers &nbsp;|&nbsp; ✓ 100+ Projects Completed
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="secondary" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Free Consultation
               </Button>
@@ -432,7 +432,7 @@ const VRVSystem = () => {
                     </div>
 
                     <div className="flex gap-3">
-                      <Button className="flex-1" onClick={() => window.open('tel:+919084417884', '_self')}>
+                      <Button className="flex-1" onClick={() => window.open('tel:+917017497935', '_self')}>
                         <Phone className="h-4 w-4" />
                         Get Quote
                       </Button>
@@ -587,7 +587,7 @@ const VRVSystem = () => {
                 <strong className="text-primary">Why choose us for VRV projects?</strong> Authorized Daikin dealers | 25+ years experience | 
                 Free site survey | Custom design | Professional installation | 24/7 support
               </p>
-              <Button size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Discuss Your VRV Project
               </Button>
@@ -609,7 +609,7 @@ const VRVSystem = () => {
               Serving Bareilly, Pilibhit, Shahjahanpur, Badaun, Rampur, Ramnagar, Moradabad & nearby areas
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="secondary" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Call: +91-90844-17884
               </Button>

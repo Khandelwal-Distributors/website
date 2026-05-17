@@ -207,7 +207,7 @@ const ModularOT = () => {
   ];
 
   const handleCallNow = () => {
-    window.location.href = "tel:+919084417884";
+    window.location.href = "tel:+917017497935";
   };
 
   const handleWhatsApp = () => {
@@ -313,7 +313,7 @@ const ModularOT = () => {
             "name": "Khandelwal Distributors",
             "description": "Professional Modular OT Installation in Bareilly, Uttar Pradesh",
             "image": wallPanelsImg,
-            "telephone": "+919084417884",
+            "telephone": "+917017497935",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "G-35, MCI Plaza, Civil Lines",
@@ -619,7 +619,7 @@ const ModularOT = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" onClick={handleCallNow} className="gap-2">
                 <Phone className="w-5 h-5" />
-                Call Now: +91 9084417884
+                Call Now: +91 7017497935
               </Button>
               <Button size="lg" variant="outline" onClick={handleWhatsApp} className="gap-2">
                 <MessageCircle className="w-5 h-5" />

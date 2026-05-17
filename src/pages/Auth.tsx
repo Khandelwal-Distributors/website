@@ -175,8 +175,8 @@ export default function Auth() {
           {/* Additional Info */}
           <div className="text-center text-sm text-muted-foreground">
             <p>Need help? Contact us at</p>
-            <a href="tel:+919084417884" className="text-primary hover:underline font-medium">
-              +91 9084417884
+            <a href="tel:+917017497935" className="text-primary hover:underline font-medium">
+              +91 7017497935
             </a>
           </div>
         </div>

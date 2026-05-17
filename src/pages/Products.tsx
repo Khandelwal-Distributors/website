@@ -217,7 +217,7 @@ const Products = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884",
+              "telephone": "+917017497935",
               "priceRange": "$$"
             },
             "mainEntity": {
@@ -258,7 +258,7 @@ const Products = () => {
               water systems, and air purification products from leading brands.
             </p>
             <div className="mt-8">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Free Consultation
               </Button>
@@ -330,7 +330,7 @@ const Products = () => {
                         </div>
                       </div>
 
-                      <Button variant="outline" className="w-full mt-4" onClick={() => window.open('tel:+919084417884', '_self')}>
+                      <Button variant="outline" className="w-full mt-4" onClick={() => window.open('tel:+917017497935', '_self')}>
                         <Phone className="h-4 w-4" />
                         Get Quote
                       </Button>
@@ -440,7 +440,7 @@ const Products = () => {
                           </div>
                         ))}
                       </div>
-                      <Button variant="outline" size="sm" className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                      <Button variant="outline" size="sm" className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                         <Phone className="h-4 w-4" />
                         Get Quote
                       </Button>
@@ -465,11 +465,11 @@ const Products = () => {
               Get expert consultation and competitive pricing on all products
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Call for Free Site Visit
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+917017497935', '_self')}>
                 Request Quote
               </Button>
             </div>

@@ -138,7 +138,7 @@ const BrandShowcase = () => {
             variant="cta" 
             size="lg" 
             className="hover:scale-105 transition-transform duration-300"
-            onClick={() => window.open('tel:+919084417884', '_self')}
+            onClick={() => window.open('tel:+917017497935', '_self')}
           >
             <Phone className="h-4 w-4" />
             Get Brand-Specific Quote

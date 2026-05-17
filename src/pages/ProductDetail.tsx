@@ -91,7 +91,7 @@ export default function ProductDetail() {
   };
 
   const handleCallNow = () => {
-    window.open('tel:+919084417884', '_self');
+    window.open('tel:+917017497935', '_self');
   };
 
   const handleWhatsApp = () => {

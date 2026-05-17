@@ -57,7 +57,7 @@ const Projects = () => {
                   Discover our successful HVAC installations across diverse industries and sectors
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                  <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale" onClick={() => window.open('tel:+919084417884', '_self')}>
+                  <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale" onClick={() => window.open('tel:+917017497935', '_self')}>
                     <Phone className="h-5 w-5" />
                     Get Project Quote
                   </Button>
@@ -214,7 +214,7 @@ const Projects = () => {
                 Contact our experts for a free consultation and project quote.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale animate-fade-in" style={{ animationDelay: "0.4s" }} onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="cta" size="lg" className="flex items-center gap-2 hover-scale animate-fade-in" style={{ animationDelay: "0.4s" }} onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Free Consultation
                 </Button>
@@ -223,7 +223,7 @@ const Projects = () => {
                   size="lg"
                   className="bg-green-600 text-white border-green-600 hover:bg-green-700 flex items-center gap-2 hover-scale animate-fade-in"
                   style={{ animationDelay: "0.5s" }}
-                  onClick={() => window.open('tel:+919084417884', '_self')}
+                  onClick={() => window.open('tel:+917017497935', '_self')}
                 >
                   <MessageCircle className="h-5 w-5" />
                   WhatsApp for Quick Quote

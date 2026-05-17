@@ -60,7 +60,7 @@ const handler = async (req: Request): Promise<Response> => {
             </a>
           </div>
           
-          <p>If you have any questions, feel free to contact us at +91 9084417884 or via WhatsApp.</p>
+          <p>If you have any questions, feel free to contact us at +91 7017497935 or via WhatsApp.</p>
           
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
           <p style="color: #6b7280; font-size: 14px;">

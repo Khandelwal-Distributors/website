@@ -79,7 +79,7 @@ const DuctableAC = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884"
+              "telephone": "+917017497935"
             }
           })}
         </script>
@@ -126,7 +126,7 @@ const DuctableAC = () => {
               Central air conditioning with hidden installation, uniform cooling, and centralized control.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
               </Button>
@@ -265,7 +265,7 @@ const DuctableAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -341,7 +341,7 @@ const DuctableAC = () => {
                 installation, and service for central air conditioning systems.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-5 w-5" />
                   Get Best Price Quote
                 </Button>

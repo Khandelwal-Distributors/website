@@ -109,7 +109,7 @@ const OurClients = () => {
                 variant="outline" 
                 size="lg"
                 className="flex items-center gap-2"
-                onClick={() => window.open('tel:+919084417884', '_self')}
+                onClick={() => window.open('tel:+917017497935', '_self')}
               >
                 <Calendar className="h-5 w-5" />
                 Request Site Visit

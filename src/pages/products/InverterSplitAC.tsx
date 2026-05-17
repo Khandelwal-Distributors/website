@@ -131,7 +131,7 @@ const InverterSplitAC = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884"
+              "telephone": "+917017497935"
             }
           })}
         </script>
@@ -181,7 +181,7 @@ const InverterSplitAC = () => {
               <Button
                 variant="cta"
                 size="lg"
-                onClick={() => window.open('tel:+919084417884', '_self')}
+                onClick={() => window.open('tel:+917017497935', '_self')}
               >
                 <Phone className="h-5 w-5" />
                 Get Best Price Quote
@@ -264,7 +264,7 @@ const InverterSplitAC = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-4 w-4" />
                       Get Quote
                     </Button>
@@ -287,9 +287,9 @@ const InverterSplitAC = () => {
                 expert service across Bareilly, Pilibhit, Budaun, and Shahjahanpur since 2010.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-5 w-5" />
-                  Call: +91 9084417884
+                  Call: +91 7017497935
                 </Button>
               </div>
             </div>

@@ -138,7 +138,7 @@ const RentAnAC = () => {
                   <Button
                     variant="cta"
                     className="w-full"
-                    onClick={() => window.open('tel:+919084417884', '_self')}
+                    onClick={() => window.open('tel:+917017497935', '_self')}
                   >
                     <Phone className="h-4 w-4" />
                     Call Now
@@ -168,7 +168,7 @@ const RentAnAC = () => {
             <Button
               variant="cta"
               size="lg"
-              onClick={() => window.open('tel:+919084417884', '_self')}
+              onClick={() => window.open('tel:+917017497935', '_self')}
             >
               <Phone className="h-5 w-5" />
               Call for Custom Quote

@@ -117,7 +117,7 @@ const HeatPump = () => {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
-              "telephone": "+919084417884"
+              "telephone": "+917017497935"
             }
           })}
         </script>
@@ -153,7 +153,7 @@ const HeatPump = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+              <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                 <Phone className="h-5 w-5" />
                 Get Best Price
               </Button>
@@ -200,7 +200,7 @@ const HeatPump = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                  <Button size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                     <Phone className="h-5 w-5 mr-2" />
                     Get Best Price
                   </Button>
@@ -356,7 +356,7 @@ const HeatPump = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-4 w-4 mr-2" />
                       Get Quote
                     </Button>
@@ -413,7 +413,7 @@ const HeatPump = () => {
                         </div>
                       ))}
                     </div>
-                    <Button className="w-full" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button className="w-full" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-4 w-4 mr-2" />
                       Get Quote
                     </Button>
@@ -538,7 +538,7 @@ const HeatPump = () => {
                 sales, installation, and after-sales service.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-5 w-5" />
                   Call: +91 94296 93410
                 </Button>

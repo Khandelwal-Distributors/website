@@ -106,7 +106,7 @@ export default function OrderSuccess() {
               </div>
               
               <div className="flex justify-center gap-4 pt-4">
-                <Button variant="outline" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="outline" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us
                 </Button>

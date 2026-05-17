@@ -164,10 +164,10 @@ export default function Blogs() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919084417884"
+                href="tel:+917017497935"
                 className="inline-flex items-center justify-center bg-white text-primary px-8 py-3 rounded-md font-semibold hover:bg-white/90 transition-colors"
               >
-                Call: +91 9084417884
+                Call: +91 7017497935
               </a>
               <a
                 href="https://wa.me/919084417884"

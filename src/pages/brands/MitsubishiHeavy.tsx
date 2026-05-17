@@ -110,7 +110,7 @@ const MitsubishiHeavy = () => {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                    <Button variant="cta" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                       <Phone className="h-5 w-5" />
                       Get Quotes
                     </Button>
@@ -224,11 +224,11 @@ const MitsubishiHeavy = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button variant="secondary" size="lg" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Phone className="h-5 w-5" />
                   Discuss Your Project
                 </Button>
-                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+919084417884', '_self')}>
+                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" onClick={() => window.open('tel:+917017497935', '_self')}>
                   <Link to="/contact">Request Site Survey</Link>
                 </Button>
               </div>

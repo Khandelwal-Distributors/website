@@ -102,7 +102,7 @@ const Services = () => {
             variant="cta" 
             size="lg" 
             className="text-lg px-8"
-            onClick={() => window.open('tel:+919084417884', '_self')}
+            onClick={() => window.open('tel:+917017497935', '_self')}
           >
             <Phone className="h-5 w-5" />
             Schedule Free Consultation

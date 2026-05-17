@@ -53,7 +53,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">1. Order Cancellation</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">1.1 How to Cancel:</strong> To cancel your order, please call us immediately at <a href="tel:+919084417884" className="text-primary hover:underline font-semibold">+91 9084417884</a>. Our customer service team will assist you with the cancellation process.
+                  <strong className="text-foreground">1.1 How to Cancel:</strong> To cancel your order, please call us immediately at <a href="tel:+917017497935" className="text-primary hover:underline font-semibold">+91 7017497935</a>. Our customer service team will assist you with the cancellation process.
                 </p>
                 <p>
                   <strong className="text-foreground">1.2 Cancellation Window:</strong> Orders can be cancelled free of charge before the product is dispatched or installation begins. Once the product is dispatched or installation has commenced, cancellation may be subject to charges.
@@ -81,7 +81,7 @@ const RefundPolicy = () => {
                   <li>Products damaged due to misuse or negligence</li>
                 </ul>
                 <p>
-                  <strong className="text-foreground">2.3 Return Process:</strong> To initiate a return, call us at <a href="tel:+919084417884" className="text-primary hover:underline font-semibold">+91 9084417884</a>. Our team will guide you through the return process and arrange for product pickup if applicable.
+                  <strong className="text-foreground">2.3 Return Process:</strong> To initiate a return, call us at <a href="tel:+917017497935" className="text-primary hover:underline font-semibold">+91 7017497935</a>. Our team will guide you through the return process and arrange for product pickup if applicable.
                 </p>
               </div>
             </section>
@@ -117,7 +117,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">4. Exchange Policy</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">4.1 Exchange Eligibility:</strong> If you wish to exchange a product for a different model or specification, please call us at <a href="tel:+919084417884" className="text-primary hover:underline font-semibold">+91 9084417884</a> within 5 days of delivery.
+                  <strong className="text-foreground">4.1 Exchange Eligibility:</strong> If you wish to exchange a product for a different model or specification, please call us at <a href="tel:+917017497935" className="text-primary hover:underline font-semibold">+91 7017497935</a> within 5 days of delivery.
                 </p>
                 <p>
                   <strong className="text-foreground">4.2 Exchange Process:</strong> The product must meet all return policy conditions. Price differences will be adjusted at the time of exchange. Additional charges may apply for delivery and installation of the new product.
@@ -132,7 +132,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">5. Defective or Damaged Products</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">5.1 Delivery Damage:</strong> If you receive a damaged product, please report it immediately to our delivery personnel and call us at <a href="tel:+919084417884" className="text-primary hover:underline font-semibold">+91 9084417884</a> within 24 hours of delivery.
+                  <strong className="text-foreground">5.1 Delivery Damage:</strong> If you receive a damaged product, please report it immediately to our delivery personnel and call us at <a href="tel:+917017497935" className="text-primary hover:underline font-semibold">+91 7017497935</a> within 24 hours of delivery.
                 </p>
                 <p>
                   <strong className="text-foreground">5.2 Manufacturing Defects:</strong> Products with manufacturing defects are covered under the manufacturer's warranty. Please contact us to arrange for warranty service or replacement.
@@ -147,7 +147,7 @@ const RefundPolicy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground">6. AC Rental Service Refunds</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">6.1 Rental Cancellation:</strong> To cancel your AC rental service, call us at <a href="tel:+919084417884" className="text-primary hover:underline font-semibold">+91 9084417884</a>. Cancellation policies vary based on when you cancel:
+                  <strong className="text-foreground">6.1 Rental Cancellation:</strong> To cancel your AC rental service, call us at <a href="tel:+917017497935" className="text-primary hover:underline font-semibold">+91 7017497935</a>. Cancellation policies vary based on when you cancel:
                 </p>
                 <ul className="list-disc pl-8 space-y-2">
                   <li><strong className="text-foreground">Before Installation:</strong> Full refund of advance payment</li>
@@ -195,7 +195,7 @@ const RefundPolicy = () => {
                 </p>
                 <div className="bg-muted/50 p-6 rounded-lg border border-border space-y-3">
                   <p className="text-lg">
-                    <strong className="text-foreground">📞 Call Us:</strong> <a href="tel:+919084417884" className="text-primary hover:underline font-semibold text-xl">+91 9084417884</a>
+                    <strong className="text-foreground">📞 Call Us:</strong> <a href="tel:+917017497935" className="text-primary hover:underline font-semibold text-xl">+91 7017497935</a>
                   </p>
                   <p>
                     <strong className="text-foreground">📧 Email:</strong> <a href="mailto:admin@khandelwaldistributors.com" className="text-primary hover:underline">admin@khandelwaldistributors.com</a>
