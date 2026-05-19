@@ -445,16 +445,9 @@ export default function Checkout() {
                         <FormField
                           control={form.control}
                           name="customer_pincode"
-                          rules={{
-                            required: 'PIN code is required',
-                            pattern: {
-                              value: /^2[0-8]\d{4}$/,
-                              message: 'Sorry, we only deliver to UP & Uttarakhand. Please enter a valid PIN code.'
-                            }
-                          }}
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>PIN Code *</FormLabel>
+                              <FormLabel>PIN Code</FormLabel>
                               <FormControl>
                                 <Input placeholder="Enter PIN code" {...field} />
                               </FormControl>

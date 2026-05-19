@@ -1,10 +1,9 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
-import PincodeChecker from '@/components/PincodeChecker';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -35,12 +34,6 @@ export default function Shop() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const [showFilters, setShowFilters] = useState(false);
-  const [isPincodeServiceable, setIsPincodeServiceable] = useState(false);
-
-  const handlePincodeChange = useCallback((isServiceable: boolean) => {
-    setIsPincodeServiceable(isServiceable);
-  }, []);
-
   const navigate = useNavigate();
 
   const { data: products = [], isLoading: productsLoading } = useProducts(filters);
@@ -214,7 +207,6 @@ export default function Shop() {
               <h1 className="text-3xl md:text-4xl font-bold mb-4">
                 Shop Premium Air Conditioners & HVAC products
               </h1>
-              <span className="inline-block bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Serving Uttar Pradesh, India</span>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Find the perfect solution for your home with our wide selection of energy-efficient
                 HVAC products from top brands.

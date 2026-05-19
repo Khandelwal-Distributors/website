@@ -1,10 +1,9 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
-import PincodeChecker from '@/components/PincodeChecker';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,12 +20,6 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [isPincodeServiceable, setIsPincodeServiceable] = useState(false);
-
-  const handlePincodeChange = useCallback((isServiceable: boolean) => {
-    setIsPincodeServiceable(isServiceable);
-  }, []);
-
   const { data: product, isLoading, error } = useProduct(slug || '');
   const { data: recommendedProducts = [] } = useRecommendedProducts(
     product?.id || '',
@@ -235,7 +228,6 @@ export default function ProductDetail() {
               {/* Product Name & Model */}
               <div>
                 <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-                <span className="inline-block bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full mb-2 tracking-wide uppercase">Serving Uttar Pradesh, India</span>
                 <p className="text-lg text-muted-foreground">
                   Model: <span className="font-semibold text-foreground">{product.model}</span>
                   {product.series && (
@@ -301,11 +293,6 @@ export default function ProductDetail() {
                 </p>
               </div>
 
-              {/* Pincode Checker */}
-              <div className="p-4 border rounded-lg bg-muted/30">
-                <PincodeChecker onServiceabilityChange={handlePincodeChange} />
-              </div>
-
               {/* Action Buttons */}
               <div className="space-y-3">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -322,12 +309,10 @@ export default function ProductDetail() {
                   size="lg"
                   variant="cta"
                   onClick={handleBuyNow}
-                  disabled={!isPincodeServiceable}
                   className="w-full text-lg py-6"
-                  title={!isPincodeServiceable ? 'Please enter a serviceable pincode to buy' : undefined}
                 >
                   <ShoppingCart className="mr-2 h-5 w-5" />
-                  {isPincodeServiceable ? 'Buy Now' : 'Enter Pincode to Buy'}
+                  Buy Now
                 </Button>
               </div>
 
