@@ -161,7 +161,8 @@ export default function Admin() {
       setProducts((data || []).map(product => ({
         ...product,
         specifications: product.specifications as Record<string, any>,
-        ac_type: 'split' as 'split' | 'window' | 'cassette' | 'ductable' | 'tower'
+        ac_type: 'split' as 'split' | 'window' | 'cassette' | 'ductable' | 'tower',
+        in_stock: (product as any).in_stock ?? true,
       })));
     } catch (error) {
       console.error('Error loading products:', error);
@@ -338,6 +339,7 @@ export default function Admin() {
         specifications: productData.specifications || {},
         image_urls: productData.image_urls || [],
         is_available: productData.is_available ?? true,
+        in_stock: productData.in_stock ?? true,
         is_featured: productData.is_featured ?? false,
         energy_rating: productData.energy_rating || null,
         warranty_years: productData.warranty_years ? Number(productData.warranty_years) : 1,
@@ -475,6 +477,41 @@ export default function Admin() {
       toast({
         title: 'Error',
         description: 'Failed to delete project.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const toggleProductStock = async (product: Product) => {
+    try {
+      const admin_code = localStorage.getItem('admin_code') || accessCode;
+      if (!admin_code) {
+        throw new Error('Admin access required. Please log in to the admin panel again.');
+      }
+
+      const { data: fnData, error: fnError } = await supabase.functions.invoke('admin-products', {
+        body: {
+          action: 'update',
+          id: product.id,
+          data: { in_stock: !product.in_stock },
+          admin_code,
+        },
+      });
+
+      if (fnError) throw fnError;
+      if (fnData?.error) throw new Error(fnData.error);
+
+      await loadProducts();
+      toast({
+        title: 'Stock status updated',
+        description: `${product.name} marked as ${!product.in_stock ? 'In Stock' : 'Out of Stock'
+          }.`,
+      });
+    } catch (error: any) {
+      console.error('Error toggling stock status:', error);
+      toast({
+        title: 'Error',
+        description: error?.message || 'Failed to update stock status.',
         variant: 'destructive',
       });
     }
@@ -942,7 +979,10 @@ export default function Admin() {
                           </p>
                           <div className="flex items-center gap-2 mt-1">
                             <Badge variant={product.is_available ? 'default' : 'secondary'}>
-                              {product.is_available ? 'Available' : 'Out of Stock'}
+                              {product.is_available ? 'Visible' : 'Hidden'}
+                            </Badge>
+                            <Badge variant={product.in_stock ? 'default' : 'destructive'}>
+                              {product.in_stock ? 'In Stock' : 'Out of Stock'}
                             </Badge>
                             {product.is_featured && (
                               <Badge variant="outline">Featured</Badge>
@@ -954,6 +994,14 @@ export default function Admin() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
+                        <Button
+                          variant={product.in_stock ? 'outline' : 'default'}
+                          size="sm"
+                          onClick={() => toggleProductStock(product)}
+                          title={product.in_stock ? 'Mark as Out of Stock' : 'Mark as In Stock'}
+                        >
+                          {product.in_stock ? 'Out of Stock' : 'In Stock'}
+                        </Button>
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button
@@ -1519,6 +1567,7 @@ function ProductForm({
     specifications: product?.specifications ? JSON.stringify(product.specifications, null, 2) : '{}',
     image_urls: product?.image_urls?.join(', ') || '',
     is_available: product?.is_available ?? true,
+    in_stock: product?.in_stock ?? true,
     is_featured: product?.is_featured ?? false,
     energy_rating: product?.energy_rating || '',
     warranty_years: product?.warranty_years || 1,
@@ -1779,7 +1828,15 @@ function ProductForm({
               checked={formData.is_available}
               onCheckedChange={(checked) => setFormData(prev => ({ ...prev, is_available: checked }))}
             />
-            <Label htmlFor="is_available">Available for Purchase</Label>
+            <Label htmlFor="is_available">Visible in Shop</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="in_stock"
+              checked={formData.in_stock}
+              onCheckedChange={(checked) => setFormData(prev => ({ ...prev, in_stock: checked }))}
+            />
+            <Label htmlFor="in_stock">In Stock</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Switch

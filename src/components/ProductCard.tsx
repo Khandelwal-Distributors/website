@@ -67,7 +67,7 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false, 
           <div itemProp="offers" itemScope itemType="https://schema.org/Offer" style={{ display: 'none' }}>
             <meta itemProp="priceCurrency" content="INR" />
             <meta itemProp="price" content={product.price.toString()} />
-            <meta itemProp="availability" content={product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"} />
+            <meta itemProp="availability" content={product.in_stock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"} />
             <meta itemProp="itemCondition" content="https://schema.org/NewCondition" />
             <meta itemProp="url" content={`${window.location.origin}/product/${product.slug}`} />
           </div>
@@ -207,17 +207,28 @@ export default function ProductCard({ product, onBuyNow, disableSchema = false, 
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </Button>
-            <Button
-              variant="cta"
-              size="sm"
-              onClick={handleBuyNow}
-              disabled={disableBuy}
-              className="flex items-center gap-2"
-              title={disableBuy ? 'Enter a serviceable pincode to buy' : undefined}
-            >
-              <ShoppingCart className="h-4 w-4" />
-              Buy Now
-            </Button>
+            {product.in_stock ? (
+              <Button
+                variant="cta"
+                size="sm"
+                onClick={handleBuyNow}
+                disabled={disableBuy}
+                className="flex items-center gap-2"
+                title={disableBuy ? 'Enter a serviceable pincode to buy' : undefined}
+              >
+                <ShoppingCart className="h-4 w-4" />
+                Buy Now
+              </Button>
+            ) : (
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled
+                className="flex items-center gap-2 opacity-70 cursor-not-allowed"
+              >
+                Out of Stock
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>

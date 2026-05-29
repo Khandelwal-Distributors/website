@@ -18,6 +18,7 @@ export interface Product {
   specifications: Record<string, any>;
   image_urls: string[];
   is_available: boolean;
+  in_stock: boolean;
   is_featured: boolean;
   energy_rating: string | null;
   warranty_years: number;

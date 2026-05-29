@@ -145,7 +145,7 @@ export default function ProductDetail() {
               "price": product.price,
               "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
               "itemCondition": "https://schema.org/NewCondition",
-              "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              "availability": product.in_stock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
               "seller": {
                 "@type": "Organization",
                 "name": "Khandelwal Distributors",
@@ -305,15 +305,26 @@ export default function ProductDetail() {
                     Call Now
                   </Button>
                 </div>
-                <Button
-                  size="lg"
-                  variant="cta"
-                  onClick={handleBuyNow}
-                  className="w-full text-lg py-6"
-                >
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  Buy Now
-                </Button>
+                {product.in_stock ? (
+                  <Button
+                    size="lg"
+                    variant="cta"
+                    onClick={handleBuyNow}
+                    className="w-full text-lg py-6"
+                  >
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    Buy Now
+                  </Button>
+                ) : (
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    disabled
+                    className="w-full text-lg py-6 opacity-70 cursor-not-allowed"
+                  >
+                    Out of Stock
+                  </Button>
+                )}
               </div>
 
               {/* Trust Indicators */}
