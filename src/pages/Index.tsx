@@ -18,6 +18,7 @@ import RentAnAC from "@/components/RentAnAC";
 import ScrollableProductCategories from "@/components/ScrollableProductCategories";
 import BlogsSection from "@/components/BlogsSection";
 import ArticonHighlight from "@/components/ArticonHighlight";
+import ServiceFlowShowcase from "@/components/ServiceFlowShowcase";
 
 const Index = () => {
   const jsonLd = {
@@ -764,6 +765,7 @@ const Index = () => {
         <ScrollableProductCategories />
         <Services />
         <ProjectsShowcase />
+        <ServiceFlowShowcase />
         <OurClients />
         <div data-section="sale">
           <EndOfSeasonSale />
