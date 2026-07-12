@@ -58,9 +58,11 @@ const BrochureDownload = () => {
                   </div>
                 </div>
                 
-                <Button variant="cta" size="lg" className="w-full md:w-auto">
-                  <Download className="h-5 w-5 mr-2" />
-                  Download Brochure
+                <Button variant="cta" size="lg" className="w-full md:w-auto" asChild>
+                  <a href="https://jjfwpspbwbytxbfljmcz.supabase.co/storage/v1/object/public/assets/Brochure.pdf" target="_blank" rel="noopener noreferrer" download="Khandelwal-Distributors-Brochure.pdf">
+                    <Download className="h-5 w-5 mr-2" />
+                    Download Brochure
+                  </a>
                 </Button>
                 
                 <p className="text-xs text-muted-foreground mt-3">

@@ -2848,5 +2848,5 @@ export const getBlogBySlug = (slug: string): Blog | undefined => {
 
 // Get featured blogs
 export const getFeaturedBlogs = (): Blog[] => {
-  return blogs.filter(blog => blog.featured);
+  return blogs.filter(blog => blog.featured).slice(0, 4);
 };
