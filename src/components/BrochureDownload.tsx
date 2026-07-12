@@ -28,7 +28,7 @@ const BrochureDownload = () => {
                     <p className="text-muted-foreground">Complete product catalog and pricing guide</p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-3 mb-6">
                   {features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
@@ -37,19 +37,19 @@ const BrochureDownload = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <p className="text-sm text-muted-foreground mb-6">
-                  Get detailed information about all our AC models, services, and competitive pricing. 
+                  Get detailed information about all our AC models, services, and competitive pricing.
                   Perfect for planning your cooling solution.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="bg-muted rounded-lg p-8 mb-6">
                   <div className="bg-background rounded-lg p-6 shadow-sm">
-                    <img 
-                      src="/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png" 
-                      alt="Brand logo" 
+                    <img
+                      src="/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png"
+                      alt="Brand logo"
                       className="h-16 w-16 mx-auto mb-4 object-contain"
                     />
                     <h3 className="font-semibold text-lg mb-2">Product Brochure</h3>
@@ -57,14 +57,14 @@ const BrochureDownload = () => {
                     <p className="text-xs text-muted-foreground">Updated: December 2024</p>
                   </div>
                 </div>
-                
+
                 <Button variant="cta" size="lg" className="w-full md:w-auto" asChild>
                   <a href="https://jjfwpspbwbytxbfljmcz.supabase.co/storage/v1/object/public/assets/Brochure.pdf" target="_blank" rel="noopener noreferrer" download="Khandelwal-Distributors-Brochure.pdf">
                     <Download className="h-5 w-5 mr-2" />
                     Download Brochure
                   </a>
                 </Button>
-                
+
                 <p className="text-xs text-muted-foreground mt-3">
                   No sign-up required • Instant download
                 </p>
