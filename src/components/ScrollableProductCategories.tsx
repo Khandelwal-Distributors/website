@@ -130,6 +130,12 @@ const categories = [
     image: alkalineRo,
     slug: "alkaline-ro",
     description: "Healthy drinking water for homes, offices"
+  },
+  {
+    name: "Stabilizers",
+    image: inverterSplitAc,
+    slug: "stabilizers",
+    description: "AC & mainline stabilizers — 4 KVA to 10 KVA"
   }
 ];
 

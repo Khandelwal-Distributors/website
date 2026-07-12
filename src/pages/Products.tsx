@@ -189,6 +189,19 @@ const Products = () => {
         { name: "Elanpro Chest Freezer", capacity: "300L", rating: "Heavy Duty", price: "₹38,000" },
         { name: "Elanpro Display Freezer", capacity: "500L", rating: "Display", price: "₹55,000" }
       ]
+    },
+    {
+      id: "stabilizers",
+      title: "AC & Mainline Stabilizers",
+      description: "Protect appliances from voltage fluctuations — 4 KVA to 10 KVA",
+      image: inverterSplitAc,
+      icon: <Zap className="h-6 w-6" />,
+      brands: ["V-Guard", "Seiko", "Microtek", "Bluebird", "Lifebird"],
+      products: [
+        { name: "V-Guard Digi 200 Smart", capacity: "4 KVA", rating: "Copper Winding", price: "₹3,200" },
+        { name: "Bluebird Copper 5 KVA", capacity: "5 KVA", rating: "Copper Winding", price: "₹4,200" },
+        { name: "Lifebird 10 KVA Mainline", capacity: "10 KVA", rating: "Mainline", price: "₹14,000" }
+      ]
     }
   ];
 

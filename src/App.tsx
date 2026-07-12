@@ -48,6 +48,7 @@ import ColdRoom from "./pages/products/ColdRoom";
 import AHUSystem from "./pages/products/AHUSystem";
 import DeepFreezers from "./pages/products/DeepFreezers";
 import ModularOT from "./pages/products/ModularOT";
+import Stabilizers from "./pages/products/Stabilizers";
 
 // Import brand pages
 import Voltas from "./pages/brands/Voltas";
@@ -107,6 +108,7 @@ const App = () => {
                   <Route path="/products/ahu-system" element={<AHUSystem />} />
                   <Route path="/products/deep-freezers" element={<DeepFreezers />} />
                   <Route path="/products/modular-ot" element={<ModularOT />} />
+                  <Route path="/products/stabilizers" element={<Stabilizers />} />
                   
                   {/* Brand pages routes */}
                   <Route path="/brands/voltas" element={<Voltas />} />
