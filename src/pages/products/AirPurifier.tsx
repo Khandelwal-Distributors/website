@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Shield, Heart, Leaf, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Shield, Heart, Leaf, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import airPurifier from "@/assets/air-purifier.jpg";
 
 const AirPurifier = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin MC55UVM6", type: "HEPA Air Purifier", coverage: "400 sq ft", price: "₹18,000", features: ["6-Layer Filtration", "Streamer Technology", "PM 2.5 Display"] },
     { name: "Ion Exchange Aquasoft", type: "Water Softener", capacity: "2000 LPH", price: "₹45,000", features: ["Automatic Regeneration", "Digital Control", "Hardness Removal"] },
@@ -66,6 +68,15 @@ const AirPurifier = () => {
       features: ["High Flow Rate", "Twin Tank", "Continuous Operation"],
       applications: ["Manufacturing", "Boilers", "Cooling Towers"]
     }
+  ];
+
+  const faqs = [
+    { q: "How does a HEPA air purifier remove pollutants?", a: "A True HEPA filter captures at least 99.97% of airborne particles as small as 0.3 microns — dust, pollen, smoke, PM2.5 and bacteria — by trapping them in a dense fibre mesh as air is pulled through by the unit's fan. Many models also add activated carbon layers to absorb odours and gases." },
+    { q: "What room size does an air purifier cover?", a: "Coverage depends on the unit's CADR (Clean Air Delivery Rate). As a rule of thumb, choose a purifier rated for 1.5–2x your room's square footage for 2 full air changes per hour. We help you pick the right CADR for bedrooms, living rooms, or offices in Bareilly." },
+    { q: "Do I need a water softener if I already use an RO purifier?", a: "Yes, they solve different problems. RO purifies drinking water by removing dissolved salts and contaminants, while a water softener treats hard water (high calcium/magnesium) used for bathing, washing and appliances — preventing scaling in geysers, pipes and washing machines, which is common in Bareilly's hard water." },
+    { q: "How often should air purifier filters be replaced?", a: "Pre-filters should be cleaned every 2–4 weeks. HEPA filters typically last 6–12 months and carbon filters 3–6 months, depending on usage and air quality. Most units have a filter-life indicator to alert you when replacement is due." },
+    { q: "Can a water softener remove harmful contaminants from drinking water?", a: "No — a softener only exchanges hardness minerals (calcium, magnesium) for sodium ions; it does not remove bacteria, heavy metals or dissolved solids. For safe drinking water, pair a softener (for household use) with an RO or alkaline RO purifier (for drinking)." },
+    { q: "Which is right for Bareilly's water — a softener or an RO system?", a: "Bareilly and surrounding UP areas often have hard groundwater, so a softener is recommended for your overhead tank/main supply to protect appliances and skin, while an RO purifier remains essential for safe drinking water. We can survey your water source and recommend the right combination." },
   ];
 
   return (
@@ -129,6 +140,17 @@ const AirPurifier = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -422,6 +444,37 @@ const AirPurifier = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Air Purifiers & Water Softeners
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

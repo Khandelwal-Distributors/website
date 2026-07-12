@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Snowflake, Thermometer, Shield, Factory, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowLeft, Star, Snowflake, Thermometer, Shield, Factory, MessageCircle, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import coldRoom from "@/assets/cold-room.jpg";
 
 const ColdRoom = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin Cold Room 10x8", size: "10x8x8 ft", temperature: "-5°C to +5°C", price: "₹4,50,000", features: ["Walk-in Design", "PUF Insulation", "SS304 Interior"] },
     { name: "Carrier Freezer Room 12x10", size: "12x10x8 ft", temperature: "-18°C to -25°C", price: "₹6,50,000", features: ["Deep Freeze", "Auto Defrost", "Temperature Alarm"] },
@@ -50,6 +52,15 @@ const ColdRoom = () => {
   const applications = [
     "Restaurants & Hotels", "Hospitals & Pharma", "Food Processing", "Dairy Industries",
     "Meat Processing", "Catering Services", "Ice Cream Parlors", "Grocery Stores"
+  ];
+
+  const faqs = [
+    { q: "What temperature range can a cold room maintain?", a: "Chiller/cold storage rooms typically maintain +2°C to +8°C for produce, dairy and beverages, while walk-in freezer rooms hold −18°C to −20°C for frozen goods. Deep-freeze or blast-freeze rooms can go down to −30°C to −40°C for specialized storage." },
+    { q: "What is a PUF panel and what thickness do I need?", a: "PUF (Polyurethane Foam) panels are insulated wall/ceiling/floor panels used to build cold rooms. For a standard −18°C freezer, 100–120mm panels are typical; deep-freeze rooms below −30°C need 150–200mm panels. Given Bareilly's hot summers (35–45°C ambient), we recommend sizing panel thickness generously to reduce compressor load and running costs." },
+    { q: "What size cold room do I need for my business?", a: "Sizing depends on your storage volume, product type, and turnover — a small pharmacy or restaurant may need as little as 6x6 ft, while a wholesale/cold storage business may need 500+ sq ft. We do a free site visit and capacity assessment before quoting." },
+    { q: "What's the difference between a walk-in cooler and a walk-in freezer?", a: "A walk-in cooler (chiller) keeps products above freezing (+2°C to +8°C) for fresh produce, dairy and beverages, while a walk-in freezer maintains sub-zero temperatures (−18°C or lower) for long-term frozen storage of meat, ice cream and frozen food." },
+    { q: "What compressor brands do you install for cold rooms?", a: "We work with reliable refrigeration compressor and condensing unit brands suited to Indian ambient conditions, matched to your temperature requirement and room size, along with PUF panelling, digital controllers and alarm systems for temperature monitoring." },
+    { q: "Do you provide AMC/maintenance for cold rooms in Bareilly?", a: "Yes. We offer annual maintenance contracts covering compressor servicing, refrigerant top-up, door seal and panel inspection, and controller calibration for cold rooms across Bareilly, Pilibhit, Budaun and Shahjahanpur." },
   ];
 
   return (
@@ -113,6 +124,17 @@ const ColdRoom = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -417,6 +439,37 @@ const ColdRoom = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Cold Rooms
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

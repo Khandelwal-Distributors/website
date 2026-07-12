@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Move, Home, Zap, Timer, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Move, Home, Zap, Timer, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import portableAc from "@/assets/portable-ac.jpg";
 
 const PortableAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Cruise Mobile Pro", capacity: "1 Ton", rating: "3 Star", price: "₹28,000", features: ["Portable Design", "Remote Control", "Easy Installation"] },
     { name: "Cruise Portable Deluxe", capacity: "1.5 Ton", rating: "3 Star", price: "₹32,000", features: ["Wheels Included", "Drain Hose", "Timer Function"] },
@@ -29,6 +31,15 @@ const PortableAC = () => {
   const applications = [
     "Rented Apartments", "Temporary Offices", "Server Rooms", "Small Shops",
     "Guest Rooms", "Studio Apartments", "Event Venues", "Emergency Cooling"
+  ];
+
+  const faqs = [
+    { q: "How does a portable AC work without permanent installation?", a: "A portable AC is a self-contained unit on wheels that cools a room and vents hot air out through a flexible duct placed in a window or wall opening — no outdoor unit or drilling required, so it can be moved between rooms as needed." },
+    { q: "Where can I use a portable AC?", a: "Portable ACs are ideal for rented flats, PG accommodations, offices where installation isn't allowed, event venues, or as temporary/emergency cooling — anywhere a permanent split or window AC installation isn't practical." },
+    { q: "What cooling capacity should I pick for a small room?", a: "For rooms up to 120–150 sq ft, a 0.75–1 ton portable AC is usually sufficient. Larger rooms or spaces with high heat gain may need a 1.5 ton unit — we help you choose based on your room size and usage." },
+    { q: "Do portable ACs need a window or vent for exhaust?", a: "Yes, portable ACs need a nearby window, sliding door gap, or wall opening to vent the exhaust duct outside — without proper venting, cooling efficiency drops significantly since hot air can't escape." },
+    { q: "Can I rent a portable AC instead of buying?", a: "Yes, we offer AC rental options including portable ACs for short-term needs like events, temporary offices, or seasonal use, which can be more cost-effective than a full purchase." },
+    { q: "What's the power consumption of a portable AC?", a: "A typical 1 ton portable AC consumes roughly 1200–1500 watts, similar to or slightly higher than an equivalent split AC, since portable units are generally less efficient due to their compact all-in-one design." },
   ];
 
   return (
@@ -92,6 +103,17 @@ const PortableAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -295,6 +317,37 @@ const PortableAC = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Portable AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

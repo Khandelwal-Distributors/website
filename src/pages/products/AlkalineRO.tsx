@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Droplets, Shield, Heart, Zap, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowLeft, Star, Droplets, Shield, Heart, Zap, MessageCircle, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import alkalineRo from "@/assets/alkaline-ro.jpg";
 
 const AlkalineRO = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Zero B Alkaline Pro Max", stages: "8 Stage", capacity: "12L/Hr", price: "₹22,000", features: ["RO+UV+Alkaline", "Mineral Boost", "TDS Controller"] },
     { name: "Zero B Eco Alkaline", stages: "7 Stage", capacity: "10L/Hr", price: "₹18,000", features: ["Alkaline Technology", "Copper Boost", "Auto Flush"] },
@@ -40,6 +42,15 @@ const AlkalineRO = () => {
   const healthBenefits = [
     "Better Hydration", "Improved Immunity", "Enhanced Energy Levels", "Better Digestion",
     "Antioxidant Properties", "pH Balance", "Mineral Absorption", "Detoxification"
+  ];
+
+  const faqs = [
+    { q: "What is alkaline water and how is it different from regular RO water?", a: "Alkaline water has a higher pH (typically 8.0–9.5) than regular drinking water (pH ~7). Standard RO purification removes contaminants but also strips essential minerals, leaving water slightly acidic. Alkaline RO purifiers add back minerals like calcium, magnesium and potassium through a mineralizer cartridge to raise the pH and improve taste." },
+    { q: "What pH level is ideal for drinking water?", a: "A pH between 7.5 and 8.5 is considered ideal for daily drinking — mildly alkaline and safe for regular consumption. Going beyond pH 9.5 isn't necessary and can affect taste. Our Zero B alkaline RO systems are calibrated to deliver this optimal range." },
+    { q: "Does RO filtration remove essential minerals, and does alkaline RO add them back?", a: "Yes. Standard RO membranes remove up to 90-99% of dissolved minerals along with contaminants. Alkaline RO purifiers pass the purified water through a mineral cartridge afterward, reintroducing calcium, magnesium and potassium — giving you both safety and mineral-enriched water." },
+    { q: "Is alkaline water safe for everyone to drink daily?", a: "For most healthy individuals, mildly alkaline water (pH 7.5–8.5) is safe for daily use and may support hydration and digestion. People with kidney conditions or on specific medical diets should consult a doctor before making it their primary water source." },
+    { q: "How is a Zero B alkaline RO purifier maintained?", a: "Sediment and carbon pre-filters should be changed every 4–6 months, the RO membrane every 12–18 months, and the mineral/alkaline cartridge every 6–8 months depending on usage and input water quality. We offer AMC plans with scheduled filter changes and servicing." },
+    { q: "Should I choose alkaline RO or standard RO for Bareilly's water?", a: "Bareilly's groundwater has moderate to high TDS, so RO purification is essential regardless. We generally recommend alkaline RO for households wanting better taste and remineralized water, while standard RO suits budget-conscious buyers who don't need the added alkalinity." },
   ];
 
   return (
@@ -103,6 +114,17 @@ const AlkalineRO = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -402,6 +424,37 @@ const AlkalineRO = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Alkaline RO Purifiers
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Eye, Settings, Building, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Eye, Settings, Building, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import ductableAc from "@/assets/ductable-ac.jpg";
 
 const DuctableAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin FDMRN50BXV16", capacity: "4 Ton", rating: "5 Star", price: "₹1,80,000", features: ["Concealed Design", "Inverter Tech", "Zone Control"] },
     { name: "Carrier Ductable 42QHA048", capacity: "4 Ton", rating: "4 Star", price: "₹1,65,000", features: ["High Static Pressure", "R-410A", "Energy Efficient"] },
@@ -38,6 +40,15 @@ const DuctableAC = () => {
     { feature: "Control", value: "Centralized" },
     { feature: "Noise Level", value: "Ultra Low" },
     { feature: "Coverage", value: "Large Areas" }
+  ];
+
+  const faqs = [
+    { q: "What is a ductable AC and how does concealed central cooling work?", a: "A ductable AC uses a single indoor unit connected to insulated ducting that distributes cooled air to multiple rooms or zones through ceiling grilles — giving you central, whole-space cooling with no visible indoor units, and precise zone-wise temperature control if configured with dampers." },
+    { q: "Ductable AC vs cassette AC vs VRV — which is best for my space?", a: "Ductable AC suits single large open areas or a few connected rooms needing uniform cooling from one unit. Cassette AC suits standalone rooms wanting a discreet ceiling unit. VRV is best for multi-floor buildings needing independent zone control from a shared outdoor system. We help you compare based on your layout and budget." },
+    { q: "What ducting and false ceiling requirements does ductable AC need?", a: "You'll need at least 12–15 inches of false ceiling void to run insulated ducting and accommodate the indoor unit, plus grilles/diffusers positioned for even airflow. Our team does a site survey to plan the ducting layout before installation." },
+    { q: "What tonnage ductable AC suits my office or showroom?", a: "As a general guide, allow roughly 1 ton of cooling per 120–150 sq ft for typical commercial spaces, adjusted for ceiling height, glazing, and equipment heat load. We provide a free load calculation for accurate sizing." },
+    { q: "How much does ductable AC installation cost including ducting?", a: "Cost depends on tonnage, ducting length, number of outlets, and civil/false-ceiling work required — it's typically higher than cassette or split AC due to ducting material and labour. We provide a detailed itemized quote after site assessment." },
+    { q: "What maintenance is required for ductable AC systems?", a: "Filters need cleaning every 4–6 weeks, and the coil, blower, and ducting should be inspected every 3–6 months for dust buildup and leakage. We offer AMC plans covering ductable AC systems across Bareilly and nearby districts." },
   ];
 
   return (
@@ -101,6 +112,17 @@ const DuctableAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -346,6 +368,37 @@ const DuctableAC = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Ductable AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

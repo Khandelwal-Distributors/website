@@ -4,14 +4,16 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Zap, Building2, TrendingDown, Maximize2, Home, Building, Hotel, Hospital, School, MessageCircle, CheckCircle2, IndianRupee } from "lucide-react";
+import { Phone, ArrowLeft, Zap, Building2, TrendingDown, Maximize2, Home, Building, Hotel, Hospital, School, MessageCircle, CheckCircle2, IndianRupee, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import vrvSystemImg from "@/assets/vrv-system.jpg";
 import vrvHomeImg from "@/assets/vrv-home.jpg";
 import vrvImageBg from "@/assets/vrv-image.webp";
 
 const VRVSystem = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const keyBenefits = [
     {
       icon: <Zap className="h-8 w-8" />,
@@ -119,6 +121,15 @@ const VRVSystem = () => {
     { feature: "Space Required", vrv: "Minimal (no plant room)", traditional: "Large (plant + AHU rooms)" },
     { feature: "Individual Control", vrv: "✅ Each zone independent", traditional: "❌ Central control only" },
     { feature: "ROI Period", vrv: "3-5 years", traditional: "N/A" }
+  ];
+
+  const faqs = [
+    { q: "What is a VRV/VRF system and how does it differ from split AC?", a: "VRV (Variable Refrigerant Volume, Daikin's trademarked term) and VRF (Variable Refrigerant Flow, the generic industry name) refer to the same technology — a single outdoor unit connects to multiple indoor units via refrigerant piping, with inverter-driven compressors modulating refrigerant flow to each zone independently. Unlike split AC, one outdoor unit can serve an entire building with individual zone control." },
+    { q: "How many indoor units can one VRV outdoor unit support?", a: "Depending on the system and outdoor unit capacity, a single VRV/VRF outdoor unit can typically connect to anywhere from a handful up to 64 indoor units, with generous allowances for piping length and height difference — giving flexible layouts across multiple floors." },
+    { q: "What buildings benefit most from VRV systems?", a: "VRV is ideal for hotels, corporate offices, hospitals, educational institutions, and shopping centers — anywhere that needs precise, independent zone-wise temperature control along with energy efficiency and minimal outdoor unit footprint." },
+    { q: "What is the typical cost of VRV vs multiple split ACs?", a: "VRV has a higher initial cost (roughly ₹700-900/sqft vs ₹500-600/sqft for conventional systems) but lower operating costs (₹40-60/sqft/year vs ₹80-120/sqft/year), no dedicated plant room requirement, and a typical ROI period of 3-5 years through energy savings." },
+    { q: "How energy efficient is VRV compared to conventional AC?", a: "VRV systems typically deliver 30-50% energy savings compared to conventional ducted or multi-split systems, because inverter compressors only use the refrigerant flow each zone actually needs rather than running at fixed capacity." },
+    { q: "Do you handle end-to-end VRV project design and installation?", a: "Yes, we provide complete VRV project services — load calculation, system design, piping layout, installation, commissioning and AMC — as authorized dealers for commercial VRV projects across Bareilly, Pilibhit, Shahjahanpur, Badaun, Rampur and Moradabad." },
   ];
 
   return (
@@ -246,6 +257,17 @@ const VRVSystem = () => {
                 }
               ]
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           })}
         </script>
       </Helmet>
@@ -681,6 +703,37 @@ const VRVSystem = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — VRV Systems
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

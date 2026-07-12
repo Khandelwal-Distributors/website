@@ -5,9 +5,10 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, MessageCircle, CheckCircle2, Shield, Award, Clock, ArrowLeft } from "lucide-react";
+import { Phone, MessageCircle, CheckCircle2, Shield, Award, Clock, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import YouTubeVideos from "@/components/YouTubeVideos";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import wallPanelsImg from "@/assets/ot-wall-panels.jpg";
 import laminarAirflowImg from "@/assets/ot-laminar-airflow.webp";
@@ -24,6 +25,7 @@ import instrumentStorageImg from "@/assets/ot-instrument-storage.jpg";
 import otHeroBg from "@/assets/ot-hero-bg.jpg";
 
 const ModularOT = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const components = [
     {
       name: "Wall Panels (Stainless Steel)",
@@ -214,6 +216,15 @@ const ModularOT = () => {
     window.open("https://wa.me/919084417884?text=I'm interested in Modular OT installation. Please provide more details.", "_blank");
   };
 
+  const faqs = [
+    { q: "What is a modular operation theatre and why is it required?", a: "A modular OT is a prefabricated, factory-engineered operating theatre built from stainless steel/glass panels, laminar airflow with HEPA filtration, hermetically sealed doors and integrated services — designed to maintain a sterile, contamination-controlled environment that reduces surgical site infections compared to conventional civil-construction OTs." },
+    { q: "What is the standard size of an OT?", a: "The minimum recommended size for a modular OT is 6.5m x 6.5m x 3.5m, with door widths of approximately 1.2-1.5m to allow for equipment and patient trolley movement. Exact dimensions depend on the type of surgery and equipment the OT needs to accommodate." },
+    { q: "What HVAC and air quality standards are used in modular OTs?", a: "Modular OTs use HEPA H14-filtered laminar airflow systems to achieve ISO Class 5 cleanroom standards, removing 99.97% of airborne particles, along with positive pressure control and precise temperature (±1°C) and humidity (45-55%) management via a dedicated AHU." },
+    { q: "How long does modular OT installation take?", a: "Timelines vary with OT size and scope, but our process follows five stages — site assessment, design, installation, testing/validation, and ongoing support — typically completed faster than traditional civil-construction OTs since components are prefabricated and modular." },
+    { q: "Do you provide NABH-compliant OT setups?", a: "Yes, our modular OT installations are designed to meet NABH (National Accreditation Board for Hospitals) requirements, Medical Device Rules 2017, BIS standards, and align with international benchmarks like ISO 14644, HTM 03-01 and DIN 1946-4." },
+    { q: "What is included in a turnkey modular OT project?", a: "Our turnkey solution covers wall panels, laminar airflow with HEPA filtration, hermetically sealed doors, OT control panel, multi-arm pendants, dedicated AHU, pass box, peripheral lighting, anti-static flooring, pressure dampers, and sterile instrument storage — plus testing, validation and certification." },
+  ];
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -358,6 +369,19 @@ const ModularOT = () => {
                 "item": "https://www.khandelwaldistributors.com/products/modular-ot"
               }
             ]
+          })}
+        </script>
+
+        {/* FAQPage Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           })}
         </script>
       </Helmet>
@@ -606,6 +630,37 @@ const ModularOT = () => {
         <section className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto">
             <YouTubeVideos />
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Modular Operation Theatre
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

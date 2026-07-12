@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Filter, Zap, Building, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Filter, Zap, Building, MessageCircle, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import ahuSystem from "@/assets/ahu-system.jpg";
 
 const AHUSystem = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin AHU-5000CFM", capacity: "5000 CFM", type: "Modular AHU", price: "₹8,50,000", features: ["HEPA Filtration", "Energy Recovery", "Modular Design"] },
     { name: "Carrier AquaEdge AHU", capacity: "10000 CFM", type: "Custom AHU", price: "₹15,00,000", features: ["Chilled Water Coil", "Variable Speed", "Smart Controls"] },
@@ -60,6 +62,15 @@ const AHUSystem = () => {
   const applications = [
     "Pharmaceutical Manufacturing", "Electronics Industry", "Food Processing", "Hospitals & Healthcare",
     "Commercial Offices", "Data Centers", "Clean Rooms", "Manufacturing Facilities"
+  ];
+
+  const faqs = [
+    { q: "What is an AHU and how does it work?", a: "An Air Handling Unit (AHU) circulates and conditions air for a building — drawing in air, passing it through filters and cooling/heating coils, and distributing it via ductwork. Unlike a standard AHU which recirculates indoor air, it can be configured to blend fresh air for better indoor air quality across large commercial spaces." },
+    { q: "What's the difference between an AHU and a split AC?", a: "A split AC cools a single room with a fixed indoor/outdoor unit pair. An AHU is a centralized system that conditions and distributes air to multiple zones through ducting, making it suitable for offices, hospitals, malls and manufacturing floors where uniform, large-scale cooling is needed." },
+    { q: "What capacity AHU do I need for my building?", a: "AHU sizing depends on the conditioned floor area, ceiling height, occupancy, and heat load from equipment. As a rough guide, commercial spaces need around 400–600 CFM per ton of cooling. Our team does a free site survey to calculate the exact CFM and tonnage for your building." },
+    { q: "Does an AHU require false ceiling and ducting space?", a: "Yes. AHUs are typically installed above a false ceiling or in a dedicated plant room, with insulated ductwork running to diffusers in each zone. You'll need adequate ceiling void (usually 12–18 inches) to accommodate the unit and ducting." },
+    { q: "How is an AHU different from a TFA or HRV unit?", a: "An AHU mainly recirculates and conditions indoor air, while a TFA (Treated Fresh Air) unit brings in 100% outdoor air and treats it before supply, and an HRV recovers heat/energy from exhaust air while introducing fresh air. Many commercial buildings use AHUs alongside TFA/HRV units for complete air quality management — see our detailed guide on AHU vs TFA vs HRV." },
+    { q: "How often does an AHU need maintenance?", a: "Filters should be checked monthly and cleaned or replaced every 1–3 months depending on air quality. Coils, blowers, and belts should be serviced quarterly, and a full inspection is recommended twice a year. We offer AMC packages for AHU systems across Bareilly and nearby districts." },
   ];
 
   return (
@@ -123,6 +134,17 @@ const AHUSystem = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -460,6 +482,37 @@ const AHUSystem = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — AHU Systems
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

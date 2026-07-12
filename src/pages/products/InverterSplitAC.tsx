@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Thermometer, Zap, Shield, Award, TrendingUp, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Thermometer, Zap, Shield, Award, TrendingUp, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import inverterSplitAc from "@/assets/inverter-split-ac.jpg";
 
 const InverterSplitAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { 
       name: "Daikin MTKL50U 1.5 Ton 5 Star", 
@@ -92,6 +94,15 @@ const InverterSplitAC = () => {
     { icon: <TrendingUp className="h-6 w-6" />, title: "Smart Features", description: "WiFi connectivity and smartphone control options" }
   ];
 
+  const faqs = [
+    { q: "What's the difference between inverter and non-inverter split AC?", a: "An inverter AC's compressor runs continuously at variable speed, adjusting cooling output to match the room's needs — using less electricity and maintaining steady temperature. A non-inverter (fixed-speed) AC's compressor switches fully on/off repeatedly, using more power and causing temperature fluctuations." },
+    { q: "How much can I save on electricity bills with an inverter AC?", a: "Inverter ACs can cut electricity consumption by up to 30–60% compared to non-inverter models, especially with regular use, because the compressor avoids repeated high-power start-stop cycles and runs efficiently at partial load once the room reaches set temperature." },
+    { q: "What star rating and tonnage should I choose for my room size?", a: "As a rough guide: 1 ton for up to 120 sq ft, 1.5 ton for 120–180 sq ft, and 2 ton for 180–250 sq ft rooms (less if the room gets direct sun or has more occupants). We recommend 3-star or 5-star BEE ratings for the best balance of upfront cost and running savings." },
+    { q: "What warranty comes with inverter split ACs?", a: "Most brands offer 1 year comprehensive warranty on the unit plus extended compressor warranty — typically 5–10 years depending on the brand (Daikin, Carrier, Voltas, Godrej, Mitsubishi Heavy, Midea, Amstrad). We share exact warranty terms for each model at the time of quotation." },
+    { q: "Do you provide free installation and old AC exchange?", a: "Yes, we provide professional installation with every AC purchase and offer exchange value for your old air conditioner against a new inverter AC, reducing your upgrade cost." },
+    { q: "Which brand is best — Daikin, Carrier, Voltas, Godrej, Mitsubishi Heavy?", a: "Each brand has strengths: Daikin and Mitsubishi Heavy are known for compressor reliability and Japanese engineering; Carrier offers strong cooling performance and features; Voltas and Godrej are value-for-money with wide service networks. We help you choose based on your budget, room size, and usage pattern." },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -153,6 +164,17 @@ const InverterSplitAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -292,6 +314,37 @@ const InverterSplitAC = () => {
                   Call: +91 7017497935
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Inverter Split AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

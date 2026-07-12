@@ -198,6 +198,13 @@ serve(async (req) => {
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://www.khandelwaldistributors.com/products/stabilizers</loc>
+    <lastmod>${formatDate(new Date().toISOString())}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   
   <!-- Brand Pages -->
   <url>
@@ -283,28 +290,28 @@ serve(async (req) => {
   </url>
   
   <url>
-    <loc>https://www.khandelwaldistributors.com/blogs/heat-pumps-india-comprehensive-guide</loc>
+    <loc>https://www.khandelwaldistributors.com/blogs/heat-pumps-water-heating-india</loc>
     <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://www.khandelwaldistributors.com/blogs/cold-rooms-india-complete-guide</loc>
+    <loc>https://www.khandelwaldistributors.com/blogs/cold-rooms-india-food-safety-business</loc>
     <lastmod>2025-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://www.khandelwaldistributors.com/blogs/modular-operating-theatre-ot-guide</loc>
+    <loc>https://www.khandelwaldistributors.com/blogs/modular-operation-theatre-india-hospitals</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://www.khandelwaldistributors.com/blogs/alkaline-water-purifier-india-guide</loc>
+    <loc>https://www.khandelwaldistributors.com/blogs/alkaline-water-purifier-health-benefits-india</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

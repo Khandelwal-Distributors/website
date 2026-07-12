@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Sun, Leaf, TrendingDown, Shield, Home, Building, Hotel, School, Hospital, Factory, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Sun, Leaf, TrendingDown, Shield, Home, Building, Hotel, School, Hospital, Factory, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import solarWaterHeater from "@/assets/solar-water-heater.jpg";
 
 const SolarWaterHeater = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Inter Solar 100L ETC", capacity: "100 Liters", type: "Residential", price: "₹25,000", features: ["Evacuated Tube", "5 Year Warranty", "ISI Certified"] },
     { name: "Inter Solar 200L ETC", capacity: "200 Liters", type: "Family", price: "₹35,000", features: ["High Efficiency", "Insulated Tank", "Weather Resistant"] },
@@ -48,6 +50,15 @@ const SolarWaterHeater = () => {
     { name: "Gymnasiums", icon: <Factory className="h-6 w-6" /> },
     { name: "Swimming Pools", icon: <Building className="h-6 w-6" /> },
     { name: "Industrial Processes", icon: <Factory className="h-6 w-6" /> }
+  ];
+
+  const faqs = [
+    { q: "How does a solar water heater work and save electricity?", a: "Solar water heaters use rooftop collectors to absorb sunlight and heat water directly (or via a heat-transfer fluid), storing it in an insulated tank for use — eliminating or drastically reducing the need for an electric geyser, especially on sunny days." },
+    { q: "FPC vs ETC solar water heaters — which is better for Bareilly's climate?", a: "FPC (Flat Plate Collector) systems are more durable, perform better in hard water and dusty conditions, and withstand hail/frost better — well suited to UP's climate. ETC (Evacuated Tube Collector) systems are cheaper and heat water faster in cooler weather but are more fragile and prone to scaling in hard water areas." },
+    { q: "What capacity (LPD) do I need for my family or business?", a: "As a guide, allow 25 litres per person for a household — a family of 4–5 typically needs a 100–150 LPD system. Commercial use like hotels or hostels needs 500 LPD and above. We assess your hot water usage before recommending capacity." },
+    { q: "Does a solar water heater work during winter or cloudy days?", a: "Yes, though output reduces on cloudy or rainy days. Most systems include an electric backup heating element so you still get hot water when sunlight is insufficient, ensuring year-round reliability." },
+    { q: "What maintenance is required for solar water heaters?", a: "Periodic cleaning of collector glass/tubes (every 2–3 months) improves efficiency, and the tank and connections should be inspected annually for scaling or leaks — especially important given Bareilly's hard water." },
+    { q: "What savings can I expect on electricity bills?", a: "A solar water heater can offset a significant share of the electricity otherwise used for hot water year-round, with most systems recovering their installation cost within 3-5 years through reduced electricity bills, especially with heavy year-round hot water use." },
   ];
 
   return (
@@ -111,6 +122,17 @@ const SolarWaterHeater = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -326,6 +348,37 @@ const SolarWaterHeater = () => {
                   Call: +91-98975-95000
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Solar Water Heaters
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

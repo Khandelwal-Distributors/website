@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Building, Zap, Users, Home, Hotel, ShoppingBag, Factory, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Building, Zap, Users, Home, Hotel, ShoppingBag, Factory, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import floorStandingAc from "@/assets/floor-standing-ac.jpg";
 
 const FloorStandingAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin Floor Standing FVXM50F", capacity: "3 Ton", rating: "5 Star", price: "₹1,20,000", features: ["Inverter Technology", "Floor Mounted", "High Airflow"] },
     { name: "Carrier Floor Mount 42KVCT048", capacity: "4 Ton", rating: "4 Star", price: "₹1,40,000", features: ["Tropical Design", "R-410A", "Auto Clean"] },
@@ -44,6 +46,15 @@ const FloorStandingAC = () => {
     { feature: "Airflow", value: "High Volume" },
     { feature: "Noise Level", value: "Low to Medium" },
     { feature: "Power Supply", value: "3 Phase" }
+  ];
+
+  const faqs = [
+    { q: "What is a floor standing (tower) AC and where is it used?", a: "A floor standing AC is a large-capacity unit installed on the floor rather than a wall or ceiling, designed to cool bigger open spaces quickly. It's commonly used in banquet halls, showrooms, restaurants, and large offices where high airflow over a wide area is needed." },
+    { q: "What capacity floor standing ACs are available?", a: "Floor standing ACs typically range from 1.5 ton to 8.5 ton and above for commercial use, letting you cool large halls or showrooms with fewer units compared to multiple split ACs." },
+    { q: "Floor standing AC vs cassette AC vs ductable — pros and cons?", a: "Floor standing ACs need no false ceiling and are quick to install with high throw distance, but take up floor space. Cassette ACs are discreet and ceiling-mounted but need ceiling void. Ductable AC gives the most uniform, hidden cooling but costs more due to ducting. We help you choose based on your space and budget." },
+    { q: "Do floor standing ACs need special electrical wiring?", a: "Larger tonnage floor standing units (typically above 2 ton) often require 3-phase power supply and a dedicated MCB/isolator, along with proper earthing. We assess your electrical setup and advise on any upgrades needed before installation." },
+    { q: "What spaces are best suited for floor standing ACs?", a: "They work well in banquet halls, marriage lawns/tents, showrooms, restaurants, gyms and large offices — anywhere that needs fast, high-volume cooling without extensive ducting or false ceiling work." },
+    { q: "What maintenance and warranty do floor standing ACs carry?", a: "Warranty is typically 1 year comprehensive plus extended compressor warranty (up to 5 years) depending on brand. Filters should be cleaned monthly and the unit serviced quarterly for continuous commercial use. We offer AMC packages for floor standing ACs in Bareilly." },
   ];
 
   return (
@@ -107,6 +118,17 @@ const FloorStandingAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -342,6 +364,37 @@ const FloorStandingAC = () => {
                   Call: +91-94296-93410
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Floor Standing AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

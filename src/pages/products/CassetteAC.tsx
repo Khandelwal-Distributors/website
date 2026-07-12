@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Building, Eye, Thermometer, Hotel, ShoppingBag, Hospital, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Building, Eye, Thermometer, Hotel, ShoppingBag, Hospital, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import cassetteAc from "@/assets/cassette-ac.jpg";
 
 const CassetteAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin FCVF50ARV16", capacity: "2 Ton", rating: "5 Star", price: "₹85,000", features: ["360° Air Flow", "Inverter Tech", "Remote Control"] },
     { name: "Carrier Cassette 42KCC036", capacity: "3 Ton", rating: "3 Star", price: "₹95,000", features: ["4-Way Airflow", "Copper Coil", "Timer Function"] },
@@ -35,6 +37,15 @@ const CassetteAC = () => {
     { name: "Showrooms", icon: <ShoppingBag className="h-6 w-6" /> },
     { name: "Clinics", icon: <Hospital className="h-6 w-6" /> },
     { name: "Reception Areas", icon: <Building className="h-6 w-6" /> }
+  ];
+
+  const faqs = [
+    { q: "What is a cassette AC and where is it typically installed?", a: "A cassette AC is a ceiling-mounted unit that sits flush within a false ceiling, with 360° or 4-way airflow that cools evenly across a room without wall-mounted indoor units. It's commonly used in shops, restaurants, hotel lobbies, offices and reception areas where a clean, unobtrusive look is needed." },
+    { q: "What false ceiling height is needed for cassette AC installation?", a: "You typically need at least 10–12 inches of false ceiling void to accommodate the cassette body, drainage, and ducting/wiring. Our team surveys the site to confirm ceiling depth before installation." },
+    { q: "What tonnage cassette AC is best for a 200–400 sq ft room?", a: "A 1.5–2 ton cassette AC generally suits 200–300 sq ft spaces, while 2.5–3 ton units are recommended for 300–400 sq ft, depending on occupancy, heat load and ceiling height. We provide free load calculation before quoting." },
+    { q: "How does cassette AC airflow differ from split AC?", a: "Cassette ACs distribute air in 4 directions (or 360° in round models) from the ceiling for even, draft-free cooling across the whole room, whereas split ACs blow air in one direction from a wall unit, which can create uneven cooling in larger spaces." },
+    { q: "Is cassette AC suitable for hotels, restaurants, and shops?", a: "Yes — cassette ACs are a popular choice for commercial spaces because they free up wall space, blend into the ceiling, and cool larger open-plan areas evenly. We've installed cassette AC systems across hotels, restaurants and retail stores in Bareilly." },
+    { q: "What maintenance does a cassette AC need?", a: "Filters should be cleaned monthly, and the coil, drain pan, and blower serviced every 3–6 months to prevent water leakage and maintain cooling efficiency. We offer AMC packages covering cassette AC servicing across Bareilly, Pilibhit and Shahjahanpur." },
   ];
 
   return (
@@ -98,6 +109,17 @@ const CassetteAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -255,6 +277,37 @@ const CassetteAC = () => {
                   Call: +91-94296-93410
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Cassette AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

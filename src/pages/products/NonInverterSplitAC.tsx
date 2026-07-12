@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Thermometer, DollarSign, Home, Clock, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Thermometer, DollarSign, Home, Clock, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import splitAc from "@/assets/split-ac.jpg";
 
 const NonInverterSplitAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Carrier Estrella Neo", capacity: "1.5 Ton", rating: "3 Star", price: "₹25,000", features: ["Fixed Speed", "Copper Condenser", "Auto Restart"] },
     { name: "Godrej GIC 18NTC3", capacity: "1.5 Ton", rating: "3 Star", price: "₹22,000", features: ["Anti-Bacterial", "Sleep Mode", "Auto Clean"] },
@@ -32,6 +34,15 @@ const NonInverterSplitAC = () => {
     { feature: "Cooling Speed", nonInverter: "Fast", inverter: "Gradual" },
     { feature: "Maintenance", nonInverter: "Easy", inverter: "Complex" },
     { feature: "Best For", nonInverter: "Small rooms, Budget buyers", inverter: "Large rooms, Long usage" }
+  ];
+
+  const faqs = [
+    { q: "What is a non-inverter (fixed speed) split AC?", a: "A non-inverter AC's compressor runs at a single fixed speed — switching fully on when the room needs cooling and fully off once the set temperature is reached, then repeating the cycle. This is simpler technology than inverter ACs, which adjust compressor speed continuously." },
+    { q: "Is non-inverter AC cheaper than inverter AC?", a: "Yes, non-inverter ACs typically cost 15–30% less upfront than inverter models of the same tonnage. However, running costs are higher over time since the compressor cycles on/off rather than modulating, so inverter ACs usually work out cheaper for heavy daily use." },
+    { q: "What star ratings are available for non-inverter ACs?", a: "Non-inverter split ACs are available in 2, 3 and 5 star BEE ratings. Higher star ratings mean better energy efficiency and lower electricity bills, though the AC itself costs more upfront." },
+    { q: "Is non-inverter AC still legally sold in India?", a: "Yes, fixed-speed split ACs remain available in the Indian market, particularly in lower tonnage and budget segments, though inverter technology has become the dominant choice due to efficiency mandates and consumer preference for lower running costs." },
+    { q: "Who should choose non-inverter over inverter AC?", a: "Non-inverter AC suits buyers with a tight budget, occasional or seasonal AC use (a few hours a day), or rental properties where upfront cost matters more than long-term electricity savings." },
+    { q: "What warranty and installation do you provide?", a: "We provide free professional installation and standard manufacturer warranty (typically 1 year comprehensive, longer on the compressor) on all non-inverter split ACs, along with after-sales service across Bareilly and nearby districts." },
   ];
 
   return (
@@ -95,6 +106,17 @@ const NonInverterSplitAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -327,6 +349,37 @@ const NonInverterSplitAC = () => {
                   Call: +91-94296-93410
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Non-Inverter Split AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

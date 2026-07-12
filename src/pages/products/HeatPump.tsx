@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Droplets, MessageCircle, CheckCircle2, Flame, Building2, Home, Waves } from "lucide-react";
+import { Phone, ArrowLeft, Star, Thermometer, Leaf, Zap, Droplets, MessageCircle, CheckCircle2, Flame, Building2, Home, Waves, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import heatPump from "@/assets/heat-pump.jpg";
 
 const HeatPump = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const brands = [
     { name: "Sun Stellar", highlight: "Premium Heat Pump Water Heaters" },
     { name: "Inter Solar", highlight: "Stainless Steel Heat Pumps" },
@@ -78,6 +80,15 @@ const HeatPump = () => {
     "Swimming Pools", "Factories", "Commercial Buildings", "Gyms & Spas"
   ];
 
+  const faqs = [
+    { q: "How does a heat pump water heater work, and what is COP?", a: "A heat pump extracts ambient heat from the surrounding air and uses it to heat water, rather than generating heat directly with an electric element. COP (Coefficient of Performance) measures efficiency — top models like Racold offer a COP of 3.8–4.4, meaning they deliver 3.8–4.4 units of heat for every 1 unit of electricity consumed." },
+    { q: "Heat pump vs solar water heater vs electric geyser — which saves more?", a: "Heat pumps use roughly one-third the electricity of a standard geyser and work day or night, rain or shine. Solar water heaters have near-zero running costs on sunny days but need electric backup during monsoon/cloudy periods. Electric geysers are the least efficient. For India's warm climate, heat pumps often edge ahead where sunlight is inconsistent." },
+    { q: "Does a heat pump work in winter or cloudy weather?", a: "Yes — unlike solar heaters, a heat pump draws heat from ambient air and works year-round regardless of sunlight, though efficiency dips slightly in very cold temperatures. It heats water roughly twice as fast as a typical solar water heater." },
+    { q: "What capacity heat pump do I need?", a: "For a household of 4–5 people, a 100–200 litre heat pump is typically sufficient. Commercial applications like hotels, hospitals, and gyms need larger capacity systems sized to peak hot water demand — we do a usage assessment before recommending capacity." },
+    { q: "Which brands do you install — Sun Stellar, Inter Solar, Racold?", a: "We supply and install Sun Stellar, Inter Solar and Racold heat pump water heaters, helping you choose based on capacity, COP, and budget for residential or commercial use." },
+    { q: "How much can I save on electricity bills with a heat pump?", a: "Since heat pumps consume roughly 60-70% less electricity than a conventional geyser for the same hot water output, most households and businesses recover the higher upfront cost within 2–4 years through lower running costs." },
+  ];
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
@@ -119,6 +130,17 @@ const HeatPump = () => {
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
               "telephone": "+917017497935"
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           })}
         </script>
       </Helmet>
@@ -611,6 +633,37 @@ const HeatPump = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Heat Pump Water Heaters
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

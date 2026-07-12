@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Snowflake, Factory, Cpu, Thermometer, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Snowflake, Factory, Cpu, Thermometer, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import chillerSystem from "@/assets/chiller-system.jpg";
 
 const ChillerSystem = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin Air-Cooled Chiller", capacity: "50 TR", type: "Air-Cooled", price: "₹15,00,000", features: ["Scroll Compressor", "R-410A Refrigerant", "Energy Efficient"] },
     { name: "Carrier Water-Cooled Chiller", capacity: "100 TR", type: "Water-Cooled", price: "₹25,00,000", features: ["Centrifugal Compressor", "High COP", "Modular Design"] },
@@ -50,6 +52,15 @@ const ChillerSystem = () => {
   const applications = [
     "Manufacturing Plants", "Data Centers", "Pharmaceutical", "Food Processing",
     "Textile Mills", "Chemical Plants", "Power Plants", "District Cooling"
+  ];
+
+  const faqs = [
+    { q: "What is a chiller system and how is it different from a regular AC?", a: "A chiller cools water or a water-glycol mix, which is then circulated through pipes to air handling units, fan coil units or process equipment across a building or facility. Unlike a regular AC that cools air directly, a chiller can serve multiple zones, floors or industrial processes from a single central plant." },
+    { q: "Air-cooled vs water-cooled chiller — which is right for my facility?", a: "Air-cooled chillers reject heat via ambient air using fans and need no water supply, making them simpler and cheaper to install — ideal for offices and smaller commercial spaces. Water-cooled chillers use a cooling tower and are more energy-efficient for large-tonnage, continuous-load industrial applications, though they need more maintenance and water management." },
+    { q: "What tonnage chiller do I need for my commercial space?", a: "Chiller sizing depends on total heat load — including floor area, occupancy, equipment, and process cooling needs. Industrial chillers typically range from 10 TR to several hundred TR. We conduct a detailed heat-load survey to recommend the right capacity for your facility." },
+    { q: "What applications commonly use chillers?", a: "Chillers are used in hotels, hospitals, malls, textile mills, chemical and pharma plants, food processing, plastics/injection molding, and data centers — anywhere that needs precise, large-scale, or process-specific temperature control." },
+    { q: "How much maintenance does an industrial chiller need?", a: "Routine checks include refrigerant levels, condenser/evaporator cleaning, compressor oil and vibration checks, and water treatment for water-cooled systems — typically monthly for critical checks and quarterly for full servicing. We offer AMC contracts for industrial chiller systems." },
+    { q: "What's the typical efficiency (COP) of chillers used in India?", a: "Modern screw and scroll chillers typically deliver a COP of 3.5–5.5 depending on load and ambient conditions, with variable-speed drive (VFD) chillers offering the best part-load efficiency — important given India's variable seasonal cooling demand." },
   ];
 
   return (
@@ -113,6 +124,17 @@ const ChillerSystem = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -352,6 +374,37 @@ const ChillerSystem = () => {
                   Get Best Price Quote
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Chiller Systems
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

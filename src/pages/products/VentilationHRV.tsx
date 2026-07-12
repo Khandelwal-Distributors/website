@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Wind, Fan, Zap, Home, Building, Hospital, School, Hotel, Factory, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowLeft, Star, Wind, Fan, Zap, Home, Building, Hospital, School, Hotel, Factory, MessageCircle, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import ventilationHrv from "@/assets/ventilation-hrv.jpg";
 
 const VentilationHRV = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Daikin VAM800FB HRV", type: "Heat Recovery Ventilator", capacity: "200 CFM", price: "₹45,000", features: ["Heat Recovery", "Energy Efficient", "HEPA Filter"] },
     { name: "Astberg Exhaust Fan AE-150", type: "Exhaust Fan", capacity: "150 CFM", price: "₹15,000", features: ["High Speed", "Low Noise", "Durable Motor"] },
@@ -60,6 +62,15 @@ const VentilationHRV = () => {
   const applications = [
     "Residential Homes", "Commercial Offices", "Hospitals & Clinics", "Schools & Universities",
     "Restaurants & Kitchens", "Industrial Facilities", "Data Centers", "Clean Rooms"
+  ];
+
+  const faqs = [
+    { q: "What is an HRV and how does heat recovery ventilation work?", a: "A Heat Recovery Ventilator (HRV) continuously exchanges stale indoor air for fresh outdoor air while recovering heat/energy from the outgoing air stream to pre-condition the incoming air — reducing the load on your AC or heating system while keeping indoor air fresh." },
+    { q: "HRV vs AHU vs TFA — what's the difference?", a: "An AHU mainly recirculates and conditions indoor air. A TFA (Treated Fresh Air) unit brings in 100% outdoor air and treats it before supply. An HRV also introduces fresh air but recovers heat/energy from the exhaust stream in the process, making it the most energy-efficient option for ventilation. See our full guide on AHU vs TFA vs HRV differences." },
+    { q: "Where is HRV or mechanical ventilation needed?", a: "HRV systems are valuable in airtight modern homes, offices, hospitals, schools, restaurants and data centers — anywhere that needs continuous fresh air without losing the cooling or heating already invested in the indoor air." },
+    { q: "How much fresh air (CFM) does my space need?", a: "Fresh air requirements depend on room size, occupancy, and use case — typically calculated per ASHRAE standards for CFM per person or per square foot. We assess your space and occupancy to recommend the right HRV capacity." },
+    { q: "Does HRV help with energy savings compared to plain exhaust fans?", a: "Yes — a plain exhaust fan simply throws out conditioned air and pulls in unconditioned air, increasing your AC/heating load. An HRV recovers a large share of that energy before exchanging air, meaningfully cutting the energy penalty of fresh air ventilation." },
+    { q: "What maintenance does an HRV/ventilation system need?", a: "Filters should be cleaned or replaced every 2-3 months, and the heat exchange core inspected annually for dust buildup, which can reduce efficiency if neglected. We offer AMC support for ventilation systems across Bareilly and nearby districts." },
   ];
 
   return (
@@ -123,6 +134,17 @@ const VentilationHRV = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -468,6 +490,37 @@ const VentilationHRV = () => {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Ventilation & HRV Systems
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

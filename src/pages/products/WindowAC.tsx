@@ -4,12 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Star, Zap, Home, Clock, Wrench, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Star, Zap, Home, Clock, Wrench, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import windowAc from "@/assets/window-ac.jpg";
 
 const WindowAC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const products = [
     { name: "Carrier Estrella Neo", capacity: "1.5 Ton", rating: "3 Star", price: "₹25,000", features: ["Copper Condenser", "Auto Restart", "Sleep Mode"] },
     { name: "Godrej GWC 18UTC5", capacity: "1.5 Ton", rating: "5 Star", price: "₹28,000", features: ["Inverter Tech", "Anti-Bacterial", "Turbo Mode"] },
@@ -24,6 +26,15 @@ const WindowAC = () => {
     { icon: <Zap className="h-6 w-6" />, title: "Easy Installation", description: "Simple window mounting, no complex piping required" },
     { icon: <Clock className="h-6 w-6" />, title: "Cost Effective", description: "Lower upfront cost compared to split ACs" },
     { icon: <Wrench className="h-6 w-6" />, title: "Low Maintenance", description: "Self-contained unit with minimal servicing needs" }
+  ];
+
+  const faqs = [
+    { q: "What is a window AC and how is it different from split AC?", a: "A window AC houses the compressor, condenser and evaporator in a single unit fitted into a window or wall opening, unlike a split AC which has separate indoor and outdoor units connected by refrigerant piping. Window ACs are simpler and cheaper to install but need a suitable window/wall opening." },
+    { q: "What tonnage window AC is right for my room size?", a: "As a guide: 1 ton for rooms up to 120 sq ft, and 1.5 ton for 120-180 sq ft rooms. Rooms with more sun exposure or occupants may need the next size up. We help calculate the right tonnage for your room." },
+    { q: "Is window AC available in inverter technology now?", a: "Yes, inverter window ACs are now available and offer similar electricity savings to inverter split ACs, running the compressor at variable speed rather than fixed on/off cycles — a good budget-friendly option for efficient cooling." },
+    { q: "What are the installation requirements for a window AC?", a: "You need a suitably sized window or wall opening with structural support for the unit's weight, proper slope for water drainage, and nearby electrical points. Installation is generally simpler and faster than split AC since there's no outdoor unit or long piping run." },
+    { q: "Is window AC cheaper to buy and maintain than split AC?", a: "Yes, window ACs typically cost 15-25% less than an equivalent split AC and have lower installation costs since there's no outdoor unit or copper piping needed. Maintenance is also simpler as everything is in one accessible unit." },
+    { q: "What warranty and service do you provide on window ACs?", a: "We provide free installation and standard manufacturer warranty (typically 1 year comprehensive, longer on the compressor), along with after-sales servicing across Bareilly, Pilibhit, Budaun and Shahjahanpur." },
   ];
 
   return (
@@ -87,6 +98,17 @@ const WindowAC = () => {
                   "availability": "https://schema.org/InStock"
                 }
               }
+            }))
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
             }))
           })}
         </script>
@@ -235,6 +257,37 @@ const WindowAC = () => {
                   Call: +91 7017497935
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Window AC
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

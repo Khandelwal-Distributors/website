@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeVideos from "@/components/YouTubeVideos";
-import { Phone, ArrowLeft, Thermometer, Snowflake, Shield, Zap, Building, Hotel, Factory, Hospital, UtensilsCrossed, Coffee, IceCream, MessageCircle } from "lucide-react";
+import { Phone, ArrowLeft, Thermometer, Snowflake, Shield, Zap, Building, Hotel, Factory, Hospital, UtensilsCrossed, Coffee, IceCream, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import deepFreezer from "@/assets/deep-freezer.jpg";
 import visiCoolerImg from "@/assets/equipment/visi-cooler.jpg";
 import chestFreezerImg from "@/assets/equipment/chest-freezer.jpg";
@@ -19,6 +20,7 @@ import dishwasherImg from "@/assets/equipment/dishwasher.jpg";
 import barCoolerImg from "@/assets/equipment/bar-cooler.jpg";
 
 const DeepFreezers = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const brands = ["Elanpro", "Trufrost", "Rockwell"];
 
   const equipmentCategories = [
@@ -152,6 +154,15 @@ const DeepFreezers = () => {
     { name: "Food Processing Units", icon: <Factory className="h-6 w-6" /> }
   ];
 
+  const faqs = [
+    { q: "What's the difference between a visi cooler and a deep freezer?", a: "A visi cooler has a glass display door and maintains chiller temperatures (+2°C to +8°C) for displaying beverages, dairy and bakery items. A deep freezer maintains sub-zero temperatures (typically −18°C to −22°C) for storing frozen food, ice cream and meat, usually in a solid-lid chest format." },
+    { q: "What size deep freezer or visi cooler is right for my restaurant or shop?", a: "It depends on your daily stock turnover and display needs — small cafes typically need 200–300L units, while restaurants and supermarkets need 400–700L or multi-door models. We assess your space and volume before recommending a size." },
+    { q: "Which brands do you stock — Elanpro, Trufrost, Rockwell?", a: "We supply Elanpro, Trufrost and Rockwell equipment, covering visi coolers, deep freezers, under-counter fridges, prep tables, bar coolers and dishwashers, so you can standardize your kitchen equipment on trusted commercial brands." },
+    { q: "Do you supply coffee machines along with refrigeration equipment?", a: "Yes — alongside visi coolers and freezers, we also supply coffee machines, softy/ice-cream machines, dishwashers and prep tables, so restaurants and cafes can source their full kitchen equipment setup from one dealer." },
+    { q: "What warranty comes with commercial kitchen equipment?", a: "Warranty typically ranges from 1–2 years on the compressor and general unit, depending on brand and model. We share exact warranty terms for each product at the time of quotation and register your warranty with the manufacturer." },
+    { q: "Do you provide installation and after-sales service in Bareilly?", a: "Yes, we handle delivery, installation, and commissioning, plus after-sales service and AMC support for restaurants, hotels, and retail businesses across Bareilly, Pilibhit, Budaun and Shahjahanpur." },
+  ];
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
@@ -190,6 +201,17 @@ const DeepFreezers = () => {
               "address": "G-35, MCI Plaza, Civil Lines, Bareilly, Uttar Pradesh, India",
               "telephone": "+917017497935"
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           })}
         </script>
       </Helmet>
@@ -371,6 +393,37 @@ const DeepFreezers = () => {
                   <span className="text-sm md:text-base">WhatsApp Us</span>
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              Frequently Asked Questions — Kitchen & Restaurant Equipment
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-card border rounded-xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="font-semibold text-foreground">{faq.q}</span>
+                    {openFaq === i ? (
+                      <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t">
+                      <p className="pt-4">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
