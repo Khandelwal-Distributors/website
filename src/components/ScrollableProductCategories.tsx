@@ -183,10 +183,10 @@ const ScrollableProductCategories = () => {
           </div>
         </div>
 
-        <div 
+        <div
           ref={scrollContainerRef}
           className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide animate-fade-in-up"
-          style={{ 
+          style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             animationDelay: '0.1s'
@@ -213,8 +213,8 @@ const ScrollableProductCategories = () => {
                   </div>
                 </div>
                 <CardContent className="p-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
                   >
                     Explore Category

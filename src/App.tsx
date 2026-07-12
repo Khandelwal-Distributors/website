@@ -87,7 +87,7 @@ const App = () => {
                   <Route path="/products" element={<Products />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/admin" element={<Admin />} />
-                  
+
                   {/* Individual product category routes */}
                   <Route path="/products/inverter-split-ac" element={<InverterSplitAC />} />
                   <Route path="/products/non-inverter-split-ac" element={<NonInverterSplitAC />} />
@@ -109,7 +109,7 @@ const App = () => {
                   <Route path="/products/deep-freezers" element={<DeepFreezers />} />
                   <Route path="/products/modular-ot" element={<ModularOT />} />
                   <Route path="/products/stabilizers" element={<Stabilizers />} />
-                  
+
                   {/* Brand pages routes */}
                   <Route path="/brands/voltas" element={<Voltas />} />
                   <Route path="/brands/carrier" element={<Carrier />} />
@@ -119,15 +119,15 @@ const App = () => {
                   <Route path="/brands/godrej" element={<Godrej />} />
                   <Route path="/brands/cruise" element={<Cruise />} />
                   <Route path="/brands/mitsubishi-heavy" element={<MitsubishiHeavy />} />
-                  
+
                   {/* Blog routes */}
                   <Route path="/blogs" element={<Blogs />} />
                   <Route path="/blogs/:slug" element={<BlogDetail />} />
-                  
+
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                   <Route path="/refund-policy" element={<RefundPolicy />} />
-                  
+
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </PageTransition>
