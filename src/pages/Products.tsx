@@ -218,14 +218,14 @@ const Products = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Complete HVAC Product Catalog | Air Conditioners & Systems in Bareilly" />
         <meta name="twitter:description" content="Explore our complete range of HVAC products in Bareilly. From residential split ACs to commercial VRV systems, find the perfect cooling solution." />
-        <link rel="canonical" href="https://kdenterprisesbareilly.com/products" />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/products" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "HVAC Products & Air Conditioning Systems",
             "description": "Complete catalog of air conditioning and HVAC products available in Bareilly, Uttar Pradesh",
-            "url": "https://kdenterprisesbareilly.com/products",
+            "url": "https://www.khandelwaldistributors.com/products",
             "provider": {
               "@type": "LocalBusiness",
               "name": "Khandelwal Distributors",

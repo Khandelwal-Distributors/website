@@ -97,13 +97,13 @@ export default function Shop() {
         <title>AC Shopping - Best Air Conditioners Online | Khandelwal Distributors</title>
         <meta name="description" content="Shop for the best air conditioners and HVAC products online. Wide range of Split, Window, Cassette, Ductable & Tower ACs in 1 ton, 1.5 ton, 2 ton from top brands like Daikin, Carrier, Mitsubishi Heavy. Free installation & warranty. Browse through products like water coolers, dispensers, chest freezers, Alkaline RO, etc. from premium brands like ElanPro, Usha and ZeroB" />
         <meta name="keywords" content="air conditioner, AC, split AC, window AC, cassette AC, ductable AC, tower AC, inverter AC, 1 ton AC, 1.5 ton AC, 2 ton AC, Daikin, Carrier, Mitsubishi Heavy, Voltas, Godrej, buy AC online, HVAC products, water cooler, deep freezer, alkaline RO" />
-        <link rel="canonical" href={`${window.location.origin}/shop`} />
+        <link rel="canonical" href="https://www.khandelwaldistributors.com/shop" />
 
         {/* Open Graph */}
         <meta property="og:title" content="AC Shopping - Best Air Conditioners Online | Khandelwal Distributors" />
         <meta property="og:description" content="Shop for the best air conditioners online. Wide range of Split, Window, Cassette, Ductable & Tower ACs from top brands with free installation & warranty." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${window.location.origin}/shop`} />
+        <meta property="og:url" content="https://www.khandelwaldistributors.com/shop" />
         <meta property="og:image" content={`${window.location.origin}/lovable-uploads/253ff299-0035-4525-90a9-5b15b36d4e69.png`} />
 
         {/* Twitter Card */}
