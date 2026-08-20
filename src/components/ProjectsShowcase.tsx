@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Building, Users, Wrench, Star, Loader2 } from "lucide-react";
+import { Calendar, Building, Users, Wrench, Star, Loader2, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useProjects } from "@/hooks/useVideos";
 import OptimizedImage from './OptimizedImage';
@@ -234,24 +234,14 @@ const ProjectsShowcase = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-primary/10 to-accent-warm/10 rounded-lg p-6 mb-6">
-            <h3 className="text-xl font-semibold mb-2 text-foreground">
-              Want to see our complete portfolio?
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Explore all our successfully completed projects across various industries and sectors.
-            </p>
-          </div>
-          <Button 
-            variant="cta" 
-            size="lg"
+        <div className="text-center mt-8">
+          <button
             onClick={() => navigate('/projects')}
-            className="hover-scale animate-fade-in"
+            className="group inline-flex items-center gap-1.5 text-primary font-semibold hover:text-primary/80 transition-colors"
           >
-            <MapPin className="h-4 w-4" />
-            View All Projects Portfolio
-          </Button>
+            View all
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </section>

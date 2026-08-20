@@ -194,13 +194,6 @@ const Header = () => {
                 </Link>
 
                 <button
-                  onClick={() => scrollToSection('sale')}
-                  className="text-lg font-medium hover:text-primary transition-colors text-left text-accent-warm"
-                >
-                  🔥 Sale
-                </button>
-
-                <button
                   onClick={() => scrollToSection('rent')}
                   className="text-lg font-medium hover:text-primary transition-colors text-left"
                 >
